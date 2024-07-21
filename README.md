@@ -1,1 +1,1 @@
-# lecture-supplement-materials
+# lecture-supplement-material
