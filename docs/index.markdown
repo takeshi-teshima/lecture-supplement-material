@@ -3,5 +3,7 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 # layout: home
-layout: home
+layout: default
 ---
+
+- [Introduction to AI](./Introduction-to-AI)
