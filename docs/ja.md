@@ -5,9 +5,9 @@
 layout: default
 ---
 
-## 一覧
+## ソースコード一覧
 
-{% assign files = "../Introduction-to-AI/" | list_files: "*.ipynb" | newline_to_br | split: "<br>" %}
+{% assign files = "../Introduction-to-AI/" | list_files: "*.ipynb" | newline_to_br | split: "<br>" | sort %}
 
 |講義回|説明|ファイル|Colab|
 |---|---|---|---|
@@ -15,6 +15,8 @@ layout: default
 {% if path | endswith: '.ipynb' -%}
 {% assign filename = path | split: "/" | last -%}
 {% assign stem = filename | remove: ".ipynb" -%}
-|||[{{ filename }}]({{ path }})|[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/takeshi-teshima/lecture-supplement-material/blob/features/initial-version/Introduction-to-AI/{{ filename }})|
+{% capture file_url -%}https://github.com/takeshi-teshima/lecture-supplement-material/blob/features/initial-version/Introduction-to-AI/{{ filename }}{%- endcapture -%}
+{% capture colab_url -%}https://colab.research.google.com/github/takeshi-teshima/lecture-supplement-material/blob/features/initial-version/Introduction-to-AI/{{ filename }}{%- endcapture -%}
+|||[{{ filename }}]({{ file_url }})|[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)]({{ colab_url }})|
 {% endif %}
 {%- endfor -%}

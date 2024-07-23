@@ -1,5 +1,7 @@
 # lecture-supplement-material
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/42b552d9-93bf-41c3-8761-149e7d653678/deploy-status)](https://app.netlify.com/sites/takeshi-teshima-lecture-supplement/deploys)
+
 ## Building docs
 
 1. Install [asdf](https://asdf-vm.com/ja-jp/guide/getting-started.html).
