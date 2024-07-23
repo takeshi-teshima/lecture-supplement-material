@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "introduction-to-ai"
+version = "0.1.0"
+description = ""
+authors = ["Takeshi Teshima <takeshi.diadochos@gmail.com>"]
+readme = "README.md"
+packages = [{include = "introduction_to_ai"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+ipython = "^8.24.0"
+jupyter = "^1.0.0"
+pandas = "^2.2.2"
+numpy = "^1.26.4"
+matplotlib = "^3.9.0"
+scikit-learn = "^1.5.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
