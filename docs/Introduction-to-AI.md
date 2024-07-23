@@ -5,6 +5,8 @@
 layout: default
 ---
 
+このページで公開する資料のライセンスは[こちら](https://github.com/takeshi-teshima/lecture-supplement-material/blob/features/initial-version/LICENSE)です．
+
 ## ソースコード一覧
 
 {% assign files = "../Introduction-to-AI/" | list_files: "*.ipynb" | newline_to_br | split: "<br>" | sort %}
