@@ -1,10 +1,16 @@
+# Introduction to AI
+
+## サポートページ
+[サポートページ](https://takeshi-teshima-lecture-supplement.netlify.app/)を参照
 
 
+## ローカル実行のためのセットアップ
 ```
-poetry run jupyter lab
+$ pip install -U pip
+$ pip install poetry
+$ poetry install
 ```
 
-## 一覧
-|講義回|説明|ファイル|Colab|
-|:--|:--|:--|:--|
-|||[_linear_ols_regression.ipynb](./_linear_ols_regression.ipynb)|[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/takeshi-teshima/lecture-supplement-material/blob/features/initial-version/Introduction-to-AI/_linear_ols_regression.ipynb)|
+## ローカル実行
+1. VSCodeで各ノートブックを開いて，`.venv`をカーネルとして選択して実行する．
+1. もしくは，`$ poetry run jupyter lab` を実行してノートブックを実行する．
