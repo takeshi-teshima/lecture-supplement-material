@@ -1,0 +1,6 @@
+tasks:
+  server:
+    command: 'bundle exec jekyll serve'
+
+  install:
+    command: 'bundle install'
