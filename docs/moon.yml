@@ -1,4 +1,7 @@
 tasks:
+  build:
+    command: "bundle exec jekyll build"
+
   server:
     command: 'bundle exec jekyll serve'
 
