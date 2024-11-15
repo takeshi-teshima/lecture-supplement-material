@@ -20,5 +20,9 @@ layout: default
 {% capture file_url -%}https://github.com/takeshi-teshima/lecture-supplement-material/blob/features/initial-version/Introduction-to-AI/{{ filename }}{%- endcapture -%}
 {% capture colab_url -%}https://colab.research.google.com/github/takeshi-teshima/lecture-supplement-material/blob/features/initial-version/Introduction-to-AI/{{ filename }}{%- endcapture -%}
 |||[{{ filename }}]({{ file_url }})|[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)]({{ colab_url }})|
-{% endif %}
-{%- endfor -%}
+{% endif -%}
+{%- endfor %}
+
+## 参考文献一覧
+
+[参考文献一覧](Introduction-to-AI-references)
