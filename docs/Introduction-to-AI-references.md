@@ -9,5 +9,6 @@ layout: default
 {% assign filename = path | split: "/" | last -%}
 {% assign stem = filename | remove: ".ipynb" -%}
 ## {{stem | replace: '提供参考文献-', '' | replace: '.bib', ''}}
+{% bibliography --file ./../{{path}} %}
 {% endif -%}
 {%- endfor %}
