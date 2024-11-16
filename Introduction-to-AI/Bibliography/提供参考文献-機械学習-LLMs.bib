@@ -1,0 +1,242 @@
+@article{AzevedoEqual2009,
+  title = {Equal numbers of neuronal and nonneuronal cells make the human brain an isometrically scaled-up primate brain},
+  author = {Azevedo, Frederico A.C. and Carvalho, Ludmila R.B. and Grinberg, Lea T. and Farfel, José Marcelo and Ferretti, Renata E.L. and Leite, Renata E.P. and Filho, Wilson Jacob and Lent, Roberto and Herculano-Houzel, Suzana},
+  date = {2009},
+  journaltitle = {Journal of Comparative Neurology},
+  volume = {513},
+  number = {5},
+  pages = {532--541},
+  issn = {1096-9861},
+  doi = {10.1002/cne.21974},
+  url = {https://onlinelibrary.wiley.com/doi/abs/10.1002/cne.21974},
+  urldate = {2024-11-15},
+  abstract = {The human brain is often considered to be the most cognitively capable among mammalian brains and to be much larger than expected for a mammal of our body size. Although the number of neurons is generally assumed to be a determinant of computational power, and despite the widespread quotes that the human brain contains 100 billion neurons and ten times more glial cells, the absolute number of neurons and glial cells in the human brain remains unknown. Here we determine these numbers by using the isotropic fractionator and compare them with the expected values for a human-sized primate. We find that the adult male human brain contains on average 86.1 ± 8.1 billion NeuN-positive cells (“neurons”) and 84.6 ± 9.8 billion NeuN-negative (“nonneuronal”) cells. With only 19\% of all neurons located in the cerebral cortex, greater cortical size (representing 82\% of total brain mass) in humans compared with other primates does not reflect an increased relative number of cortical neurons. The ratios between glial cells and neurons in the human brain structures are similar to those found in other primates, and their numbers of cells match those expected for a primate of human proportions. These findings challenge the common view that humans stand out from other primates in their brain composition and indicate that, with regard to numbers of neuronal and nonneuronal cells, the human brain is an isometrically scaled-up primate brain. J. Comp. Neurol. 513:532–541, 2009. © 2009 Wiley-Liss, Inc.},
+  langid = {english},
+  keywords = {brain size,comparative neuroanatomy,evolution,glia/neuron ratio,human,neuron numbers},
+  file = {/Users/teshima/Zotero/storage/N37EWFQN/Azevedo et al. - 2009 - Equal numbers of neuronal and nonneuronal cells ma.pdf;/Users/teshima/Zotero/storage/2R66GETB/cne.html}
+}
+
+@online{BubeckSparks2023,
+  title = {Sparks of {{Artificial General Intelligence}}: {{Early}} experiments with {{GPT-4}}},
+  shorttitle = {Sparks of {{Artificial General Intelligence}}},
+  author = {Bubeck, Sébastien and Chandrasekaran, Varun and Eldan, Ronen and Gehrke, Johannes and Horvitz, Eric and Kamar, Ece and Lee, Peter and Lee, Yin Tat and Li, Yuanzhi and Lundberg, Scott and Nori, Harsha and Palangi, Hamid and Ribeiro, Marco Tulio and Zhang, Yi},
+  date = {2023-04-13},
+  eprint = {2303.12712},
+  eprinttype = {arXiv},
+  eprintclass = {cs},
+  doi = {10.48550/arXiv.2303.12712},
+  url = {http://arxiv.org/abs/2303.12712},
+  urldate = {2024-09-03},
+  abstract = {Artificial intelligence (AI) researchers have been developing and refining large language models (LLMs) that exhibit remarkable capabilities across a variety of domains and tasks, challenging our understanding of learning and cognition. The latest model developed by OpenAI, GPT-4, was trained using an unprecedented scale of compute and data. In this paper, we report on our investigation of an early version of GPT-4, when it was still in active development by OpenAI. We contend that (this early version of) GPT-4 is part of a new cohort of LLMs (along with ChatGPT and Google's PaLM for example) that exhibit more general intelligence than previous AI models. We discuss the rising capabilities and implications of these models. We demonstrate that, beyond its mastery of language, GPT-4 can solve novel and difficult tasks that span mathematics, coding, vision, medicine, law, psychology and more, without needing any special prompting. Moreover, in all of these tasks, GPT-4's performance is strikingly close to human-level performance, and often vastly surpasses prior models such as ChatGPT. Given the breadth and depth of GPT-4's capabilities, we believe that it could reasonably be viewed as an early (yet still incomplete) version of an artificial general intelligence (AGI) system. In our exploration of GPT-4, we put special emphasis on discovering its limitations, and we discuss the challenges ahead for advancing towards deeper and more comprehensive versions of AGI, including the possible need for pursuing a new paradigm that moves beyond next-word prediction. We conclude with reflections on societal influences of the recent technological leap and future research directions.},
+  pubstate = {prepublished},
+  keywords = {Computer Science - Artificial Intelligence,Computer Science - Computation and Language},
+  file = {/Users/teshima/Zotero/storage/CJ8FIWJH/Bubeck et al. - 2023 - Sparks of Artificial General Intelligence Early e.pdf;/Users/teshima/Zotero/storage/FHF8INFI/2303.html}
+}
+
+@inproceedings{DettmersQLoRA2023,
+  title = {{{QLoRA}}: {{Efficient Finetuning}} of {{Quantized LLMs}}},
+  shorttitle = {{{QLoRA}}},
+  author = {Dettmers, Tim and Pagnoni, Artidoro and Holtzman, Ari and Zettlemoyer, Luke},
+  date = {2023-11-02},
+  url = {https://openreview.net/forum?id=OUIFPHEgJU},
+  urldate = {2024-08-29},
+  abstract = {We present QLoRA, an efficient finetuning approach that reduces memory usage enough to finetune a 65B parameter model on a single 48GB GPU while preserving full 16-bit finetuning task performance. QLoRA backpropagates gradients through a frozen, 4-bit quantized pretrained language model into Low Rank Adapters\textasciitilde (LoRA). Our best model family, which we name Guanaco, outperforms all previous openly released models on the Vicuna benchmark, reaching 99.3\% of the performance level of ChatGPT while only requiring 24 hours of finetuning on a single GPU. QLoRA introduces a number of innovations to save memory without sacrificing performance: (a) 4-bit NormalFloat (NF4), a new data type that is information-theoretically optimal for normally distributed weights (b) Double Quantization to reduce the average memory footprint by quantizing the quantization constants, and (c) Paged Optimziers to manage memory spikes. We use QLoRA to finetune more than 1,000 models, providing a detailed analysis of instruction following and chatbot performance across 8 instruction datasets, multiple model types (LLaMA, T5), and model scales that would be infeasible to run with regular finetuning (e.g. 33B and 65B parameter models). Our results show that QLoRA finetuning on a small, high-quality dataset leads to state-of-the-art results, even when using smaller models than the previous SoTA. We provide a detailed analysis of chatbot performance based on both human and GPT-4 evaluations, showing that GPT-4 evaluations are a cheap and reasonable alternative to human evaluation. Furthermore, we find that current chatbot benchmarks are not trustworthy to accurately evaluate the performance levels of chatbots. A lemon-picked analysis demonstrates where Guanaco fails compared to ChatGPT. We release all of our models and code, including CUDA kernels for 4-bit training.},
+  eventtitle = {Thirty-seventh {{Conference}} on {{Neural Information Processing Systems}}},
+  langid = {english},
+  file = {/Users/teshima/Zotero/storage/R5GK3YZQ/Dettmers et al. - 2023 - QLoRA Efficient Finetuning of Quantized LLMs.pdf}
+}
+
+@online{DubeyLlama2024,
+  title = {The {{Llama}} 3 {{Herd}} of {{Models}}},
+  author = {Dubey, Abhimanyu and Jauhri, Abhinav and Pandey, Abhinav and Kadian, Abhishek and Al-Dahle, Ahmad and Letman, Aiesha and Mathur, Akhil and Schelten, Alan and Yang, Amy and Fan, Angela and Goyal, Anirudh and Hartshorn, Anthony and Yang, Aobo and Mitra, Archi and Sravankumar, Archie and Korenev, Artem and Hinsvark, Arthur and Rao, Arun and Zhang, Aston and Rodriguez, Aurelien and Gregerson, Austen and Spataru, Ava and Roziere, Baptiste and Biron, Bethany and Tang, Binh and Chern, Bobbie and Caucheteux, Charlotte and Nayak, Chaya and Bi, Chloe and Marra, Chris and McConnell, Chris and Keller, Christian and Touret, Christophe and Wu, Chunyang and Wong, Corinne and Ferrer, Cristian Canton and Nikolaidis, Cyrus and Allonsius, Damien and Song, Daniel and Pintz, Danielle and Livshits, Danny and Esiobu, David and Choudhary, Dhruv and Mahajan, Dhruv and Garcia-Olano, Diego and Perino, Diego and Hupkes, Dieuwke and Lakomkin, Egor and AlBadawy, Ehab and Lobanova, Elina and Dinan, Emily and Smith, Eric Michael and Radenovic, Filip and Zhang, Frank and Synnaeve, Gabriel and Lee, Gabrielle and Anderson, Georgia Lewis and Nail, Graeme and Mialon, Gregoire and Pang, Guan and Cucurell, Guillem and Nguyen, Hailey and Korevaar, Hannah and Xu, Hu and Touvron, Hugo and Zarov, Iliyan and Ibarra, Imanol Arrieta and Kloumann, Isabel and Misra, Ishan and Evtimov, Ivan and Copet, Jade and Lee, Jaewon and Geffert, Jan and Vranes, Jana and Park, Jason and Mahadeokar, Jay and Shah, Jeet and family=Linde, given=Jelmer, prefix=van der, useprefix=true and Billock, Jennifer and Hong, Jenny and Lee, Jenya and Fu, Jeremy and Chi, Jianfeng and Huang, Jianyu and Liu, Jiawen and Wang, Jie and Yu, Jiecao and Bitton, Joanna and Spisak, Joe and Park, Jongsoo and Rocca, Joseph and Johnstun, Joshua and Saxe, Joshua and Jia, Junteng and Alwala, Kalyan Vasuden and Upasani, Kartikeya and Plawiak, Kate and Li, Ke and Heafield, Kenneth and Stone, Kevin and El-Arini, Khalid and Iyer, Krithika and Malik, Kshitiz and Chiu, Kuenley and Bhalla, Kunal and Rantala-Yeary, Lauren and family=Maaten, given=Laurens, prefix=van der, useprefix=true and Chen, Lawrence and Tan, Liang and Jenkins, Liz and Martin, Louis and Madaan, Lovish and Malo, Lubo and Blecher, Lukas and Landzaat, Lukas and family=Oliveira, given=Luke, prefix=de, useprefix=true and Muzzi, Madeline and Pasupuleti, Mahesh and Singh, Mannat and Paluri, Manohar and Kardas, Marcin and Oldham, Mathew and Rita, Mathieu and Pavlova, Maya and Kambadur, Melanie and Lewis, Mike and Si, Min and Singh, Mitesh Kumar and Hassan, Mona and Goyal, Naman and Torabi, Narjes and Bashlykov, Nikolay and Bogoychev, Nikolay and Chatterji, Niladri and Duchenne, Olivier and Çelebi, Onur and Alrassy, Patrick and Zhang, Pengchuan and Li, Pengwei and Vasic, Petar and Weng, Peter and Bhargava, Prajjwal and Dubal, Pratik and Krishnan, Praveen and Koura, Punit Singh and Xu, Puxin and He, Qing and Dong, Qingxiao and Srinivasan, Ragavan and Ganapathy, Raj and Calderer, Ramon and Cabral, Ricardo Silveira and Stojnic, Robert and Raileanu, Roberta and Girdhar, Rohit and Patel, Rohit and Sauvestre, Romain and Polidoro, Ronnie and Sumbaly, Roshan and Taylor, Ross and Silva, Ruan and Hou, Rui and Wang, Rui and Hosseini, Saghar and Chennabasappa, Sahana and Singh, Sanjay and Bell, Sean and Kim, Seohyun Sonia and Edunov, Sergey and Nie, Shaoliang and Narang, Sharan and Raparthy, Sharath and Shen, Sheng and Wan, Shengye and Bhosale, Shruti and Zhang, Shun and Vandenhende, Simon and Batra, Soumya and Whitman, Spencer and Sootla, Sten and Collot, Stephane and Gururangan, Suchin and Borodinsky, Sydney and Herman, Tamar and Fowler, Tara and Sheasha, Tarek and Georgiou, Thomas and Scialom, Thomas and Speckbacher, Tobias and Mihaylov, Todor and Xiao, Tong and Karn, Ujjwal and Goswami, Vedanuj and Gupta, Vibhor and Ramanathan, Vignesh and Kerkez, Viktor and Gonguet, Vincent and Do, Virginie and Vogeti, Vish and Petrovic, Vladan and Chu, Weiwei and Xiong, Wenhan and Fu, Wenyin and Meers, Whitney and Martinet, Xavier and Wang, Xiaodong and Tan, Xiaoqing Ellen and Xie, Xinfeng and Jia, Xuchao and Wang, Xuewei and Goldschlag, Yaelle and Gaur, Yashesh and Babaei, Yasmine and Wen, Yi and Song, Yiwen and Zhang, Yuchen and Li, Yue and Mao, Yuning and Coudert, Zacharie Delpierre and Yan, Zheng and Chen, Zhengxing and Papakipos, Zoe and Singh, Aaditya and Grattafiori, Aaron and Jain, Abha and Kelsey, Adam and Shajnfeld, Adam and Gangidi, Adithya and Victoria, Adolfo and Goldstand, Ahuva and Menon, Ajay and Sharma, Ajay and Boesenberg, Alex and Vaughan, Alex and Baevski, Alexei and Feinstein, Allie and Kallet, Amanda and Sangani, Amit and Yunus, Anam and Lupu, Andrei and Alvarado, Andres and Caples, Andrew and Gu, Andrew and Ho, Andrew and Poulton, Andrew and Ryan, Andrew and Ramchandani, Ankit and Franco, Annie and Saraf, Aparajita and Chowdhury, Arkabandhu and Gabriel, Ashley and Bharambe, Ashwin and Eisenman, Assaf and Yazdan, Azadeh and James, Beau and Maurer, Ben and Leonhardi, Benjamin and Huang, Bernie and Loyd, Beth and De Paola, Beto and Paranjape, Bhargavi and Liu, Bing and Wu, Bo and Ni, Boyu and Hancock, Braden and Wasti, Bram and Spence, Brandon and Stojkovic, Brani and Gamido, Brian and Montalvo, Britt and Parker, Carl and Burton, Carly and Mejia, Catalina and Wang, Changhan and Kim, Changkyu and Zhou, Chao and Hu, Chester and Chu, Ching-Hsiang and Cai, Chris and Tindal, Chris and Feichtenhofer, Christoph and Civin, Damon and Beaty, Dana and Kreymer, Daniel and Li, Daniel and Wyatt, Danny and Adkins, David and Xu, David and Testuggine, Davide and David, Delia and Parikh, Devi and Liskovich, Diana and Foss, Didem and Wang, Dingkang and Le, Duc and Holland, Dustin and Dowling, Edward and Jamil, Eissa and Montgomery, Elaine and Presani, Eleonora and Hahn, Emily and Wood, Emily and Brinkman, Erik and Arcaute, Esteban and Dunbar, Evan and Smothers, Evan and Sun, Fei and Kreuk, Felix and Tian, Feng and Ozgenel, Firat and Caggioni, Francesco and Guzmán, Francisco and Kanayet, Frank and Seide, Frank and Florez, Gabriela Medina and Schwarz, Gabriella and Badeer, Gada and Swee, Georgia and Halpern, Gil and Thattai, Govind and Herman, Grant and Sizov, Grigory and Guangyi and Zhang and Lakshminarayanan, Guna and Shojanazeri, Hamid and Zou, Han and Wang, Hannah and Zha, Hanwen and Habeeb, Haroun and Rudolph, Harrison and Suk, Helen and Aspegren, Henry and Goldman, Hunter and Damlaj, Ibrahim and Molybog, Igor and Tufanov, Igor and Veliche, Irina-Elena and Gat, Itai and Weissman, Jake and Geboski, James and Kohli, James and Asher, Japhet and Gaya, Jean-Baptiste and Marcus, Jeff and Tang, Jeff and Chan, Jennifer and Zhen, Jenny and Reizenstein, Jeremy and Teboul, Jeremy and Zhong, Jessica and Jin, Jian and Yang, Jingyi and Cummings, Joe and Carvill, Jon and Shepard, Jon and McPhie, Jonathan and Torres, Jonathan and Ginsburg, Josh and Wang, Junjie and Wu, Kai and U, Kam Hou and Saxena, Karan and Prasad, Karthik and Khandelwal, Kartikay and Zand, Katayoun and Matosich, Kathy and Veeraraghavan, Kaushik and Michelena, Kelly and Li, Keqian and Huang, Kun and Chawla, Kunal and Lakhotia, Kushal and Huang, Kyle and Chen, Lailin and Garg, Lakshya and A, Lavender and Silva, Leandro and Bell, Lee and Zhang, Lei and Guo, Liangpeng and Yu, Licheng and Moshkovich, Liron and Wehrstedt, Luca and Khabsa, Madian and Avalani, Manav and Bhatt, Manish and Tsimpoukelli, Maria and Mankus, Martynas and Hasson, Matan and Lennie, Matthew and Reso, Matthias and Groshev, Maxim and Naumov, Maxim and Lathi, Maya and Keneally, Meghan and Seltzer, Michael L. and Valko, Michal and Restrepo, Michelle and Patel, Mihir and Vyatskov, Mik and Samvelyan, Mikayel and Clark, Mike and Macey, Mike and Wang, Mike and Hermoso, Miquel Jubert and Metanat, Mo and Rastegari, Mohammad and Bansal, Munish and Santhanam, Nandhini and Parks, Natascha and White, Natasha and Bawa, Navyata and Singhal, Nayan and Egebo, Nick and Usunier, Nicolas and Laptev, Nikolay Pavlovich and Dong, Ning and Zhang, Ning and Cheng, Norman and Chernoguz, Oleg and Hart, Olivia and Salpekar, Omkar and Kalinli, Ozlem and Kent, Parkin and Parekh, Parth and Saab, Paul and Balaji, Pavan and Rittner, Pedro and Bontrager, Philip and Roux, Pierre and Dollar, Piotr and Zvyagina, Polina and Ratanchandani, Prashant and Yuvraj, Pritish and Liang, Qian and Alao, Rachad and Rodriguez, Rachel and Ayub, Rafi and Murthy, Raghotham and Nayani, Raghu and Mitra, Rahul and Li, Raymond and Hogan, Rebekkah and Battey, Robin and Wang, Rocky and Maheswari, Rohan and Howes, Russ and Rinott, Ruty and Bondu, Sai Jayesh and Datta, Samyak and Chugh, Sara and Hunt, Sara and Dhillon, Sargun and Sidorov, Sasha and Pan, Satadru and Verma, Saurabh and Yamamoto, Seiji and Ramaswamy, Sharadh and Lindsay, Shaun and Lindsay, Shaun and Feng, Sheng and Lin, Shenghao and Zha, Shengxin Cindy and Shankar, Shiva and Zhang, Shuqiang and Zhang, Shuqiang and Wang, Sinong and Agarwal, Sneha and Sajuyigbe, Soji and Chintala, Soumith and Max, Stephanie and Chen, Stephen and Kehoe, Steve and Satterfield, Steve and Govindaprasad, Sudarshan and Gupta, Sumit and Cho, Sungmin and Virk, Sunny and Subramanian, Suraj and Choudhury, Sy and Goldman, Sydney and Remez, Tal and Glaser, Tamar and Best, Tamara and Kohler, Thilo and Robinson, Thomas and Li, Tianhe and Zhang, Tianjun and Matthews, Tim and Chou, Timothy and Shaked, Tzook and Vontimitta, Varun and Ajayi, Victoria and Montanez, Victoria and Mohan, Vijai and Kumar, Vinay Satish and Mangla, Vishal and Albiero, Vítor and Ionescu, Vlad and Poenaru, Vlad and Mihailescu, Vlad Tiberiu and Ivanov, Vladimir and Li, Wei and Wang, Wenchen and Jiang, Wenwen and Bouaziz, Wes and Constable, Will and Tang, Xiaocheng and Wang, Xiaofang and Wu, Xiaojian and Wang, Xiaolan and Xia, Xide and Wu, Xilun and Gao, Xinbo and Chen, Yanjun and Hu, Ye and Jia, Ye and Qi, Ye and Li, Yenda and Zhang, Yilin and Zhang, Ying and Adi, Yossi and Nam, Youngjin and Yu and Wang and Hao, Yuchen and Qian, Yundi and He, Yuzi and Rait, Zach and DeVito, Zachary and Rosnbrick, Zef and Wen, Zhaoduo and Yang, Zhenyu and Zhao, Zhiwei},
+  date = {2024-08-15},
+  eprint = {2407.21783},
+  eprinttype = {arXiv},
+  eprintclass = {cs},
+  doi = {10.48550/arXiv.2407.21783},
+  url = {http://arxiv.org/abs/2407.21783},
+  urldate = {2024-09-10},
+  abstract = {Modern artificial intelligence (AI) systems are powered by foundation models. This paper presents a new set of foundation models, called Llama 3. It is a herd of language models that natively support multilinguality, coding, reasoning, and tool usage. Our largest model is a dense Transformer with 405B parameters and a context window of up to 128K tokens. This paper presents an extensive empirical evaluation of Llama 3. We find that Llama 3 delivers comparable quality to leading language models such as GPT-4 on a plethora of tasks. We publicly release Llama 3, including pre-trained and post-trained versions of the 405B parameter language model and our Llama Guard 3 model for input and output safety. The paper also presents the results of experiments in which we integrate image, video, and speech capabilities into Llama 3 via a compositional approach. We observe this approach performs competitively with the state-of-the-art on image, video, and speech recognition tasks. The resulting models are not yet being broadly released as they are still under development.},
+  pubstate = {prepublished},
+  keywords = {Computer Science - Artificial Intelligence,Computer Science - Computation and Language,Computer Science - Computer Vision and Pattern Recognition},
+  file = {/Users/teshima/Zotero/storage/IIFVC65K/Dubey et al. - 2024 - The Llama 3 Herd of Models.pdf;/Users/teshima/Zotero/storage/7SQEXVBG/2407.html}
+}
+
+@online{EloundouGPTs2023,
+  title = {{{GPTs}} are {{GPTs}}: {{An Early Look}} at the {{Labor Market Impact Potential}} of {{Large Language Models}}},
+  shorttitle = {{{GPTs}} are {{GPTs}}},
+  author = {Eloundou, Tyna and Manning, Sam and Mishkin, Pamela and Rock, Daniel},
+  date = {2023-08-21},
+  eprint = {2303.10130},
+  eprinttype = {arXiv},
+  eprintclass = {cs, econ, q-fin},
+  doi = {10.48550/arXiv.2303.10130},
+  url = {http://arxiv.org/abs/2303.10130},
+  urldate = {2024-09-03},
+  abstract = {We investigate the potential implications of large language models (LLMs), such as Generative Pre-trained Transformers (GPTs), on the U.S. labor market, focusing on the increased capabilities arising from LLM-powered software compared to LLMs on their own. Using a new rubric, we assess occupations based on their alignment with LLM capabilities, integrating both human expertise and GPT-4 classifications. Our findings reveal that around 80\% of the U.S. workforce could have at least 10\% of their work tasks affected by the introduction of LLMs, while approximately 19\% of workers may see at least 50\% of their tasks impacted. We do not make predictions about the development or adoption timeline of such LLMs. The projected effects span all wage levels, with higher-income jobs potentially facing greater exposure to LLM capabilities and LLM-powered software. Significantly, these impacts are not restricted to industries with higher recent productivity growth. Our analysis suggests that, with access to an LLM, about 15\% of all worker tasks in the US could be completed significantly faster at the same level of quality. When incorporating software and tooling built on top of LLMs, this share increases to between 47 and 56\% of all tasks. This finding implies that LLM-powered software will have a substantial effect on scaling the economic impacts of the underlying models. We conclude that LLMs such as GPTs exhibit traits of general-purpose technologies, indicating that they could have considerable economic, social, and policy implications.},
+  pubstate = {prepublished},
+  keywords = {Computer Science - Artificial Intelligence,Computer Science - Computers and Society,Economics - General Economics},
+  file = {/Users/teshima/Zotero/storage/VQAA89G9/Eloundou et al. - 2023 - GPTs are GPTs An Early Look at the Labor Market I.pdf;/Users/teshima/Zotero/storage/J4NNGCHC/2303.html}
+}
+
+@article{EloundouGPTs2024,
+  title = {{{GPTs}} are {{GPTs}}: {{Labor}} market impact potential of {{LLMs}}},
+  shorttitle = {{{GPTs}} are {{GPTs}}},
+  author = {Eloundou, Tyna and Manning, Sam and Mishkin, Pamela and Rock, Daniel},
+  date = {2024-06-21},
+  journaltitle = {Science},
+  volume = {384},
+  number = {6702},
+  pages = {1306--1308},
+  publisher = {American Association for the Advancement of Science},
+  doi = {10.1126/science.adj0998},
+  url = {https://www.science.org/doi/10.1126/science.adj0998},
+  urldate = {2024-09-03}
+}
+
+@inproceedings{HayouLoRA2024a,
+  title = {{{LoRA}}+: {{Efficient Low Rank Adaptation}} of {{Large Models}}},
+  shorttitle = {{{LoRA}}+},
+  booktitle = {Proceedings of the 41st {{International Conference}} on {{Machine Learning}}},
+  author = {Hayou, Soufiane and Ghosh, Nikhil and Yu, Bin},
+  date = {2024-07-08},
+  pages = {17783--17806},
+  publisher = {PMLR},
+  issn = {2640-3498},
+  url = {https://proceedings.mlr.press/v235/hayou24a.html},
+  urldate = {2024-08-29},
+  abstract = {In this paper, we show that Low Rank Adaptation (LoRA) as originally introduced in (Hu et al., 2021) leads to suboptimal finetuning of models with large width. This is due to the fact that adapter matrices A and B in LoRA are updated with the same learning rate in ADAM. Using scaling arguments for large width networks, we demonstrate that the same learning rate does not allow efficient feature learning. We then show that this suboptimality of LoRA can be corrected simply by setting different learning rates for the LoRA adapter matrices A and B with a well-chosen fixed ratio. We call this proposed algorithm LoRA+. In our extensive experiments, LoRA+ improves finetuning speed (up to ∼ 2X SpeedUp) and performance (1\% − 2\% improvements), at the same computational cost as LoRA. The code is available at https://github.com/nikhil-ghosh-berkeley/loraplus},
+  eventtitle = {International {{Conference}} on {{Machine Learning}}},
+  langid = {english},
+  file = {/Users/teshima/Zotero/storage/BIJVY4KM/Hayou et al. - 2024 - LoRA+ Efficient Low Rank Adaptation of Large Mode.pdf}
+}
+
+@unpublished{HengJingQueLuDenaoumu2024,
+  title = {「確率的なオウム」にできること、またそれがなぜできるのかについて},
+  author = {横井, 祥},
+  date = {2024-07-08},
+  url = {https://speakerdeck.com/eumesy/language-models-as-modern-version-of-the-use-theory-of-meaning},
+  urldate = {2024-07-09},
+  abstract = {九州大学大学院 人文情報連係学府（仮称・設置認可 申請中）学際シンポジウムシリーズ「接続する人文学：テクストを計算する」 https://dh.kyushu-u.ac.jp/research/ 2024年7月},
+  eventtitle = {九州大学大学院 人文情報連係学府（仮称・設置認可 申請中） 学際シンポジウムシリーズ「接続する人文学」},
+  venue = {九州大学},
+  file = {/Users/teshima/Zotero/storage/8L7NYNZB/「確率的なオウム」にできること、またそれがなぜできるのかについて.pdf}
+}
+
+@online{HoffmannTraining2022,
+  title = {Training {{Compute-Optimal Large Language Models}}},
+  author = {Hoffmann, Jordan and Borgeaud, Sebastian and Mensch, Arthur and Buchatskaya, Elena and Cai, Trevor and Rutherford, Eliza and Casas, Diego de Las and Hendricks, Lisa Anne and Welbl, Johannes and Clark, Aidan and Hennigan, Tom and Noland, Eric and Millican, Katie and family=Driessche, given=George, prefix=van den, useprefix=false and Damoc, Bogdan and Guy, Aurelia and Osindero, Simon and Simonyan, Karen and Elsen, Erich and Rae, Jack W. and Vinyals, Oriol and Sifre, Laurent},
+  date = {2022-03-29},
+  eprint = {2203.15556},
+  eprinttype = {arXiv},
+  eprintclass = {cs},
+  url = {http://arxiv.org/abs/2203.15556},
+  urldate = {2024-09-29},
+  abstract = {We investigate the optimal model size and number of tokens for training a transformer language model under a given compute budget. We find that current large language models are significantly undertrained, a consequence of the recent focus on scaling language models whilst keeping the amount of training data constant. By training over 400 language models ranging from 70 million to over 16 billion parameters on 5 to 500 billion tokens, we find that for compute-optimal training, the model size and the number of training tokens should be scaled equally: for every doubling of model size the number of training tokens should also be doubled. We test this hypothesis by training a predicted compute-optimal model, Chinchilla, that uses the same compute budget as Gopher but with 70B parameters and 4\$\textbackslash times\$ more more data. Chinchilla uniformly and significantly outperforms Gopher (280B), GPT-3 (175B), Jurassic-1 (178B), and Megatron-Turing NLG (530B) on a large range of downstream evaluation tasks. This also means that Chinchilla uses substantially less compute for fine-tuning and inference, greatly facilitating downstream usage. As a highlight, Chinchilla reaches a state-of-the-art average accuracy of 67.5\% on the MMLU benchmark, greater than a 7\% improvement over Gopher.},
+  langid = {english},
+  pubstate = {prepublished},
+  keywords = {Computer Science - Computation and Language,Computer Science - Machine Learning},
+  file = {/Users/teshima/Zotero/storage/4P2939P3/Hoffmann et al. - 2022 - Training Compute-Optimal Large Language Models.pdf}
+}
+
+@inproceedings{hu2022lora,
+  title = {{{LoRA}}: {{Low-rank}} adaptation of large language models},
+  booktitle = {International {{Conference}} on {{Learning Representations}}},
+  author = {Hu, Edward J and Shen, Yelong and Wallis, Phillip and Allen-Zhu, Zeyuan and Li, Yuanzhi and Wang, Shean and Wang, Lu and Chen, Weizhu},
+  date = {2022},
+  url = {https://openreview.net/forum?id=nZeVKeeFYf9}
+}
+
+@online{Learn2023,
+  title = {Learn {{Prompting}}: {{Your Guide}} to {{Communicating}} with {{AI}}},
+  shorttitle = {Learn {{Prompting}}},
+  date = {2023-04-09},
+  url = {https://learnprompting.org/},
+  urldate = {2024-08-29},
+  abstract = {Learn Prompting is the largest and most comprehensive course in prompt engineering available on the internet, with over 60 content modules, translated into 9 languages, and a thriving community.},
+  langid = {english},
+  file = {/Users/teshima/Zotero/storage/7DCV63ZH/learnprompting.org.html}
+}
+
+@online{OpenAI,
+  title = {{{OpenAI Platform}}},
+  url = {https://platform.openai.com},
+  urldate = {2024-08-29},
+  abstract = {Explore developer resources, tutorials, API docs, and dynamic examples to get the most out of OpenAI's platform.},
+  langid = {english},
+  file = {/Users/teshima/Zotero/storage/TMYTC3IM/strategy-test-changes-systematically.html}
+}
+
+@online{Prompt,
+  title = {Prompt {{Engineering Guide}} – {{Nextra}}},
+  url = {https://www.promptingguide.ai/},
+  urldate = {2024-08-29},
+  abstract = {A Comprehensive Overview of Prompt Engineering},
+  langid = {english},
+  file = {/Users/teshima/Zotero/storage/UE4MFC85/www.promptingguide.ai.html}
+}
+
+@inproceedings{RafailovDirect2023,
+  title = {Direct {{Preference Optimization}}: {{Your Language Model}} is {{Secretly}} a {{Reward Model}}},
+  shorttitle = {Direct {{Preference Optimization}}},
+  author = {Rafailov, Rafael and Sharma, Archit and Mitchell, Eric and Manning, Christopher D. and Ermon, Stefano and Finn, Chelsea},
+  date = {2023-11-02},
+  url = {https://openreview.net/forum?id=HPuSIXJaa9},
+  urldate = {2024-09-10},
+  abstract = {While large-scale unsupervised language models (LMs) learn broad world knowledge and some reasoning skills, achieving precise control of their behavior is difficult due to the completely unsupervised nature of their training. Existing methods for gaining such steerability collect human labels of the relative quality of model generations and fine-tune the unsupervised LM to align with these preferences, often with reinforcement learning from human feedback (RLHF). However, RLHF is a complex and often unstable procedure, first fitting a reward model that reflects the human preferences, and then fine-tuning the large unsupervised LM using reinforcement learning to maximize this estimated reward without drifting too far from the original model. In this paper, we leverage a mapping between reward functions and optimal policies to show that this constrained reward maximization problem can be optimized exactly with a single stage of policy training, essentially solving a classification problem on the human preference data. The resulting algorithm, which we call Direct Preference Optimization (DPO), is stable, performant, and computationally lightweight, eliminating the need for fitting a reward model, sampling from the LM during fine-tuning, or performing significant hyperparameter tuning. Our experiments show that DPO can fine-tune LMs to align with human preferences as well as or better than existing methods. Notably, fine-tuning with DPO exceeds RLHF's ability to control sentiment of generations and improves response quality in summarization and single-turn dialogue while being substantially simpler to implement and train.},
+  eventtitle = {Thirty-seventh {{Conference}} on {{Neural Information Processing Systems}}},
+  langid = {english},
+  file = {/Users/teshima/Zotero/storage/TQ43G79E/Rafailov et al. - 2023 - Direct Preference Optimization Your Language Mode.pdf}
+}
+
+@online{SchulhoffPrompt2024,
+  title = {The {{Prompt Report}}: {{A Systematic Survey}} of {{Prompting Techniques}}},
+  shorttitle = {The {{Prompt Report}}},
+  author = {Schulhoff, Sander and Ilie, Michael and Balepur, Nishant and Kahadze, Konstantine and Liu, Amanda and Si, Chenglei and Li, Yinheng and Gupta, Aayush and Han, HyoJung and Schulhoff, Sevien and Dulepet, Pranav Sandeep and Vidyadhara, Saurav and Ki, Dayeon and Agrawal, Sweta and Pham, Chau and Kroiz, Gerson and Li, Feileen and Tao, Hudson and Srivastava, Ashay and Da Costa, Hevander and Gupta, Saloni and Rogers, Megan L. and Goncearenco, Inna and Sarli, Giuseppe and Galynker, Igor and Peskoff, Denis and Carpuat, Marine and White, Jules and Anadkat, Shyamal and Hoyle, Alexander and Resnik, Philip},
+  date = {2024-07-14},
+  eprint = {2406.06608},
+  eprinttype = {arXiv},
+  eprintclass = {cs},
+  url = {http://arxiv.org/abs/2406.06608},
+  urldate = {2024-08-29},
+  abstract = {Generative Artificial Intelligence (GenAI) systems are being increasingly deployed across all parts of industry and research settings. Developers and end users interact with these systems through the use of prompting or prompt engineering. While prompting is a widespread and highly researched concept, there exists conflicting terminology and a poor ontological understanding of what constitutes a prompt due to the area’s nascency. This paper establishes a structured understanding of prompts, by assembling a taxonomy of prompting techniques and analyzing their use. We present a comprehensive vocabulary of 33 vocabulary terms, a taxonomy of 58 text-only prompting techniques, and 40 techniques for other modalities. We further present a meta-analysis of the entire literature on natural language prefix-prompting.},
+  langid = {english},
+  pubstate = {prepublished},
+  keywords = {Computer Science - Artificial Intelligence,Computer Science - Computation and Language},
+  file = {/Users/teshima/Zotero/storage/KNE2JSZU/Schulhoff et al. - 2024 - The Prompt Report A Systematic Survey of Promptin.pdf}
+}
+
+@book{ShanTianDaGuiMoYanYumoderuRuMen2023,
+  title = {大規模言語モデル入門},
+  author = {山田, 育矢 and 鈴木, 正敏 and 山田, 康輔 and 李, 凌寒},
+  date = {2023-07-29},
+  publisher = {技術評論社},
+  abstract = {（概要）ChatGPTに代表される大規模言語モデルが自然言語処理の幅広いタスクで高い性能を獲得し、大きな話題となっています。大規模言語モデルは、大規模なテキストデータで訓練された大規模なパラメータで構成されるニューラルネットワークです。2020年以降、自然言語処理や機械学習の知見をもとに、パラメータ数とテキストデータの拡大により、性能が飛躍的に向上しました。Hugging Face社の"transformers"というPythonライブラリを利用することで、プログラミングの経験があれば、モデルの操作やデータからの学習がかんたんにできます。モデルを訓練するための日本語もしくは日本語を含む多言語のデータセットも充実してきており、すぐに業務に使える実用的なモデルを作ることが可能な時代がやってきました。本書は、大規模言語モデルの理論と実装の両方を解説した入門書です。大規模言語モデルの技術や自然言語処理の課題について理解し、実際の問題に対処できるようになることを目指しています。以下のような構成によって、理論とプログラミングの双方の側面から、大規模言語モデルに関する情報を提供します。（こんな方におすすめ）・大規模言語モデルに興味のあるエンジニア、学生、研究者（目次）第1章　はじめに第2章　Transformer第3章　大規模言語モデルの基礎第4章　大規模言語モデルの進展第5章　大規模言語モデルのファインチューニング第6章　固有表現認識第7章　要約生成第8章　文埋め込み第9章　質問応答システム},
+  langid = {japanese}
+}
+
+@book{ShanTianDaGuiMoYanYumoderuRuMenIIShengChengXingLLMnoShiZhuangtoPingJia2024,
+  title = {大規模言語モデル入門Ⅱ〜生成型LLMの実装と評価},
+  author = {山田, 育矢 and 鈴木, 正敏 and 西川, 荘介 and 藤井, 一喜 and 山田, 康輔 and 李, 凌寒},
+  date = {2024-09-04},
+  publisher = {技術評論社},
+  abstract = {（概要）※この商品は固定レイアウトで作成されており，タブレットなど大きいディスプレイを備えた端末で読むことに適しています。また，文字列のハイライトや検索，辞書の参照，引用などの機能が使用できません。※PDF版をご希望の方は Gihyo Digital Publishing ( https://gihyo.jp/mk/dp/ebook/2024/978-4-297-14394-7 )も合わせてご覧ください。「大規模言語モデル入門」の続編です。「大規模言語モデル入門」は理論と実装のバランスをとって構成しましたが、本書では実装部分で扱い切れなかった話題を取り上げ、特に大規模言語モデルの評価と生成LLMに関連する解説を充実させます。「大規模言語モデル入門」の9章に続き、10章から始まります。10章では、後続する章で行う言語モデルの評価方法について解説します。自動評価と人手評価の2つの側面から、ベンチマーク、評価指標、具体的な評価ツールやデータセットなどを取り上げます。11〜13章では、主に大規模言語モデルの性能を上げるためのトピックとして、指示チューニング、人間のフィードバックからの学習、RAGに焦点を当て、それぞれの実装方法、利用するデータセット、評価の方法について解説します。14章では大規模言語モデルの学習における並列・分散処理について詳しく解説します。大規模なデータを限られた計算資源で学習させるノウハウは多くのエンジニアにとって有益な情報となるでしょう。大規模言語モデルの性能を高めるための各トピックの実装とともに、それぞれの評価について理解できる一冊です。（こんな方におすすめ）・大規模言語モデルに興味のあるエンジニア、学生、研究者（目次）第10章 性能評価　10.1 モデルの性能評価とは　10.2 評価指標を用いた自動評価　10.3 LLM を用いた自動評価第11章 指示チューニング　11.1 指示チューニングとは　11.2 指示チューニングの実装　11.3 指示チューニングしたモデルの評価第12章 選好チューニング　12.1 選好チューニングとは　12.2 選好チューニングの実装　12.3 選好チューニングの評価第13章 RAG　13.1 RAGとは　13.2 基本的なRAGのシステムの実装　13.3 RAG向けにLLMを指示チューニングする　13.4 RAGの性能評価第14章 分散並列学習　14.1 分散並列学習とは　14.2 さまざまな分散並列学習手法　14.3 LLMの分散並列学習},
+  langid = {japanese}
+}
+
+@online{WangNotAnswer2023,
+  title = {Do-{{Not-Answer}}: {{A Dataset}} for {{Evaluating Safeguards}} in {{LLMs}}},
+  shorttitle = {Do-{{Not-Answer}}},
+  author = {Wang, Yuxia and Li, Haonan and Han, Xudong and Nakov, Preslav and Baldwin, Timothy},
+  date = {2023-09-03},
+  eprint = {2308.13387},
+  eprinttype = {arXiv},
+  eprintclass = {cs},
+  doi = {10.48550/arXiv.2308.13387},
+  url = {http://arxiv.org/abs/2308.13387},
+  urldate = {2024-09-23},
+  abstract = {With the rapid evolution of large language models (LLMs), new and hard-to-predict harmful capabilities are emerging. This requires developers to be able to identify risks through the evaluation of "dangerous capabilities" in order to responsibly deploy LLMs. In this work, we collect the first open-source dataset to evaluate safeguards in LLMs, and deploy safer open-source LLMs at a low cost. Our dataset is curated and filtered to consist only of instructions that responsible language models should not follow. We annotate and assess the responses of six popular LLMs to these instructions. Based on our annotation, we proceed to train several BERT-like classifiers, and find that these small classifiers can achieve results that are comparable with GPT-4 on automatic safety evaluation. Warning: this paper contains example data that may be offensive, harmful, or biased.},
+  pubstate = {prepublished},
+  keywords = {Computer Science - Computation and Language},
+  file = {/Users/teshima/Zotero/storage/G4UFI2WG/Wang et al. - 2023 - Do-Not-Answer A Dataset for Evaluating Safeguards.pdf;/Users/teshima/Zotero/storage/88CJMS29/2308.html}
+}
