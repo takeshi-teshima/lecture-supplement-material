@@ -16,3 +16,7 @@
 ## Build config
 
 `docs/netlify.toml` contains the build config for Netlify.
+
+## File Structures
+
+- The contents in `docs/_bibliography/Introduction-to-AI` is generated automatically by Zotero's Better BibTeX plugin with the "export all child collections" option.
