@@ -12,3 +12,7 @@
 1. Set local Ruby version:
    `asdf local ruby latest`
 1. `bundle exec jekyll serve`
+
+## Build config
+
+`docs/netlify.toml` contains the build config for Netlify.
