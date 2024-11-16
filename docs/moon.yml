@@ -7,3 +7,6 @@ tasks:
 
   install:
     command: 'bundle install'
+
+  save:
+    command: 'git add .; git commit -m "Update"; git push'
