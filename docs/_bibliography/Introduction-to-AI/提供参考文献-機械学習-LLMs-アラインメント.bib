@@ -1,0 +1,134 @@
+@online{AskellGeneral2021,
+  title = {A general language assistant as a laboratory for alignment},
+  author = {Askell, Amanda and Bai, Yuntao and Chen, Anna and Drain, Dawn and Ganguli, Deep and Henighan, Tom and Jones, Andy and Joseph, Nicholas and Mann, Ben and DasSarma, Nova and Elhage, Nelson and Hatfield-Dodds, Zac and Hernandez, Danny and Kernion, Jackson and Ndousse, Kamal and Olsson, Catherine and Amodei, Dario and Brown, Tom and Clark, Jack and McCandlish, Sam and Olah, Chris and Kaplan, Jared},
+  date = {2021-12-09},
+  eprint = {2112.00861},
+  eprinttype = {arXiv},
+  doi = {10.48550/arXiv.2112.00861},
+  url = {http://arxiv.org/abs/2112.00861},
+  urldate = {2024-11-17},
+  abstract = {Given the broad capabilities of large language models, it should be possible to work towards a general-purpose, text-based assistant that is aligned with human values, meaning that it is helpful, honest, and harmless. As an initial foray in this direction we study simple baseline techniques and evaluations, such as prompting. We find that the benefits from modest interventions increase with model size, generalize to a variety of alignment evaluations, and do not compromise the performance of large models. Next we investigate scaling trends for several training objectives relevant to alignment, comparing imitation learning, binary discrimination, and ranked preference modeling. We find that ranked preference modeling performs much better than imitation learning, and often scales more favorably with model size. In contrast, binary discrimination typically performs and scales very similarly to imitation learning. Finally we study a `preference model pre-training' stage of training, with the goal of improving sample efficiency when finetuning on human preferences.},
+  pubstate = {prepublished},
+  keywords = {Computer Science - Computation and Language,Computer Science - Machine Learning},
+  file = {/Users/teshima/Zotero/storage/WWX5TXQF/Askell et al. - 2021 - A General Language Assistant as a Laboratory for A.pdf;/Users/teshima/Zotero/storage/5NULZLKU/2112.html}
+}
+
+@inproceedings{CarliniQuantifying2022,
+  title = {Quantifying {{Memorization Across Neural Language Models}}},
+  author = {Carlini, Nicholas and Ippolito, Daphne and Jagielski, Matthew and Lee, Katherine and Tramer, Florian and Zhang, Chiyuan},
+  date = {2022-09-29},
+  url = {https://openreview.net/forum?id=TatRHT_1cK},
+  urldate = {2024-11-17},
+  abstract = {Large language models (LMs) have been shown to memorize parts of their training data, and when prompted appropriately, they will emit the memorized training data verbatim. This is undesirable because memorization violates privacy (exposing user data), degrades utility (repeated easy-to-memorize text is often low quality), and hurts fairness (some texts are memorized over others). We describe three log-linear relationships that quantify the degree to which LMs emit memorized training data. Memorization significantly grows as we increase (1) the capacity of a model, (2) the number of times an example has been duplicated, and (3) the number of tokens of context used to prompt the model. Surprisingly, we find the situation becomes complicated when generalizing these results across model families. On the whole, we find that memorization in LMs is more prevalent than previously believed and will likely get worse as models continues to scale, at least without active mitigations.},
+  eventtitle = {The {{Eleventh International Conference}} on {{Learning Representations}}},
+  langid = {english},
+  file = {/Users/teshima/Zotero/storage/YD3C5QIL/Carlini et al. - 2022 - Quantifying Memorization Across Neural Language Mo.pdf}
+}
+
+@article{EmsleyChatGPT2023,
+  title = {{{ChatGPT}}: these are not hallucinations – they’re fabrications and falsifications},
+  shorttitle = {{{ChatGPT}}},
+  author = {Emsley, Robin},
+  date = {2023-08-19},
+  journaltitle = {Schizophrenia},
+  shortjournal = {Schizophr},
+  volume = {9},
+  number = {1},
+  pages = {1--2},
+  publisher = {Nature Publishing Group},
+  issn = {2754-6993},
+  doi = {10.1038/s41537-023-00379-4},
+  url = {https://www.nature.com/articles/s41537-023-00379-4},
+  urldate = {2024-11-17},
+  langid = {english},
+  keywords = {Cognitive Psychology,general,Medicine/Public Health,Neurology,Neurosciences,Psychiatry},
+  file = {/Users/teshima/Zotero/storage/K6IJ6XJ6/Emsley - 2023 - ChatGPT these are not hallucinations – they’re fa.pdf}
+}
+
+@inproceedings{KirkBias2024,
+  title = {Bias out-of-the-box: an empirical analysis of intersectional occupational biases in popular generative language models},
+  shorttitle = {Bias out-of-the-box},
+  booktitle = {Proceedings of the 35th {{International Conference}} on {{Neural Information Processing Systems}}},
+  author = {Kirk, Hannah Rose and Jun, Yennie and Iqbal, Haider and Benussi, Elias and Volpin, Filippo and Dreyer, Frederic A. and Shtedritski, Aleksandar and Asano, Yuki M.},
+  date = {2024-06-10},
+  series = {{{NIPS}} '21},
+  pages = {2611--2624},
+  publisher = {Curran Associates Inc.},
+  location = {Red Hook, NY, USA},
+  abstract = {The capabilities of natural language models trained on large-scale data have increased immensely over the past few years. Open source libraries such as Hugging-Face have made these models easily available and accessible. While prior research has identified biases in large language models, this paper considers biases contained in the most popular versions of these models when applied 'out-of-the-box' for downstream tasks. We focus on generative language models as they are well-suited for extracting biases inherited from training data. Specifically, we conduct an indepth analysis of GPT-2, which is the most downloaded text generation model on HuggingFace, with over half a million downloads per month. We assess biases related to occupational associations for different protected categories by intersecting gender with religion, sexuality, ethnicity, political affiliation, and continental name origin. Using a template-based data collection pipeline, we collect 396K sentence completions made by GPT-2 and find: (i) The machine-predicted jobs are less diverse and more stereotypical for women than for men, especially for intersections; (ii) Intersectional interactions are highly relevant for occupational associations, which we quantify by fitting 262 logistic models; (iii) For most occupations, GPT-2 reflects the skewed gender and ethnicity distribution found in US Labor Bureau data, and even pulls the societally-skewed distribution towards gender parity in cases where its predictions deviate from real labor market observations. This raises the normative question of what language models should learn - whether they should reflect or correct for existing inequalities.},
+  isbn = {978-1-71384-539-3},
+  file = {/Users/teshima/Zotero/storage/HMIUUJPL/Kirk et al. - 2024 - Bias out-of-the-box an empirical analysis of inte.pdf}
+}
+
+@inproceedings{LiUNQOVERing2020,
+  title = {{{UNQOVERing}} stereotyping biases via underspecified questions},
+  booktitle = {Findings of the {{Association}} for {{Computational Linguistics}}: {{EMNLP}} 2020},
+  author = {Li, Tao and Khashabi, Daniel and Khot, Tushar and Sabharwal, Ashish and Srikumar, Vivek},
+  editor = {Cohn, Trevor and He, Yulan and Liu, Yang},
+  date = {2020-01-01},
+  pages = {3475--3489},
+  publisher = {Association for Computational Linguistics},
+  location = {Online},
+  doi = {10.18653/v1/2020.findings-emnlp.311},
+  url = {https://aclanthology.org/2020.findings-emnlp.311},
+  urldate = {2024-11-17},
+  abstract = {While language embeddings have been shown to have stereotyping biases, how these biases affect downstream question answering (QA) models remains unexplored. We present UNQOVER, a general framework to probe and quantify biases through underspecified questions. We show that a naive use of model scores can lead to incorrect bias estimates due to two forms of reasoning errors: positional dependence and question independence. We design a formalism that isolates the aforementioned errors. As case studies, we use this metric to analyze four important classes of stereotypes: gender, nationality, ethnicity, and religion. We probe five transformer-based QA models trained on two QA datasets, along with their underlying language models. Our broad study reveals that (1) all these models, with and without fine-tuning, have notable stereotyping biases in these classes; (2) larger models often have higher bias; and (3) the effect of fine-tuning on bias varies strongly with the dataset and the model size.},
+  eventtitle = {Findings 2020},
+  file = {/Users/teshima/Zotero/storage/TSBUVI6Y/Li et al. - 2020 - UNQOVERing Stereotyping Biases via Underspecified .pdf}
+}
+
+@online{OpenAIGPT42023,
+  title = {{{GPT-4}} technical report},
+  author = {{OpenAI}},
+  date = {2023},
+  eprint = {2303.08774},
+  eprinttype = {arXiv},
+  doi = {10.48550/arXiv.2303.08774},
+  url = {http://arxiv.org/abs/2303.08774},
+  urldate = {2024-11-17},
+  abstract = {We report the development of GPT-4, a large-scale, multimodal model which can accept image and text inputs and produce text outputs. While less capable than humans in many real-world scenarios, GPT-4 exhibits human-level performance on various professional and academic benchmarks, including passing a simulated bar exam with a score around the top 10\% of test takers. GPT-4 is a Transformer-based model pre-trained to predict the next token in a document. The post-training alignment process results in improved performance on measures of factuality and adherence to desired behavior. A core component of this project was developing infrastructure and optimization methods that behave predictably across a wide range of scales. This allowed us to accurately predict some aspects of GPT-4's performance based on models trained with no more than 1/1,000th the compute of GPT-4.},
+  pubstate = {prepublished},
+  file = {/Users/teshima/Zotero/storage/GYZFFPEI/OpenAI et al. - 2024 - GPT-4 Technical Report.pdf;/Users/teshima/Zotero/storage/YZPAYXL2/2303.html}
+}
+
+@inproceedings{ouyang2022training,
+  title = {Training language models to follow instructions with human feedback},
+  booktitle = {Advances in neural information processing systems},
+  author = {Ouyang, Long and Wu, Jeffrey and Jiang, Xu and Almeida, Diogo and Wainwright, Carroll and Mishkin, Pamela and Zhang, Chong and Agarwal, Sandhini and Slama, Katarina and Ray, Alex and others},
+  date = {2022},
+  volume = {35},
+  pages = {27730--27744},
+  file = {/Users/teshima/Zotero/storage/C2G37SQQ/Ouyang et al. - 2022 - Training language models to follow instructions wi.pdf}
+}
+
+@inproceedings{SanturkarWhose2023,
+  title = {Whose opinions do language models reflect?},
+  booktitle = {Proceedings of the 40th {{International Conference}} on {{Machine Learning}}},
+  author = {Santurkar, Shibani and Durmus, Esin and Ladhak, Faisal and Lee, Cinoo and Liang, Percy and Hashimoto, Tatsunori},
+  date = {2023-07-23},
+  series = {{{ICML}}'23},
+  volume = {202},
+  pages = {29971--30004},
+  publisher = {JMLR.org},
+  location = {Honolulu, Hawaii, USA},
+  abstract = {Language models (LMs) are increasingly being used in open-ended contexts, where the opinions they reflect in response to subjective queries can have a profound impact, both on user satisfaction, and shaping the views of society at large. We put forth a quantitative framework to investigate the opinions reflected by LMs – by leveraging high-quality public opinion polls. Using this framework, we create OpinionQA, a dataset for evaluating the alignment of LM opinions with those of 60 US demographic groups over topics ranging from abortion to automation. Across topics, we find substantial misalignment between the views reflected by current LMs and those of US demographic groups: on par with the Democrat-Republican divide on climate change. Notably, this misalignment persists even after explicitly steering the LMs towards particular groups. Our analysis not only confirms prior observations about the left-leaning tendencies of some human feedback-tuned LMs, but also surfaces groups whose opinions are poorly reflected by current LMs (e.g., 65+ and widowed individuals).},
+  file = {/Users/teshima/Zotero/storage/499YM3G8/Santurkar et al. - 2023 - Whose opinions do language models reflect.pdf}
+}
+
+@inproceedings{TalFewer2022,
+  title = {Fewer errors, but more stereotypes? {{The}} effect of model size on gender bias},
+  shorttitle = {Fewer errors, but more stereotypes?},
+  booktitle = {Proceedings of the 4th {{Workshop}} on {{Gender Bias}} in {{Natural Language Processing}} ({{GeBNLP}})},
+  author = {Tal, Yarden and Magar, Inbal and Schwartz, Roy},
+  editor = {Hardmeier, Christian and Basta, Christine and Costa-jussà, Marta R. and Stanovsky, Gabriel and Gonen, Hila},
+  date = {2022-07},
+  pages = {112--120},
+  publisher = {Association for Computational Linguistics},
+  location = {Seattle, Washington},
+  doi = {10.18653/v1/2022.gebnlp-1.13},
+  url = {https://aclanthology.org/2022.gebnlp-1.13},
+  urldate = {2024-11-17},
+  abstract = {The size of pretrained models is increasing, and so is their performance on a variety of NLP tasks. However, as their memorization capacity grows, they might pick up more social biases. In this work, we examine the connection between model size and its gender bias (specifically, occupational gender bias). We measure bias in three masked language model families (RoBERTa, DeBERTa, and T5) in two setups: directly using prompt based method, and using a downstream task (Winogender). We find on the one hand that larger models receive higher bias scores on the former task, but when evaluated on the latter, they make fewer gender errors. To examine these potentially conflicting results, we carefully investigate the behavior of the different models on Winogender. We find that while larger models outperform smaller ones, the probability that their mistakes are caused by gender bias is higher. Moreover, we find that the proportion of stereotypical errors compared to anti-stereotypical ones grows with the model size. Our findings highlight the potential risks that can arise from increasing model size.},
+  eventtitle = {{{GeBNLP}} 2022},
+  file = {/Users/teshima/Zotero/storage/YZGCBYP3/Tal et al. - 2022 - Fewer Errors, but More Stereotypes The Effect of .pdf}
+}
