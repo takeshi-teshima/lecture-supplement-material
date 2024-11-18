@@ -25,6 +25,8 @@ layout: default
 
 ## 参考文献一覧
 
+※全てを片っ端から読もうとすることはお勧めしません（教科書的な文献を除く）。知りたい事柄に応じて必要な箇所を読みましょう。
+
 {% assign files = "_bibliography/Introduction-to-AI" | list_files: "*.bib" | newline_to_br | split: "<br>" | sort %}
 
 {% for path in files -%}
