@@ -1,3 +1,14 @@
+@online{1000YiparametanoDuZiLLMPLaMo100BnoShiHouXueXigaWanLiao2024,
+  title = {1,000億パラメータの独自LLM「PLaMo-100B」の事後学習が完了},
+  date = {2024-08-07T00:25:51+00:00},
+  url = {https://tech.preferred.jp/ja/blog/plamo-100b-post-training/},
+  urldate = {2024-11-18},
+  abstract = {Preferred Networksの子会社のPreferred},
+  langid = {japanese},
+  organization = {Preferred Networks Research \& Development},
+  file = {/Users/teshima/Zotero/storage/4JT964FD/2024 - 1,000億パラメータの独自LLM「PLaMo-100B」の事後学習が完了.pdf;/Users/teshima/Zotero/storage/HQFWFBXE/plamo-100b-post-training.html}
+}
+
 @online{AskellGeneral2021,
   title = {A general language assistant as a laboratory for alignment},
   author = {Askell, Amanda and Bai, Yuntao and Chen, Anna and Drain, Dawn and Ganguli, Deep and Henighan, Tom and Jones, Andy and Joseph, Nicholas and Mann, Ben and DasSarma, Nova and Elhage, Nelson and Hatfield-Dodds, Zac and Hernandez, Danny and Kernion, Jackson and Ndousse, Kamal and Olsson, Catherine and Amodei, Dario and Brown, Tom and Clark, Jack and McCandlish, Sam and Olah, Chris and Kaplan, Jared},
@@ -23,6 +34,20 @@
   eventtitle = {The {{Eleventh International Conference}} on {{Learning Representations}}},
   langid = {english},
   file = {/Users/teshima/Zotero/storage/YD3C5QIL/Carlini et al. - 2022 - Quantifying Memorization Across Neural Language Mo.pdf}
+}
+
+@article{DongRLHF2024,
+  title = {{{RLHF Workflow}}: {{From Reward Modeling}} to {{Online RLHF}}},
+  shorttitle = {{{RLHF Workflow}}},
+  author = {Dong, Hanze and Xiong, Wei and Pang, Bo and Wang, Haoxiang and Zhao, Han and Zhou, Yingbo and Jiang, Nan and Sahoo, Doyen and Xiong, Caiming and Zhang, Tong},
+  date = {2024-06-21},
+  journaltitle = {Transactions on Machine Learning Research},
+  issn = {2835-8856},
+  url = {https://openreview.net/forum?id=a13aYUU9eU},
+  urldate = {2024-11-18},
+  abstract = {We present the workflow of Online Iterative Reinforcement Learning from Human Feedback (RLHF) in this technical report, which is widely reported to outperform its offline counterpart by a large margin in the recent large language model (LLM) literature. However, existing open-source RLHF projects are still largely confined to the offline learning setting. In this technical report, we aim to fill in this gap and provide a detailed recipe that is easy to reproduce for online iterative RLHF. In particular, since online human feedback is usually infeasible for open-source communities with limited resources, we start by constructing preference models using a diverse set of open-source datasets and use the constructed proxy preference model to approximate human feedback. Then, we discuss the theoretical insights and algorithmic principles behind online iterative RLHF, followed by a detailed practical implementation. Our trained LLM achieves impressive performance on LLM chatbot benchmarks, including AlpacaEval-2, Arena-Hard, and MT-Bench, as well as other academic benchmarks such as HumanEval and TruthfulQA. We have shown that supervised fine-tuning (SFT) and iterative RLHF can obtain state-of-the-art performance with fully open-source datasets. Further, we have made our models, curated datasets, and comprehensive step-by-step code guidebooks publicly available.},
+  langid = {english},
+  file = {/Users/teshima/Zotero/storage/PDSC6D4S/Dong et al. - 2024 - RLHF Workflow From Reward Modeling to Online RLHF.pdf}
 }
 
 @article{EmsleyChatGPT2023,
@@ -111,6 +136,19 @@
   file = {/Users/teshima/Zotero/storage/C2G37SQQ/Ouyang et al. - 2022 - Training language models to follow instructions wi.pdf}
 }
 
+@inproceedings{RafailovDirect2023,
+  title = {Direct preference optimization: your language model is secretly a reward model},
+  shorttitle = {Direct preference optimization},
+  author = {Rafailov, Rafael and Sharma, Archit and Mitchell, Eric and Manning, Christopher D. and Ermon, Stefano and Finn, Chelsea},
+  date = {2023-11-02},
+  url = {https://openreview.net/forum?id=HPuSIXJaa9},
+  urldate = {2024-09-10},
+  abstract = {While large-scale unsupervised language models (LMs) learn broad world knowledge and some reasoning skills, achieving precise control of their behavior is difficult due to the completely unsupervised nature of their training. Existing methods for gaining such steerability collect human labels of the relative quality of model generations and fine-tune the unsupervised LM to align with these preferences, often with reinforcement learning from human feedback (RLHF). However, RLHF is a complex and often unstable procedure, first fitting a reward model that reflects the human preferences, and then fine-tuning the large unsupervised LM using reinforcement learning to maximize this estimated reward without drifting too far from the original model. In this paper, we leverage a mapping between reward functions and optimal policies to show that this constrained reward maximization problem can be optimized exactly with a single stage of policy training, essentially solving a classification problem on the human preference data. The resulting algorithm, which we call Direct Preference Optimization (DPO), is stable, performant, and computationally lightweight, eliminating the need for fitting a reward model, sampling from the LM during fine-tuning, or performing significant hyperparameter tuning. Our experiments show that DPO can fine-tune LMs to align with human preferences as well as or better than existing methods. Notably, fine-tuning with DPO exceeds RLHF's ability to control sentiment of generations and improves response quality in summarization and single-turn dialogue while being substantially simpler to implement and train.},
+  eventtitle = {Thirty-seventh {{Conference}} on {{Neural Information Processing Systems}}},
+  langid = {english},
+  file = {/Users/teshima/Zotero/storage/TQ43G79E/Rafailov et al. - 2023 - Direct Preference Optimization Your Language Mode.pdf}
+}
+
 @inproceedings{SanturkarWhose2023,
   title = {Whose opinions do language models reflect?},
   booktitle = {Proceedings of the 40th {{International Conference}} on {{Machine Learning}}},
@@ -123,6 +161,35 @@
   location = {Honolulu, Hawaii, USA},
   abstract = {Language models (LMs) are increasingly being used in open-ended contexts, where the opinions they reflect in response to subjective queries can have a profound impact, both on user satisfaction, and shaping the views of society at large. We put forth a quantitative framework to investigate the opinions reflected by LMs – by leveraging high-quality public opinion polls. Using this framework, we create OpinionQA, a dataset for evaluating the alignment of LM opinions with those of 60 US demographic groups over topics ranging from abortion to automation. Across topics, we find substantial misalignment between the views reflected by current LMs and those of US demographic groups: on par with the Democrat-Republican divide on climate change. Notably, this misalignment persists even after explicitly steering the LMs towards particular groups. Our analysis not only confirms prior observations about the left-leaning tendencies of some human feedback-tuned LMs, but also surfaces groups whose opinions are poorly reflected by current LMs (e.g., 65+ and widowed individuals).},
   file = {/Users/teshima/Zotero/storage/499YM3G8/Santurkar et al. - 2023 - Whose opinions do language models reflect.pdf}
+}
+
+@online{SchulmanProximal2017,
+  title = {Proximal {{Policy Optimization Algorithms}}},
+  author = {Schulman, John and Wolski, Filip and Dhariwal, Prafulla and Radford, Alec and Klimov, Oleg},
+  date = {2017-08-28},
+  eprint = {1707.06347},
+  eprinttype = {arXiv},
+  doi = {10.48550/arXiv.1707.06347},
+  url = {http://arxiv.org/abs/1707.06347},
+  urldate = {2024-11-18},
+  abstract = {We propose a new family of policy gradient methods for reinforcement learning, which alternate between sampling data through interaction with the environment, and optimizing a "surrogate" objective function using stochastic gradient ascent. Whereas standard policy gradient methods perform one gradient update per data sample, we propose a novel objective function that enables multiple epochs of minibatch updates. The new methods, which we call proximal policy optimization (PPO), have some of the benefits of trust region policy optimization (TRPO), but they are much simpler to implement, more general, and have better sample complexity (empirically). Our experiments test PPO on a collection of benchmark tasks, including simulated robotic locomotion and Atari game playing, and we show that PPO outperforms other online policy gradient methods, and overall strikes a favorable balance between sample complexity, simplicity, and wall-time.},
+  pubstate = {prepublished},
+  keywords = {Computer Science - Machine Learning},
+  file = {/Users/teshima/Zotero/storage/YRH5XZNY/Schulman et al. - 2017 - Proximal Policy Optimization Algorithms.pdf;/Users/teshima/Zotero/storage/U537PSQ9/1707.html}
+}
+
+@inproceedings{StiennonLearning2020,
+  title = {Learning to summarize from human feedback},
+  booktitle = {Proceedings of the 34th {{International Conference}} on {{Neural Information Processing Systems}}},
+  author = {Stiennon, Nisan and Ouyang, Long and Wu, Jeff and Ziegler, Daniel M. and Lowe, Ryan and Voss, Chelsea and Radford, Alec and Amodei, Dario and Christiano, Paul},
+  date = {2020-12-06},
+  series = {{{NIPS}} '20},
+  pages = {3008--3021},
+  publisher = {Curran Associates Inc.},
+  location = {Red Hook, NY, USA},
+  abstract = {As language models become more powerful, training and evaluation are increasingly bottlenecked by the data and metrics used for a particular task. For example, summarization models are often trained to predict human reference summaries and evaluated using ROUGE, but both of these metrics are rough proxies for what we really care about—summary quality. In this work, we show that it is possible to significantly improve summary quality by training a model to optimize for human preferences. We collect a large, high-quality dataset of human comparisons between summaries, train a model to predict the human-preferred summary, and use that model as a reward function to fine-tune a summarization policy using reinforcement learning. We apply our method to a version of the TL;DR dataset of Reddit posts [63] and find that our models significantly outperform both human reference summaries and much larger models fine-tuned with supervised learning alone. Our models also transfer to CNN/DM news articles [22], producing summaries nearly as good as the human reference without any news-specific fine-tuning. We conduct extensive analyses to understand our human feedback dataset and fine-tuned models. We establish that our reward model generalizes to new datasets, and that optimizing our reward model results in better summaries than optimizing ROUGE according to humans. We hope the evidence from our paper motivates machine learning researchers to pay closer attention to how their training loss affects the model behavior they actually want.},
+  isbn = {978-1-71382-954-6},
+  file = {/Users/teshima/Zotero/storage/TUBPBH24/Stiennon et al. - 2020 - Learning to summarize from human feedback.pdf}
 }
 
 @inproceedings{TalFewer2022,
@@ -141,6 +208,19 @@
   abstract = {The size of pretrained models is increasing, and so is their performance on a variety of NLP tasks. However, as their memorization capacity grows, they might pick up more social biases. In this work, we examine the connection between model size and its gender bias (specifically, occupational gender bias). We measure bias in three masked language model families (RoBERTa, DeBERTa, and T5) in two setups: directly using prompt based method, and using a downstream task (Winogender). We find on the one hand that larger models receive higher bias scores on the former task, but when evaluated on the latter, they make fewer gender errors. To examine these potentially conflicting results, we carefully investigate the behavior of the different models on Winogender. We find that while larger models outperform smaller ones, the probability that their mistakes are caused by gender bias is higher. Moreover, we find that the proportion of stereotypical errors compared to anti-stereotypical ones grows with the model size. Our findings highlight the potential risks that can arise from increasing model size.},
   eventtitle = {{{GeBNLP}} 2022},
   file = {/Users/teshima/Zotero/storage/YZGCBYP3/Tal et al. - 2022 - Fewer Errors, but More Stereotypes The Effect of .pdf}
+}
+
+@unpublished{XiaoTianLunWenShaoJieDirect2024,
+  title = {論文紹介：{{Direct Preference Optimization}}: {{Your Language Model Is Secretly}} a {{Reward Model}}},
+  shorttitle = {論文紹介：direct {{Preference Optimization}}},
+  author = {篠田, 一聡},
+  year = {2024年8月25日},
+  url = {https://speakerdeck.com/kazutoshishinoda/lun-wen-shao-jie-direct-preference-optimization-your-language-model-is-secretly-a-reward-model},
+  urldate = {2024-09-23},
+  abstract = {第16回 最先端NLP勉強会（2024年8月25-26日）の発表スライドです},
+  eventtitle = {第16回 {{最先端NLP勉強会}}},
+  langid = {english},
+  file = {/Users/teshima/Zotero/storage/XXAJN3WF/論文紹介：Direct Preference Optimization Your Language.pdf;/Users/teshima/Zotero/storage/SQ8CWP87/lun-wen-shao-jie-direct-preference-optimization-your-language-model-is-secretly-a-reward-model.html}
 }
 
 @inproceedings{ZhouLIMA2023,

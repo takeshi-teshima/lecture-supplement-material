@@ -1,0 +1,39 @@
+@online{ThakurJudging2024,
+  title = {Judging the {{Judges}}: {{Evaluating Alignment}} and {{Vulnerabilities}} in {{LLMs-as-Judges}}},
+  shorttitle = {Judging the {{Judges}}},
+  author = {Thakur, Aman Singh and Choudhary, Kartik and Ramayapally, Venkat Srinik and Vaidyanathan, Sankaran and Hupkes, Dieuwke},
+  date = {2024-11-02},
+  eprint = {2406.12624},
+  eprinttype = {arXiv},
+  doi = {10.48550/arXiv.2406.12624},
+  url = {http://arxiv.org/abs/2406.12624},
+  urldate = {2024-11-18},
+  abstract = {Offering a promising solution to the scalability challenges associated with human evaluation, the LLM-as-a-judge paradigm is rapidly gaining traction as an approach to evaluating large language models (LLMs). However, there are still many open questions about the strengths and weaknesses of this paradigm, and what potential biases it may hold. In this paper, we present a comprehensive study of the performance of various LLMs acting as judges, focusing on a clean scenario in which inter-human agreement is high. Investigating thirteen judge models of different model sizes and families, judging answers of nine different 'examtaker models' - both base and instruction-tuned - we find that only the best (and largest) models achieve reasonable alignment with humans. However, they are still quite far behind inter-human agreement and their assigned scores may still differ with up to 5 points from human-assigned scores. In terms of their ranking of the nine exam-taker models, instead, also smaller models and even the lexical metric contains may provide a reasonable signal. Through error analysis and other studies, we identify vulnerabilities in judge models, such as their sensitivity to prompt complexity and length, and a tendency toward leniency. The fact that even the best judges differ from humans in this comparatively simple setup suggest that caution may be wise when using judges in more complex setups. Lastly, our research rediscovers the importance of using alignment metrics beyond simple percent alignment, showing that judges with high percent agreement can still assign vastly different scores.},
+  pubstate = {prepublished},
+  keywords = {Computer Science - Artificial Intelligence,Computer Science - Computation and Language},
+  file = {/Users/teshima/Zotero/storage/JIIK8TPR/Thakur et al. - 2024 - Judging the Judges Evaluating Alignment and Vulne.pdf;/Users/teshima/Zotero/storage/UQCSHAWF/2406.html}
+}
+
+@inproceedings{ZengEvaluating2023,
+  title = {Evaluating {{Large Language Models}} at {{Evaluating Instruction Following}}},
+  author = {Zeng, Zhiyuan and Yu, Jiatong and Gao, Tianyu and Meng, Yu and Goyal, Tanya and Chen, Danqi},
+  date = {2023-10-13},
+  url = {https://openreview.net/forum?id=tr0KidwPLc},
+  urldate = {2024-11-18},
+  abstract = {As research in large language models (LLMs) continues to accelerate, LLM-based evaluation has emerged as a scalable and cost-effective alternative to human evaluations for comparing the ever increasing list of models. This paper investigates the efficacy of these “LLM evaluators”, particularly in using them to assess instruction following, a metric that gauges how closely generated text adheres to the given instruction. We introduce a challenging meta-evaluation benchmark, LLMBar, designed to test the ability of an LLM evaluator in discerning instruction-following outputs. The authors manually curated 419 pairs of outputs, one adhering to instructions while the other diverging, yet may possess deceptive qualities that mislead an LLM evaluator, e.g., a more engaging tone. Contrary to existing meta-evaluation, we discover that different evaluators (i.e., combinations of LLMs and prompts) exhibit distinct performance on LLMBar and even the highest-scoring ones have substantial room for improvement. We also present a novel suite of prompting strategies that further close the gap between LLM and human evaluators. With LLMBar, we hope to offer more insight into LLM evaluators and foster future research in developing better instruction-following models.},
+  eventtitle = {The {{Twelfth International Conference}} on {{Learning Representations}}},
+  langid = {english},
+  file = {/Users/teshima/Zotero/storage/ARDKILSH/Zeng et al. - 2023 - Evaluating Large Language Models at Evaluating Ins.pdf}
+}
+
+@inproceedings{ZhengJudging2023b,
+  title = {Judging {{LLM-as-a-Judge}} with {{MT-Bench}} and {{Chatbot Arena}}},
+  author = {Zheng, Lianmin and Chiang, Wei-Lin and Sheng, Ying and Zhuang, Siyuan and Wu, Zhanghao and Zhuang, Yonghao and Lin, Zi and Li, Zhuohan and Li, Dacheng and Xing, Eric and Zhang, Hao and Gonzalez, Joseph E. and Stoica, Ion},
+  date = {2023-11-02},
+  url = {https://openreview.net/forum?id=uccHPGDlao},
+  urldate = {2024-11-18},
+  abstract = {Evaluating large language model (LLM) based chat assistants is challenging due to their broad capabilities and the inadequacy of existing benchmarks in measuring human preferences. To address this, we explore using strong LLMs as judges to evaluate these models on more open-ended questions. We examine the usage and limitations of LLM-as-a-judge, including position, verbosity, and self-enhancement biases, as well as limited reasoning ability, and propose solutions to mitigate some of them. We then verify the agreement between LLM judges and human preferences by introducing two benchmarks: MT-bench, a multi-turn question set; and Chatbot Arena, a crowdsourced battle platform. Our results reveal that strong LLM judges like GPT-4 can match both controlled and crowdsourced human preferences well, achieving over 80\textbackslash\% agreement, the same level of agreement between humans. Hence, LLM-as-a-judge is a scalable and explainable way to approximate human preferences, which are otherwise very expensive to obtain. Additionally, we show our benchmark and traditional benchmarks complement each other by evaluating several variants of LLaMA and Vicuna. The MT-bench questions, 3K expert votes, and 30K conversations with human preferences are publicly available at https://github.com/lm-sys/FastChat/tree/main/fastchat/llm\_judge.},
+  eventtitle = {Thirty-seventh {{Conference}} on {{Neural Information Processing Systems Datasets}} and {{Benchmarks Track}}},
+  langid = {english},
+  file = {/Users/teshima/Zotero/storage/9SHB3S6D/Zheng et al. - 2023 - Judging LLM-as-a-Judge with MT-Bench and Chatbot A.pdf}
+}
