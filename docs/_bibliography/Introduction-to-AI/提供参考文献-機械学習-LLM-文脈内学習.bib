@@ -1,0 +1,56 @@
+@inproceedings{MinNoisy2022,
+  title = {Noisy channel language model prompting for few-shot text classification},
+  booktitle = {Proceedings of the 60th {{Annual Meeting}} of the {{Association}} for {{Computational Linguistics}} ({{Volume}} 1: {{Long Papers}})},
+  author = {Min, Sewon and Lewis, Mike and Hajishirzi, Hannaneh and Zettlemoyer, Luke},
+  editor = {Muresan, Smaranda and Nakov, Preslav and Villavicencio, Aline},
+  date = {2022-05},
+  pages = {5316--5330},
+  publisher = {Association for Computational Linguistics},
+  location = {Dublin, Ireland},
+  doi = {10.18653/v1/2022.acl-long.365},
+  url = {https://aclanthology.org/2022.acl-long.365},
+  urldate = {2024-11-17},
+  abstract = {We introduce a noisy channel approach for language model prompting in few-shot text classification. Instead of computing the likelihood of the label given the input (referred as direct models), channel models compute the conditional probability of the input given the label, and are thereby required to explain every word in the input. We use channel models for recently proposed few-shot learning methods with no or very limited updates to the language model parameters, via either in-context demonstration or prompt tuning. Our experiments show that, for both methods, channel models significantly outperform their direct counterparts, which we attribute to their stability, i.e., lower variance and higher worst-case accuracy. We also present extensive ablations that provide recommendations for when to use channel prompt tuning instead of other competitive models (e.g., direct head tuning): channel prompt tuning is preferred when the number of training examples is small, labels in the training data are imbalanced, or generalization to unseen labels is required.},
+  eventtitle = {{{ACL}} 2022},
+  file = {/Users/teshima/Zotero/storage/K2X3BPIP/Min et al. - 2022 - Noisy Channel Language Model Prompting for Few-Sho.pdf}
+}
+
+@inproceedings{MinRethinking2022,
+  title = {Rethinking the role of demonstrations: what makes in-context learning work?},
+  shorttitle = {Rethinking the role of demonstrations},
+  booktitle = {Proceedings of the 2022 {{Conference}} on {{Empirical Methods}} in {{Natural Language Processing}}},
+  author = {Min, Sewon and Lyu, Xinxi and Holtzman, Ari and Artetxe, Mikel and Lewis, Mike and Hajishirzi, Hannaneh and Zettlemoyer, Luke},
+  editor = {Goldberg, Yoav and Kozareva, Zornitsa and Zhang, Yue},
+  date = {2022-02},
+  pages = {11048--11064},
+  publisher = {Association for Computational Linguistics},
+  location = {Abu Dhabi, United Arab Emirates},
+  doi = {10.18653/v1/2022.emnlp-main.759},
+  url = {https://aclanthology.org/2022.emnlp-main.759},
+  urldate = {2024-11-17},
+  abstract = {Large language models (LMs) are able to in-context learn—perform a new task via inference alone by conditioning on a few input-label pairs (demonstrations) and making predictions for new inputs. However, there has been little understanding of how the model learns and which aspects of the demonstrations contribute to end task performance. In this paper, we show that ground truth demonstrations are in fact not required—randomly replacing labels in the demonstrations barely hurts performance on a range of classification and multi-choce tasks, consistently over 12 different models including GPT-3. Instead, we find that other aspects of the demonstrations are the key drivers of endtask performance, including the fact that they provide a few examples of (1) the label space, (2) the distribution of the input text, and (3) the overall format of the sequence. Together, our analysis provides a new way of understanding how and why in-context learning works, while opening up new questions about how much can be learned from large language models through inference alone.},
+  eventtitle = {{{EMNLP}} 2022},
+  file = {/Users/teshima/Zotero/storage/L53YPUJZ/Min et al. - 2022 - Rethinking the Role of Demonstrations What Makes .pdf}
+}
+
+@unpublished{vonOswaldTransformers2022,
+  title = {Transformers learn in-context by gradient descent},
+  author = {family=Oswald, given=Johannes, prefix=von, useprefix=true and Niklasson, Eyvind and Randazzo, Ettore and Sacramento, João and Mordvintsev, Alexander and Zhmoginov, Andrey and Vladymyrov, Max},
+  date = {2022-12-15},
+  url = {https://arxiv.org/abs/2212.07677v2},
+  urldate = {2023-08-14},
+  abstract = {At present, the mechanisms of in-context learning in Transformers are not well understood and remain mostly an intuition. In this paper, we suggest that training Transformers on auto-regressive objectives is closely related to gradient-based meta-learning formulations. We start by providing a simple weight construction that shows the equivalence of data transformations induced by 1) a single linear self-attention layer and by 2) gradient-descent (GD) on a regression loss. Motivated by that construction, we show empirically that when training self-attention-only Transformers on simple regression tasks either the models learned by GD and Transformers show great similarity or, remarkably, the weights found by optimization match the construction. Thus we show how trained Transformers become mesa-optimizers i.e. learn models by gradient descent in their forward pass. This allows us, at least in the domain of regression problems, to mechanistically understand the inner workings of in-context learning in optimized Transformers. Building on this insight, we furthermore identify how Transformers surpass the performance of plain gradient descent by learning an iterative curvature correction and learn linear models on deep data representations to solve non-linear regression tasks. Finally, we discuss intriguing parallels to a mechanism identified to be crucial for in-context learning termed induction-head (Olsson et al., 2022) and show how it could be understood as a specific case of in-context learning by gradient descent learning within Transformers. Code to reproduce the experiments can be found at https://github.com/google-research/self-organising-systems/tree/master/transformers\_learn\_icl\_by\_gd .},
+  langid = {english},
+  file = {/Users/teshima/Zotero/storage/U8VW2LHI/von Oswald et al. - 2022 - Transformers learn in-context by gradient descent.pdf}
+}
+
+@article{WeiLarger2023,
+  title = {Larger language models do in-context learning differently},
+  author = {Wei, Jerry and Wei, Jason and Tay, Yi and Tran, Dustin and Webson, Albert and Lu, Yifeng and Chen, Xinyun and Liu, Hanxiao and Huang, Da and Zhou, Denny and Ma, Tengyu},
+  date = {2023-10-13},
+  url = {https://openreview.net/forum?id=DRGnEkbiQZ},
+  urldate = {2024-11-17},
+  abstract = {We study how in-context learning (ICL) in language models is affected by semantic priors versus input-label mappings. We investigate two setups - ICL with flipped labels and ICL with semantically-unrelated labels - across various model families (GPT-3, InstructGPT, Codex, an internal model, and an instruction-tuned variant of the internal model). First, experiments on ICL with flipped labels show that overriding semantic priors is an emergent ability of model scale. While small language models ignore flipped labels presented in-context and thus rely primarily on semantic priors from pretraining, large models can override semantic priors when presented with in-context exemplars that contradict priors, despite the stronger semantic priors that larger models may hold. We next study semantically-unrelated label ICL (SUL-ICL), in which labels are semantically unrelated to their inputs (e.g., foo/bar instead of negative/positive), thereby forcing language models to learn the input-label mappings shown in in-context exemplars in order to perform the task. The ability to do SUL-ICL also emerges primarily with scale, and large-enough language models can even perform linear classification in a SUL-ICL setting. Finally, we evaluate instruction-tuned models and find that instruction tuning strengthens both the use of semantic priors and the capacity to learn input-label mappings, but more of the former.},
+  langid = {english},
+  file = {/Users/teshima/Zotero/storage/I2CXP5PC/Wei et al. - 2023 - Larger language models do in-context learning diff.pdf}
+}
