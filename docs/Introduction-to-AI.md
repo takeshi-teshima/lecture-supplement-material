@@ -5,7 +5,12 @@
 layout: default
 ---
 
-このページで公開する資料のライセンスは[こちら](https://github.com/takeshi-teshima/lecture-supplement-material/blob/features/initial-version/LICENSE)です．
+## 講義資料
+[講義のスライドはこちら](https://drive.google.com/drive/folders/1IINO87Q0_xwAfteCHvRdfK4wl-z4uCzt?usp=drive_link)（閲覧のみ）
+
+{% if false %}
+このページで公開するソースコードのライセンスは[こちら](https://github.com/takeshi-teshima/lecture-supplement-material/blob/features/initial-version/LICENSE)です．
+{% endif %}
 
 ## ソースコード一覧
 
@@ -38,6 +43,7 @@ layout: default
 {% endif -%}
 {%- endfor %}
 
+{% if false %}
 ## Rubric
 
 <table>
@@ -55,3 +61,4 @@ layout: default
     {% endtablerow %}
   {% endfor %}
 </table>
+{% endif %}
