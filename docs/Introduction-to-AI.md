@@ -28,10 +28,6 @@ layout: default
 {% endif -%}
 {%- endfor %}
 
-{%- if false -%}
-|||[{{ filename }}]({{ file_url }})|[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)]({{ colab_url }})|
-{%- endif -%}
-
 ## 参考文献一覧
 
 ※全てを片っ端から読もうとすることはお勧めしません（教科書的な文献を除く）。知りたい事柄に応じて必要な箇所を読みましょう。
