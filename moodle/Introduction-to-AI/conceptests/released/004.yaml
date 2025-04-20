@@ -1,7 +1,7 @@
 Quizzes:
   - rubric: ""
     type: multichoice
-    title: 004-01-簡潔な見出し
+    title: 004-01-2クラス分類の最低性能
     question: |
       2クラス分類において，
       学習の結果，正答率（= 1 - 誤分類率）が20%のモデルが得られたとする．
