@@ -21,9 +21,9 @@ if [ $EXIT_CODE -eq 0 ]
 then
   # 差分がない場合 (git diff が exit 0)
   echo "No changes detected in monitored paths. Skipping build."
-  exit 1 # Netlifyにビルドをスキップするよう指示 (exit 1)
+  exit 0 # Netlifyにビルドをスキップするよう指示 (exit 0)
 else
   # 差分がある場合 (git diff が exit 1)
   echo "Changes detected in monitored paths. Proceeding with build."
-  exit 0 # Netlifyにビルドを実行するよう指示 (exit 0)
+  exit 1 # Netlifyにビルドを実行するよう指示 (exit 1)
 fi
