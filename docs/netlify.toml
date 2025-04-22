@@ -13,6 +13,9 @@
   # path "root/project/build-output"
   publish = "_site"
 
+  # Determine whether to skip the build
+  ignore = "./should_build.sh"
+
   # Default build command.
   command = "bundle exec jekyll build"
 
