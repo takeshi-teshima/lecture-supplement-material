@@ -1,0 +1,535 @@
+Quizzes:
+      # \[
+      #   \text{Hint: }
+      # \]
+
+  - rubric: 時系列分割の意義を説明できる．
+    type: truefalse
+    title: 002-02-時系列スプリット
+    question: |
+      時系列データでは，ランダムにシャッフルして 7:3 に分割するよりも，
+      直近の期間を丸ごと検証データとして取り置く方が望ましい．
+    answer: true
+    feedback:
+      true: 正解です．時間依存を壊さず将来データを模擬できます．&#8203;:contentReference[oaicite:2]{index=2}&#8203;:contentReference[oaicite:3]{index=3}
+      false: ランダム分割では将来情報が訓練側に漏れてしまう恐れがあります．
+
+  - rubric: ハイパーパラメータ λ の役割を説明できる．
+    type: multichoice
+    title: 003-01-正則化係数の効果
+    question: |
+      線形回帰に L2 正則化を導入し，損失を
+      \( L(w,b)=\frac1n\sum_{i=1}^n( y_i-(wx_i+b) )^2+\lambda (w^2+b^2) \)
+      とした．λ を大きくすると学習済みモデルはどう変わるか．
+    choices:
+      A: 係数 \(w\) と \(b\) が 0 に近づき，予測は水平線に近づく．
+      B: 係数が発散して急峻な直線になる．
+      C: 学習結果に影響しない．
+      D: 訓練誤差が必ず減少する．
+    answer: A
+    feedback:
+      A: 正解．λ→∞ で \(w,b\to0\) となり定数モデルになります．&#8203;:contentReference[oaicite:4]{index=4}&#8203;:contentReference[oaicite:5]{index=5}
+      B: 逆です．
+      C: λ はハイパーパラメータで結果を制御します．
+      D: 過学習を抑えるため訓練誤差はむしろ増えることがあります．
+
+  - rubric: ハイパーパラメータ探索を実行できる．
+    type: truefalse
+    title: 003-02-グリッドサーチ
+    question: |
+      グリッドサーチよりもベイズ最適化の方が
+      すべての場合でハイパーパラメータ探索時間が短くなる．
+    answer: false
+    feedback:
+      true: ベイズ最適化は高価な 1 評価を賢く選びますが，評価自体が安価なら必ずしも速くなりません．
+      false: 正解です．問題の次元・コストにより適切な探索法を選ぶ必要があります．
+
+  - rubric: 事例ベース vs. パラメトリックの違いを区別できる．
+    type: multichoice
+    title: 005-01-kNNと線形モデル
+    question: |
+      次のうち，ノンパラメトリックモデルの典型例として最も適切なのはどれか．
+    choices:
+      A: k-最近傍法 (k-NN)
+      B: 1 次多項式回帰
+      C: 1 層パーセプトロン
+      D: ロジスティック回帰
+    answer: A
+    feedback:
+      A: 正解．パラメータを持たず訓練データを直接保持します．&#8203;:contentReference[oaicite:6]{index=6}&#8203;:contentReference[oaicite:7]{index=7}
+      B-D: いずれもパラメータ数が固定のパラメトリックモデルです．
+
+  - rubric: k の大きさとバイアス・バリアンスの関係を理解している．
+    type: multichoice
+    title: 005-02-kの影響
+    question: |
+      k-NN で k を大きくしたときに起こりやすい現象はどれか．
+    choices:
+      A: 高バリアンス・低バイアス
+      B: 低バリアンス・高バイアス
+      C: バリアンスもバイアスも低下
+      D: 予測不能
+    answer: B
+    feedback:
+      A: k が小さい場合です．
+      B: 正解．多数決が平滑化しバリアンスが下がる一方でバイアスが増えます．&#8203;:contentReference[oaicite:8]{index=8}&#8203;:contentReference[oaicite:9]{index=9}
+      C: 同時に下がることは通常ありません．
+      D: 不正解．
+
+  - rubric: 帰納バイアスの具体例を選べる．
+    type: multichoice
+    title: 006-02-帰納バイアスの例
+    question: |
+      次のうち，**帰納バイアスの具体例**として最も適切なのはどれか．
+    choices:
+      A: データをシャッフルする．
+      B: ニューラルネットに畳み込み層を入れて平行移動不変性を取り入れる．
+      C: GPU で学習を高速化する．
+      D: モデルの出力を丸め込んで整数化する．
+    answer: B
+    feedback:
+      A: シャッフルは i.i.d. 仮定を満たす前処理です．
+      B: 正解．画像には平行移動不変性があるという事前知識を組み込みます．&#8203;:contentReference[oaicite:12]{index=12}&#8203;:contentReference[oaicite:13]{index=13}
+      C: 計算資源の話であり帰納バイアスとは無関係．
+      D: 出力形式の話です．
+
+  - rubric: 学生同士の議論を通じて検証分割を理解している．
+    type: multichoice
+    title: 002-04-学生の会話‐取り置きか交差検証か
+    question: |
+      4 人の学生がモデル評価方法について議論している．**正しい発言**をしているのは誰か．
+      ---
+      Aさん「交差検証は検証セットを 1 回しか使わないホールドアウトの特別版だよ」
+      Bさん「取り置き法はランダム分割だけを指し，時系列分割は含まれない」
+      Cさん「交差検証では訓練データの一部が毎回検証に回るのでデータ効率が高い」
+      Dさん「検証データはハイパーパラメータを選び終わった後にだけ使うべきだ」
+    choices:
+      A: Aさん
+      B: Bさん
+      C: Cさん
+      D: Dさん
+    answer: C
+    feedback:
+      A: 「1 回しか使わない」は誤り．k 回学習を回します．
+      B: 取り置き法には時系列 split も含まれます．
+      C: 正解です．複数分割でデータ利用効率が向上します．&#8203;:contentReference[oaicite:14]{index=14}&#8203;:contentReference[oaicite:15]{index=15}
+      D: 検証データは**選択のとき**に使います．
+
+  - rubric: ベイズ最適予測器と 1-NN の誤差上限を把握している．
+    type: truefalse
+    title: 005-03-1NNの誤差限界
+    question: |
+      理想的な条件下では，1-最近傍分類器の誤分類率は Bayes 最適分類器の誤分類率の 2 倍以下に収束する．
+    answer: true
+    feedback:
+      true: 正解．Cover & Hart (1967) の結果です．&#8203;:contentReference[oaicite:16]{index=16}&#8203;:contentReference[oaicite:17]{index=17}
+      false: 理論上 2 倍が上界です．
+
+  - rubric: ロジスティック回帰のシグモイド出力を理解している．
+    type: multichoice
+    title: 004-01-シグモイド関数の役割
+    question: |
+      ロジスティック回帰で線形結合 \(z\) を \(\sigma(z)=1/(1+e^{-z})\) に通す主な理由はどれか．
+    choices:
+      A: 勾配消失を避けるため．
+      B: 出力を確率値 \([0,1]\) に写像するため．
+      C: 訓練時間を短縮するため．
+      D: 過学習を完全に防止するため．
+    answer: B
+    feedback:
+      B: 正解．確率的二値分類に適した出力域を得ます．&#8203;:contentReference[oaicite:18]{index=18}&#8203;:contentReference[oaicite:19]{index=19}
+
+  - rubric: パラメータ更新と勾配降下法の理解を確認．
+    type: truefalse
+    title: 004-02-勾配降下の方向
+    question: |
+      勾配降下法では，パラメータを誤差関数の勾配**と同じ向き**に小さく更新する．
+    answer: false
+    feedback:
+      true: その方向は最急上昇です．
+      false: 正解．最小化には勾配の**反対方向**へ更新します．&#8203;:contentReference[oaicite:20]{index=20}&#8203;:contentReference[oaicite:21]{index=21}
+
+  - rubric: 畳み込み層が帰納バイアスとして機能することを理解している．
+    type: multichoice
+    title: 010-01-CNNの帰納バイアス
+    question: |
+      畳み込みニューラルネット (CNN) が画像タスクで有利に働く主因として**最も適切**なのはどれか．
+    choices:
+      A: パラメータが全層で共有されず自由度が高いから．
+      B: 画像の平行移動不変性を重み共有で組み込んでいるから．
+      C: 活性化関数に ReLU を使うから．
+      D: GPU で速く計算できるから．
+    answer: B
+    feedback:
+      B: 正解．平行移動不変性は強力な帰納バイアスです．&#8203;:contentReference[oaicite:22]{index=22}&#8203;:contentReference[oaicite:23]{index=23}
+
+  - rubric: 正則化と過学習の関係を説明できる．
+    type: multichoice
+    title: 003-03-過学習対策
+    question: |
+      過学習を**直接**抑制する方法として最も関連深いものはどれか．
+    choices:
+      A: 大きなモデルを使う．
+      B: データ拡張を行う．
+      C: 正則化項を追加する．
+      D: ミニバッチサイズを大きくする．
+    answer: C
+    feedback:
+      C: 正解．パラメータの自由度を実質的に制限します．&#8203;:contentReference[oaicite:24]{index=24}&#8203;:contentReference[oaicite:25]{index=25}
+
+  - rubric: 交差エントロピー損失の意味を理解している．
+    type: truefalse
+    title: 004-03-交差エントロピーの最小化
+    question: |
+      2 クラス分類で交差エントロピー損失を最小化すると，事後確率 \(p(y=1|x)\) を直接近似することになる．
+    answer: true
+    feedback:
+      true: 正解．最小化の極限でモデル出力は真の事後確率に一致します．&#8203;:contentReference[oaicite:26]{index=26}&#8203;:contentReference[oaicite:27]{index=27}
+      false: 交差エントロピーは確率分布間の距離を測るための指標です．
+
+  - rubric: カーネル線形モデルの形を説明できる．
+    type: multichoice
+    title: 012-01-カーネル線形モデル
+    question: |
+      ガウスカーネル \(K(x,x')=\exp\!\bigl(-\|x-x'\|^2/2h^2\bigr)\) を用いたカーネル線形モデルの**出力**はどの形になるか．
+    choices:
+      A: \(w^\top x + b\)
+      B: \(\sum_{j=1}^n \alpha_j K(x,x_j)\)
+      C: \( \sigma(w^\top x) \)
+      D: \( wx^2 + bx + c \)
+    answer: B
+    feedback:
+      B: 正解．訓練点ごとの線形結合として表現されます．&#8203;:contentReference[oaicite:28]{index=28}&#8203;:contentReference[oaicite:29]{index=29}
+
+  - rubric: k 分割 CV と検証データの使い分けを理解している．
+    type: truefalse
+    title: 002-05-評価セット再利用
+    question: |
+      交差検証でハイパーパラメータを選んだ後，
+      同じ交差検証の結果を「最終モデル性能」として報告しても問題ない．
+    answer: false
+    feedback:
+      true: ハイパーパラメータ選択に用いた値は**楽観バイアス**を含む恐れがあります．
+      false: 正解．最終報告には選択に使わなかった**独立のテストセット**を用いるべきです．&#8203;:contentReference[oaicite:30]{index=30}&#8203;:contentReference[oaicite:31]{index=31}
+
+  - rubric: λ とモデル複雑度のトレードオフを定量的に理解している．
+    type: multichoice
+    title: 003-04-λ最適値を選ぶ
+    question: |
+      訓練データ 1000\,件，検証データ 200\,件で L2 正則化係数 λ を
+      \(\{0, 0.01, 0.1, 1, 10\}\) についてグリッドサーチした結果，
+      検証 MSE が最小だったのは λ=0.1 であった．
+      **テストデータに対して**期待される傾向として妥当なのはどれか．
+    choices:
+      A: λ=0 で最小テスト誤差が得られる．
+      B: λ=0.1 付近で最小テスト誤差が得られる可能性が高い．
+      C: λ=10 で必ずテスト誤差が最小になる．
+      D: λ を変えてもテスト誤差は同じ．
+    answer: B
+    feedback:
+      B: 正解．検証セットは汎化性能の近似として機能します．&#8203;:contentReference[oaicite:32]{index=32}&#8203;:contentReference[oaicite:33]{index=33}
+      A,C,D: 検証結果を無視した選択はリスクが高いです．
+
+- rubric: 経験リスクと経験リスク最小化 (ERM) の定義を理解している
+  type: multichoice
+  title: 003-01-ERMとは何か
+  question: |
+    回帰タスクにおいて，経験リスク最小化（ERM）が最小化しようとする量はどれか。
+    \( n \) 個の訓練標本 \(\{(x_i,y_i)\}_{i=1}^n\) が与えられている。
+  choices:
+    A: 真のリスク \( R(f) = \mathbb{E}[(Y-f(X))^2] \)
+    B: 経験リスク \( \hat R(f) = \frac1n\sum_{i=1}^n (y_i-f(x_i))^2 \)
+    C: パラメータノルム \( \lVert\theta\rVert_2^2 \)
+    D: 情報量規準 AIC
+  answer: B
+  feedback:
+    A: 真のリスクは未知で直接最小化できません．
+    B: 正解です．ERM は訓練標本上の平均損失（経験リスク）を最小化します．
+    C: これは L2 正則化項の一例です．
+    D: AIC は情報量規準であり ERM とは別概念です．
+
+- rubric: 多変量最適化における一階条件を理解している
+  type: truefalse
+  title: 003-02-勾配ゼロ条件
+  question: |
+    制約のない最適化問題 \(\min_{\phi\in\mathbb{R}^d} L(\phi)\) では，
+    最適解は必ず \(\nabla L(\phi)=0\) を満たす．
+  answer: true
+  feedback:
+    true: 正解です．局所極値の必要条件として勾配ゼロが成立します．
+    false: 制約がない場合，必要条件が崩れることはありません．
+
+- rubric: L2 正則化係数の役割を定性的に説明できる
+  type: multichoice
+  title: 003-03-正則化強度の効果
+  question: |
+    線形回帰で L2 正則化係数 \( \alpha \) を極端に大きくすると，学習済み
+    予測器 \( f_{\hat w,\hat b}(x)=\hat w x + \hat b \) はどのような形に近づくか。
+  choices:
+    A: 斜率が大きい急峻な直線
+    B: 原点を通る直線
+    C: ほぼ水平な定数関数
+    D: 高次多項式
+  answer: C
+  feedback:
+    A: 斜率はむしろ 0 に近づきます．
+    B: \(\hat b\) も 0 に近づくため原点は通りますが傾きも消えます．
+    C: 正解です．パラメータがゼロに収束し定数関数となります．
+    D: 正則化はモデルを単純化し高次多項式にはしません．
+
+- rubric: 検証データ分割の意義を説明できる
+  type: multichoice
+  title: 003-04-検証データの役割
+  question: |
+    検証 (validation) データを訓練に用いない主目的はどれか。
+  choices:
+    A: 訓練時間を短縮するため
+    B: 未知データでの汎化性能を近似的に測るため
+    C: パラメータ更新を高速化するため
+    D: 損失関数を変更するためのデータを確保するため
+  answer: B
+  feedback:
+    A: データを減らせば訓練は速くなりますが主目的ではありません．
+    B: 正解です．モデル選択時に過適合を防ぎ汎化性能を推定します．
+    C: 検証は最適化アルゴリズムの速度と直接関係しません．
+    D: 検証データは損失関数そのものを変えるために使いません．
+
+- rubric: K 分割交差検証とホールドアウトの比較を理解している
+  type: truefalse
+  title: 003-05-K分割交差検証の利点
+  question: |
+    データ量が非常に多い場合は，K 分割交差検証よりも単純な
+    ホールドアウト法（1 回の分割）の方が実務上よく採用される．
+  answer: true
+  feedback:
+    true: 正解です．大規模データではホールドアウトでも推定誤差が十分小さく，計算コストが低い利点があります．
+    false: K 分割交差検証は計算コストが増大し不要に複雑になる場合があります．
+
+- rubric: ハイパーパラメーター探索法の違いを区別できる
+  type: multichoice
+  title: 003-06-グリッドvsランダム
+  question: |
+    5 個のハイパーパラメーターを各 8 水準で調整する場合，
+    総当たりグリッドサーチよりもランダムサーチが望ましい
+    主な理由はどれか。
+  choices:
+    A: ランダムサーチは常に最適解を保証する
+    B: グリッドサーチは連続値パラメーターを扱えない
+    C: ランダムサーチは探索点が少なくても高次元空間を均等に被覆しやすい
+    D: グリッドサーチは並列計算ができない
+  answer: C
+  feedback:
+    A: 最適解の保証はありません．
+    B: グリッドでも離散化すれば扱えます．
+    C: 正解です．高次元では重要な軸だけを効果的に探索できます．
+    D: どちらも並列化は可能です．
+
+- rubric: ベイズ最適化の考え方を理解している
+  type: multichoice
+  title: 003-07-ベイズ最適化の本質
+  question: |
+    ベイズ最適化によるハイパーパラメーター探索の特徴はどれか。
+  choices:
+    A: 既知の解析解を直接計算する
+    B: 目的関数の分布を事後確率でモデル化し，獲得関数で探索点を決める
+    C: 目的関数を勾配降下法で最適化する
+    D: 乱数のみでサンプリングする
+  answer: B
+  feedback:
+    A: ハイパーパラメーター最適化に解析解は通常存在しません．
+    B: 正解です．ガウス過程などを用いて目的関数を確率モデル化します．
+    C: 目的関数はブラックボックスで勾配が取れない前提です．
+    D: 乱数は使いますが獲得関数で指導されます．
+
+- rubric: 特徴写像により多項式回帰を線形モデルで表せる理由を説明できる
+  type: truefalse
+  title: 003-08-多項式は線形モデル
+  question: |
+    適切な特徴写像 \( \theta(x)=(1,x,x^2,\dots,x^r)^\top \) を用いれば，
+    \(r\) 次多項式回帰は線形モデルとして学習できる。
+  answer: true
+  feedback:
+    true: 正解です．パラメータが写像に対して線形だからです．
+    false: 非線形性は入力空間での形状であり重みとの関係は線形です．
+
+- rubric: 過適合の概念を定義できる
+  type: multichoice
+  title: 003-09-過適合の兆候
+  question: |
+    次のうち「過適合したモデル」の典型的な挙動はどれか。
+  choices:
+    A: 訓練損失も検証損失も共に大きい
+    B: 訓練損失が小さく検証損失が大きい
+    C: 訓練損失が大きく検証損失が小さい
+    D: 訓練損失と検証損失がともに小さい
+  answer: B
+  feedback:
+    A: モデルが単純すぎる可能性があります（アンダーフィット）．
+    B: 正解です．訓練に合わせすぎ未知データで性能が落ちています．
+    C: あり得ない組み合わせです．
+    D: 十分に汎化できている理想的な状態です．
+
+- rubric: Hold-out と時系列分割の違いを理解している
+  type: multichoice
+  title: 003-10-時系列分割
+  question: |
+    時系列データで検証用データを確保する際に
+    「最新 1 か月を評価用，その前の 1 か月を検証用」とする分割を選ぶ
+    主な理由はどれか。
+  choices:
+    A: データを均等にシャッフルしているから
+    B: 将来予測の現場と同じ時系列順序の外挿を評価したいから
+    C: 訓練データを最大化できるから
+    D: 交差検証が計算できないから
+  answer: B
+  feedback:
+    A: シャッフルは行いません．
+    B: 正解です．時間依存性を保ち未来データでの汎化性能を推定します．
+    C: 分割比率次第で訓練量は増減しますが主目的ではありません．
+    D: 時系列でも工夫すれば交差検証は可能です（rolling-window など）．
+
+- rubric: 学生同士の議論を通して帰納バイアスの例を識別できる
+  type: multichoice
+  title: 003-11-帰納バイアスとは？
+  question: |
+    3 人の学生がモデルの良さについて議論しています。正しい説明は誰でしょう？
+    ---
+    Aさん「帰納バイアスとは，モデルが自動的にパラメータを更新する速さのことだよ。」
+    Bさん「帰納バイアスとは，『どのような仮説を好むか』という学習手法の先入観だよ。」
+    Cさん「帰納バイアスとは，検証データを分割する個数のことを指すんだ。」
+    Dさん「帰納バイアスとは，訓練損失をゼロにする能力のことだと思う。」
+  choices:
+    A: Aさん
+    B: Bさん
+    C: Cさん
+    D: Dさん
+  answer: B
+  feedback:
+    A: 更新速度は最適化のハイパーパラメーターです．
+    B: 正解です．帰納バイアスは仮説空間内での好み（偏り）を指します．
+    C: 分割数は交差検証の設定です．
+    D: 損失ゼロは能力でありバイアスではありません．
+
+- rubric: No-Free-Lunch 定理の含意を説明できる
+  type: truefalse
+  title: 003-12-万能学習器は存在しない
+  question: |
+    ノーフリーランチ定理によれば，あらゆる問題で常に他より
+    高い汎化性能を示す単一の機械学習アルゴリズムは存在しない。
+  answer: true
+  feedback:
+    true: 正解です．定理は「無料の昼食はない」，すなわち
+      事前知識なしに普遍的に優れる手法はないと述べます．
+    false: そのようなアルゴリズムが存在するなら定理に反します．
+
+- rubric: 正則化付き最小二乗法の解析解を概念的に理解している
+  type: truefalse
+  title: 003-14-解析解の存在
+  question: |
+    線形モデルに L2 正則化を加えた場合でも，
+    正則化付き最小二乗問題には
+    解析解（閉形式解）が存在する。
+  answer: true
+  feedback:
+    true: 正解です．\((\Phi^\top\Phi+\alpha I)^{-1}\Phi^\top y\) で求まります．
+    false: 勾配法に頼らず行列計算で一括解が得られます．
+
+- rubric: 検証曲線 (validation curve) の読み方を理解している
+  type: multichoice
+  title: 003-15-検証曲線の最小点
+  question: |
+    正則化係数 \( \alpha \) を横軸，検証損失を縦軸に
+    プロットした検証曲線の最小点が示すものは何か。
+  choices:
+    A: テストデータで最小となることを保証する \(\alpha\)
+    B: 検証データで最も良い性能を出した \(\alpha\)
+    C: 損失関数を変更すべき点
+    D: 学習率を調整すべき点
+  answer: B
+  feedback:
+    A: テスト性能は保証されませんが近似します．
+    B: 正解です．検証セットでの最良ハイパーパラメーターです．
+    C: 損失関数変更とは無関係です．
+    D: 学習率は最適化の別パラメーターです．
+
+- rubric: 高次元多項式の特徴数を計算できる
+  type: multichoice
+  title: 003-16-多項式特徴次元
+  question: |
+    \(d\) 変数 \(s\) 次多項式の全特徴数は次のどれか。
+  choices:
+    A: \(\displaystyle {d+s \choose s}\)
+    B: \(\displaystyle d^s\)
+    C: \(\displaystyle (d+s)!\)
+    D: \(\displaystyle s^d\)
+  answer: A
+  feedback:
+    A: 正解です．重複組合せの公式です．
+    B: 直積の場合の個数です．
+    C: 階乗は無関係です．
+    D: 変数と次数が逆です．
+
+- rubric: カーネル法で次元爆発を回避できる理由を理解している
+  type: truefalse
+  title: 003-17-カーネルトリック
+  question: |
+    カーネル法を用いれば，明示的に高次元特徴を作成せずとも
+    内積を計算するだけで高次元線形モデルと同等の効果が得られる。
+  answer: true
+  feedback:
+    true: 正解です．カーネルトリックにより計算量を抑えられます．
+    false: カーネル法の本質は「計算を特徴空間で暗黙に行う」点です．
+
+- rubric: ハイパーパラメーター最適化を
+    「最外層の最適化問題」と捉えられる
+  type: multichoice
+  title: 003-18-二段最適化
+  question: |
+    ハイパーパラメーター選択は数式的に次のどの形で表現できるか。
+    ただし \(\mathrm{Criterion}(\lambda)\) は
+    ハイパーパラメーター \(\lambda\) で学習・検証して得た指標とする。
+  choices:
+    A: \(\displaystyle \min_\theta \mathrm{Criterion}(\theta)\)
+    B: \(\displaystyle \min_\lambda \mathrm{Criterion}(\lambda)\)
+    C: \(\displaystyle \max_\lambda \mathrm{Criterion}(\lambda)\)
+    D: 解析解が存在し最適化は不要
+  answer: B
+  feedback:
+    A: \(\theta\) はモデルパラメータです．
+    B: 正解です．外側で \(\lambda\) を最適化します．
+    C: ここでは指標が小さいほど良いと設定しています．
+    D: ブラックボックスで解析解はありません．
+
+- rubric: 経験リスク最小化の限界を議論できる（学生会話）
+  type: multichoice
+  title: 003-19-ERMの限界を語る学生たち
+  question: |
+    以下の会話で，ERM の役割を最も正確に説明しているのは誰か。
+    ---
+    Aさん「すべての予測タスクは結局 ERM で解けるんだよ。」
+    Bさん「ERM は一つの方法論だけど，過適合などの課題が残るから
+            正則化や別の基準が併用されることも多いよ。」
+    Cさん「ERM では損失を最小化するので，ハイパーパラメーターは不要だよ。」
+    Dさん「ERM を使えば未知データでのリスクを直接計算できるんだ。」
+  choices:
+    A: Aさん
+    B: Bさん
+    C: Cさん
+    D: Dさん
+  answer: B
+  feedback:
+    A: 万能ではありません．
+    B: 正解です．ERM の位置づけと限界を指摘しています．
+    C: ハイパーパラメーターはモデルや正則化で必要です．
+    D: リスクは未知分布の期待値で直接計算できません．
+
+- rubric: モデル自由度と過適合の関係を理解している
+  type: truefalse
+  title: 003-20-モデル自由度と過適合
+  question: |
+    モデルの自由度が高いほど過適合のリスクは一般に大きくなる。
+  answer: true
+  feedback:
+    true: 正解です．自由度が高いと訓練データに合わせすぎやすいです．
+    false: 自由度が低いほどリスクが小さくなるとは限りませんが，
+      自由度が高いと過適合しやすいのは一般的傾向です．

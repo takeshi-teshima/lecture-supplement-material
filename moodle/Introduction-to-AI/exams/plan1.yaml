@@ -1,0 +1,18 @@
+Quizzes:
+  - rubric: Rolling-window方式の検証方法のアイデアを持っている
+    type: multichoice
+    title: 時系列分割
+    question: |
+      次の中で最も適切だと考えられるモデル選択規準はどれか．
+      ただし，計算時間などは無尽蔵にあると仮定する．
+    choices:
+      A: 「最新 1 か月を評価用，その前の 1 か月を検証用」とする分割
+      B: (Rolling-window方式)
+      C:
+      D:
+    answer:
+    feedback:
+      A:
+      B:
+      C:
+      D:
