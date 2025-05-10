@@ -1,0 +1,372 @@
+Quizzes:
+  - rubric: 分類タスクの定義
+    type: multichoice
+    title: 004-01-分類タスクとは
+    question: |
+      分類タスクとはどのような予測タスクか？
+    choices:
+      A: 連続的な数値の予測を行う
+      B: 離散的な質的カテゴリーを予測する
+      C: モデルのパラメーターを推定する
+      D: データをランダムに分ける
+    answer: B
+    feedback:
+      A: これは回帰タスクです。
+      B: 正解です。
+      C: それは分類タスク自体の定義ではありません。
+      D: それは分類タスクではありません。
+
+  - rubric: 0/1損失関数の特徴
+    type: truefalse
+    title: 004-03-0/1損失と微分
+    question: |
+      0/1損失関数は微分ができない損失関数である。
+    answer: true
+    feedback:
+      true: 正解です。
+      false: 微分はできません。
+
+  - rubric: 分類タスクのモデル特性
+    type: multichoice
+    title: 004-04-モデルの出力特性
+    question: |
+      分類タスクのモデルはどのような出力を扱うか？
+    choices:
+      A: 常に数値出力
+      B: 連続値のみ
+      C: 離散的な質的ラベル
+      D: 常に線型
+    answer: C
+    feedback:
+      A: 数値出力に限定されません。
+      B: 連続値は回帰の特徴です。
+      C: 正解です。
+      D: 線型とは限りません。
+
+  - rubric: 決定論的分類の特徴
+    type: truefalse
+    title: 004-05-決定論的分類の目標
+    question: |
+      決定論的分類は直接リスクの最小化を狙う。
+    answer: true
+    feedback:
+      true: 正解です。
+      false: 決定論的分類は直接リスク最小化を狙います。
+
+  - rubric: ベイズ分類器の理解
+    type: truefalse
+    title: 004-07-ベイズ分類器
+    question: |
+      ベイズ分類器はクラス事後確率が最大のクラスを選択する。
+    answer: true
+    feedback:
+      true: 正解です。
+      false: クラス事後確率が最大のクラスを選びます。
+
+  - rubric: KLダイバージェンス理解
+    type: multichoice
+    title: 004-08-KLダイバージェンスと交差エントロピー
+    question: |
+      KLダイバージェンスと交差エントロピーの関係は？
+    choices:
+      A: 無関係
+      B: 同じもの
+      C: 交差エントロピーがKLダイバージェンスの一部
+      D: KLダイバージェンスが交差エントロピーの一部
+    answer: C
+    feedback:
+      A: 無関係ではありません。
+      B: 完全に同じではありません。
+      C: 正解です。
+      D: 逆です。
+
+  - rubric: ロジスティック関数の特性
+    type: truefalse
+    title: 004-09-ロジスティック関数
+    question: |
+      ロジスティック関数は実数を確率値に変換する。
+    answer: true
+    feedback:
+      true: 正解です。
+      false: 確率値に変換します。
+
+  - rubric: 勾配降下法の基礎
+    type: truefalse
+    title: 004-10-勾配降下法の更新方向
+    question: |
+      勾配降下法は勾配の反対方向へパラメーターを更新する。
+    answer: true
+    feedback:
+      true: 正解です。
+      false: 勾配の反対方向へ更新します。
+
+  - rubric: 勾配降下法における学習率の役割理解
+    type: multichoice
+    title: 004-11-学習率の役割
+    question: |
+      勾配降下法で用いられる学習率の役割は？
+    choices:
+      A: 勾配の方向を決める
+      B: 更新幅の大きさを調整する
+      C: 更新回数を決める
+      D: 更新の停止を決める
+    answer: B
+    feedback:
+      A: 勾配自体が方向を決めます。
+      B: 正解です。
+      C: 更新回数は別のハイパーパラメーターです。
+      D: 停止条件とは異なります。
+
+  - rubric: 重み減衰の意味を理解している
+    type: truefalse
+    title: 004-12-重み減衰の効果
+    question: |
+      重み減衰（L2正則化）はパラメーターを小さくする効果がある。
+    answer: true
+    feedback:
+      true: 正解です。
+      false: パラメーターを小さくするのが重み減衰です。
+
+  - rubric: ロジスティック回帰の定義を理解している
+    type: truefalse
+    title: 004-13-ロジスティック回帰の目的
+    question: |
+      ロジスティック回帰は分類タスクに用いられる。
+    answer: true
+    feedback:
+      true: 正解です。
+      false: 分類タスクで使われます。
+
+  - rubric: 最尤法で使われる目的関数を理解している
+    type: multichoice
+    title: 004-14-最尤法の目的関数
+    question: |
+      最尤法での目的関数は以下のどれか？
+    choices:
+      A: 平均二乗誤差
+      B: 負の対数尤度
+      C: 0/1損失
+      D: ピンボール損失
+    answer: B
+    feedback:
+      A: これは回帰タスクの損失です。
+      B: 正解です。
+      C: 分類の基本的な損失関数ですが、最尤法ではありません。
+      D: 分位点回帰用です。
+
+  - rubric: KLダイバージェンスの性質理解
+    type: truefalse
+    title: 004-15-KLダイバージェンスの値
+    question: |
+      KLダイバージェンスの値は0以上である。
+    answer: true
+    feedback:
+      true: 正解です。
+      false: KLダイバージェンスは0以上です。
+
+  - rubric: KLダイバージェンスが0となる条件の理解
+    type: multichoice
+    title: 004-16-KLダイバージェンスの最小値
+    question: |
+      KLダイバージェンスが0となる条件は？
+    choices:
+      A: 分布が異なる場合
+      B: 分布が完全に一致する場合
+      C: 分布が似ている場合
+      D: ランダムな場合
+    answer: B
+    feedback:
+      A: 異なる場合は0になりません。
+      B: 正解です。
+      C: 似ているだけでは0になりません。
+      D: ランダムとは無関係です。
+
+  - rubric: ロジスティック関数の勾配計算
+    type: truefalse
+    title: 004-17-ロジスティック関数の勾配
+    question: |
+      ロジスティック関数の勾配は、関数の出力値に依存する。
+    answer: true
+    feedback:
+      true: 正解です。
+      false: 勾配は出力値に依存します。
+
+  - rubric: 最適化問題における勾配の意味を理解している
+    type: multichoice
+    title: 004-18-勾配の方向性
+    question: |
+      勾配は関数値がどの方向へ向かうことを示しているか？
+    choices:
+      A: 最も減少する方向
+      B: 最も増加する方向
+      C: 常に横方向
+      D: 常にゼロ方向
+    answer: B
+    feedback:
+      A: 反対方向です。
+      B: 正解です。
+      C: 横方向とは限りません。
+      D: ゼロとは限りません。
+
+  - rubric: 早期停止の意味理解
+    type: truefalse
+    title: 004-19-早期停止の目的
+    question: |
+      早期停止は過適合の防止に役立つ。
+    answer: true
+    feedback:
+      true: 正解です。
+      false: 過適合防止が目的です。
+
+  - rubric: 勾配降下法のパラメーター更新規則の理解
+    type: truefalse
+    title: 004-20-勾配降下法の更新規則
+    question: |
+      勾配降下法ではパラメーターを常に一定の方向に更新する。
+    answer: false
+    feedback:
+      true: 誤りです。方向は勾配により変わります。
+      false: 正解です。勾配方向で変わります。
+
+  - rubric: 勾配降下法の初期化方法の理解
+    type: multichoice
+    title: 004-21-勾配法の初期化
+    question: |
+      勾配降下法の初期化として一般的なのは？
+    choices:
+      A: 常に0で初期化
+      B: ランダムな値で初期化
+      C: 常に1で初期化
+      D: 勾配で初期化
+    answer: B
+    feedback:
+      A: 常に0とは限りません。
+      B: 正解です。
+      C: 常に1とは限りません。
+      D: 勾配で初期化はしません。
+
+  - rubric: 条件付き確率の重要性の理解
+    type: truefalse
+    title: 004-22-分類における条件付き確率
+    question: |
+      分類問題で条件付き確率をモデル化するのは重要である。
+    answer: true
+    feedback:
+      true: 正解です。
+      false: 分類で条件付き確率は重要です。
+
+
+  - rubric: 代理損失の役割理解
+    type: truefalse
+    title: 004-24-代理損失の目的
+    question: |
+      分類において代理損失を使うのは最適化を簡単にするためである。
+    answer: true
+    feedback:
+      true: 正解です。
+      false: 最適化を簡単にするためです。
+
+  - rubric: ロジスティックモデルの最尤推定の理解
+    type: truefalse
+    title: 004-25-ロジスティックモデルの推定法
+    question: |
+      ロジスティックモデルのパラメータ推定には最尤法がよく用いられる。
+    answer: true
+    feedback:
+      true: 正解です。最尤法が標準的です。
+      false: 実際には最尤法がよく用いられます。
+
+  - rubric: 最適化における明示的解の理解
+    type: truefalse
+    title: 004-26-最適解の明示的存在
+    question: |
+      ロジスティック回帰の最適解は明示的に導出可能である。
+    answer: false
+    feedback:
+      true: 誤りです。ロジスティック回帰の解は明示的には得られません。
+      false: 正解です。数値的手法で解を求めます。
+
+  - rubric: KLダイバージェンスの非対称性理解
+    type: multichoice
+    title: 004-27-KLダイバージェンスの対称性
+    question: |
+      KLダイバージェンスについて正しい記述はどれか？
+    choices:
+      A: 対称な量である
+      B: 非対称な量である
+      C: 常にゼロである
+      D: 負の値を取ることがある
+    answer: B
+    feedback:
+      A: 対称ではありません。
+      B: 正解です。
+      C: ゼロとは限りません。
+      D: 負の値は取りません。
+
+  - rubric: 勾配降下法の停止基準の理解
+    type: multichoice
+    title: 004-28-勾配法の停止条件
+    question: |
+      勾配降下法の停止基準に該当しないものはどれか？
+    choices:
+      A: 最大更新回数
+      B: 勾配の大きさが小さい
+      C: 検証データの性能改善停止
+      D: パラメータのランダム変動
+    answer: D
+    feedback:
+      A: これはよくある停止基準です。
+      B: 勾配の大きさはよく使われます。
+      C: 早期停止で一般的です。
+      D: 正解です。これは停止基準になりません。
+
+  - rubric: ロジスティック関数の用途の理解
+    type: multichoice
+    title: 004-29-ロジスティック関数の用途
+    question: |
+      ロジスティック関数が分類モデルでよく使われる理由は？
+    choices:
+      A: 計算が簡単になるため
+      B: 出力が確率値になるため
+      C: 常に線形な出力を得るため
+      D: 損失関数を使わずに済むため
+    answer: B
+    feedback:
+      A: 計算簡便さが主な理由ではありません。
+      B: 正解です。
+      C: 線形に限定されません。
+      D: 損失関数は依然として必要です。
+
+  - rubric: 条件付き確率のモデル化方法理解
+    type: multichoice
+    title: 004-30-条件付き確率のモデル化
+    question: |
+      分類において条件付き確率をモデル化するために使われる主な損失関数はどれか？
+    choices:
+      A: 平均二乗誤差
+      B: 絶対誤差
+      C: 交差エントロピー損失
+      D: ピンボール損失
+    answer: C
+    feedback:
+      A: 回帰タスクの損失です。
+      B: これは中央値の推定です。
+      C: 正解です。
+      D: 分位点回帰用の損失です。
+
+  - rubric: 分位点回帰のための近似ターゲット概念
+    type: multichoice
+    title: 004-32-分位点回帰の近似ターゲットの理解
+    question: |
+      分位点回帰で特定の分位点（例：90%分位点）を近似ターゲットとして設定した場合、そのターゲットとなる関数の性質として適切な説明を選びなさい。
+    choices:
+      A: データ分布の外れ値の影響を強く受けるため、外れ値に対して敏感である。
+      B: 特定の分位点より大きな値をとるデータの割合が、その分位点を基準として固定されるような関数である。
+      C: データの期待値を最適に近似するため、平均的な予測に最適な関数である。
+      D: データ点の絶対誤差を最小化することを目的とした関数である。
+    answer: B
+    feedback:
+      A: 条件付き分位点は外れ値の影響を受けにくい性質があります。
+      B: 正解です。分位点回帰のターゲット関数は、定義された分位点以上の割合が固定される性質を持ちます。
+      C: 平均値は期待値回帰のターゲットであり、分位点回帰とは異なります。
+      D: 絶対誤差の最小化は中央値回帰（特別な分位点回帰）に限定されますが、一般的な分位点回帰の性質とは異なります。
