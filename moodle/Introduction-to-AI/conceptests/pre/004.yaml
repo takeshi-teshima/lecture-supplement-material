@@ -286,23 +286,6 @@ Quizzes:
       true: 誤りです。ロジスティック回帰の解は明示的には得られません。
       false: 正解です。数値的手法で解を求めます。
 
-  - rubric: KLダイバージェンスの非対称性理解
-    type: multichoice
-    title: 004-27-KLダイバージェンスの対称性
-    question: |
-      KLダイバージェンスについて正しい記述はどれか？
-    choices:
-      A: 対称な量である
-      B: 非対称な量である
-      C: 常にゼロである
-      D: 負の値を取ることがある
-    answer: B
-    feedback:
-      A: 対称ではありません。
-      B: 正解です。
-      C: ゼロとは限りません。
-      D: 負の値は取りません。
-
   - rubric: 勾配降下法の停止基準の理解
     type: multichoice
     title: 004-28-勾配法の停止条件
