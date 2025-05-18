@@ -91,6 +91,24 @@
   file = {/Users/teshima/Zotero/storage/WWX5TXQF/Askell et al. - 2021 - A General Language Assistant as a Laboratory for A.pdf;/Users/teshima/Zotero/storage/5NULZLKU/2112.html}
 }
 
+@online{AumullerANNBenchmarks2018,
+  title = {{{ANN-Benchmarks}}: {{A}} benchmarking tool for approximate nearest neighbor algorithms},
+  shorttitle = {{{ANN-Benchmarks}}},
+  author = {Aumüller, Martin and Bernhardsson, Erik and Faithfull, Alexander},
+  date = {2018-07-17},
+  eprint = {1807.05614},
+  eprinttype = {arXiv},
+  eprintclass = {cs},
+  doi = {10.48550/arXiv.1807.05614},
+  url = {http://arxiv.org/abs/1807.05614},
+  urldate = {2025-05-12},
+  abstract = {This paper describes ANN-Benchmarks, a tool for evaluating the performance of in-memory approximate nearest neighbor algorithms. It provides a standard interface for measuring the performance and quality achieved by nearest neighbor algorithms on different standard data sets. It supports several different ways of integrating \$k\$-NN algorithms, and its configuration system automatically tests a range of parameter settings for each algorithm. Algorithms are compared with respect to many different (approximate) quality measures, and adding more is easy and fast; the included plotting front-ends can visualise these as images, \$\textbackslash LaTeX\$ plots, and websites with interactive plots. ANN-Benchmarks aims to provide a constantly updated overview of the current state of the art of \$k\$-NN algorithms. In the short term, this overview allows users to choose the correct \$k\$-NN algorithm and parameters for their similarity search task; in the longer term, algorithm designers will be able to use this overview to test and refine automatic parameter tuning. The paper gives an overview of the system, evaluates the results of the benchmark, and points out directions for future work. Interestingly, very different approaches to \$k\$-NN search yield comparable quality-performance trade-offs. The system is available at http://ann-benchmarks.com .},
+  pubstate = {prepublished},
+  keywords = {Computer Science - Databases,Computer Science - Information Retrieval},
+  note = {Comment: Full version of the SISAP 2017 conference paper. v2: Updated the abstract to avoid arXiv linking to the wrong URL},
+  file = {/Users/teshima/Zotero/storage/SWKVFRXK/Aumüller et al. - 2018 - ANN-Benchmarks A Benchmarking Tool for Approximat.pdf;/Users/teshima/Zotero/storage/IUGLQRIH/1807.html}
+}
+
 @article{AzevedoEqual2009,
   title = {Equal numbers of neuronal and nonneuronal cells make the human brain an isometrically scaled-up primate brain},
   author = {Azevedo, Frederico A.C. and Carvalho, Ludmila R.B. and Grinberg, Lea T. and Farfel, José Marcelo and Ferretti, Renata E.L. and Leite, Renata E.P. and Filho, Wilson Jacob and Lent, Roberto and Herculano-Houzel, Suzana},
@@ -882,6 +900,19 @@
   file = {/Users/teshima/Zotero/storage/GQ8EINYV/202305gotechtalk-230612001116-327fec7e.pdf}
 }
 
+@inproceedings{GuoCalibration2017,
+  title = {On calibration of modern neural networks},
+  booktitle = {Proceedings of the 34th {{International Conference}} on {{Machine Learning}} - {{Volume}} 70},
+  author = {Guo, Chuan and Pleiss, Geoff and Sun, Yu and Weinberger, Kilian Q.},
+  date = {2017-08-06},
+  series = {{{ICML}}'17},
+  pages = {1321--1330},
+  publisher = {JMLR.org},
+  location = {Sydney, NSW, Australia},
+  abstract = {Confidence calibration - the problem of predicting probability estimates representative of the true correctness likelihood - is important for classification models in many applications. We discover that modern neural networks, unlike those from a decade ago, are poorly calibrated. Through extensive experiments, we observe that depth, width, weight decay, and Batch Normalization are important factors influencing calibration. We evaluate the performance of various post-processing calibration methods on state-of-the-art architectures with image and document classification datasets. Our analysis and experiments not only offer insights into neural network learning, but also provide a simple and straightforward recipe for practical settings: on most datasets, temperature scaling - a single-parameter variant of Platt Scaling - is surprisingly effective at calibrating predictions.},
+  file = {/Users/teshima/Zotero/storage/QBGFQ4NL/Guo et al. - 2017 - On calibration of modern neural networks.pdf}
+}
+
 @article{HallGeometric2005,
   title = {Geometric representation of high dimension, low sample size data},
   author = {Hall, Peter and Marron, J. S. and Neeman, Amnon},
@@ -1405,6 +1436,23 @@
   location = {New York, N.Y.},
   pagetotal = {344},
   file = {/Users/teshima/Zotero/storage/6P3V9NKC/Luenberger - 1997 - Optimization by Vector Space Methods.pdf;/Users/teshima/Zotero/storage/LL9SS3BN/20170321-172229.pdf}
+}
+
+@online{MalkovEfficient2018,
+  title = {Efficient and robust approximate nearest neighbor search using {{Hierarchical Navigable Small World}} graphs},
+  author = {Malkov, Yu A. and Yashunin, D. A.},
+  date = {2018-08-14},
+  eprint = {1603.09320},
+  eprinttype = {arXiv},
+  eprintclass = {cs},
+  doi = {10.48550/arXiv.1603.09320},
+  url = {http://arxiv.org/abs/1603.09320},
+  urldate = {2025-05-12},
+  abstract = {We present a new approach for the approximate K-nearest neighbor search based on navigable small world graphs with controllable hierarchy (Hierarchical NSW, HNSW). The proposed solution is fully graph-based, without any need for additional search structures, which are typically used at the coarse search stage of the most proximity graph techniques. Hierarchical NSW incrementally builds a multi-layer structure consisting from hierarchical set of proximity graphs (layers) for nested subsets of the stored elements. The maximum layer in which an element is present is selected randomly with an exponentially decaying probability distribution. This allows producing graphs similar to the previously studied Navigable Small World (NSW) structures while additionally having the links separated by their characteristic distance scales. Starting search from the upper layer together with utilizing the scale separation boosts the performance compared to NSW and allows a logarithmic complexity scaling. Additional employment of a heuristic for selecting proximity graph neighbors significantly increases performance at high recall and in case of highly clustered data. Performance evaluation has demonstrated that the proposed general metric space search index is able to strongly outperform previous opensource state-of-the-art vector-only approaches. Similarity of the algorithm to the skip list structure allows straightforward balanced distributed implementation.},
+  pubstate = {prepublished},
+  keywords = {Computer Science - Computer Vision and Pattern Recognition,Computer Science - Data Structures and Algorithms,Computer Science - Information Retrieval,Computer Science - Social and Information Networks},
+  note = {Comment: 13 pages, 15 figures},
+  file = {/Users/teshima/Zotero/storage/NXBXF3CP/Malkov and Yashunin - 2018 - Efficient and robust approximate nearest neighbor .pdf;/Users/teshima/Zotero/storage/NIFP49E8/1603.html}
 }
 
 @book{MaManifold2011,
@@ -2653,6 +2701,23 @@ DOI: 10.1017/9781108627771},
   publisher = {近代科学社},
   isbn = {978-4-7649-0363-0},
   langid = {japanese}
+}
+
+@online{ZhangUnderstanding2017,
+  title = {Understanding deep learning requires rethinking generalization},
+  author = {Zhang, Chiyuan and Bengio, Samy and Hardt, Moritz and Recht, Benjamin and Vinyals, Oriol},
+  date = {2017-02-26},
+  eprint = {1611.03530},
+  eprinttype = {arXiv},
+  eprintclass = {cs},
+  doi = {10.48550/arXiv.1611.03530},
+  url = {http://arxiv.org/abs/1611.03530},
+  urldate = {2025-05-12},
+  abstract = {Despite their massive size, successful deep artificial neural networks can exhibit a remarkably small difference between training and test performance. Conventional wisdom attributes small generalization error either to properties of the model family, or to the regularization techniques used during training. Through extensive systematic experiments, we show how these traditional approaches fail to explain why large neural networks generalize well in practice. Specifically, our experiments establish that state-of-the-art convolutional networks for image classification trained with stochastic gradient methods easily fit a random labeling of the training data. This phenomenon is qualitatively unaffected by explicit regularization, and occurs even if we replace the true images by completely unstructured random noise. We corroborate these experimental findings with a theoretical construction showing that simple depth two neural networks already have perfect finite sample expressivity as soon as the number of parameters exceeds the number of data points as it usually does in practice. We interpret our experimental findings by comparison with traditional models.},
+  pubstate = {prepublished},
+  keywords = {Computer Science - Machine Learning},
+  note = {Comment: Published in ICLR 2017},
+  file = {/Users/teshima/Zotero/storage/8RH66GX5/Zhang et al. - 2017 - Understanding deep learning requires rethinking ge.pdf;/Users/teshima/Zotero/storage/MWIE69DF/1611.html}
 }
 
 @inproceedings{ZhengJudging2023b,

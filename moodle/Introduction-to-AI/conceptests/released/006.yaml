@@ -1,0 +1,27 @@
+Quizzes:
+  - rubric: Softmaxの関数形に慣れている
+    type: multichoice
+    title: 005-01-Softmaxの関数形に慣れる
+    question: |
+      ソフトマックス関数の定義は次式である．
+      \[
+        \mathrm{Softmax}(z_1, \ldots, z_K)
+        := \left(\frac{e^{z_1}}{\sum_{j=1}^K e^{z_j}},
+                 \ldots,
+                 \frac{e^{z_K}}{\sum_{j=1}^K e^{z_j}}\right)
+      \]
+
+      このとき，
+      \(\mathrm{Softmax}(\log 2, \log 3, \log 5, \log 7)\)
+      の値は次のうちどれか？
+    choices:
+      A: \(\left(\frac{2}{17}, \frac{3}{17}, \frac{5}{17}, \frac{7}{17}\right)\)
+      B: \(\left(\frac{\log 2}{\log 210}, \frac{\log 3}{\log 210}, \frac{\log 5}{\log 210}, \frac{\log 7}{\log 210}\right)\)
+      C: \(\left(\frac{2}{4}, \frac{3}{4}, \frac{5}{4}, \frac{7}{4}\right)\)
+      D: \(\left(\frac{4}{87}, \frac{9}{87}, \frac{25}{87}, \frac{49}{87}\right)\)
+    answer: A
+    feedback:
+      A: 正解です．\(e^{\log x}=x\) となり，分母は \(2+3+5+7=17\)．確率ベクトルとして総和も 1 になります．
+      B: 入力をそのまま用いて指数化を忘れています．Softmax は「指数化して正規化」することを思い出しましょう．
+      C: 分母を要素数 \(K=4\) で割っており正規化が不適切です（総和が 1 になりません）．
+      D: 指数化のあと二乗してしまう誤りです．Softmax に二乗操作は不要で，確率分布も変わってしまいます．
