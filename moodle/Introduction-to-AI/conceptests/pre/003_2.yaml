@@ -59,23 +59,6 @@ Quizzes:
       A: 正解．パラメータを持たず訓練データを直接保持します．&#8203;:contentReference[oaicite:6]{index=6}&#8203;:contentReference[oaicite:7]{index=7}
       B-D: いずれもパラメータ数が固定のパラメトリックモデルです．
 
-  - rubric: k の大きさとバイアス・バリアンスの関係を理解している．
-    type: multichoice
-    title: 005-02-kの影響
-    question: |
-      k-NN で k を大きくしたときに起こりやすい現象はどれか．
-    choices:
-      A: 高バリアンス・低バイアス
-      B: 低バリアンス・高バイアス
-      C: バリアンスもバイアスも低下
-      D: 予測不能
-    answer: B
-    feedback:
-      A: k が小さい場合です．
-      B: 正解．多数決が平滑化しバリアンスが下がる一方でバイアスが増えます．&#8203;:contentReference[oaicite:8]{index=8}&#8203;:contentReference[oaicite:9]{index=9}
-      C: 同時に下がることは通常ありません．
-      D: 不正解．
-
   - rubric: 帰納バイアスの具体例を選べる．
     type: multichoice
     title: 006-02-帰納バイアスの例
@@ -114,16 +97,6 @@ Quizzes:
       B: 取り置き法には時系列 split も含まれます．
       C: 正解です．複数分割でデータ利用効率が向上します．&#8203;:contentReference[oaicite:14]{index=14}&#8203;:contentReference[oaicite:15]{index=15}
       D: 検証データは**選択のとき**に使います．
-
-  - rubric: ベイズ最適予測器と 1-NN の誤差上限を把握している．
-    type: truefalse
-    title: 005-03-1NNの誤差限界
-    question: |
-      理想的な条件下では，1-最近傍分類器の誤分類率は Bayes 最適分類器の誤分類率の 2 倍以下に収束する．
-    answer: true
-    feedback:
-      true: 正解．Cover & Hart (1967) の結果です．&#8203;:contentReference[oaicite:16]{index=16}&#8203;:contentReference[oaicite:17]{index=17}
-      false: 理論上 2 倍が上界です．
 
   - rubric: ロジスティック回帰のシグモイド出力を理解している．
     type: multichoice
@@ -468,17 +441,6 @@ Quizzes:
     B: 直積の場合の個数です．
     C: 階乗は無関係です．
     D: 変数と次数が逆です．
-
-- rubric: カーネル法で次元爆発を回避できる理由を理解している
-  type: truefalse
-  title: 003-17-カーネルトリック
-  question: |
-    カーネル法を用いれば，明示的に高次元特徴を作成せずとも
-    内積を計算するだけで高次元線形モデルと同等の効果が得られる。
-  answer: true
-  feedback:
-    true: 正解です．カーネルトリックにより計算量を抑えられます．
-    false: カーネル法の本質は「計算を特徴空間で暗黙に行う」点です．
 
 - rubric: ハイパーパラメーター最適化を
     「最外層の最適化問題」と捉えられる

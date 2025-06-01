@@ -1,0 +1,745 @@
+Quizzes:
+  - rubric: 構造化データと非構造化データの本質的な違いを説明できる
+    type: multichoice
+    title: 007-01-データの2大分類
+    question: |
+      「非構造化データ」を次の 4 人が説明している。正しい説明は誰か。
+    choices:
+      A: Aさん「非構造化データは表形式でないため，行列に数値を並べて表せないデータの総称である。」
+      B: Bさん「非構造化データは，どの位置にどの意味の情報があるか *あらかじめ決まっていない* データを指す。」
+      C: Cさん「非構造化データは画像やテキストのことであるが，動画や音声は含まれない。」
+      D: Dさん「表形式データにラベル列が欠けていれば，それは非構造化データと呼ぶ。」
+    answer: B
+    feedback:
+      A: 「表形式でない」という形状だけがポイントではなく，*意味の位置づけ* が固定されていない点が本質です。 [oai_citation:0‡第7回.pdf](file-service://file-3i8ttqaJSfSQspSTshfBh6)
+      B: 正解。講義では「決まった位置に決まった意味が書かれていない」と説明されました。 [oai_citation:1‡第7回.pdf](file-service://file-3i8ttqaJSfSQspSTshfBh6)
+      C: 画像・テキストに限らず，動画・音声も典型的な非構造化データです。 [oai_citation:2‡第7回.pdf](file-service://file-3i8ttqaJSfSQspSTshfBh6)
+      D: ラベルの有無は構造化／非構造化の判定基準ではありません。 [oai_citation:3‡第7回.pdf](file-service://file-3i8ttqaJSfSQspSTshfBh6)
+
+  - rubric: 非構造化データに潜む「階層性」の概念を理解している
+    type: multichoice
+    title: 007-02-階層性とは何か
+    question: |
+      非構造化データにおける「階層性」の具体例として最も適切なのはどれか。
+    choices:
+      A: 画像の各ピクセル値が $[0,1]$ の範囲に正規化されている点
+      B: 文章が文字 → 単語 → 文 → 段落…と意味が統合されていく点
+      C: 表形式データで列どうしが独立である点
+      D: ニューラルネットのバッチサイズを 32 に設定する点
+    answer: B
+    feedback:
+      A: 階層的な *意味の統合* を指しておらず，単なる前処理です。 [oai_citation:4‡第7回.pdf](file-service://file-3i8ttqaJSfSQspSTshfBh6)
+      B: 正解。講義では文字列の例で階層的統合を示しました。 [oai_citation:5‡第7回.pdf](file-service://file-3i8ttqaJSfSQspSTshfBh6)
+      C: 表形式データはむしろ構造が固定されているため階層性の文脈とは異なります。
+      D: ハイパーパラメータ設定であり階層性とは無関係です。
+
+  - rubric: 深層ネットワークの浅い層と深い層の役割を区別できる
+    type: multichoice
+    title: 007-03-浅い層と深い層
+    question: |
+      深層 CNN を画像分類に用いたとき，「浅い層」が学習しやすい特徴として最も典型的なのはどれか。
+    choices:
+      A: 「犬」か「猫」かのクラス決定
+      B: イチゴの種の位置関係
+      C: 特定方向のエッジや局所的な模様
+      D: 背景に写り込んだ文字列の意味
+    answer: C
+    feedback:
+      A: クラス決定は最終層付近のタスク特化部で行われます。 [oai_citation:6‡第7回.pdf](file-service://file-3i8ttqaJSfSQspSTshfBh6)
+      B: イチゴ固有の形状は中〜深層で抽出される例です。 [oai_citation:7‡第7回.pdf](file-service://file-3i8ttqaJSfSQspSTshfBh6)
+      C: 正解。浅い層はエッジや簡単なパターンに反応するユニットを学習します。 [oai_citation:8‡第7回.pdf](file-service://file-3i8ttqaJSfSQspSTshfBh6)
+      D: 文字認識は追加タスクであり浅層の典型的機能ではありません。
+
+  - rubric: 計算グラフと自動微分の考え方を説明できる
+    type: multichoice
+    title: 007-04-計算グラフとは
+    question: |
+      計算グラフを **非** 常に簡潔に定義した次の説明のうち，正しいものはどれか。
+    choices:
+      A: 「変数間の依存関係を辺で結んだ *非巡回有向* グラフで，各頂点に計算が紐づく構造」
+      B: 「ニューラルネットワークの重みだけをノードに並べたリスト構造」
+      C: 「入力から出力までを線形写像だけで結んだ有向グラフ」
+      D: 「損失値を子，パラメータを親にもつ *巡回* グラフ」
+    answer: A
+    feedback:
+      A: 正解。講義では「非巡回有向グラフ」である点と「各頂点に関数が割り当てられる」点が強調されました。 [oai_citation:9‡第7回.pdf](file-service://file-3i8ttqaJSfSQspSTshfBh6)
+      B: パラメータ“だけ”ではなく，中間変数も含めて頂点になります。
+      C: 非線形活性も計算グラフに含まれます。
+      D: 巡回があると逆伝播が定義できません。 [oai_citation:10‡第7回.pdf](file-service://file-3i8ttqaJSfSQspSTshfBh6)
+
+  - rubric: 自動微分と誤差逆伝播法の関係を理解している
+    type: truefalse
+    title: 007-05-逆伝播は自動微分の特殊例？
+    question: |
+      「誤差逆伝播法（Backpropagation）は，ニューラルネットワークという *特定の構造* に限って自動微分を適用したアルゴリズムである。」
+      この主張は正しいか。
+    answer: true
+    feedback:
+      true: 正解。計算グラフに対する一般的な自動微分を，層構造をもつ NN へ適用したものが逆伝播です。 [oai_citation:11‡第7回.pdf](file-service://file-3i8ttqaJSfSQspSTshfBh6)
+      false: 「逆伝播は NN 専用」と見なすのは誤りではなく，むしろ歴史的経緯として正しい整理です。
+
+  - rubric: Pre-training / Fine-tuning の目的と利点を説明できる
+    type: multichoice
+    title: 007-06-事前学習の利点
+    question: |
+      事前学習＋精密調整（fine-tuning）の **主** たる利点として最も適切なのはどれか。
+    choices:
+      A: 下流タスクごとに 0 から学習するより教師データ量を減らせる
+      B: モデルのパラメータ数を減らせる
+      C: 学習率の最適値を自動で決定してくれる
+      D: 勾配消失を完全に防げる
+    answer: A
+    feedback:
+      A: 正解。講義の図では「タスクごとの教師データは小さめで済む」と説明されました。 [oai_citation:12‡第7回.pdf](file-service://file-3i8ttqaJSfSQspSTshfBh6)
+      B: パラメータ数は変わらないことが多いです。
+      C: 学習率は依然として手動設計が必要です。
+      D: 勾配消失は深層学習一般の課題で，事前学習だけでは解決しません。
+
+  - rubric: Fine-tuning の代表的な 2 つの流儀を区別できる
+    type: multichoice
+    title: 007-07-fine-tuning の流儀
+    question: |
+      Fine-tuning の典型的な 2 手法「①全パラメータ更新」「②最終層だけ学習」の説明として正しい対応はどれか。
+    choices:
+      A: ①=新規層のみ更新，②=全体を学習率小さく更新
+      B: ①=全体を更新，②=新規層のみ更新
+      C: ①=全体を凍結，②=新規層のみ更新
+      D: ①=新規層のみ更新，②=最初の層だけ更新
+    answer: B
+    feedback:
+      B: 正解。講義スライドでは「全体を追加学習」「新規層だけ再学習」が紹介されました。 [oai_citation:13‡第7回.pdf](file-service://file-3i8ttqaJSfSQspSTshfBh6)
+      A,C,D: 説明と手法の対応が誤っています。
+
+  - rubric: 表現学習の定義を口述できる
+    type: truefalse
+    title: 007-08-表現学習の定義
+    question: |
+      表現学習とは，入力データを**手動で設計した**特徴写像 $\varphi_\lambda$ に通したベクトルを学習するプロセスである。
+    answer: false
+    feedback:
+      true: 手動設計と対照的に「自動的に学習する」点が表現学習の肝です。 [oai_citation:14‡第7回.pdf](file-service://file-3i8ttqaJSfSQspSTshfBh6)
+      false: 正解。講義では「タスクに有用な中間表現を *自動的に* 学習すること」と定義されました。 [oai_citation:15‡第7回.pdf](file-service://file-3i8ttqaJSfSQspSTshfBh6)
+
+  - rubric: オートエンコーダの目的関数を説明できる
+    type: multichoice
+    title: 007-09-再構成誤差
+    question: |
+      オートエンコーダが最小化する典型的な損失 $L(\theta)$ として最も標準的なのはどれか。
+    choices:
+      A: 負の対数尤度
+      B: 再構成誤差 $\|x-D_\theta(E_\theta(x))\|^2$
+      C: KL ダイバージェンス $D_{\mathrm{KL}}(p\|q)$
+      D: ヒンジ損失 $\max(0,1-yf_\theta(x))$
+    answer: B
+    feedback:
+      A,C,D: いずれもオートエンコーダでは代表的ではありません。
+      B: 正解。講義では二乗再構成誤差が最も標準と紹介されました。 [oai_citation:16‡第7回.pdf](file-service://file-3i8ttqaJSfSQspSTshfBh6)
+
+  - rubric: 活性値最大化（activation maximization）の考え方を説明できる
+    type: multichoice
+    title: 007-10-活性値最大化
+    question: |
+      ある中間ユニット $u_1$ の出力を最大化する入力 $\mathbf{x}^\*$ を求める最適化式として正しいものはどれか。
+    choices:
+      A: $\displaystyle \arg\min_{\mathbf x}u_1(\mathbf x)$
+      B: $\displaystyle \arg\max_{\mathbf x}u_1(\mathbf x)$
+      C: $\displaystyle \arg\max_{\theta}u_1(\mathbf x)$
+      D: $\displaystyle \arg\min_{\theta}u_1(\mathbf x)$
+    answer: B
+    feedback:
+      B: 正解。講義に示された式 $\max_{\mathbf x}u_1$ そのものです。 [oai_citation:17‡第7回.pdf](file-service://file-3i8ttqaJSfSQspSTshfBh6)
+      A,C,D: 目的関数の向きや最適化変数が誤っています。
+
+  - rubric: 深層学習が流行し得た背景を説明できる
+    type: truefalse
+    title: 007-11-深層学習が遅れた理由
+    question: |
+      講義では「深層学習が近年まで本格的に使われなかった理由」として，データ量不足と適切なアーキテクチャ探究の難しさが挙げられた。
+    answer: true
+    feedback:
+      true: 正解。スライドで「データ量が少なかった」「アーキテクチャ探究に時間が掛かった」と説明されました。 [oai_citation:18‡第7回.pdf](file-service://file-3i8ttqaJSfSQspSTshfBh6)
+      false: 上記 2 点は深層学習黎明期の主要課題として強調されています。
+
+  - rubric: 早期停止が持つ 2 つの利点を理解している
+    type: multichoice
+    title: 007-13-早期停止の効果
+    question: |
+      早期停止 (early stopping) の利点として *講義で挙げられた* ２点の正しい組合せはどれか。
+    choices:
+      A: 学習時間の節約 ＆ モデル正則化
+      B: 学習率自動調整 ＆ 精度向上
+      C: メモリ使用量削減 ＆ 推論速度向上
+      D: オーバーパラメータの削除 ＆ 勾配消失の防止
+    answer: A
+    feedback:
+      A: 正解。時間の節約と正則化効果が示されました。 [oai_citation:20‡第7回.pdf](file-service://file-3i8ttqaJSfSQspSTshfBh6)
+      B,C,D: 講義で強調されたポイントではありません。
+
+  - rubric: Pre-training task の例として ImageNet が持つ役割を説明できる
+    type: truefalse
+    title: 007-14-ImageNet は下流タスク専用？
+    question: |
+      ImageNet 1000クラス分類は「画像系モデルの**事前学習**タスクの定番」として紹介された。
+    answer: true
+    feedback:
+      true: 正解。スライドに「ImageNet が事前学習タスクの定番」と明記されています。 [oai_citation:21‡第7回.pdf](file-service://file-3i8ttqaJSfSQspSTshfBh6)
+      false: 事前学習専用ではないものの，「定番」と紹介されたのは事実です。
+
+  - rubric: 活性化関数 ReLU の導入動機を理解している
+    type: multichoice
+    title: 007-16-ReLU の利点
+    question: |
+      ReLU (Rectified Linear Unit) を中間層で採用する主な技術的メリットとして**講義内で暗示された**ものはどれか。
+    choices:
+      A: 勾配消失を和らげる
+      B: パラメータ数を減少させる
+      C: 勾配爆発を必ず防ぐ
+      D: モデルの出力を確率に変換できる
+    answer: A
+    feedback:
+      A: 正解。ReLU はシグモイド系より勾配を保ちやすい利点があります（資料の実験設定にも採用）。 [oai_citation:24‡第7回.pdf](file-service://file-3i8ttqaJSfSQspSTshfBh6)
+      B: 層幅が同じならパラメータ数は変わりません。
+      C: 勾配爆発は別の問題です。
+      D: Softmax など最終層の話です。
+
+  - rubric: He 初期化の目的を説明できる
+    type: multichoice
+    title: 007-17-He 初期化
+    question: |
+      He 初期化が特に有効とされる組合せはどれか。
+    choices:
+      A: ReLU 活性と深いネットワーク
+      B: Sigmoid 活性と浅いネットワーク
+      C: Softmax 活性と単層パーセプトロン
+      D: 線形回帰モデル
+    answer: A
+    feedback:
+      A: 正解。実験設定で ReLU + He 初期化が採用されていました。 [oai_citation:25‡第7回.pdf](file-service://file-3i8ttqaJSfSQspSTshfBh6)
+      B,C,D: He の設計動機に合いません。
+
+  - rubric: Adam 最適化の位置づけを説明できる
+    type: truefalse
+    title: 007-18-Adam は勾配法？
+    question: |
+      Adam は「慣性項（モーメンタム）を導入した確率的勾配法の一種」と講義で紹介された。
+    answer: true
+    feedback:
+      true: 正解。スライド「最適化手法 Adam」での説明そのままです。 [oai_citation:26‡第7回.pdf](file-service://file-3i8ttqaJSfSQspSTshfBh6)
+      false: Adam は勾配ベースです。
+
+  - rubric: オートエンコーダでノイズを加える意味を説明できる
+    type: multichoice
+    title: 007-19-デノイジング AE
+    question: |
+      デノイジング・オートエンコーダが入力にノイズ $\eta$ を加えて学習する主眼は何か。
+    choices:
+      A: 計算時間短縮
+      B: 潜在表現のロバスト化
+      C: モデル容量削減
+      D: 出力次元の削減
+    answer: B
+    feedback:
+      B: 正解。講義で「ノイズを加えた入力から元のきれいなデータを復元」と説明されました。 [oai_citation:27‡第7回.pdf](file-service://file-3i8ttqaJSfSQspSTshfBh6)
+      A,C,D: ノイズ投入の動機ではありません。
+
+  - rubric: 階層的特徴抽出と「魔法の $\varphi$」の比喩を説明できる
+    type: truefalse
+    title: 007-20-魔法の φ
+    question: |
+      講義では「高次概念を抽出する魔法のような $\varphi$ を作れればよい」という比喩が用いられた。
+    answer: true
+    feedback:
+      true: 正解。該当スライドでこの表現が使われました。 [oai_citation:28‡第7回.pdf](file-service://file-3i8ttqaJSfSQspSTshfBh6)
+      false: 実際に登場した比喩です。
+
+  # ---- ここから後半 10 問（21〜30）----
+
+  - rubric: ImageNet 事前学習の汎用性に関する誤解を正す
+    type: multichoice
+    title: 007-21-ImageNet は万能？
+    question: |
+      ImageNet 事前学習モデルを**そのまま**転移した際に**必ず**起こると誤って語られがちな現象はどれか。
+    choices:
+      A: 全タスクで即座に SOTA を達成できる
+      B: 最終層がタスク特化である
+      C: 浅い層が一般的なエッジ検出器になる
+      D: Fine-tuning なしでも教師データが不要になる
+    answer: A
+    feedback:
+      A: 正解（誤解）。講義では「Fine-tuning が一般的」と説明され，万能ではない点が示されました。 [oai_citation:29‡第7回.pdf](file-service://file-3i8ttqaJSfSQspSTshfBh6)
+      B,C は事実であり得ます。D は誇張です。
+
+  - rubric: Fine-tuning で層の凍結 (freeze) を行う意図を説明できる
+    type: truefalse
+    title: 007-22-層の凍結は正則化？
+    question: |
+      層を凍結 (freeze) する主な狙いは，下流タスクのデータが少ない場合に過学習を抑えることである。
+    answer: true
+    feedback:
+      true: 正解。パラメータ数の一部を固定し，過適合を抑える実践的目的があります。 [oai_citation:30‡第7回.pdf](file-service://file-3i8ttqaJSfSQspSTshfBh6)
+      false: その狙いで用いられることが多いです。
+
+  - rubric: 深層モデルの最適化難易度に関する理解を問う
+    type: multichoice
+    title: 007-23-最適化の課題
+    question: |
+      深層モデルの最適化が「高難易度」とされる理由として**講義で示された**ものはどれか。
+    choices:
+      A: 勾配が計算できない
+      B: 最適化の工夫が多数必要
+      C: 線形モデルよりパラメータが少ない
+      D: 現在は勾配法が全く使われない
+    answer: B
+    feedback:
+      A,D: 計算も勾配法も **使われています**。 [oai_citation:31‡第7回.pdf](file-service://file-3i8ttqaJSfSQspSTshfBh6)
+      B: 正解。「最適化は大変，多くの工夫を要する」と説明されました。 [oai_citation:32‡第7回.pdf](file-service://file-3i8ttqaJSfSQspSTshfBh6)
+      C: パラメータはむしろ多いです。
+
+  - rubric: 再構成誤差の損失で教師なし学習が成立する理由を説明できる
+    type: truefalse
+    title: 007-24-教師なしの根拠
+    question: |
+      オートエンコーダは再構成誤差だけで学習できるため，**ラベルデータが不要**である。
+    answer: true
+    feedback:
+      true: 正解。入力自体がターゲットなのでラベル不要です。 [oai_citation:33‡第7回.pdf](file-service://file-3i8ttqaJSfSQspSTshfBh6)
+      false: ラベルは必要ありません。
+
+  - rubric: 活性値最大化の「入力を最適化する」という視点を理解している
+    type: truefalse
+    title: 007-25-入力最適化の意味
+    question: |
+      活性値最大化では，**重み $\theta$ を固定**して入力 $\mathbf x$ を最適化する。
+    answer: true
+    feedback:
+      true: 正解。目的は「そのユニットが好む入力」を可視化することです。 [oai_citation:34‡第7回.pdf](file-service://file-3i8ttqaJSfSQspSTshfBh6)
+      false: 変数は入力側です。
+
+  - rubric: 中間表現の「汎用性とタスク特化の線引きがない」点を説明できる
+    type: truefalse
+    title: 007-26-線引きなし
+    question: |
+      「どの層までが汎用でどこからタスク特化かという明確な線引きはない」
+      これは講義スライド中の注釈①である。
+    answer: true
+    feedback:
+      true: 正解。注釈①でこの点が明示されました。 [oai_citation:35‡第7回.pdf](file-service://file-3i8ttqaJSfSQspSTshfBh6)
+      false: 実際に注釈として示されています。
+
+  - rubric: 非構造化データ処理で「階層性」が鍵となる直観を説明できる
+    type: multichoice
+    title: 007-27-階層性が鍵
+    question: |
+      非構造化データのタスクで階層性が「鍵」となる理由として最も適切なのはどれか。
+    choices:
+      A: 入力の次元数が常に固定だから
+      B: 低次情報を統合して高次概念を抽出する必要があるから
+      C: 画像は RGB の 3 チャネルしかないから
+      D: モデルのパラメータを減らすため
+    answer: B
+    feedback:
+      B: 正解。講義で示された「微細情報→上位概念」統合が理由です。 [oai_citation:36‡第7回.pdf](file-service://file-3i8ttqaJSfSQspSTshfBh6)
+      A,C,D: 階層性の本質ではありません。
+
+  - rubric: Fine-tuning の学習率設定に関する注意点を説明できる
+    type: truefalse
+    title: 007-28-学習率を小さく？
+    question: |
+      Fine-tuning では，学習済みパラメータを再利用する部分の学習率を小さめに設定する流儀がある。
+    answer: true
+    feedback:
+      true: 正解。講義スライドで「学習率を小さめにする工夫」が紹介されました。 [oai_citation:37‡第7回.pdf](file-service://file-3i8ttqaJSfSQspSTshfBh6)
+      false: 実際に紹介された実践的テクニックです。
+
+  - rubric: 深層 NN の「深い層」「浅い層」という言葉の定義を理解している
+    type: multichoice
+    title: 007-29-深い層とは？
+    question: |
+      講義での用語定義に従うと，「**深い層**」はどの層を指すか。
+    choices:
+      A: 入力側に近い層
+      B: 出力側に近い層
+      C: パラメータが多い層
+      D: 活性化関数が線形の層
+    answer: B
+    feedback:
+      B: 正解。「入力側を shallow，出力側を deep layers」と定義されました。 [oai_citation:38‡第7回.pdf](file-service://file-3i8ttqaJSfSQspSTshfBh6)
+      A,C,D: 用語の定義とずれています。
+
+  - rubric: 再構成誤差による表現学習が「必ずしも interpretable ではない」点を理解している
+    type: truefalse
+    title: 007-30-ベクトル成分の解釈
+    question: |
+      講義では「ベクトルの特定成分が特定の意味を持つとは限らない」と注意があった。
+    answer: true
+    feedback:
+      true: 正解。表現学習の注釈②で強調されたポイントです。 [oai_citation:39‡第7回.pdf](file-service://file-3i8ttqaJSfSQspSTshfBh6)
+      false: 実際に注意書きとして示されました。
+
+  - rubric: Forward モードと Reverse モード AD の違いを説明できる
+    type: multichoice
+    title: 007-15A-2つのモード
+    question: |
+      スカラー出力 $f:\mathbb{R}^n\!\to\!\mathbb{R}$ の勾配 $\nabla_{\mathbf x}f$ を計算する際、
+      Forward モード AD と Reverse モード AD の計算コストを比較するとどうなるか。
+    choices:
+      A: Forward は $\mathcal O(n)$、Reverse は $\mathcal O(1)$
+      B: Forward は $\mathcal O(1)$、Reverse は $\mathcal O(n)$
+      C: 両者とも常に $\mathcal O(n)$
+      D: Forward が $\mathcal O(n)$、Reverse も $\mathcal O(n^2)$
+    answer: A
+    feedback:
+      A: **正解。** 変数数 $n$ に対して Forward は１回の前進で１方向、逆モードは１回で全成分を得られるのでスカラー出力なら $\mathcal O(1)$。
+      B: 逆です。
+      C: コストはモードによって異なります。
+      D: Reverse が二乗になるわけではありません。
+
+  - rubric: AD と数値差分の本質的違いを説明できる
+    type: multichoice
+    title: 007-15B-AD vs 数値差分
+    question: |
+      自動微分 (AD) を数値差分（有限差分）と比較したとき、**AD だけが** 持つ決定的な利点はどれか。
+    choices:
+      A: 微分計算に乱数を用いない
+      B: 解析的に導出した厳密な勾配と丸め誤差レベルで一致する
+      C: 勾配を並列計算できる
+      D: 一般に計算グラフを書き換える必要がない
+    answer: B
+    feedback:
+      A: 数値差分も乱数は使いません。
+      B: **正解。** AD は数値誤差の蓄積がなく、理論的に厳密な勾配を返します（丸め誤差のみ）。
+      C: 並列化はどちらも可能。
+      D: 数値差分も実装修正は要りません。
+
+  - rubric: Reverse モード AD のメモリ使用を理解している
+    type: truefalse
+    title: 007-15C-メモリと逆モード
+    question: |
+      Reverse モード AD では、順方向の計算で生成した **すべての中間値** を保存しておかなければ
+      正確な勾配を計算できない。
+    answer: true
+    feedback:
+      true: **正解。** 逆伝播時に各ノードの局所微分を参照するため、中間値は原則保持が必要（チェックポイント法で部分的に捨てる工夫もある）。
+      false: 中間値を保持しないと多くの場合再計算が必要で計算量か精度を損ないます。
+
+  - rubric: 非微分可能点での AD の振る舞いを説明できる
+    type: multichoice
+    title: 007-15D-非微分点
+    question: |
+      活性化関数 $h(x)=\max(0,x)$（ReLU）の $x=0$ で AD フレームワークが返す勾配として
+      **最も一般的** な挙動はどれか。
+    choices:
+      A: 0 を返す
+      B: 1 を返す
+      C: エラーを投げる
+      D: 実装に依存して 0 または 1 のどちらか
+    answer: A
+    feedback:
+      A: **正解。** 多くの実装は subgradient の 0 を返す（PyTorch, TensorFlow 等）。
+      B: Leaky-ReLU での斜面誤解と混同。
+      C: ランタイムエラーにはしません。
+      D: 標準実装では決め打ちで 0。
+
+  - rubric: Jacobian–vector と Vector–Jacobian の区別を説明できる
+    type: multichoice
+    title: 007-15E-Jv と vJ
+    question: |
+      $f:\mathbb{R}^n\!\to\!\mathbb{R}^m$ のヤコビアン $J_f(\mathbf x)\!\in\!\mathbb{R}^{m\times n}$
+      に対し、Forward モード AD と Reverse モード AD で自然に得られる演算の組み合わせはどれか。
+    choices:
+      A: Forward は $\mathbf v^\top\!J_f$、Reverse は $J_f\mathbf v$
+      B: Forward は $J_f\mathbf v$、Reverse は $\mathbf v^\top\!J_f$
+      C: 両者とも $J_f\mathbf v$
+      D: 両者とも $\mathbf v^\top\!J_f$
+    answer: B
+    feedback:
+      B: **正解。** 前進は Jacobian–vector product (Jv), 逆モードは Vector–Jacobian product (vJ) を１回で計算できます。
+      A: 向きが逆。
+      C,D: モードで区別がつきません。
+
+  - rubric: 手計算・数値差分・自動微分の位置づけを区別できる
+    type: multichoice
+    title: 007-15F-３つの勾配計算法
+    question: |
+      次のうち，**自動微分だけ** が同時に満たす特徴はどれか。
+      1. 再現性のある厳密な勾配（丸め誤差のみ）
+      2. 実行時にアルゴリズム的に導出され，人手による数式変形が不要
+      3. 高次導関数（２階以上）の計算がそのまま拡張で可能
+    choices:
+      A: 手計算による解析的微分
+      B: 有限差分（数値差分）
+      C: 自動微分
+      D: いずれも満たさない
+    answer: C
+    feedback:
+      A: 手計算は 1 を満たすが 2 を満たさない。
+      B: 有限差分は 2 を満たすが 1 を満たさない（近似誤差が入る）。
+      C: **正解。** 自動微分のみが 1・2・3 を同時に満たす。
+
+  - rubric: 計算グラフの各ノードが担う役割を説明できる
+    type: truefalse
+    title: 007-15G-ノードの意味
+    question: |
+      計算グラフでは，各ノードは「演算の**結果**（数値）」だけでなく
+      「その演算の**微分規則**」も同時に保持している。
+    answer: true
+    feedback:
+      true: **正解。** ノードは順伝播で値，逆伝播で局所勾配を供給する設計が AD の肝。
+      false: 結果だけでは逆伝播時にチェーンルールを適用できません。
+
+  - rubric: 逆伝播の「後ろから足し上げる」直観を理解している
+    type: multichoice
+    title: 007-15H-逆伝播の流れ
+    question: |
+      逆伝播（Reverse モード）では，出力ノードから入力ノードへ向けて
+      どのような情報を“伝搬”させて勾配を計算するか。
+    choices:
+      A: 各ノードの入力値そのもの
+      B: 各ノードの局所勾配と，そこまでに積み上げた勾配の積
+      C: 学習率
+      D: 乱数シード
+    answer: B
+    feedback:
+      A: 値のみではチェーンルールが適用できません。
+      B: **正解。** 局所勾配 × 伝搬済み勾配を足し合わせながら後ろ向きに進む。
+      C,D: 勾配計算とは無関係。
+
+  - rubric: 自動微分が「計算グラフが有向非巡回である」ことを前提にする理由を説明できる
+    type: truefalse
+    title: 007-15I-グラフの向き
+    question: |
+      もし計算グラフに「巡回（ループ）」が存在すると，
+      自動微分による逆伝播は基本的に定義できない。
+    answer: true
+    feedback:
+      true: **正解。** チェーンルールで前段と後段を一意に並べるためには DAG が必須。
+      false: ループがある場合は時間展開（RNN の unroll など）で DAG に変換してから勾配を計算します。
+
+  - rubric: 計算グラフ分解が“複雑な式”の勾配を容易にする理由を説明できる
+    type: multichoice
+    title: 007-15J-分解の利点
+    question: |
+      「複雑な関数を *小さな演算* に分解し，ノードごとの勾配規則を
+      使って全体の勾配を求める」方法が便利なのはなぜか。
+    choices:
+      A: 高校数学レベルの微分公式だけで任意の複雑関数に対応できる
+      B: 分解により勾配計算を**コードで自動化できる**
+      C: 分解すれば計算量が必ず $O(1)$ になる
+      D: 分解するとモデルの精度が必ず上がる
+    answer: B
+    feedback:
+      A: 複雑関数でも演算ごとの「局所微分テーブル」があれば十分。ただし高校数学だけでは網羅できない場合も。
+      B: **正解。** 各演算の勾配をライブラリに登録すれば，残りはチェーンルールで自動計算できる。
+      C: 計算量が不変になるわけではない。
+      D: 勾配計算の方法とモデル精度は直接関係しない。
+
+  - rubric:
+    type: multichoice
+    title:
+    # 一方、実際にニューラルネットワークの学習のために誤差逆伝播法を用いる際には、
+    # まず初めにいちど順伝播を行ってから、モデルの計算グラフを逆順に辿りながら偏微分の積を順次とることによって、勾配の計算が行われる。
+    # これを繰り返し適用することにより、ニューラルネットワークの誤差逆伝播法が導かれる。
+    # このとき、初めに順伝播を行う必要があるのはなぜか。
+    choices:
+      A: 合成関数の微分法則の式は略記であり，実際には現在のパラメーター等における勾配を計算する必要があるから。
+    answer: A
+    feedback:
+      A: 正解。逆伝播では、順伝播で計算された活性化関数の出力値（中間層の出力）を利用して勾配を計算します。これらの値を保持していない場合、逆伝播の際に勾配を計算することができません。
+      B: 誤り。パラメータの初期化は通常、学習の開始前に行われます。順伝播は、初期化されたパラメータを用いてネットワークの出力を計算するプロセスの一部です。
+      C: 誤り。逆伝播は順伝播の結果に強く依存しています。特に、各層の活性化関数の出力値は逆伝播における勾配計算に不可欠です。
+      D:
+
+  - rubric: 逆伝播計算に先立って順伝播が必要となる理由を説明できる
+    type: multichoice
+    title: 007-002-順伝播が先行するわけ
+    question: |
+      ニューラルネットワークを誤差逆伝播法で学習するときには，
+      まず入力をネットワークに通して **順伝播 (forward pass)** を行い，
+      その後に **逆伝播 (backward pass)** で勾配を求めるのが常です。
+      なぜ逆伝播の前に順伝播を１回走らせておく必要があるのか。
+      最も適切な説明を選びなさい。
+    choices:
+      A: 順伝播で各層の出力（活性値）を計算しておかないと，
+         逆伝播で合成関数の微分の連鎖律を適用する際に局所勾配（計算グラフの部分ごとの勾配）を計算できないから。
+      B: 順伝播を行わないと，ネットワークのパラメータがまだ
+         初期化されておらず，逆伝播が実行できないから。
+      C: 逆伝播は順伝播の結果に依存しないので，実際には
+         順伝播は省略可能だが慣習的に入れているだけである。
+    answer: A
+    feedback:
+      A: 正解。チェーンルールで各層の局所勾配 \(\partial z/\partial a\) を計算するには，
+         順伝播時に得た中間出力 \(a\) の値が必要です。これらをキャッシュしておく
+         ことで逆伝播が一度の走査で済みます。
+      B: パラメータはモデル構築段階で初期化されており，
+         順伝播の有無とは無関係です。
+      C: 逆伝播の式は順伝播の各中間値に依存するため，
+         順伝播をスキップすると勾配を計算できません。
+
+  - rubric: テキストデータの階層性を説明できる
+    type: multichoice
+    title: 007-41-文字→文へ
+    question: |
+      テキストにおける「階層性」の具体例として最も適切なのはどれか。
+    choices:
+      A: 1 文字を 1 行に保存しているファイル構造
+      B: 文字が連なり単語をつくり、単語が連なり文、文が段落へと統合される構造
+      C: 文章を PDF 形式で保存すること
+      D: 文中の単語をアルファベット順にソートする前処理
+    answer: B
+    feedback:
+      B が正解。講義では「文字→単語→文→段落…」の統合過程が階層性の例として挙げられた。 [oai_citation:1‡第7回.pdf](file-service://file-45mHXEVcXc3bjo8NfibQLh)
+
+  - rubric: 事前学習＋精密調整の主目的を説明できる
+    type: multichoice
+    title: 007-42-事前学習の利点
+    question: |
+      画像タスクで ImageNet 事前学習モデルを利用する主な利点として正しいものは？
+    choices:
+      A: パラメータ数が減る
+      B: タスクごとの教師データを大幅に減らせる
+      C: GPU メモリ使用量が半分以下になる
+      D: 勾配消失が完全に解決する
+    answer: B
+    feedback:
+      **B** が正解。事前学習により下流タスク用の教師データを “小さめで済む”。
+
+  - rubric: 精密調整 (fine-tuning) の 2 流儀を区別できる
+    type: multichoice
+    title: 007-43-全更新か最終層だけか
+    question: |
+      Fine-tuning の代表的 2 手法の対応として正しいものはどれか。
+    choices:
+      A: ①新規層のみ更新，②全層を小学習率で追加学習
+      B: ①全層更新，②新規層のみ更新
+      C: ①全層凍結，②バッチ正規化だけ更新
+      D: ①新規層更新，②最初の層だけ更新
+    answer: B
+    feedback:
+      **B** が正解。講義スライドで紹介された 2 つの流儀の組み合わせ。 [oai_citation:2‡第7回.pdf](file-service://file-45mHXEVcXc3bjo8NfibQLh)
+
+  - rubric: オートエンコーダが教師なし学習になる理由を説明できる
+    type: truefalse
+    title: 007-44-ラベルいらず？
+    question: |
+      オートエンコーダは元の入力を再構成するだけなので、**ラベルデータを必要としない** 学習が可能である。
+    answer: true
+    feedback:
+      true: 正解。入力自身がターゲットとなり教師なし学習になる。 [oai_citation:3‡第7回.pdf](file-service://file-45mHXEVcXc3bjo8NfibQLh)
+      false: ラベルが不要なのが特徴。
+
+  - rubric: 再構成誤差と分類損失の違いを理解している
+    type: multichoice
+    title: 007-45-損失の役割
+    question: |
+      オートエンコーダの再構成誤差最小化と、画像分類のクロスエントロピー最小化を比べるとき、**最も本質的な違い** はどれか。
+    choices:
+      A: 前者は教師なし、後者は教師あり
+      B: 前者は勾配法が使えず、後者は使える
+      C: 前者はニューラルネットを使えず、後者は使える
+      D: 前者は GPU が不要で、後者は必須
+    answer: A
+    feedback:
+      A が正解。教師信号の有無が本質的相違点。 [oai_citation:4‡第7回.pdf](file-service://file-45mHXEVcXc3bjo8NfibQLh)
+
+  - rubric: 表現学習で得たベクトルの可解釈性を過信しない
+    type: truefalse
+    title: 007-46-ベクトル成分は読める？
+    question: |
+      学習済みベクトル表現の特定成分が「線の有無」「色の有無」など **明確な意味を必ず示す** わけではない。
+    answer: true
+    feedback:
+      true: 正解。講義注釈で「簡単に解釈できるとは限らない」と強調。 [oai_citation:5‡第7回.pdf](file-service://file-45mHXEVcXc3bjo8NfibQLh)
+      false: 可解釈性は保証されない。
+
+  - rubric: 汎用層と特化層の線引きが存在しないことを説明できる
+    type: truefalse
+    title: 007-47-どこから特化？
+    question: |
+      深層モデル内部で「ここからタスク特化」という明確な境界線は存在しない。
+    answer: true
+    feedback:
+      true: 正解。注釈①で線引きの不存在が述べられた。 [oai_citation:6‡第7回.pdf](file-service://file-45mHXEVcXc3bjo8NfibQLh)
+      false: 厳密な境界は設けられていない。
+
+  - rubric: 階層的特徴抽出の段階的具体例を説明できる
+    type: multichoice
+    title: 007-48-浅→中→深 層
+    question: |
+      画像 CNN で **浅い層** が学習しやすい典型的特徴はどれか。
+    choices:
+      A: 背景に写る文字列の意味
+      B: イチゴ形状の統合的パターン
+      C: 特定方向のエッジや局所的な線
+      D: 画像全体のシーンコンテキスト
+    answer: C
+    feedback:
+      C が正解。浅層はエッジ・線など低次パターンに反応。 [oai_citation:7‡第7回.pdf](file-service://file-45mHXEVcXc3bjo8NfibQLh)
+
+  - rubric: 事前学習モデル再利用時のリスクを理解している
+    type: multichoice
+    title: 007-49-再利用の落とし穴
+    question: |
+      学習済みモデルを特徴抽出器として再利用する際の **注意点** として講義で言及されたものはどれか。
+    choices:
+      A: 学習済みでも必ずしも良いベクトル表現を学習できているとは限らない
+      B: モデルを再利用すると GPU が使えなくなる
+      C: 再利用すると必ずラベルノイズが増える
+      D: 再利用にはバッチ正規化層を削除する必要がある
+    answer: A
+    feedback:
+      A が正解。注釈②で「良い表現を学習しているとは限らない」と警告されている。 [oai_citation:8‡第7回.pdf](file-service://file-45mHXEVcXc3bjo8NfibQLh)
+
+  - rubric: ニューラルネットと線形モデルの“特徴写像”の立場を対比できる
+    type: multichoice
+    title: 007-12-特徴写像の違い
+    question: |
+      順伝播型 NN を「特徴写像」の観点で見たときの説明として正しいものはどれか。
+    choices:
+      A: 入力 $\mathbf x$ を固定の $\varphi(\mathbf x)$ に写像し，後段で *学習不能* な線形変換を掛ける
+      B: 入力 $\mathbf x$ を **パラメータを学習しながら** 多段階の写像で表現空間に送り込む
+      C: 最終層を除くすべての写像を凍結し，下流タスクでは重み更新しない
+      D: 特徴写像は決定木で近似できるため NN とは無関係
+    answer: B
+    feedback:
+      B: 正解。講義「これまでのあらすじ」で説明された通りです。 [oai_citation:19‡第7回.pdf](file-service://file-3i8ttqaJSfSQspSTshfBh6)
+      A: 線形モデル側の立場に近い説明です。
+      C: Fine-tuning の *一部* の流儀に過ぎません。
+      D: 汎用的な説明ではありません。
+
+  - rubric: ニューラルネットと固定特徴モデルの「特徴写像」の位置づけを対比できる
+    type: multichoice
+    title: 007-12-学習するϕか固定ϕか
+    question: |
+      「特徴写像 (feature map)」という観点で **順伝播型ニューラルネット (NN)** と
+      **固定特徴を使う線形モデル** とを比較する。
+      NN の特徴写像に関する次の 4 つの説明のうち，
+      *講義で示された本質* を最も正確に捉えているものを 1 つ選びなさい。
+    choices:
+      A: NN は入力 \(\mathbf x\) を **あらかじめ決め打ち** の写像
+         \(\varphi(\mathbf x)\) に通し，その後の線形層は
+         *学習不可能* な定数行列である。
+      B: NN は入力 \(\mathbf x\) を **パラメータを学習しながら**
+         多層の非線形写像で潜在空間へ送り込み，
+         その写像 \(\varphi_\theta(\mathbf x)\) 自体が学習の対象となる。
+      C: NN では最終層を除くすべての写像を
+         事前学習モデルとして完全に凍結し，下流タスクでは重みを更新しない
+         ことが前提である。
+      D: 特徴写像は決定木などの非微分モデルで
+         近似するのが一般的であり，ニューラルネットの構築とは無関係である。
+    answer: B
+    feedback:
+      A: >
+        **誤り。** これは「固定特徴 + 線形回帰／SVM」型のモデルに相当する説明であり，
+        ニューラルネットは特徴写像 \(\varphi_\theta\) のパラメータ \(\theta\) を
+        学習によって最適化する点が決定的に異なる。
+      B: >
+        **正解。** NN では多層の非線形変換を通じて
+        \(\varphi_\theta(\mathbf x)\) を **自動的に学習** し，
+        そのまま *表現学習* として機能するところが大きな利点である。
+      C: >
+        部分的に正しい状況（Fine-tuning の一形態）はあるが，
+        講義の “特徴写像 vs 学習済み写像” の本質的対比を説明していない。
+      D: >
+        決定木は微分不可能なモデルであり，
+        “連鎖律で勾配を流す” ニューラルネットの特徴写像とは
+        アプローチが根本的に異なる。

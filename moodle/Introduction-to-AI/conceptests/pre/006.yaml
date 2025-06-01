@@ -98,27 +98,6 @@ Quizzes:
       C: バイアスは加算であり要素積ではありません。
       D: 活性化後に再度同じ線形変換は行いません。
 
-  - rubric: Softmax の温度パラメータの効果を説明できる。
-    type: multichoice
-    title: 006-11-温度スケーリング
-    question: |
-      ソフトマックス関数に温度 \(T>0\) を導入して
-      \[
-        \mathrm{Softmax}_T(z)_k=\frac{\exp(z_k/T)}{\sum_{j=1}^K \exp(z_j/T)}
-      \]
-      と定義する。**\(T\) を大きくする** と出力分布に生じる変化として正しいものはどれか。
-    choices:
-      A: 分布がシャープになり，一番大きい成分に確率が集中する。
-      B: 分布がフラットになり，確率がより均等に近づく。
-      C: すべての成分が同じ値 \(1/K\) になる。
-      D: 温度は数値安定性のためのテクニックであり確率分布自体は変化しない。
-    answer: B
-    feedback:
-      A: \(T\) を **小さく** するときの挙動です。
-      B: 正解です。大きな温度は確率を平滑化します。 [oai_citation:0‡第6回.pdf](file-service://file-5y1H8kKj8gAZ63CMWf1xdL)
-      C: \(T\to\infty\) の極限では近づきますが有限 \(T\) では厳密には一致しません。
-      D: 温度は分布の形を直接変えます。
-
   - rubric: One-hot 表現とパラメータ数の関係を理解している。
     type: truefalse
     title: 006-12-One-hot とパラメータ
@@ -392,27 +371,6 @@ Quizzes:
       C: Adam はクラッピング機能を持ちません。
       D: AdaGrad 系でなくとも大きさ情報を使います。
 
-  - rubric: シグモイドの勾配最大値を計算できる。
-    type: multichoice
-    title: 006-31-シグモイド勾配のピーク
-    question: |
-      ロジスティックシグモイド関数 \( \sigma(u)=\frac{1}{1+e^{-u}} \) の勾配は
-      \[
-        \sigma'(u)=\sigma(u)\bigl(1-\sigma(u)\bigr)
-      \]
-      で与えられる。\(u\in\mathbb{R}\) 全体での \( \sigma'(u) \) の **最大値** はどれか。
-    choices:
-      A: \(1\)
-      B: \(0.25\)
-      C: \(0.5\)
-      D: 最大値を持たない（無限大に発散する）
-    answer: B
-    feedback:
-      A: 勾配は 1 より小さく抑えられます。
-      B: 正解です。\(u=0\) で \( \sigma'(0)=0.25 \) となります。 [oai_citation:0‡第6回.pdf](file-service://file-5y1H8kKj8gAZ63CMWf1xdL)
-      C: 0.5 は \( \sigma(u)=0.5 \) のときの関数値であり勾配値ではありません。
-      D: Sigmoid 勾配は有界です。
-
   - rubric: 多クラスロジスティック回帰の勾配式を理解している。
     type: multichoice
     title: 006-03-負の対数尤度の勾配
@@ -430,3 +388,24 @@ Quizzes:
       B: 符号が逆です。
       C: 真値との差が含まれていません。
       D: 予測確率が無視されています。
+
+  - rubric: シグモイドの勾配最大値を計算できる。
+    type: multichoice
+    title: 007-03-シグモイド勾配のピーク
+    question: |
+      ロジスティックシグモイド関数 \( \sigma(u)=\frac{1}{1+e^{-u}} \) の勾配は
+      \[
+        \sigma'(u)=\sigma(u)\bigl(1-\sigma(u)\bigr)
+      \]
+      で与えられる。\(u\in\mathbb{R}\) 全体での \( \sigma'(u) \) の **最大値** はどれか。
+    choices:
+      A: \(1\)
+      B: \(0.25\)
+      C: \(0.5\)
+      D: 最大値を持たない（無限大に発散する）
+    answer: B
+    feedback:
+      A: 勾配は 1 より小さく抑えられます。
+      B: 正解です。\(u=0\) で \( \sigma'(0)=0.25 \) となります。 [oai_citation:0‡第6回.pdf](file-service://file-5y1H8kKj8gAZ63CMWf1xdL)
+      C: 0.5 は \( \sigma(u)=0.5 \) のときの関数値であり勾配値ではありません。
+      D: Sigmoid 勾配は有界です。

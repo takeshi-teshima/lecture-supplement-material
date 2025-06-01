@@ -22,3 +22,48 @@ Quizzes:
       C: データの低次元構造を見つけてそれを使う距離関数を作る
       D: データを正規化する
     answer: C
+
+  - rubric: cosine similarityとEuclidean distance の関係を理解している
+    type: multichoice
+    title: 008-001-Cosine SimilarityとEuclidean Distanceの関係
+    question: |
+      Cosine SimilarityとEuclidean Distanceは、次のうちどの場合に等価になるか？
+    choices:
+      A: どのようなベクトルに対しても等価になる
+      B: ベクトルが単位ベクトルのときに等価になる
+      C: ベクトルが同じ方向を向いているときに等価になる
+      D: ベクトルが直交しているときに等価になる
+    answer: B
+    feedback:
+      A: 誤りです。Cosine SimilarityとEuclidean Distanceは、一般的には異なる値を取ります。
+      B: 正解です。Cosine SimilarityとEuclidean Distanceは、ベクトルが単位ベクトルのときに等価になります。
+      C: 誤りです。Cosine Similarityは方向の類似性を測るものであり、Euclidean Distanceは距離を測るため、同じ方向を向いている場合でも等価ではありません。
+      D: 誤りです。Cosine Similarityは直交している場合、類似性がゼロになりますが、Euclidean Distanceは距離を測るため、直交していても等価ではありません。
+      # unit normの場合，これらが等価になることを確認させる
+
+  - rubric: k の大きさとバイアス・バリアンスの関係を理解している．
+    type: multichoice
+    title: 005-02-kの影響
+    question: |
+      k-NN で k を大きくしたときに起こりやすい現象はどれか．
+    choices:
+      A: 高バリアンス・低バイアス
+      B: 低バリアンス・高バイアス
+      C: バリアンスもバイアスも低下
+      D: 予測不能
+    answer: B
+    feedback:
+      A: k が小さい場合です．
+      B: 正解．多数決が平滑化しバリアンスが下がる一方でバイアスが増えます．&#8203;:contentReference[oaicite:8]{index=8}&#8203;:contentReference[oaicite:9]{index=9}
+      C: 同時に下がることは通常ありません．
+      D: 不正解．
+
+  - rubric: ベイズ最適予測器と 1-NN の誤差上限を把握している．
+    type: truefalse
+    title: 005-03-1NNの誤差限界
+    question: |
+      理想的な条件下では，1-最近傍分類器の誤分類率は Bayes 最適分類器の誤分類率の 2 倍以下に収束する．
+    answer: true
+    feedback:
+      true: 正解．Cover & Hart (1967) の結果です．&#8203;:contentReference[oaicite:16]{index=16}&#8203;:contentReference[oaicite:17]{index=17}
+      false: 理論上 2 倍が上界です．
