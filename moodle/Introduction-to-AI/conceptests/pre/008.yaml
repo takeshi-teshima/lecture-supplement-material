@@ -297,28 +297,28 @@ Quizzes:
     type: multichoice
     title: 008-23-カーネル線型モデル
     question: |
-      カーネル線型モデルの予測関数 \( f_\gamma(x) \) の**典型的な形**として正しいものはどれか．
+      カーネル線型モデルの予測関数 $$ f_\gamma(x) $$ の**典型的な形**として正しいものはどれか．
     choices:
-      A: \(f_\gamma(x)=\gamma^\top x\)
-      B: \(f_\gamma(x)=\sum_{j=1}^{n}\gamma_j\,K(x,x_j)\)
-      C: \(f_\gamma(x)=\sigma(\gamma^\top x)\)
-      D: \(f_\gamma(x)=K(x,\gamma)\)
+      A: $$f_\gamma(x)=\gamma^\top x$$
+      B: $$f_\gamma(x)=\sum_{j=1}^{n}\gamma_j\,K(x,x_j)$$
+      C: $$f_\gamma(x)=\sigma(\gamma^\top x)$$
+      D: $$f_\gamma(x)=K(x,\gamma)$$
     answer: B
     feedback:
       A: これは通常の線形モデルです．
       B: 正解．訓練点との**カーネル和**で表します．
       C: シグモイド付き線形でカーネルではありません．
-      D: \(\gamma\) が1点のみを指す場合の特殊形です．
+      D: $$\gamma$$ が1点のみを指す場合の特殊形です．
 
   - rubric: ガウスカーネルのパラメータを理解している．
     type: truefalse
-    title: 008-24-バンド幅 \(h\)
+    title: 008-24-バンド幅 $$h$$
     question: |
-      ガウスカーネル \(K(x,x')=\exp(-\|x-x'\|^2/2h^2)\) において，\(h\) が**大きいほど**カーネル値は局所的になる．
+      ガウスカーネル $$K(x,x')=\exp(-\|x-x'\|^2/2h^2)$$ において，$$h$$ が**大きいほど**カーネル値は局所的になる．
     answer: false
     feedback:
-      true: \(h\) を大きくすると距離の影響が緩和され**広がりが大きく**なります．
-      false: 正解．\(h\) 小→狭い，\(h\) 大→広い．
+      true: $$h$$ を大きくすると距離の影響が緩和され**広がりが大きく**なります．
+      false: 正解．$$h$$ 小→狭い，$$h$$ 大→広い．
 
   - rubric: 表現定理の要点を理解している．
     type: multichoice
@@ -341,8 +341,8 @@ Quizzes:
     type: truefalse
     title: 008-26-半正定値性
     question: |
-      任意の点集合 \(\{x_i\}\) と任意の係数 \(\{\alpha_i\}\) に対し
-      \(\sum_{ij}\alpha_i\alpha_j K(x_i,x_j)\ge 0\) を満たす \(K\) を**正定値カーネル**と呼ぶ．
+      任意の点集合 $$\{x_i\}$$ と任意の係数 $$\{\alpha_i\}$$ に対し
+      $$\sum_{ij}\alpha_i\alpha_j K(x_i,x_j)\ge 0$$ を満たす $$K$$ を**正定値カーネル**と呼ぶ．
     answer: true
     feedback:
       true: 正解．これは半正定値性の要件です．
@@ -397,8 +397,8 @@ Quizzes:
     type: multichoice
     title: 008-31-RKHSの再生性
     question: |
-      *再生性*とは，カーネル \(K\) と対応する RKHS で成り立つ
-      \(K(x,x')=\langle K(\cdot,x),K(\cdot,x')\rangle\)
+      *再生性*とは，カーネル $$K$$ と対応する RKHS で成り立つ
+      $$K(x,x')=\langle K(\cdot,x),K(\cdot,x')\rangle$$
       という関係により何が保証されるか．
     choices:
       A: 無限次元特徴量を内積で表現できる
@@ -416,7 +416,7 @@ Quizzes:
     type: truefalse
     title: 008-32-学習 vs 推論
     question: |
-      カーネルリッジ回帰では学習に \(\mathcal{O}(n^3)\) のコストが掛かる一方，推論は \(\mathcal{O}(n)\) である．
+      カーネルリッジ回帰では学習に $$\mathcal{O}(n^3)$$ のコストが掛かる一方，推論は $$\mathcal{O}(n)$$ である．
     answer: true
     feedback:
       true: 正解．学習でカーネル行列を反転しますが推論は和で n に比例します．
@@ -426,10 +426,10 @@ Quizzes:
     type: multichoice
     title: 008-33-重み付き和
     question: |
-      カーネル線型モデルで各 \(\gamma_j\) が**大きく**なると示す最も直接的な意味はどれか．
+      カーネル線型モデルで各 $$\gamma_j$$ が**大きく**なると示す最も直接的な意味はどれか．
     choices:
-      A: 入力 \(x_j\) のラベルが間違っている
-      B: 訓練点 \(x_j\) が予測に強く寄与する
+      A: 入力 $$x_j$$ のラベルが間違っている
+      B: 訓練点 $$x_j$$ が予測に強く寄与する
       C: カーネル値が常に1になる
       D: 距離計算に誤差がある
     answer: B
@@ -484,13 +484,13 @@ Quizzes:
       次のうち**過適合**を特に防ぐために強い正則化やハイパーパラメータ調整が**不可欠**となる手法はどれか．
     choices:
       A: 1-NN 分類
-      B: カーネルリッジ回帰（\(\lambda\) 正則化あり）
+      B: カーネルリッジ回帰（$$\lambda$$ 正則化あり）
       C: 深層ニューラルネット（層数大・パラメータ多数）
       D: ロジスティック回帰（2パラメータのみ）
     answer: C
     feedback:
       A: 過適合しやすいがハイパーパラメータは k だけで正則化は使わない手法です．
-      B: \(\lambda\) により過適合を制御できます．
+      B: $$\lambda$$ により過適合を制御できます．
       C: 正解．多数パラメータで正則化やDropout等が重要です．
       D: パラメータが少なく比較的過適合しにくい．
 
@@ -498,7 +498,7 @@ Quizzes:
     type: truefalse
     title: 008-38-バンド幅とk
     question: |
-      k-NN の **k** とガウスカーネルの **バンド幅 \(h\)** はどちらも「モデルの柔軟性」を制御するハイパーパラメータである．
+      k-NN の **k** とガウスカーネルの **バンド幅 $$h$$** はどちらも「モデルの柔軟性」を制御するハイパーパラメータである．
     answer: true
     feedback:
       true: 正解．k 小 / h 小 は境界を複雑にし過適合を招きます．

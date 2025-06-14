@@ -3,17 +3,17 @@ Quizzes:
     type: truefalse
     title: 006-01-Softmaxと勾配
     question: |
-      \(\mathrm{Softmax}(z)\) は \(\mathrm{LogSumExp}(z)\) を各成分で偏微分したものになっている。
+      $$\mathrm{Softmax}(z)$$ は $$\mathrm{LogSumExp}(z)$$ を各成分で偏微分したものになっている。
     answer: true
     feedback:
-      true: 正解です。\( \frac{\partial}{\partial z_k}\mathrm{LogSumExp}(z)=\mathrm{Softmax}(z)[k] \) です。 [oai_citation:3‡第6回.pdf](file-service://file-5y1H8kKj8gAZ63CMWf1xdL)
+      true: 正解です。$$ \frac{\partial}{\partial z_k}\mathrm{LogSumExp}(z)=\mathrm{Softmax}(z)[k] $$ です。 [oai_citation:3‡第6回.pdf](file-service://file-5y1H8kKj8gAZ63CMWf1xdL)
       false: Softmax はまさに LogSumExp の勾配ベクトルです。
 
   - rubric: 活性化関数の役割を区別できる。
     type: multichoice
     title: 006-02-ReLUの特徴
     question: |
-      ReLU 活性化関数 \(\theta(u)=\max\{0,u\}\) に関して正しい記述はどれか。
+      ReLU 活性化関数 $$\theta(u)=\max\{0,u\}$$ に関して正しい記述はどれか。
     choices:
       A: 負の入力でも勾配が一定の非ゼロ値を持つため勾配消失を防ぐ。
       B: 出力が線形であるためネットワークに非線形性を与えない。
@@ -40,11 +40,11 @@ Quizzes:
     type: multichoice
     title: 006-04-MAP決定
     question: |
-      ソフトマックス出力 \( g_\theta(x) \) から予測ラベル \( f_\theta(x) \) を得る決定規則として正しいものはどれか。
+      ソフトマックス出力 $$ g_\theta(x) $$ から予測ラベル $$ f_\theta(x) $$ を得る決定規則として正しいものはどれか。
     choices:
-      A: \( f_\theta(x) = \arg\max_k g_\theta(x)[k] \)
-      B: \( f_\theta(x) = \arg\min_k g_\theta(x)[k] \)
-      C: \( f_\theta(x) = \arg\max_k \log g_\theta(x)[k] \)
+      A: $$ f_\theta(x) = \arg\max_k g_\theta(x)[k] $$
+      B: $$ f_\theta(x) = \arg\min_k g_\theta(x)[k] $$
+      C: $$ f_\theta(x) = \arg\max_k \log g_\theta(x)[k] $$
       D: A と C は同じ結果になる
     answer: D
     feedback:
@@ -57,10 +57,10 @@ Quizzes:
     type: truefalse
     title: 006-08-二値の場合のSoftmax
     question: |
-      2クラス（\(K=2\)）の場合，ソフトマックス関数はロジスティックシグモイド関数と同形となる。
+      2クラス（$$K=2$$）の場合，ソフトマックス関数はロジスティックシグモイド関数と同形となる。
     answer: true
     feedback:
-      true: 正解です。\( w=z_1-z_2 \) と置くと \( \mathrm{Softmax}(z_1,z_2)=(\delta(w),1-\delta(w)) \) になります。 [oai_citation:9‡第6回.pdf](file-service://file-5y1H8kKj8gAZ63CMWf1xdL)
+      true: 正解です。$$ w=z_1-z_2 $$ と置くと $$ \mathrm{Softmax}(z_1,z_2)=(\delta(w),1-\delta(w)) $$ になります。 [oai_citation:9‡第6回.pdf](file-service://file-5y1H8kKj8gAZ63CMWf1xdL)
       false: 2 クラスでは Softmax はシグモイドと一致します。
 
   - rubric: 最適化手法の改良点を区別できる。
@@ -85,12 +85,12 @@ Quizzes:
     title: 006-10-レイヤー計算の流れ
     question: |
       順伝播型ニューラルネットワーク (FNN) の 1 層で行われる計算として正しいものはどれか。
-      ここで \(\theta\) は活性化関数とする。
+      ここで $$\theta$$ は活性化関数とする。
     choices:
-      A: \(x \mapsto W x + b \mapsto \theta(Wx+b)\)
-      B: \(x \mapsto \theta(x) \mapsto W\theta(x)+b\)
-      C: \(x \mapsto W x \odot b \mapsto \theta(Wx\odot b)\)（\(\odot\) は要素積）
-      D: \(x \mapsto \theta(Wx+b) \mapsto W\theta(x)+b\)
+      A: $$x \mapsto W x + b \mapsto \theta(Wx+b)$$
+      B: $$x \mapsto \theta(x) \mapsto W\theta(x)+b$$
+      C: $$x \mapsto W x \odot b \mapsto \theta(Wx\odot b)$$（$$\odot$$ は要素積）
+      D: $$x \mapsto \theta(Wx+b) \mapsto W\theta(x)+b$$
     answer: A
     feedback:
       A: 正解です。線形変換の後に活性化を適用します。 [oai_citation:11‡第6回.pdf](file-service://file-5y1H8kKj8gAZ63CMWf1xdL)
@@ -102,7 +102,7 @@ Quizzes:
     type: truefalse
     title: 006-12-One-hot とパラメータ
     question: |
-      \(K\) クラス分類で one-hot ラベルを用いるとき，最終層の重み行列の列数は常に \(K\) になる。
+      $$K$$ クラス分類で one-hot ラベルを用いるとき，最終層の重み行列の列数は常に $$K$$ になる。
     answer: true
     feedback:
       true: 正解です。列方向がクラス次元を張ります。 [oai_citation:1‡第6回.pdf](file-service://file-5y1H8kKj8gAZ63CMWf1xdL)
@@ -112,7 +112,7 @@ Quizzes:
     type: truefalse
     title: 006-13-CE と NLL
     question: |
-      モデルが出力する確率分布 \(q_\theta(y\mid x)\) に対し，離散ラベルの交差エントロピー損失は負の対数尤度と一致する。
+      モデルが出力する確率分布 $$q_\theta(y\mid x)$$ に対し，離散ラベルの交差エントロピー損失は負の対数尤度と一致する。
     answer: true
     feedback:
       true: 正解です。教師ラベルを one-hot とみなすと同一式になります。 [oai_citation:2‡第6回.pdf](file-service://file-5y1H8kKj8gAZ63CMWf1xdL)
@@ -122,7 +122,7 @@ Quizzes:
     type: multichoice
     title: 006-14-学習率の罠
     question: |
-      学習率 \(\eta\) が **過度に大きい** と発生しやすい現象として **最も直接的** なものはどれか。
+      学習率 $$\eta$$ が **過度に大きい** と発生しやすい現象として **最も直接的** なものはどれか。
     choices:
       A: 勾配ノルムが 0 に収束しネットワークが停滞する。
       B: 損失が発散して訓練過程が数値的に不安定になる。
@@ -152,7 +152,7 @@ Quizzes:
       シグモイド活性化関数を深いネットワークで用いると勾配消失が起こりやすい主な理由はどれか。
     choices:
       A: シグモイドの最大勾配が 1 であるため。
-      B: シグモイド勾配が \((0,1)\) に挟まれ連鎖積で指数的に小さくなるため。
+      B: シグモイド勾配が $$(0,1)$$ に挟まれ連鎖積で指数的に小さくなるため。
       C: シグモイドは偶関数であるため。
       D: シグモイドの出力が常に正で平均 0 にならないため。
     answer: B
@@ -174,7 +174,7 @@ Quizzes:
       D: ミニバッチ内の入力を白色化する。
     answer: A
     feedback:
-      A: 正解です。勾配項 \(\lambda w\) が足されます。 [oai_citation:6‡第6回.pdf](file-service://file-5y1H8kKj8gAZ63CMWf1xdL)
+      A: 正解です。勾配項 $$\lambda w$$ が足されます。 [oai_citation:6‡第6回.pdf](file-service://file-5y1H8kKj8gAZ63CMWf1xdL)
       B: これはバッチ正規化の役割です。
       C: L2 正則化自体は学習率を変えません。
       D: 入力正規化とは別概念です。
@@ -203,7 +203,7 @@ Quizzes:
     type: multichoice
     title: 006-20-バッチサイズのトレードオフ
     question: |
-      ミニバッチサイズ \(B\) を増やすと **一般に** どう変化するか。最も網羅的に正しいものを選べ。
+      ミニバッチサイズ $$B$$ を増やすと **一般に** どう変化するか。最も網羅的に正しいものを選べ。
     choices:
       A: 勾配推定の分散が減り計算あたりの統計効率が向上する反面，1 エポックの計算コストが増える。
       B: 勾配推定の分散が増えるが計算は高速になる。
@@ -211,7 +211,7 @@ Quizzes:
       D: バッチサイズは勾配にも計算時間にも影響しない。
     answer: A
     feedback:
-      A: 正解です。大きい \(B\) は滑らかな更新だが 1 ステップが重い。 [oai_citation:9‡第6回.pdf](file-service://file-5y1H8kKj8gAZ63CMWf1xdL)
+      A: 正解です。大きい $$B$$ は滑らかな更新だが 1 ステップが重い。 [oai_citation:9‡第6回.pdf](file-service://file-5y1H8kKj8gAZ63CMWf1xdL)
       B: 分散は減少します。
       C: 分散は減りますがコストは増です。
       D: 影響しないことはありません。
@@ -220,13 +220,13 @@ Quizzes:
     type: multichoice
     title: 006-21-スケール vs シフト
     question: |
-      ベクトル \(z\in\mathbb{R}^K\) に同じ定数変換を施したときの **Softmax 出力** と **最大事後確率決定則**への影響を考える。
+      ベクトル $$z\in\mathbb{R}^K$$ に同じ定数変換を施したときの **Softmax 出力** と **最大事後確率決定則**への影響を考える。
       「決定ラベルは変わらないが Softmax 出力確率は変わる」変換はどれか。
     choices:
-      A: すべての成分に同じ実数 \(c\) を加える（\(z \mapsto z+c\mathbf{1}\)）。
-      B: すべての成分に同じ正の実数 \(\alpha>0\) を掛ける（\(z \mapsto \alpha z\)）。
-      C: 各成分に独立な微小ノイズを加える（\(z_k \mapsto z_k+\epsilon_k\)）。
-      D: すべての成分に \(-1\) を掛ける（\(z \mapsto -z\)）。
+      A: すべての成分に同じ実数 $$c$$ を加える（$$z \mapsto z+c\mathbf{1}$$）。
+      B: すべての成分に同じ正の実数 $$\alpha>0$$ を掛ける（$$z \mapsto \alpha z$$）。
+      C: 各成分に独立な微小ノイズを加える（$$z_k \mapsto z_k+\epsilon_k$$）。
+      D: すべての成分に $$-1$$ を掛ける（$$z \mapsto -z$$）。
     answer: B
     feedback:
       A: シフト不変性により確率もラベルも不変です。 [oai_citation:0‡第6回.pdf](file-service://file-5y1H8kKj8gAZ63CMWf1xdL)
@@ -238,12 +238,12 @@ Quizzes:
     type: multichoice
     title: 006-22-LogSumExp 勾配の向き
     question: |
-      \(z=(2,5,8,0)\) に対する \(\nabla \mathrm{LogSumExp}(z)\) について正しい記述はどれか。
+      $$z=(2,5,8,0)$$ に対する $$\nabla \mathrm{LogSumExp}(z)$$ について正しい記述はどれか。
     choices:
       A: 成分がちょうど一つだけ 1 で他は 0 のベクトルになる。
-      B: Softmax\(z\) と同一であり、第3成分が 1 に近く他は 0 に近い。
+      B: Softmax$$z$$ と同一であり、第3成分が 1 に近く他は 0 に近い。
       C: 第1成分が最大なので最初の要素が約 1 になる。
-      D: 勾配は \(z\) の大きさに依存せず常に一様確率ベクトルになる。
+      D: 勾配は $$z$$ の大きさに依存せず常に一様確率ベクトルになる。
     answer: B
     feedback:
       A: 最大成分に“ほぼ”1ですが厳密に 1 ではありません。
@@ -255,7 +255,7 @@ Quizzes:
     type: truefalse
     title: 006-23-予測確率と真ラベルの差
     question: |
-      Softmax 出力 \(g_\theta(x)\) と one-hot ラベル \(\mathbf{e}_{y}\) を用いる交差エントロピー損失の勾配は
+      Softmax 出力 $$g_\theta(x)$$ と one-hot ラベル $$\mathbf{e}_{y}$$ を用いる交差エントロピー損失の勾配は
       \[
         \frac{\partial L}{\partial s_\theta(x)} = g_\theta(x)-\mathbf{e}_{y}
       \]
@@ -269,8 +269,8 @@ Quizzes:
     type: truefalse
     title: 006-24-ヤコビを持たない効率
     question: |
-      誤差逆伝播法では中間勾配を再利用するため，ネットワーク総パラメータ数を \(P\) とした場合でも
-      勾配計算は \(O(P)\) で行える。
+      誤差逆伝播法では中間勾配を再利用するため，ネットワーク総パラメータ数を $$P$$ とした場合でも
+      勾配計算は $$O(P)$$ で行える。
     answer: true
     feedback:
       true: **正解。** 共有部分を一度だけ計算することで線形時間になります。 [oai_citation:3‡第6回.pdf](file-service://file-5y1H8kKj8gAZ63CMWf1xdL)
@@ -309,12 +309,12 @@ Quizzes:
     type: multichoice
     title: 006-27-重み行列の形
     question: |
-      特徴量次元 \(d\)，クラス数 \(K\)，バイアス込みの多クラスロジスティック回帰の総パラメータ数は？
+      特徴量次元 $$d$$，クラス数 $$K$$，バイアス込みの多クラスロジスティック回帰の総パラメータ数は？
     choices:
-      A: \(K(d+1)\)
-      B: \(d(K+1)\)
-      C: \(Kd\)
-      D: \(K^2d\)
+      A: $$K(d+1)$$
+      B: $$d(K+1)$$
+      C: $$Kd$$
+      D: $$K^2d$$
     answer: A
     feedback:
       A: **正解。** 各クラスに独立な重みベクトルとバイアスが必要です。 [oai_citation:6‡第6回.pdf](file-service://file-5y1H8kKj8gAZ63CMWf1xdL)
@@ -326,10 +326,10 @@ Quizzes:
     type: truefalse
     title: 006-28-飽和と勾配
     question: |
-      交差エントロピー損失で正解クラス確率が 0.99 になると，そのクラスのスコア勾配は \(-0.01\) となり小さくなるためパラメータ更新が鈍化する。
+      交差エントロピー損失で正解クラス確率が 0.99 になると，そのクラスのスコア勾配は $$-0.01$$ となり小さくなるためパラメータ更新が鈍化する。
     answer: true
     feedback:
-      true: **正解。** 勾配は \(g_y-1 = 0.99-1\) で -0.01 と小さくなります。 [oai_citation:7‡第6回.pdf](file-service://file-5y1H8kKj8gAZ63CMWf1xdL)
+      true: **正解。** 勾配は $$g_y-1 = 0.99-1$$ で -0.01 と小さくなります。 [oai_citation:7‡第6回.pdf](file-service://file-5y1H8kKj8gAZ63CMWf1xdL)
       false: 高確率でも勾配は小さくなります。
 
   - rubric: 内部共変量シフトの緩和手法を識別できる。
@@ -375,13 +375,13 @@ Quizzes:
     type: multichoice
     title: 006-03-負の対数尤度の勾配
     question: |
-      多クラスロジスティック回帰で負の対数尤度 \(L\) を \(\theta_k\) で微分した結果として正しいものはどれか。
-      ただし \(g_\theta(x)[k]\) はクラス \(k\) の予測確率，\(\phi(x)\) は特徴量変換，\(1\{\cdot\}\) は指示関数とする。
+      多クラスロジスティック回帰で負の対数尤度 $$L$$ を $$\theta_k$$ で微分した結果として正しいものはどれか。
+      ただし $$g_\theta(x)[k]$$ はクラス $$k$$ の予測確率，$$\phi(x)$$ は特徴量変換，$$1\{\cdot\}$$ は指示関数とする。
     choices:
-      A: \(\displaystyle \nabla_{\theta_k}L = \frac{1}{n}\sum_{i=1}^n (g_\theta(x_i)[k]-1\{y_i=k\})\phi(x_i)\)
-      B: \(\displaystyle \nabla_{\theta_k}L = \frac{1}{n}\sum_{i=1}^n (1\{y_i=k\}-g_\theta(x_i)[k])\phi(x_i)\)
-      C: \(\displaystyle \nabla_{\theta_k}L = \sum_{i=1}^n g_\theta(x_i)[k]\phi(x_i)\)
-      D: \(\displaystyle \nabla_{\theta_k}L = -\sum_{i=1}^n 1\{y_i=k\}\phi(x_i)\)
+      A: $$\displaystyle \nabla_{\theta_k}L = \frac{1}{n}\sum_{i=1}^n (g_\theta(x_i)[k]-1\{y_i=k\})\phi(x_i)$$
+      B: $$\displaystyle \nabla_{\theta_k}L = \frac{1}{n}\sum_{i=1}^n (1\{y_i=k\}-g_\theta(x_i)[k])\phi(x_i)$$
+      C: $$\displaystyle \nabla_{\theta_k}L = \sum_{i=1}^n g_\theta(x_i)[k]\phi(x_i)$$
+      D: $$\displaystyle \nabla_{\theta_k}L = -\sum_{i=1}^n 1\{y_i=k\}\phi(x_i)$$
     answer: A
     feedback:
       A: 正解です。予測確率と真のラベルの差が勾配を決定します。 [oai_citation:4‡第6回.pdf](file-service://file-5y1H8kKj8gAZ63CMWf1xdL)
@@ -393,19 +393,19 @@ Quizzes:
     type: multichoice
     title: 007-03-シグモイド勾配のピーク
     question: |
-      ロジスティックシグモイド関数 \( \sigma(u)=\frac{1}{1+e^{-u}} \) の勾配は
+      ロジスティックシグモイド関数 $$ \sigma(u)=\frac{1}{1+e^{-u}} $$ の勾配は
       \[
         \sigma'(u)=\sigma(u)\bigl(1-\sigma(u)\bigr)
       \]
-      で与えられる。\(u\in\mathbb{R}\) 全体での \( \sigma'(u) \) の **最大値** はどれか。
+      で与えられる。$$u\in\mathbb{R}$$ 全体での $$ \sigma'(u) $$ の **最大値** はどれか。
     choices:
-      A: \(1\)
-      B: \(0.25\)
-      C: \(0.5\)
+      A: $$1$$
+      B: $$0.25$$
+      C: $$0.5$$
       D: 最大値を持たない（無限大に発散する）
     answer: B
     feedback:
       A: 勾配は 1 より小さく抑えられます。
-      B: 正解です。\(u=0\) で \( \sigma'(0)=0.25 \) となります。 [oai_citation:0‡第6回.pdf](file-service://file-5y1H8kKj8gAZ63CMWf1xdL)
-      C: 0.5 は \( \sigma(u)=0.5 \) のときの関数値であり勾配値ではありません。
+      B: 正解です。$$u=0$$ で $$ \sigma'(0)=0.25 $$ となります。 [oai_citation:0‡第6回.pdf](file-service://file-5y1H8kKj8gAZ63CMWf1xdL)
+      C: 0.5 は $$ \sigma(u)=0.5 $$ のときの関数値であり勾配値ではありません。
       D: Sigmoid 勾配は有界です。

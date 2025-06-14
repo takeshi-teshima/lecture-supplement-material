@@ -5,17 +5,17 @@ Quizzes:
     type: multichoice
     title: 005-01-最適な分類器の形
     question: |
-      確率論的分類において、誤分類率を最小にする予測器 \( f^* \) の定義として正しいものはどれか。
+      確率論的分類において、誤分類率を最小にする予測器 $$ f^* $$ の定義として正しいものはどれか。
     choices:
-      A: \( f^*(x) = \arg\min_y p(x|y) \)
-      B: \( f^*(x) = \arg\max_y p(y|x) \)
-      C: \( f^*(x) = \arg\max_y p(y) \)
-      D: \( f^*(x) = \arg\min_y \|x - y\| \)
+      A: $$ f^*(x) = \arg\min_y p(x|y) $$
+      B: $$ f^*(x) = \arg\max_y p(y|x) $$
+      C: $$ f^*(x) = \arg\max_y p(y) $$
+      D: $$ f^*(x) = \arg\min_y \|x - y\| $$
     answer: B
     feedback:
       A: 条件付き確率の向きが逆です。
-      B: 正解です。最適な分類器はクラス事後確率 \( p(y|x) \) を最大化するラベルを選びます。
-      C: \( p(y) \) は事前分布であり、入力 \( x \) に依存しません。
+      B: 正解です。最適な分類器はクラス事後確率 $$ p(y|x) $$ を最大化するラベルを選びます。
+      C: $$ p(y) $$ は事前分布であり、入力 $$ x $$ に依存しません。
       D: 距離に基づく最近傍法に類似していますが、誤分類率を最小にする理論的根拠にはなりません。
 
   - rubric: モデルが確率値を出力するためには確率ベクトルである必要があることを理解している。
@@ -34,13 +34,13 @@ Quizzes:
     question: |
       ロジスティック関数（シグモイド関数）の表式として正しいものはどれか。
     choices:
-      A: \( \phi(z) = \frac{1}{1 + z} \)
-      B: \( \phi(z) = \frac{e^z}{1 + e^z} \)
-      C: \( \phi(z) = \frac{1}{1 + e^{-z}} \)
-      D: \( \phi(z) = \frac{1}{1 - e^{-z}} \)
+      A: $$ \phi(z) = \frac{1}{1 + z} $$
+      B: $$ \phi(z) = \frac{e^z}{1 + e^z} $$
+      C: $$ \phi(z) = \frac{1}{1 + e^{-z}} $$
+      D: $$ \phi(z) = \frac{1}{1 - e^{-z}} $$
     answer: C
     feedback:
-      A: この式では \( z \to \infty \) のとき発散します。
+      A: この式では $$ z \to \infty $$ のとき発散します。
       B: 上限が1を超えるため確率値にはなりません。
       C: 正解です。これはロジスティック関数の正しい定義です。
       D: 0以上1以下にならず、確率値として不適切です。
@@ -66,7 +66,7 @@ Quizzes:
     type: multichoice
     title: 005-05-KLダイバージェンスと交差エントロピー
     question: |
-      KLダイバージェンス \( KL(p \| q) \) と交差エントロピーの関係に関する記述として適切なものはどれか。
+      KLダイバージェンス $$ KL(p \| q) $$ と交差エントロピーの関係に関する記述として適切なものはどれか。
     choices:
       A: KLダイバージェンス = 交差エントロピー + エントロピー
       B: KLダイバージェンス = 交差エントロピー - エントロピー
@@ -339,12 +339,12 @@ Quizzes:
     type: multichoice
     title: 005-25-予測器の構造
     question: |
-      多クラス分類における予測器 \( f_\theta(x) \) の構造として最も適切なものはどれか。
+      多クラス分類における予測器 $$ f_\theta(x) $$ の構造として最も適切なものはどれか。
     choices:
-      A: \( f_\theta(x) = \text{Softmax}(x) \)
-      B: \( f_\theta(x) = \arg\max_k \theta_k x \)
-      C: \( f_\theta(x) = \gamma(g_\theta(x)) \) with \( g_\theta(x) = \text{Softmax}(s_\theta(x)) \)
-      D: \( f_\theta(x) = \min_k g_\theta(x)[k] \)
+      A: $$ f_\theta(x) = \text{Softmax}(x) $$
+      B: $$ f_\theta(x) = \arg\max_k \theta_k x $$
+      C: $$ f_\theta(x) = \gamma(g_\theta(x)) $$ with $$ g_\theta(x) = \text{Softmax}(s_\theta(x)) $$
+      D: $$ f_\theta(x) = \min_k g_\theta(x)[k] $$
     answer: C
     feedback:
       A: Softmaxは確率出力であって予測ラベルを返しません。
@@ -357,10 +357,10 @@ Quizzes:
     question: |
       二値分類における交差エントロピー損失（binary cross entropy）として正しい式はどれか。
     choices:
-      A: \( - y \log(1 - g(x)) - (1 - y) \log g(x) \)
-      B: \( - y \log g(x) - (1 - y) \log(1 - g(x)) \)
-      C: \( y \log y + (1 - y) \log(1 - y) \)
-      D: \( (y - g(x))^2 \)
+      A: $$ - y \log(1 - g(x)) - (1 - y) \log g(x) $$
+      B: $$ - y \log g(x) - (1 - y) \log(1 - g(x)) $$
+      C: $$ y \log y + (1 - y) \log(1 - y) $$
+      D: $$ (y - g(x))^2 $$
     answer: B
     feedback:
       A: 項が逆転しています。
@@ -375,7 +375,7 @@ Quizzes:
       KLダイバージェンスは，交差エントロピーと真のエントロピーとの差として表される。
     answer: true
     feedback:
-      true: 正解です。KLは \( \text{cross-entropy} - \text{entropy} \) と表されます。
+      true: 正解です。KLは $$ \text{cross-entropy} - \text{entropy} $$ と表されます。
       false: 実際には交差エントロピーとエントロピーの差です。
 
   - rubric: モデル出力を確率に変換する必要性を理解している。

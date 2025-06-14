@@ -3,8 +3,8 @@ Quizzes:
     type: multichoice
     title: 009-01-球面集中
     question: |
-      半径 \(r=1\) の \(d\)-次元球（\(d\gg1\)）に一様分布で点を撒いた。
-      厚さ \(s=0.01\) の外殻（半径 \(1-s\)〜1）に含まれる体積の割合として最も妥当なのはどれか。
+      半径 $$r=1$$ の $$d$$-次元球（$$d\gg1$$）に一様分布で点を撒いた。
+      厚さ $$s=0.01$$ の外殻（半径 $$1-s$$〜1）に含まれる体積の割合として最も妥当なのはどれか。
     choices:
       A: 1 % 未満
       B: 約 10 %
@@ -14,54 +14,54 @@ Quizzes:
     feedback:
       A: 中心側の体積は急速に小さくなるため 1 % 未満にはならない。
       B: 低次元ならあり得るが，高次元では外殻がほとんどを占める。
-      C: \(d\rightarrow\infty\) では 50 % でも過小評価。
+      C: $$d\rightarrow\infty$$ では 50 % でも過小評価。
       D: 正解。球面集中現象により体積のほぼ全てが薄い外殻に集まる。
 
   - rubric: 距離の均質化を理解している
     type: multichoice
     title: 009-02-最近傍距離の収束
     question: |
-      \(n\) 個の点を高次元等方 Gaussian (\(\mathcal N(\mathbf0,I_d)\)) から独立にサンプリングした。
-      \(d\to\infty\) で隣接距離 \(\|x_i-x_j\|\) の最小値と最大値の比はどうなるか。
+      $$n$$ 個の点を高次元等方 Gaussian ($$\mathcal N(\mathbf0,I_d)$$) から独立にサンプリングした。
+      $$d\to\infty$$ で隣接距離 $$\|x_i-x_j\|$$ の最小値と最大値の比はどうなるか。
     choices:
       A: 0 に近づく
       B: 1 に近づく
-      C: \(\sqrt{d}\) に近づく
+      C: $$\sqrt{d}$$ に近づく
       D: 毎回ランダムにばらつく
     answer: B
     feedback:
       A: 高次元では最短距離も遠いので 0 にはならない。
       B: 正解。距離の均質化で最近傍と最遠点の差が縮み比は 1 に近づく。
-      C: \(\sqrt{d}\) は距離の典型的スケールであって比ではない。
+      C: $$\sqrt{d}$$ は距離の典型的スケールであって比ではない。
       D: 次元が十分高ければばらつきは極小になる。
 
   - rubric: ランダムベクトルのなす角が直交に集中することを理解している
     type: truefalse
     title: 009-03-高次元での直交性
     question: |
-      \(d\)-次元の等方 Gaussian ベクトル \(X,Y\)（独立）について
+      $$d$$-次元の等方 Gaussian ベクトル $$X,Y$$（独立）について
       \[
         \lim_{d\to\infty}\Pr\!\bigl[\lvert\cos\angle(X,Y)\rvert<0.01\bigr]=1
       \]
       である。
     answer: true
     feedback:
-      true: 正解。内積は \(O(\sqrt d)\) だがノルムは \(O(\sqrt d)\) なので比は 0 に収束する。
+      true: 正解。内積は $$O(\sqrt d)$$ だがノルムは $$O(\sqrt d)$$ なので比は 0 に収束する。
       false: 高次元ではほぼ直交になるため誤り。
 
   - rubric: 距離尺度選択の落とし穴を説明できる
     type: multichoice
     title: 009-04-マンハッタン距離の効用
     question: |
-      次元 \(d\) が極端に高い場合，ユークリッド距離よりマンハッタン距離（\(L_1\)）が有利となる主な理由として最も妥当なのはどれか。
+      次元 $$d$$ が極端に高い場合，ユークリッド距離よりマンハッタン距離（$$L_1$$）が有利となる主な理由として最も妥当なのはどれか。
     choices:
-      A: \(L_1\) は三角不等式を満たさないため柔軟
-      B: \(L_1\) は外れ値に対して一様に鈍感
-      C: \(L_1\) は距離のばらつきが \(L_2\) より残りやすい
+      A: $$L_1$$ は三角不等式を満たさないため柔軟
+      B: $$L_1$$ は外れ値に対して一様に鈍感
+      C: $$L_1$$ は距離のばらつきが $$L_2$$ より残りやすい
       D: どちらの距離でも均質化は同程度なので差は無い
     answer: C
     feedback:
-      A: \(L_1\) も距離の公理を満たすので誤り。
+      A: $$L_1$$ も距離の公理を満たすので誤り。
       B: 外れ値へのロバスト性は距離均質化とは別問題。
       C: 正解。成分ごとに加算するため距離分布の集中がやや緩やか。
       D: 実際には縮み具合に差があり得る。
@@ -107,7 +107,7 @@ Quizzes:
     type: truefalse
     title: 009-09-メディアンヒューリスティック
     question: |
-      データ間距離の中央値をバンド幅 \(h\) に取る方法（median heuristic）は，理論的に最小汎化誤差を保証する。
+      データ間距離の中央値をバンド幅 $$h$$ に取る方法（median heuristic）は，理論的に最小汎化誤差を保証する。
     answer: false
     feedback:
       true: 経験則であり理論保証は無い。
@@ -117,7 +117,7 @@ Quizzes:
     type: multichoice
     title: 009-10-kNNと次元の呪い
     question: |
-      高次元データで \(k\)-最近傍分類器の誤分類率が悪化する主因として最も本質的なのはどれか。
+      高次元データで $$k$$-最近傍分類器の誤分類率が悪化する主因として最も本質的なのはどれか。
     choices:
       A: 距離計算が数値的不安定
       B: 近傍距離と遠方距離がほぼ等しくなる
@@ -161,7 +161,7 @@ Quizzes:
     type: multichoice
     title: 009-13-対照学習のペア
     question: |
-      自己教師付き対照学習で同一入力から生成した 2 ビュー \((x^{(1)},x^{(2)})\) を正例とし，同一ミニバッチ内の他ビューを負例とする理由として最も適切なのはどれか。
+      自己教師付き対照学習で同一入力から生成した 2 ビュー $$(x^{(1)},x^{(2)})$$ を正例とし，同一ミニバッチ内の他ビューを負例とする理由として最も適切なのはどれか。
     choices:
       A: ミニバッチを大きくすれば常に同クラスは含まれない
       B: 負例生成コストが追加データ取得より低い
@@ -178,11 +178,11 @@ Quizzes:
     type: truefalse
     title: 009-14-温度パラメータの役割
     question: |
-      温度 \(T<1\) を用いるとソフトマックス出力分布はより鋭くなり，対照学習で正例と負例を区別しやすくなる。
+      温度 $$T<1$$ を用いるとソフトマックス出力分布はより鋭くなり，対照学習で正例と負例を区別しやすくなる。
     answer: true
     feedback:
       true: 正解。確率質量が大きく集中する。
-      false: \(T>1\) が平坦化，\(T<1\) が鋭化である。
+      false: $$T>1$$ が平坦化，$$T<1$$ が鋭化である。
 
   - rubric: オープンセット認識と類似度閾値を説明できる
     type: multichoice
@@ -215,7 +215,7 @@ Quizzes:
     type: multichoice
     title: 009-17-サンプル複雑度境界
     question: |
-      Shalev-Shwartz & Ben-David (2014) に示される「\(n<2^{d/2}\) では任意アルゴリズムが誤分類率 \(\ge1/4\)」型の下界は何を示唆するか。
+      Shalev-Shwartz & Ben-David (2014) に示される「$$n<2^{d/2}$$ では任意アルゴリズムが誤分類率 $$\ge1/4$$」型の下界は何を示唆するか。
     choices:
       A: 高次元でも少数サンプルで高精度は可能
       B: サンプル数は次元に指数的に必要な場合がある
@@ -232,10 +232,10 @@ Quizzes:
     type: truefalse
     title: 009-18-正規分布と球面
     question: |
-      等方 Gaussian \(\mathcal N(\mathbf0,I_d)\) の標本は半径 \(\sqrt d\) 近辺の薄い殻に集中する。
+      等方 Gaussian $$\mathcal N(\mathbf0,I_d)$$ の標本は半径 $$\sqrt d$$ 近辺の薄い殻に集中する。
     answer: true
     feedback:
-      true: 正解。ノルム平方の期待値が \(d\)。
+      true: 正解。ノルム平方の期待値が $$d$$。
       false: 中心付近ではほとんど観測されない。
 
   - rubric: 事前学習タスクと下流タスクの関係を評価できる
@@ -286,11 +286,11 @@ Quizzes:
     type: truefalse
     title: 009-23-温度とエントロピー
     question: |
-      ソフトマックスの温度 \(T\) を上げるほど出力エントロピーは増加する。
+      ソフトマックスの温度 $$T$$ を上げるほど出力エントロピーは増加する。
     answer: true
     feedback:
       true: 正解。分布が平坦化してエントロピー上昇。
-      false: \(T<1\) が鋭化でエントロピー低下。
+      false: $$T<1$$ が鋭化でエントロピー低下。
 
   - rubric: 距離均質化の直感的説明ができる
     type: multichoice
@@ -340,7 +340,7 @@ Quizzes:
     type: truefalse
     title: 009-27-カーネル幅vs L2
     question: |
-      ガウシアンカーネル回帰でバンド幅 \(h\) を大きくしても L2 正則化を強くしたときと同じ効果が得られるわけではない。
+      ガウシアンカーネル回帰でバンド幅 $$h$$ を大きくしても L2 正則化を強くしたときと同じ効果が得られるわけではない。
     answer: true
     feedback:
       true: 正解。幅は近傍定義，正則化は係数制約と別次元。
@@ -367,11 +367,11 @@ Quizzes:
     type: truefalse
     title: 009-29-低温分布
     question: |
-      温度 \(T=0.01\) の極低温ソフトマックスは，ほぼ \(\arg\max\) と同じ振る舞いを示す。
+      温度 $$T=0.01$$ の極低温ソフトマックスは，ほぼ $$\arg\max$$ と同じ振る舞いを示す。
     answer: true
     feedback:
       true: 正解。最小指数項以外は無視される。
-      false: 低温は鋭くなるため \(\arg\max\) に近い。
+      false: 低温は鋭くなるため $$\arg\max$$ に近い。
 
   - rubric: 高次元現象のまとめを総合的に説明できる
     type: multichoice
@@ -395,12 +395,12 @@ Quizzes:
     type: truefalse
     title: 001-12-Gaussianノルムの集中
     question: |
-      \(X\sim\mathcal N(\mathbf0,I_d)\) のとき
-      \(\lVert X\rVert^2/d\to1\) （確率収束）する。
+      $$X\sim\mathcal N(\mathbf0,I_d)$$ のとき
+      $$\lVert X\rVert^2/d\to1$$ （確率収束）する。
     answer: true
     feedback:
-      true: 正解。\(\lVert X\rVert^2\) は \(\chi^2_d\) に従い，期待値 \(d\) に集中する。 [oai_citation:2‡第9回.pdf](file-service://file-EdvwTznuGnZDDEoEmMcDL4)
-      false: 集中不成立という主張は \(\chi^2\) の大数律に反する。
+      true: 正解。$$\lVert X\rVert^2$$ は $$\chi^2_d$$ に従い，期待値 $$d$$ に集中する。 [oai_citation:2‡第9回.pdf](file-service://file-EdvwTznuGnZDDEoEmMcDL4)
+      false: 集中不成立という主張は $$\chi^2$$ の大数律に反する。
 
   - rubric: 距離の均質化が「相対コントラスト」を低下させる説明を理解している
     type: multichoice
@@ -408,14 +408,14 @@ Quizzes:
     question: |
       Aggarwal ら (2001) で示された「相対コントラスト」の定義は？
     choices:
-      A: \(\frac{\operatorname{max}d-\operatorname{min}d}{\operatorname{min}d}\)
-      B: \(\frac{\operatorname{max}d-\operatorname{min}d}{\operatorname{max}d}\)
-      C: \(\frac{\operatorname{E}[d]-\operatorname{min}d}{\operatorname{min}d}\)
-      D: \(\operatorname{E}[d]\)
+      A: $$\frac{\operatorname{max}d-\operatorname{min}d}{\operatorname{min}d}$$
+      B: $$\frac{\operatorname{max}d-\operatorname{min}d}{\operatorname{max}d}$$
+      C: $$\frac{\operatorname{E}[d]-\operatorname{min}d}{\operatorname{min}d}$$
+      D: $$\operatorname{E}[d]$$
     answer: C
     feedback:
-      A: 分母が \(\operatorname{min}d\) ではなく平均距離を含める。
-      B: 分母が \(\operatorname{max}d\) では情報量が薄れる。
+      A: 分母が $$\operatorname{min}d$$ ではなく平均距離を含める。
+      B: 分母が $$\operatorname{max}d$$ では情報量が薄れる。
       C: 正解。平均と最小距離の差が埋まるほど相対コントラストは小さくなる。 [oai_citation:3‡第9回.pdf](file-service://file-EdvwTznuGnZDDEoEmMcDL4)
       D: 距離自体ではなく比で測る指標。
 
@@ -423,7 +423,7 @@ Quizzes:
     type: truefalse
     title: 001-14-L1距離のばらつき
     question: |
-      \(L_1\) 距離は成分ごとに距離を加算するため，\(L_2\) よりも「距離の均質化」が緩やかになる。
+      $$L_1$$ 距離は成分ごとに距離を加算するため，$$L_2$$ よりも「距離の均質化」が緩やかになる。
     answer: true
     feedback:
       true: 正解。集中しきらず分散がやや大きく残る。 [oai_citation:4‡第9回.pdf](file-service://file-EdvwTznuGnZDDEoEmMcDL4)
@@ -434,18 +434,18 @@ Quizzes:
     type: multichoice
     title: 001-15-サンプル複雑度下界
     question: |
-      \(c>1\) に対し，ある分布ではサンプル数が
-      \(n<(c+1)^{d/2}\) だと誤分類率が最低いくら以上になるか。
+      $$c>1$$ に対し，ある分布ではサンプル数が
+      $$n<(c+1)^{d/2}$$ だと誤分類率が最低いくら以上になるか。
     choices:
-      A: \(1/2\)
-      B: \(1/4\)
-      C: \(1/c\)
-      D: \(0\)
+      A: $$1/2$$
+      B: $$1/4$$
+      C: $$1/c$$
+      D: $$0$$
     answer: B
     feedback:
       A: ベイズ誤差に近いが下界はもっと低い。
       B: 正解。定理 19.4 に示される値。 [oai_citation:5‡第9回.pdf](file-service://file-EdvwTznuGnZDDEoEmMcDL4)
-      C: 定理に \(1/c\) は現れない。
+      C: 定理に $$1/c$$ は現れない。
       D: 誤り。悲観的下界は正の値。
 
   - rubric: 隠れ低次元構造がある場合の希望を説明できる
@@ -491,7 +491,7 @@ Quizzes:
     type: multichoice
     title: 001-19-medianヒューリスティックの落とし穴
     question: |
-      median heuristic で決めたバンド幅 \(h\) が失敗しやすいシチュエーションは？
+      median heuristic で決めたバンド幅 $$h$$ が失敗しやすいシチュエーションは？
     choices:
       A: データに複数スケールが共存
       B: データがほぼ一様分布
@@ -508,7 +508,7 @@ Quizzes:
     type: truefalse
     title: 001-20-帯域vs正則化
     question: |
-      ガウシアンカーネル回帰で \(h\uparrow\infty\) にすると係数に対する L2 正則化と数学的に同一である。
+      ガウシアンカーネル回帰で $$h\uparrow\infty$$ にすると係数に対する L2 正則化と数学的に同一である。
     answer: false
     feedback:
       true: 距離依存が消え近似線形になるが正則化とは別物。
@@ -519,30 +519,30 @@ Quizzes:
     type: multichoice
     title: 001-21-角度集中
     question: |
-      ランダム独立ベクトル \(X,Y\sim\mathcal N(\mathbf0,I_d)\) に対し
-      \(\Pr\bigl[|\cos\theta|<\epsilon\bigr]\) はどの規模で 1 に近づくか？
+      ランダム独立ベクトル $$X,Y\sim\mathcal N(\mathbf0,I_d)$$ に対し
+      $$\Pr\bigl[|\cos\theta|<\epsilon\bigr]$$ はどの規模で 1 に近づくか？
     choices:
-      A: \(O(\epsilon)\)
-      B: \(1-\exp(-d\epsilon^2/2)\)
+      A: $$O(\epsilon)$$
+      B: $$1-\exp(-d\epsilon^2/2)$$
       C: 定数 0.5
-      D: \(O(1/d)\)
+      D: $$O(1/d)$$
     answer: B
     feedback:
       A: 線形近似は不十分。
-      B: 正解。中心極限定理を使うと内積が \(\mathcal N(0,1)\) 近似になる。 [oai_citation:11‡第9回.pdf](file-service://file-EdvwTznuGnZDDEoEmMcDL4)
+      B: 正解。中心極限定理を使うと内積が $$\mathcal N(0,1)$$ 近似になる。 [oai_citation:11‡第9回.pdf](file-service://file-EdvwTznuGnZDDEoEmMcDL4)
       C: 角度無視なら 0.5 だが集中現象ではない。
-      D: \(1/d\) では収束が遅すぎる。
+      D: $$1/d$$ では収束が遅すぎる。
 
   # ---------- softmax temperature ----------
   - rubric: 温度付きソフトマックスの鋭さ制御を定量化できる
     type: truefalse
     title: 001-22-温度と確率集中
     question: |
-      ソフトマックス温度 \(T<1\) は出力確率を鋭くし，勾配の絶対値を大きくする傾向がある。
+      ソフトマックス温度 $$T<1$$ は出力確率を鋭くし，勾配の絶対値を大きくする傾向がある。
     answer: true
     feedback:
       true: 正解。分布集中で損失の傾斜が急。 [oai_citation:12‡第9回.pdf](file-service://file-EdvwTznuGnZDDEoEmMcDL4)
-      false: \(T<1\) で平坦化は誤り。
+      false: $$T<1$$ で平坦化は誤り。
 
   # ---------- k-NN & noise dims ----------
   - rubric: ノイズ次元付加が距離に与える寄与を計算できる
@@ -578,7 +578,7 @@ Quizzes:
     type: multichoice
     title: 001-25-InfoNCEと温度
     question: |
-      InfoNCE 損失に温度 \(T\) を入れる主目的は？
+      InfoNCE 損失に温度 $$T$$ を入れる主目的は？
     choices:
       A: 勾配爆発を防ぐ
       B: Cos 類似度の上限を緩和し確率分布を鋭くする
@@ -669,7 +669,7 @@ Quizzes:
         方策「k の値を大きくして多数の近傍を平均化する」
       B: |
         状況「特徴ベクトルが非常にスパースで，各点が高々数個の非ゼロ要素しか持たない」
-        方策「距離関数をユークリッド (\(L_2\)) からマンハッタン (\(L_1\)) に切り替える」
+        方策「距離関数をユークリッド ($$L_2$$) からマンハッタン ($$L_1$$) に切り替える」
       C: |
         状況「データが低次元多様体や圧縮可能な表現空間上に実質的に分布している」
         方策「表現学習・PCA・Autoencoder などで低次元表現を抽出し，その空間で距離を測る」
@@ -682,7 +682,7 @@ Quizzes:
         サンプル数を増やし k を大きくしても「近傍と遠方の距離差が縮む」という幾何的問題は残り，
         根本的な改善にはつながりにくい。
       B: |
-        スパースデータで \(L_1\) は \(L_2\) よりばらつきがわずかに残るが，高次元では依然として
+        スパースデータで $$L_1$$ は $$L_2$$ よりばらつきがわずかに残るが，高次元では依然として
         距離の均質化が発生するため決定的とは言えない。
       C: |
         **正解**。本質的に低次元構造があれば，その表現空間に射影・学習することで距離コントラスト
@@ -698,16 +698,16 @@ Quizzes:
       しかし，典型的な分類タスクとは異なる事情があるため，1:N 認証タスクにおいては **類似度学習** が用いられることが多い。
 
       この場合に、1:N 認証タスクが持つ特徴と、それに対して類似度学習によるアプローチから得られる利点の組み合わせとして **不適当** なものはどれか。
-    # **単一のしきい値 \(\tau\)** だけで「未知」を判定できる．
+    # **単一のしきい値 $$\tau$$** だけで「未知」を判定できる．
     # その主な根拠として最も適切なのはどれか。
     # 1. 入力画像が **登録外の人物** である可能性がある（オープンセット分類タスク）．
-    # 2. 登録人物の数 \(N\) が大きく，登録ベクトルをすべて保持する必要がある．
-    # で得た埋め込み \(z = \phi_\eta(x)\)
+    # 2. 登録人物の数 $$N$$ が大きく，登録ベクトルをすべて保持する必要がある．
+    # で得た埋め込み $$z = \phi_\eta(x)$$
     choices:
       A: >
         1:N 認証タスクでは，未登録人物は登録ベクトルすべてと **高い** 類似度を示すため，最大値が高いほど未知と判断できる
-      B: 各登録人物の代表ベクトル \(\{\mathbf g_i\}_{i=1}^{N}\) を保持し，
-         \(\displaystyle\max_i \mathrm{sim}(\mathbf z,\mathbf g_i) < \tau\) なら「未知」とするだけでよい
+      B: 各登録人物の代表ベクトル $$\{\mathbf g_i\}_{i=1}^{N}$$ を保持し，
+         $$\displaystyle\max_i \mathrm{sim}(\mathbf z,\mathbf g_i) < \tau$$ なら「未知」とするだけでよい
       C: 埋め込みは必ず **3 次元以下** に圧縮されるため，可視化クラスタで未知を検出できる
       D: クラス追加時に再学習は不要になるが，未知判定には **人物ごとの別しきい値** が必要になる
     answer: B
@@ -715,6 +715,6 @@ Quizzes:
       A: 未登録人物はむしろ類似度が **低く** なるため，「高い＝未知」は誤りです．
       B: >
         **正解。** 埋め込みは「同一人物⇔近い／別人⇔遠い」と学習されているので，
-        最大類似度が \(\tau\) を下回るかどうかだけで未知クラスを弾けます  [oai_citation:0‡第9回.pdf](file-service://file-B5soMZY519ax2Sziuw96Mv)
+        最大類似度が $$\tau$$ を下回るかどうかだけで未知クラスを弾けます  [oai_citation:0‡第9回.pdf](file-service://file-B5soMZY519ax2Sziuw96Mv)
       C: 埋め込み次元はタスク設計次第であり，可視化は必須ではありません．
-      D: 良好な埋め込みなら **共通しきい値** \(\tau\) ひとつで十分です．
+      D: 良好な埋め込みなら **共通しきい値** $$\tau$$ ひとつで十分です．

@@ -50,17 +50,17 @@ Quizzes:
     type: multichoice
     title: 008-04-Cosine SimilarityとEuclidean Distanceの関係
     question: |
-      \( d \)-次元実ベクトルの2変数関数として、コサイン類似度とユークリッド距離がある。
+      $$ d $$-次元実ベクトルの2変数関数として、コサイン類似度とユークリッド距離がある。
       これらの関係として、正しいものは次のうちどれか？
     choices:
-      A: 引数のベクトルが等しい場合（\(x = y\)）には、等号関係
-        \( 1 - \mathrm{cos}(x, y) = \frac{1}{2}\mathrm{dist}_{\mathrm{Euclid}}(x, y)^2 \) が成り立つ。
+      A: 引数のベクトルが等しい場合（$$x = y$$）には、等号関係
+        $$ 1 - \mathrm{cos}(x, y) = \frac{1}{2}\mathrm{dist}_{\mathrm{Euclid}}(x, y)^2 $$ が成り立つ。
       B: 引数のベクトルがともに単位ベクトルの場合には、等号関係
-        \( 1 - \mathrm{cos}(x, y) = \frac{1}{2}\mathrm{dist}_{\mathrm{Euclid}}(x, y)^2 \) が成り立つ。
+        $$ 1 - \mathrm{cos}(x, y) = \frac{1}{2}\mathrm{dist}_{\mathrm{Euclid}}(x, y)^2 $$ が成り立つ。
       C: 引数のベクトルが並行な場合には、等号関係
-        \( 1 - \mathrm{cos}(x, y) = \frac{1}{2}\mathrm{dist}_{\mathrm{Euclid}}(x, y)^2 \) が成り立つ。
+        $$ 1 - \mathrm{cos}(x, y) = \frac{1}{2}\mathrm{dist}_{\mathrm{Euclid}}(x, y)^2 $$ が成り立つ。
       D: 引数のベクトルが直交している場合には、等号関係
-        \( 1 - \mathrm{cos}(x, y) = \frac{1}{2}\mathrm{dist}_{\mathrm{Euclid}}(x, y)^2 \) が成り立つ。
+        $$ 1 - \mathrm{cos}(x, y) = \frac{1}{2}\mathrm{dist}_{\mathrm{Euclid}}(x, y)^2 $$ が成り立つ。
     answer: B
     feedback:
       A: 誤りです。
@@ -72,7 +72,7 @@ Quizzes:
     type: truefalse
     title: 008-05-データ依存パラメータ
     question: |
-      カーネル線型モデルのパラメータ数は訓練データ数の2乗 \(n^2\) に比例して増加する．
+      カーネル線型モデルのパラメータ数は訓練データ数の2乗 $$n^2$$ に比例して増加する．
     answer: false
     feedback:
       true: 誤り．データ数に比例して増加します．

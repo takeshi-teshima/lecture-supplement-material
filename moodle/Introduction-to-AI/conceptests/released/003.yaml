@@ -3,9 +3,9 @@ Quizzes:
     type: multichoice
     title: 003-01-L2罰則が強すぎる場合
     question: |
-      ある手法では目的関数 \( \tilde L(\theta) \) の最小化によりパラメーターを決定するのに対して，
-      それにL2正則化を施した手法を考える．即ち，目的関数 \( L(\theta) = \tilde L(\theta) + \lambda \|\theta\|^2 \) の最小化で学習を行う．
-      \( \lambda \) が十分大きいとき，その最小化により得られる \( \theta \) はどうなるか．
+      ある手法では目的関数 $$ \tilde L(\theta) $$ の最小化によりパラメーターを決定するのに対して，
+      それにL2正則化を施した手法を考える．即ち，目的関数 $$ L(\theta) = \tilde L(\theta) + \lambda \|\theta\|^2 $$ の最小化で学習を行う．
+      $$ \lambda $$ が十分大きいとき，その最小化により得られる $$ \theta $$ はどうなるか．
     choices:
       A: 正則化なしの解に近づく
       B: ゼロベクトルに近くなる
@@ -13,10 +13,10 @@ Quizzes:
       D: 単位ベクトルに近くなる
     answer: B
     feedback:
-      A: これは \( \lambda = 0 \) の場合。
-      B: 正解。罰則が支配的になり \( \theta = 0 \) に近づく。
-      C: \( \lambda \geq 0 \) なら発散はしない。
-      D: 誤り．例えば罰則項を \( \lambda (\|\theta\|^2 - 1)^2 \) などとすれば可能だろう．
+      A: これは $$ \lambda = 0 $$ の場合。
+      B: 正解。罰則が支配的になり $$ \theta = 0 $$ に近づく。
+      C: $$ \lambda \geq 0 $$ なら発散はしない。
+      D: 誤り．例えば罰則項を $$ \lambda (\|\theta\|^2 - 1)^2 $$ などとすれば可能だろう．
 
   - rubric: 評価用データを取り置く理由を理解している．
     type: multichoice
