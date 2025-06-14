@@ -1,3 +1,19 @@
+@inproceedings{ChenSimple2020,
+  title = {A simple framework for contrastive learning of visual representations},
+  booktitle = {Proceedings of the 37th {{International Conference}} on {{Machine Learning}}},
+  author = {Chen, Ting and Kornblith, Simon and Norouzi, Mohammad and Hinton, Geoffrey},
+  date = {2020-11-21},
+  pages = {1597--1607},
+  publisher = {PMLR},
+  issn = {2640-3498},
+  url = {https://proceedings.mlr.press/v119/chen20j.html},
+  urldate = {2025-06-13},
+  abstract = {This paper presents SimCLR: a simple framework for contrastive learning of visual representations. We simplify recently proposed contrastive self-supervised learning algorithms without requiring specialized architectures or a memory bank. In order to understand what enables the contrastive prediction tasks to learn useful representations, we systematically study the major components of our framework. We show that (1) composition of data augmentations plays a critical role in defining effective predictive tasks, (2) introducing a learnable nonlinear transformation between the representation and the contrastive loss substantially improves the quality of the learned representations, and (3) contrastive learning benefits from larger batch sizes and more training steps compared to supervised learning. By combining these findings, we are able to considerably outperform previous methods for self-supervised and semi-supervised learning on ImageNet. A linear classifier trained on self-supervised representations learned by SimCLR achieves 76.5\% top-1 accuracy, which is a 7\% relative improvement over previous state-of-the-art, matching the performance of a supervised ResNet-50. When fine-tuned on only 1\% of the labels, we achieve 85.8\% top-5 accuracy, outperforming AlexNet with 100X fewer labels.},
+  eventtitle = {International {{Conference}} on {{Machine Learning}}},
+  langid = {english},
+  file = {/Users/teshima/Zotero/storage/DKKZBGD9/Chen et al. - 2020 - A Simple Framework for Contrastive Learning of Vis.pdf;/Users/teshima/Zotero/storage/QVH6I2UX/Chen et al. - 2020 - A Simple Framework for Contrastive Learning of Vis.pdf}
+}
+
 @inproceedings{DengImageNet2009,
   title = {{{ImageNet}}: {{A}} large-scale hierarchical image database},
   shorttitle = {{{ImageNet}}},
@@ -13,6 +29,22 @@
   eventtitle = {2009 {{IEEE Conference}} on {{Computer Vision}} and {{Pattern Recognition}}},
   keywords = {Explosions,Image databases,Image retrieval,Information retrieval,Internet,Large-scale systems,Multimedia databases,Ontologies,Robustness,Spine},
   file = {/Users/teshima/Zotero/storage/4URHF248/Deng et al. - 2009 - ImageNet A large-scale hierarchical image databas.pdf;/Users/teshima/Zotero/storage/U3IACU8Y/5206848.html}
+}
+
+@online{EntezariRole2023,
+  title = {The role of pre-training data in transfer learning},
+  author = {Entezari, Rahim and Wortsman, Mitchell and Saukh, Olga and Shariatnia, M. Moein and Sedghi, Hanie and Schmidt, Ludwig},
+  date = {2023-03-01},
+  eprint = {2302.13602},
+  eprinttype = {arXiv},
+  eprintclass = {cs},
+  doi = {10.48550/arXiv.2302.13602},
+  url = {http://arxiv.org/abs/2302.13602},
+  urldate = {2025-06-13},
+  abstract = {The transfer learning paradigm of model pre-training and subsequent fine-tuning produces high-accuracy models. While most studies recommend scaling the pre-training size to benefit most from transfer learning, a question remains: what data and method should be used for pre-training? We investigate the impact of pre-training data distribution on the few-shot and full fine-tuning performance using 3 pre-training methods (supervised, contrastive language-image and image-image), 7 pre-training datasets, and 9 downstream datasets. Through extensive controlled experiments, we find that the choice of the pre-training data source is essential for the few-shot transfer, but its role decreases as more data is made available for fine-tuning. Additionally, we explore the role of data curation and examine the trade-offs between label noise and the size of the pre-training dataset. We find that using 2000X more pre-training data from LAION can match the performance of supervised ImageNet pre-training. Furthermore, we investigate the effect of pre-training methods, comparing language-image contrastive vs. image-image contrastive, and find that the latter leads to better downstream accuracy},
+  pubstate = {prepublished},
+  keywords = {Computer Science - Computer Vision and Pattern Recognition,Computer Science - Machine Learning},
+  file = {/Users/teshima/Zotero/storage/5CLU2VKU/Entezari et al. - 2023 - The Role of Pre-training Data in Transfer Learning.pdf;/Users/teshima/Zotero/storage/E3YH7ZHM/2302.html}
 }
 
 @software{JocherUltralytics2023,
@@ -35,6 +67,20 @@
   urldate = {2025-06-11},
   abstract = {Yet another PyTorch implementation of Stable Diffusion (probably easy to read)},
   keywords = {diffusion,image-generation,pytorch,stable-diffusion}
+}
+
+@incollection{RaghuTransfusion2019,
+  title = {Transfusion: understanding transfer learning for medical imaging},
+  shorttitle = {Transfusion},
+  booktitle = {Proceedings of the 33rd {{International Conference}} on {{Neural Information Processing Systems}}},
+  author = {Raghu, Maithra and Zhang, Chiyuan and Kleinberg, Jon and Bengio, Samy},
+  date = {2019-12-08},
+  number = {301},
+  pages = {3347--3357},
+  publisher = {Curran Associates Inc.},
+  location = {Red Hook, NY, USA},
+  abstract = {Transfer learning from natural image datasets, particularly IMAGENET, using standard large models and corresponding pretrained weights has become a de-facto method for deep learning applications to medical imaging. However, there are fundamental differences in data sizes, features and task specifications between natural image classification and the target medical tasks, and there is little understanding of the effects of transfer. In this paper, we explore properties of transfer learning for medical imaging. A performance evaluation on two large scale medical imaging tasks shows that surprisingly, transfer offers little benefit to performance, and simple, lightweight models can perform comparably to IMAGENET architectures. Investigating the learned representations and features, we find that some of the differences from transfer learning are due to the over-parametrization of standard models rather than sophisticated feature reuse. We isolate where useful feature reuse occurs, and outline the implications for more efficient model exploration. We also explore feature independent benefits of transfer arising from weight scalings.},
+  file = {/Users/teshima/Zotero/storage/3HIYVKW7/Raghu et al. - 2019 - Transfusion understanding transfer learning for m.pdf}
 }
 
 @article{RussakovskyImageNet2015,
@@ -83,6 +129,14 @@
   organization = {THU-MIG}
 }
 
+@software{UltralyticsUltralytics,
+  title = {Ultralytics {{YOLO11}} object detection model},
+  author = {{Ultralytics}},
+  url = {https://github.com/ultralytics/ultralytics/blob/da98efc61d9e0467315fc86c2297c8d81e656b1a/ultralytics/cfg/models/11/yolo11.yaml},
+  urldate = {2025-06-12},
+  file = {/Users/teshima/Zotero/storage/LIHIU2GT/yolo11.html}
+}
+
 @online{WangYOLOv102024,
   title = {{{YOLOv10}}: {{Real-Time End-to-End Object Detection}}},
   shorttitle = {{{YOLOv10}}},
@@ -97,6 +151,19 @@
   pubstate = {prepublished},
   keywords = {Computer Science - Computer Vision and Pattern Recognition},
   file = {/Users/teshima/Zotero/storage/YWXB8E79/Wang et al. - 2024 - YOLOv10 Real-Time End-to-End Object Detection.pdf;/Users/teshima/Zotero/storage/RM43ZY8A/2405.html}
+}
+
+@article{WangYOLOv102024a,
+  title = {{{YOLOv10}}: {{Real-Time End-to-End Object Detection}}},
+  shorttitle = {{{YOLOv10}}},
+  author = {Wang, Ao and Chen, Hui and Liu, Lihao and Chen, Kai and Lin, Zijia and Han, Jungong and Ding, Guiguang},
+  date = {2024-12-16},
+  journaltitle = {Advances in Neural Information Processing Systems},
+  volume = {37},
+  pages = {107984--108011},
+  url = {https://proceedings.neurips.cc/paper_files/paper/2024/hash/c34ddd05eb089991f06f3c5dc36836e0-Abstract-Conference.html},
+  urldate = {2025-06-11},
+  file = {/Users/teshima/Zotero/storage/JJTS8NHN/Wang et al. - 2024 - YOLOv10 Real-Time End-to-End Object Detection.pdf}
 }
 
 @book{YuanTianHuaXiangRenShi2017,
