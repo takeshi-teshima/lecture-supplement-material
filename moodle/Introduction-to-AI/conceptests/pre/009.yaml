@@ -40,9 +40,9 @@ Quizzes:
     title: 009-03-高次元での直交性
     question: |
       $$d$$-次元の等方 Gaussian ベクトル $$X,Y$$（独立）について
-      \[
+      $$
         \lim_{d\to\infty}\Pr\!\bigl[\lvert\cos\angle(X,Y)\rvert<0.01\bigr]=1
-      \]
+      $$
       である。
     answer: true
     feedback:

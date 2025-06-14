@@ -4,12 +4,12 @@ Quizzes:
     title: 006-01-Softmaxの関数形に慣れる
     question: |
       ソフトマックス関数の定義は次式であった．
-      \[
+      $$
         \mathrm{Softmax}(z_1, \ldots, z_K)
         := \left(\frac{e^{z_1}}{\sum_{j=1}^K e^{z_j}},
                  \ldots,
                  \frac{e^{z_K}}{\sum_{j=1}^K e^{z_j}}\right)
-      \]
+      $$
 
       このとき，
       $$\mathrm{Softmax}(\log 2, \log 3, \log 5, \log 7)$$
@@ -53,9 +53,9 @@ Quizzes:
       $$s_{\theta} $$ は適切な入出力形状の条件を満たす順伝播型ニューラルネットワークとし、
       $$g_{\theta}(x) := \mathrm{Softmax}(s_{\theta}(x))$$ とする。
       ラベル付きデータ $$ (x, y) $$ に対する負の対数尤度は、
-      \[
+      $$
         \ell((x, y), g_{\theta}) = -\log g_{\theta}(x)[y]
-      \]
+      $$
       である。
       このとき，$$\nabla_{\theta}\ell((x, y), g_{\theta})$$ を正しく表す式はどれか。
     choices:

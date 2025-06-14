@@ -58,9 +58,9 @@ Quizzes:
     title: 007-03-温度スケーリング
     question: |
       ソフトマックス関数にパラメーター $$T>0$$ （温度パラメーターという） を導入して
-      \[
+      $$
         \mathrm{Softmax}_T(z)[k] := \frac{\exp(z_k/T)}{\sum_{j=1}^K \exp(z_j/T)}
-      \]
+      $$
       と定義する。
       **$$T$$ を大きくする** とき、$$\mathrm{Softmax}_T$$の出力の確率値ベクトルに生じる変化として正しいものはどれか。
     choices:

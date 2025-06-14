@@ -1,7 +1,7 @@
 Quizzes:
-      # \[
+      # $$
       #   \text{Hint: }
-      # \]
+      # $$
 
   - rubric: 時系列分割の意義を説明できる．
     type: truefalse

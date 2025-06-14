@@ -256,9 +256,9 @@ Quizzes:
     title: 006-23-予測確率と真ラベルの差
     question: |
       Softmax 出力 $$g_\theta(x)$$ と one-hot ラベル $$\mathbf{e}_{y}$$ を用いる交差エントロピー損失の勾配は
-      \[
+      $$
         \frac{\partial L}{\partial s_\theta(x)} = g_\theta(x)-\mathbf{e}_{y}
-      \]
+      $$
       で与えられる。
     answer: true
     feedback:
@@ -354,10 +354,10 @@ Quizzes:
     title: 006-30-Adam の補正項
     question: |
       Adam で一次・二次モーメント推定を
-      \[
+      $$
         \hat{m}_t = \frac{m_t}{1-\beta_1^t},\quad
         \hat{v}_t = \frac{v_t}{1-\beta_2^t}
-      \]
+      $$
       と補正する主な理由はどれか。
     choices:
       A: 初期ステップでモーメント推定値がゼロ寄りに偏るのを除去するため。
@@ -394,9 +394,9 @@ Quizzes:
     title: 007-03-シグモイド勾配のピーク
     question: |
       ロジスティックシグモイド関数 $$ \sigma(u)=\frac{1}{1+e^{-u}} $$ の勾配は
-      \[
+      $$
         \sigma'(u)=\sigma(u)\bigl(1-\sigma(u)\bigr)
-      \]
+      $$
       で与えられる。$$u\in\mathbb{R}$$ 全体での $$ \sigma'(u) $$ の **最大値** はどれか。
     choices:
       A: $$1$$
