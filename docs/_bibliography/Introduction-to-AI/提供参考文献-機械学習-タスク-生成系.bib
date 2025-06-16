@@ -16,3 +16,52 @@
   keywords = {Computer science,Information technology},
   file = {/Users/teshima/Zotero/storage/V9VR83EW/Dathathri et al. - 2024 - Scalable watermarking for identifying large langua.pdf}
 }
+
+@article{HoDenoising,
+  title = {Denoising diffusion probabilistic models},
+  author = {Ho, Jonathan and Jain, Ajay and Abbeel, Pieter},
+  abstract = {We present high quality image synthesis results using diffusion probabilistic models, a class of latent variable models inspired by considerations from nonequilibrium thermodynamics. Our best results are obtained by training on a weighted variational bound designed according to a novel connection between diffusion probabilistic models and denoising score matching with Langevin dynamics, and our models naturally admit a progressive lossy decompression scheme that can be interpreted as a generalization of autoregressive decoding. On the unconditional CIFAR10 dataset, we obtain an Inception score of 9.46 and a state-of-the-art FID score of 3.17. On 256x256 LSUN, we obtain sample quality similar to ProgressiveGAN. Our implementation is available at https://github.com/hojonathanho/diffusion.},
+  langid = {english},
+  file = {/Users/teshima/Zotero/storage/3BFXTMYY/Ho et al. - Denoising Diffusion Probabilistic Models.pdf}
+}
+
+@incollection{SongGenerative2019,
+  title = {Generative modeling by estimating gradients of the data distribution},
+  booktitle = {Proceedings of the 33rd {{International Conference}} on {{Neural Information Processing Systems}}},
+  author = {Song, Yang and Ermon, Stefano},
+  date = {2019-12-08},
+  number = {1067},
+  pages = {11918--11930},
+  publisher = {Curran Associates Inc.},
+  location = {Red Hook, NY, USA},
+  abstract = {We introduce a new generative model where samples are produced via Langevin dynamics using gradients of the data distribution estimated with score matching. Because gradients can be ill-defined and hard to estimate when the data resides on low-dimensional manifolds, we perturb the data with different levels of Gaussian noise, and jointly estimate the corresponding scores, i.e., the vector fields of gradients of the perturbed data distribution for all noise levels. For sampling, we propose an annealed Langevin dynamics where we use gradients corresponding to gradually decreasing noise levels as the sampling process gets closer to the data manifold. Our framework allows flexible model architectures, requires no sampling during training or the use of adversarial methods, and provides a learning objective that can be used for principled model comparisons. Our models produce samples comparable to GANs on MNIST, CelebA and CIFAR-10 datasets, achieving a new state-of-the-art inception score of 8.87 on CIFAR-10. Additionally, we demonstrate that our models learn effective representations via image inpainting experiments.},
+  file = {/Users/teshima/Zotero/storage/YWWEVBCJ/Song and Ermon - 2019 - Generative modeling by estimating gradients of the.pdf}
+}
+
+@inproceedings{SongMaximum2021,
+  title = {Maximum likelihood training of score-based diffusion models},
+  author = {Song, Yang and Durkan, Conor and Murray, Iain and Ermon, Stefano},
+  date = {2021-11-09},
+  url = {https://openreview.net/forum?id=AklttWFnxS9},
+  urldate = {2025-06-15},
+  abstract = {Score-based diffusion models synthesize samples by reversing a stochastic process that diffuses data to noise, and are trained by minimizing a weighted combination of score matching losses. The log-likelihood of score-based diffusion models can be tractably computed through a connection to continuous normalizing flows, but log-likelihood is not directly optimized by the weighted combination of score matching losses. We show that for a specific weighting scheme, the objective upper bounds the negative log-likelihood, thus enabling approximate maximum likelihood training of score-based diffusion models. We empirically observe that maximum likelihood training consistently improves the likelihood of score-based diffusion models across multiple datasets, stochastic processes, and model architectures. Our best models achieve negative log-likelihoods of 2.83 and 3.76 bits/dim on CIFAR-10 and ImageNet \$32\textbackslash times 32\$ without any data augmentation, on a par with state-of-the-art autoregressive models on these tasks.},
+  eventtitle = {Advances in {{Neural Information Processing Systems}}},
+  langid = {english},
+  file = {/Users/teshima/Zotero/storage/BY3TTSPD/Song et al. - 2021 - Maximum likelihood training of score-based diffusi.pdf;/Users/teshima/Zotero/storage/D7WHW639/Song et al. - 2021 - Maximum Likelihood Training of Score-Based Diffusi.pdf}
+}
+
+@article{VincentConnection2011,
+  title = {A connection between score matching and denoising autoencoders},
+  author = {Vincent, Pascal},
+  date = {2011-07},
+  journaltitle = {Neural Computation},
+  volume = {23},
+  number = {7},
+  pages = {1661--1674},
+  issn = {0899-7667},
+  doi = {10.1162/NECO_a_00142},
+  url = {https://ieeexplore.ieee.org/abstract/document/6795935},
+  urldate = {2025-06-15},
+  abstract = {Denoising autoencoders have been previously shown to be competitive alternatives to restricted Boltzmann machines for unsupervised pretraining of each layer of a deep architecture. We show that a simple denoising autoencoder training criterion is equivalent to matching the score (with respect to the data) of a specific energy-based model to that of a nonparametric Parzen density estimator of the data. This yields several useful insights. It defines a proper probabilistic model for the denoising autoencoder technique, which makes it in principle possible to sample from them or rank examples by their energy. It suggests a different way to apply score matching that is related to learning to denoise and does not require computing second derivatives. It justifies the use of tied weights between the encoder and decoder and suggests ways to extend the success of denoising autoencoders to a larger family of energy-based models.},
+  file = {/Users/teshima/Zotero/storage/I62M3I5N/Vincent - 2011 - A Connection Between Score Matching and Denoising .pdf;/Users/teshima/Zotero/storage/VH6S6LYJ/6795935.html}
+}
