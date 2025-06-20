@@ -33,6 +33,30 @@
   file = {/Users/teshima/Zotero/storage/L5HXFSZ3/Robertson and Zaragoza - 2009 - The Probabilistic Relevance Framework BM25 and Be.pdf}
 }
 
+@book{Speechb,
+  title = {Speech and {{Language Processing}}},
+  url = {https://web.stanford.edu/~jurafsky/slp3/},
+  urldate = {2025-06-18},
+  file = {/Users/teshima/Zotero/storage/VR8AZP99/ed3book_Jan25.pdf}
+}
+
+@inproceedings{WangGLUE2018,
+  title = {{{GLUE}}: {{A Multi-Task Benchmark}} and {{Analysis Platform}} for {{Natural Language Understanding}}},
+  shorttitle = {{{GLUE}}},
+  author = {Wang, Alex and Singh, Amanpreet and Michael, Julian and Hill, Felix and Levy, Omer and Bowman, Samuel},
+  editor = {Linzen, Tal and Chrupała, Grzegorz and Alishahi, Afra},
+  date = {2018-11},
+  pages = {353--355},
+  publisher = {Association for Computational Linguistics},
+  location = {Brussels, Belgium},
+  doi = {10.18653/v1/W18-5446},
+  url = {https://aclanthology.org/W18-5446/},
+  urldate = {2025-06-18},
+  abstract = {Human ability to understand language is general, flexible, and robust. In contrast, most NLU models above the word level are designed for a specific task and struggle with out-of-domain data. If we aspire to develop models with understanding beyond the detection of superficial correspondences between inputs and outputs, then it is critical to develop a unified model that can execute a range of linguistic tasks across different domains. To facilitate research in this direction, we present the General Language Understanding Evaluation (GLUE, gluebenchmark.com): a benchmark of nine diverse NLU tasks, an auxiliary dataset for probing models for understanding of specific linguistic phenomena, and an online platform for evaluating and comparing models. For some benchmark tasks, training data is plentiful, but for others it is limited or does not match the genre of the test set. GLUE thus favors models that can represent linguistic knowledge in a way that facilitates sample-efficient learning and effective knowledge-transfer across tasks. While none of the datasets in GLUE were created from scratch for the benchmark, four of them feature privately-held test data, which is used to ensure that the benchmark is used fairly. We evaluate baselines that use ELMo (Peters et al., 2018), a powerful transfer learning technique, as well as state-of-the-art sentence representation models. The best models still achieve fairly low absolute scores. Analysis with our diagnostic dataset yields similarly weak performance over all phenomena tested, with some exceptions.},
+  eventtitle = {{{EMNLP}} 2018},
+  file = {/Users/teshima/Zotero/storage/QNWBSRPW/Wang et al. - 2018 - GLUE A Multi-Task Benchmark and Analysis Platform for Natural Language Understanding.pdf}
+}
+
 @inproceedings{XiongLayer2020,
   title = {On layer normalization in the transformer architecture},
   booktitle = {Proceedings of the 37th {{International Conference}} on {{Machine Learning}}},
@@ -44,6 +68,20 @@
   publisher = {JMLR.org},
   abstract = {The Transformer is widely used in natural language processing tasks. To train a Transformer however, one usually needs a carefully designed learning rate warm-up stage, which is shown to be crucial to the final performance but will slow down the optimization and bring more hyperparameter tunings. In this paper, we first study theoretically why the learning rate warm-up stage is essential and show that the location of layer normalization matters. Specifically, we prove with mean field theory that at initialization, for the original-designed Post-LN Transformer, which places the layer normalization between the residual blocks, the expected gradients of the parameters near the output layer are large. Therefore, using a large learning rate on those gradients makes the training unstable. The warm-up stage is practically helpful for avoiding this problem. On the other hand, our theory also shows that if the layer normalization is put inside the residual blocks (recently proposed as Pre-LN Transformer), the gradients are well-behaved at initialization. This motivates us to remove the warm-up stage for the training of Pre-LN Transformers. We show in our experiments that Pre-LN Transformers without the warm-up stage can reach comparable results with baselines while requiring significantly less training time and hyper-parameter tuning on a wide range of applications.},
   file = {/Users/teshima/Zotero/storage/WNG2DH3H/Xiong et al. - 2020 - On layer normalization in the transformer architec.pdf}
+}
+
+@book{ZhangNatural2021,
+  title = {Natural {{Language Processing}}: {{A Machine Learning Perspective}}},
+  shorttitle = {Natural {{Language Processing}}},
+  author = {Zhang, Yue and Teng, Zhiyang},
+  date = {2021-01-07},
+  publisher = {Cambridge University Press},
+  location = {Cambridge},
+  abstract = {With a machine learning approach and less focus on linguistic details, this gentle introduction to natural language processing develops fundamental mathematical and deep learning models for NLP under a unified framework. NLP problems are systematically organised by their machine learning nature, including classification, sequence labelling, and sequence-to-sequence problems. Topics covered include statistical machine learning and deep learning models, text classification and structured prediction models, generative and discriminative models, supervised and unsupervised learning with latent variables, neural networks, and transition-based methods. Rich connections are drawn between concepts throughout the book, equipping students with the tools needed to establish a deep understanding of NLP solutions, adapt existing models, and confidently develop innovative models of their own. Featuring a host of examples, intuition, and end of chapter exercises, plus sample code available as an online resource, this textbook is an invaluable tool for the upper undergraduate and graduate student.},
+  isbn = {978-1-108-42021-1},
+  langid = {english},
+  pagetotal = {484},
+  file = {/Users/teshima/Zotero/storage/T6KXH2CE/ Yue Zhang_ Zhiyang Teng - Natural Language Processing (2020, Cambridge University Press) - libgen.li.pdf}
 }
 
 @incollection{ZhangRoot2019,
