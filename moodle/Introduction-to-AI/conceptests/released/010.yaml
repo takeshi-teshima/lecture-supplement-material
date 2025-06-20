@@ -54,14 +54,14 @@ Quizzes:
     question: |
       入力
       $$X = \begin{bmatrix}
-        1 &amp; 2 &amp; 0\\\\
-        3 &amp; 1 &amp; 2\\\\
-        0 &amp; 2 &amp; 1
+        1 & 2 & 0\\
+        3 & 1 & 2\\
+        0 & 2 & 1
       \end{bmatrix}$$
       に対し，カーネル
       $$W = \begin{bmatrix}
-        1 &amp; 0\\\\
-        -1 &amp; 1
+        1 & 0\\
+        -1 & 1
       \end{bmatrix}$$
       を用いて **畳み込み $$W \star X$$** を計算する
 
@@ -71,23 +71,23 @@ Quizzes:
     choices:
       A: |
         $$\begin{bmatrix}
-          -1 &amp; 2\\\\
-           4 &amp; 0
+          -1 & 2\\
+           4 & 0
         \end{bmatrix}$$
       B: |
         $$\begin{bmatrix}
-           0 &amp; 4\\\\
-           4 &amp; 0
+           0 & 4\\
+           4 & 0
         \end{bmatrix}$$
       C: |
         $$\begin{bmatrix}
-           1 &amp; 2\\\\
-           3 &amp; 1
+           1 & 2\\
+           3 & 1
         \end{bmatrix}$$
       D: |
         $$\begin{bmatrix}
-          -1 &amp; 3\\\\
-           5 &amp; 0
+          -1 & 3\\
+           5 & 0
         \end{bmatrix}$$
     answer: D
     feedback:
