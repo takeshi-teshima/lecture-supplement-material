@@ -16,6 +16,80 @@
   file = {/Users/teshima/Zotero/storage/9IXXVIIN/Ali et al. - 2024 - Tokenizer Choice For LLM Training Negligible or C.pdf}
 }
 
+@inproceedings{AroraSimple2017,
+  title = {A simple but tough-to-beat baseline for sentence embeddings},
+  author = {Arora, Sanjeev and Liang, Yingyu and Ma, Tengyu},
+  date = {2017-02-06},
+  url = {https://openreview.net/forum?id=SyK00v5xx},
+  urldate = {2025-06-24},
+  abstract = {The success of neural network methods for computing word embeddings has motivated methods for generating semantic embeddings of longer pieces of text, such as sentences and paragraphs. Surprisingly, Wieting et al (ICLR'16) showed that such complicated methods are outperformed, especially in out-of-domain (transfer learning) settings, by simpler methods involving mild retraining of word embeddings and basic linear regression. The method of Wieting et al. requires retraining with a substantial labeled dataset such as Paraphrase Database (Ganitkevitch et al., 2013). The current paper goes further, showing that the following completely unsupervised sentence embedding is a formidable baseline: Use word embeddings computed using one of the popular methods on unlabeled corpus like Wikipedia, represent the sentence by a weighted average of the word vectors, and then modify them a bit using PCA/SVD. This weighting improves performance by about 10\% to 30\% in textual similarity tasks, and beats sophisticated supervised methods including RNN's and LSTM's. It even improves Wieting et al.'s embeddings. This simple method should be used as the baseline to beat in future, especially when labeled training data is scarce or nonexistent. The paper also gives a theoretical explanation of the success of the above unsupervised method using a latent variable generative model for sentences, which is a simple extension of the model in Arora et al. (TACL'16) with new "smoothing" terms that allow for words occurring out of context, as well as high probabilities for words like and, not in all contexts.},
+  eventtitle = {International {{Conference}} on {{Learning Representations}}},
+  langid = {english},
+  file = {/Users/teshima/Zotero/storage/S8UYCGCJ/Arora et al. - 2017 - A Simple but Tough-to-Beat Baseline for Sentence E.pdf}
+}
+
+@online{ChenExtending2023,
+  title = {Extending {{Context Window}} of {{Large Language Models}} via {{Positional Interpolation}}},
+  author = {Chen, Shouyuan and Wong, Sherman and Chen, Liangjian and Tian, Yuandong},
+  date = {2023-06-28},
+  eprint = {2306.15595},
+  eprinttype = {arXiv},
+  eprintclass = {cs},
+  doi = {10.48550/arXiv.2306.15595},
+  url = {http://arxiv.org/abs/2306.15595},
+  urldate = {2025-06-24},
+  abstract = {We present Position Interpolation (PI) that extends the context window sizes of RoPE-based pretrained LLMs such as LLaMA models to up to 32768 with minimal fine-tuning (within 1000 steps), while demonstrating strong empirical results on various tasks that require long context, including passkey retrieval, language modeling, and long document summarization from LLaMA 7B to 65B. Meanwhile, the extended model by Position Interpolation preserve quality relatively well on tasks within its original context window. To achieve this goal, Position Interpolation linearly down-scales the input position indices to match the original context window size, rather than extrapolating beyond the trained context length which may lead to catastrophically high attention scores that completely ruin the self-attention mechanism. Our theoretical study shows that the upper bound of interpolation is at least \$\textbackslash sim 600 \textbackslash times\$ smaller than that of extrapolation, further demonstrating its stability. Models extended via Position Interpolation retain its original architecture and can reuse most pre-existing optimization and infrastructure.},
+  pubstate = {prepublished},
+  keywords = {Computer Science - Artificial Intelligence,Computer Science - Computation and Language,Computer Science - Machine Learning},
+  note = {Comment: Fix template issues},
+  file = {/Users/teshima/Zotero/storage/JXT55DIR/Chen et al. - 2023 - Extending Context Window of Large Language Models .pdf;/Users/teshima/Zotero/storage/VA4QZ8MF/2306.html}
+}
+
+@online{Distributional,
+  title = {Distributional {{Hypothesis}} - {{ACL Wiki}}},
+  url = {https://www.aclweb.org/aclwiki/index.php?title=Distributional_Hypothesis},
+  urldate = {2025-06-22},
+  file = {/Users/teshima/Zotero/storage/FH2SQCLL/Distributional Hypothesis - ACL Wiki.pdf;/Users/teshima/Zotero/storage/YILDTZ3Z/index.html}
+}
+
+@article{HutchinsWhisky1995,
+  entrysubtype = {magazine},
+  title = {"{{The}} whisky was invisible", or {{Persistent}} myths of {{MT}}},
+  author = {Hutchins, John},
+  date = {1995-06},
+  journaltitle = {MT News International},
+  number = {11},
+  url = {https://web.archive.org/web/20210103041306/http://www.hutchinsweb.me.uk/MTNI-11-1995.pdf},
+  langid = {english},
+  annotation = {国際機械翻訳協会（International Association for Machine Translation - IAMT）が発行していた公式ニュースレターの第11号},
+  file = {/Users/teshima/Zotero/storage/RRMGJKQZ/Hutchins - The whisky was invisible, or Persistent myths of.pdf}
+}
+
+@inproceedings{MikolovDistributed2013,
+  title = {Distributed representations of words and phrases and their compositionality},
+  booktitle = {Proceedings of the 27th {{International Conference}} on {{Neural Information Processing Systems}} - {{Volume}} 2},
+  author = {Mikolov, Tomas and Sutskever, Ilya and Chen, Kai and Corrado, Greg and Dean, Jeffrey},
+  date = {2013-12-05},
+  series = {{{NIPS}}'13},
+  volume = {2},
+  pages = {3111--3119},
+  publisher = {Curran Associates Inc.},
+  location = {Red Hook, NY, USA},
+  abstract = {The recently introduced continuous Skip-gram model is an efficient method for learning high-quality distributed vector representations that capture a large number of precise syntactic and semantic word relationships. In this paper we present several extensions that improve both the quality of the vectors and the training speed. By subsampling of the frequent words we obtain significant speedup and also learn more regular word representations. We also describe a simple alternative to the hierarchical softmax called negative sampling.An inherent limitation of word representations is their indifference to word order and their inability to represent idiomatic phrases. For example, the meanings of "Canada" and "Air" cannot be easily combined to obtain "Air Canada". Motivated by this example, we present a simple method for finding phrases in text, and show that learning good vector representations for millions of phrases is possible.},
+  file = {/Users/teshima/Zotero/storage/PWALTR76/Mikolov et al. - 2013 - Distributed representations of words and phrases a.pdf}
+}
+
+@book{PingJingShenCengXueXiniyoruZiRanYanYuChuLi2017,
+  title = {深層学習による自然言語処理},
+  author = {坪井, 祐太 and 海野, 裕也 and 鈴木, 潤},
+  date = {2017-05-25},
+  publisher = {講談社},
+  location = {東京},
+  isbn = {978-4-06-152924-3},
+  langid = {japanese},
+  file = {/Users/teshima/Zotero/storage/JG3V9GEA/坪井 et al. - 2017 - 深層学習による自然言語処理.pdf}
+}
+
 @article{RobertsonProbabilistic2009,
   title = {The probabilistic relevance framework: {{BM25}} and beyond},
   shorttitle = {The probabilistic relevance framework},
@@ -33,11 +107,68 @@
   file = {/Users/teshima/Zotero/storage/L5HXFSZ3/Robertson and Zaragoza - 2009 - The Probabilistic Relevance Framework BM25 and Be.pdf}
 }
 
+@article{RSynopsis1957,
+  title = {A synopsis of linguistic theory, 1930-1955},
+  author = {R, FIRTH J.},
+  date = {1957},
+  journaltitle = {Studies in Linguistic Analysis},
+  publisher = {Basil Blackwell},
+  url = {https://cir.nii.ac.jp/crid/1570854175539816192?lang=en},
+  urldate = {2025-06-22},
+  file = {/Users/teshima/Zotero/storage/Y4Y446MY/lecture1-firth.pdf}
+}
+
+@book{ShanTianDaGuiMoYanYumoderuRuMen2023,
+  title = {大規模言語モデル入門},
+  author = {山田, 育矢 and 鈴木, 正敏 and 山田, 康輔 and 李, 凌寒},
+  date = {2023-07-29},
+  publisher = {技術評論社},
+  abstract = {（概要）ChatGPTに代表される大規模言語モデルが自然言語処理の幅広いタスクで高い性能を獲得し、大きな話題となっています。大規模言語モデルは、大規模なテキストデータで訓練された大規模なパラメータで構成されるニューラルネットワークです。2020年以降、自然言語処理や機械学習の知見をもとに、パラメータ数とテキストデータの拡大により、性能が飛躍的に向上しました。Hugging Face社の"transformers"というPythonライブラリを利用することで、プログラミングの経験があれば、モデルの操作やデータからの学習がかんたんにできます。モデルを訓練するための日本語もしくは日本語を含む多言語のデータセットも充実してきており、すぐに業務に使える実用的なモデルを作ることが可能な時代がやってきました。本書は、大規模言語モデルの理論と実装の両方を解説した入門書です。大規模言語モデルの技術や自然言語処理の課題について理解し、実際の問題に対処できるようになることを目指しています。以下のような構成によって、理論とプログラミングの双方の側面から、大規模言語モデルに関する情報を提供します。（こんな方におすすめ）・大規模言語モデルに興味のあるエンジニア、学生、研究者（目次）第1章　はじめに第2章　Transformer第3章　大規模言語モデルの基礎第4章　大規模言語モデルの進展第5章　大規模言語モデルのファインチューニング第6章　固有表現認識第7章　要約生成第8章　文埋め込み第9章　質問応答システム},
+  langid = {japanese}
+}
+
+@book{ShanTianDaGuiMoYanYumoderuRuMenIIShengChengXingLLMnoShiZhuangtoPingJia2024,
+  title = {大規模言語モデル入門Ⅱ〜生成型LLMの実装と評価},
+  author = {山田, 育矢 and 鈴木, 正敏 and 西川, 荘介 and 藤井, 一喜 and 山田, 康輔 and 李, 凌寒},
+  date = {2024-09-04},
+  publisher = {技術評論社},
+  abstract = {（概要）※この商品は固定レイアウトで作成されており，タブレットなど大きいディスプレイを備えた端末で読むことに適しています。また，文字列のハイライトや検索，辞書の参照，引用などの機能が使用できません。※PDF版をご希望の方は Gihyo Digital Publishing ( https://gihyo.jp/mk/dp/ebook/2024/978-4-297-14394-7 )も合わせてご覧ください。「大規模言語モデル入門」の続編です。「大規模言語モデル入門」は理論と実装のバランスをとって構成しましたが、本書では実装部分で扱い切れなかった話題を取り上げ、特に大規模言語モデルの評価と生成LLMに関連する解説を充実させます。「大規模言語モデル入門」の9章に続き、10章から始まります。10章では、後続する章で行う言語モデルの評価方法について解説します。自動評価と人手評価の2つの側面から、ベンチマーク、評価指標、具体的な評価ツールやデータセットなどを取り上げます。11〜13章では、主に大規模言語モデルの性能を上げるためのトピックとして、指示チューニング、人間のフィードバックからの学習、RAGに焦点を当て、それぞれの実装方法、利用するデータセット、評価の方法について解説します。14章では大規模言語モデルの学習における並列・分散処理について詳しく解説します。大規模なデータを限られた計算資源で学習させるノウハウは多くのエンジニアにとって有益な情報となるでしょう。大規模言語モデルの性能を高めるための各トピックの実装とともに、それぞれの評価について理解できる一冊です。（こんな方におすすめ）・大規模言語モデルに興味のあるエンジニア、学生、研究者（目次）第10章 性能評価　10.1 モデルの性能評価とは　10.2 評価指標を用いた自動評価　10.3 LLM を用いた自動評価第11章 指示チューニング　11.1 指示チューニングとは　11.2 指示チューニングの実装　11.3 指示チューニングしたモデルの評価第12章 選好チューニング　12.1 選好チューニングとは　12.2 選好チューニングの実装　12.3 選好チューニングの評価第13章 RAG　13.1 RAGとは　13.2 基本的なRAGのシステムの実装　13.3 RAG向けにLLMを指示チューニングする　13.4 RAGの性能評価第14章 分散並列学習　14.1 分散並列学習とは　14.2 さまざまな分散並列学習手法　14.3 LLMの分散並列学習},
+  langid = {japanese}
+}
+
 @book{Speechb,
   title = {Speech and {{Language Processing}}},
   url = {https://web.stanford.edu/~jurafsky/slp3/},
   urldate = {2025-06-18},
   file = {/Users/teshima/Zotero/storage/VR8AZP99/ed3book_Jan25.pdf}
+}
+
+@article{SuRoFormer2024,
+  title = {{{RoFormer}}: enhanced transformer with rotary position embedding},
+  author = {Su, Jianlin and Ahmed, Murtadha and Lu, Yu and Pan, Shengfeng and Bo, Wen and Liu, Yunfeng},
+  date = {2024-02},
+  journaltitle = {Neurocomputing},
+  volume = {568},
+  number = {C},
+  publisher = {Elsevier Science Publishers B. V.},
+  doi = {10.1016/j.neucom.2023.127063},
+  url = {https://dl.acm.org/doi/10.1016/j.neucom.2023.127063},
+  urldate = {2025-06-24},
+  keywords = {Natural language processing,Position information encoding,Pre-trained language models,Pre-training},
+  file = {/Users/teshima/Zotero/storage/QHWWYZ47/Su et al. - 2024 - RoFormer.pdf}
+}
+
+@inproceedings{VaswaniAttention2017b,
+  title = {Attention is all you need},
+  booktitle = {Proceedings of the 31st {{International Conference}} on {{Neural Information Processing Systems}}},
+  author = {Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N. and Kaiser, Łukasz and Polosukhin, Illia},
+  date = {2017-12-04},
+  series = {{{NIPS}}'17},
+  pages = {6000--6010},
+  publisher = {Curran Associates Inc.},
+  location = {Red Hook, NY, USA},
+  abstract = {The dominant sequence transduction models are based on complex recurrent or convolutional neural networks that include an encoder and a decoder. The best performing models also connect the encoder and decoder through an attention mechanism. We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely. Experiments on two machine translation tasks show these models to be superior in quality while being more parallelizable and requiring significantly less time to train. Our model achieves 28.4 BLEU on the WMT 2014 English-to-German translation task, improving over the existing best results, including ensembles, by over 2 BLEU. On the WMT 2014 English-to-French translation task, our model establishes a new single-model state-of-the-art BLEU score of 41.0 after training for 3.5 days on eight GPUs, a small fraction of the training costs of the best models from the literature.},
+  isbn = {978-1-5108-6096-4}
 }
 
 @inproceedings{WangGLUE2018,
@@ -57,6 +188,23 @@
   file = {/Users/teshima/Zotero/storage/QNWBSRPW/Wang et al. - 2018 - GLUE A Multi-Task Benchmark and Analysis Platform for Natural Language Understanding.pdf}
 }
 
+@online{WarnerSmarter2024,
+  title = {Smarter, better, faster, longer: a modern bidirectional encoder for fast, memory efficient, and long context finetuning and inference},
+  shorttitle = {Smarter, better, faster, longer},
+  author = {Warner, Benjamin and Chaffin, Antoine and Clavié, Benjamin and Weller, Orion and Hallström, Oskar and Taghadouini, Said and Gallagher, Alexis and Biswas, Raja and Ladhak, Faisal and Aarsen, Tom and Cooper, Nathan and Adams, Griffin and Howard, Jeremy and Poli, Iacopo},
+  date = {2024-12-19},
+  eprint = {2412.13663},
+  eprinttype = {arXiv},
+  eprintclass = {cs},
+  doi = {10.48550/arXiv.2412.13663},
+  url = {http://arxiv.org/abs/2412.13663},
+  urldate = {2025-06-24},
+  abstract = {Encoder-only transformer models such as BERT offer a great performance-size tradeoff for retrieval and classification tasks with respect to larger decoder-only models. Despite being the workhorse of numerous production pipelines, there have been limited Pareto improvements to BERT since its release. In this paper, we introduce ModernBERT, bringing modern model optimizations to encoder-only models and representing a major Pareto improvement over older encoders. Trained on 2 trillion tokens with a native 8192 sequence length, ModernBERT models exhibit state-of-the-art results on a large pool of evaluations encompassing diverse classification tasks and both single and multi-vector retrieval on different domains (including code). In addition to strong downstream performance, ModernBERT is also the most speed and memory efficient encoder and is designed for inference on common GPUs.},
+  pubstate = {prepublished},
+  keywords = {Computer Science - Artificial Intelligence,Computer Science - Computation and Language},
+  file = {/Users/teshima/Zotero/storage/WLCTUAPB/Warner et al. - 2024 - Smarter, Better, Faster, Longer A Modern Bidirect.pdf;/Users/teshima/Zotero/storage/A6AI46JV/2412.html}
+}
+
 @inproceedings{XiongLayer2020,
   title = {On layer normalization in the transformer architecture},
   booktitle = {Proceedings of the 37th {{International Conference}} on {{Machine Learning}}},
@@ -68,6 +216,17 @@
   publisher = {JMLR.org},
   abstract = {The Transformer is widely used in natural language processing tasks. To train a Transformer however, one usually needs a carefully designed learning rate warm-up stage, which is shown to be crucial to the final performance but will slow down the optimization and bring more hyperparameter tunings. In this paper, we first study theoretically why the learning rate warm-up stage is essential and show that the location of layer normalization matters. Specifically, we prove with mean field theory that at initialization, for the original-designed Post-LN Transformer, which places the layer normalization between the residual blocks, the expected gradients of the parameters near the output layer are large. Therefore, using a large learning rate on those gradients makes the training unstable. The warm-up stage is practically helpful for avoiding this problem. On the other hand, our theory also shows that if the layer normalization is put inside the residual blocks (recently proposed as Pre-LN Transformer), the gradients are well-behaved at initialization. This motivates us to remove the warm-up stage for the training of Pre-LN Transformers. We show in our experiments that Pre-LN Transformers without the warm-up stage can reach comparable results with baselines while requiring significantly less training time and hyper-parameter tuning on a wide range of applications.},
   file = {/Users/teshima/Zotero/storage/WNG2DH3H/Xiong et al. - 2020 - On layer normalization in the transformer architec.pdf}
+}
+
+@book{YanTianTopitukumoderu2015,
+  title = {トピックモデル},
+  author = {岩田, 具治},
+  date = {2015-04-08},
+  publisher = {講談社},
+  location = {東京},
+  isbn = {978-4-06-152904-5},
+  langid = {japanese},
+  file = {/Users/teshima/Zotero/storage/TFIAU3CS/岩田 - 2015 - トピックモデル.pdf}
 }
 
 @book{ZhangNatural2021,
