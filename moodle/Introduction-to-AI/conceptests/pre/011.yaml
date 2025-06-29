@@ -1,0 +1,682 @@
+# ------------------------------------
+# 1. 講義内容アウトライン（第11回.pdf）
+# ------------------------------------
+Outline:
+  - 加点対象QA:
+      - Object-removal & image-inpainting (条件付き画像生成)  [oai_citation:0‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+      - U-Net の skip connection と局所/大域情報の融合  [oai_citation:1‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+      - Upsampling + convolution (ジャギーと学習畳み込み)  [oai_citation:2‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+  - NLP 概観:
+      Purpose: "機械が人間の言語を理解・生成する"  [oai_citation:3‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+      Data acquisition & text representation:
+        - 入力手段（キーボード等）/ 文字コード  [oai_citation:4‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+        - 階層構造 (char→word→sent→doc)  [oai_citation:5‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+      基本タスク:
+        Lexical: トークン化・形態素解析
+        Syntactic: POS, 係り受け
+        Semantic: WSD, Coref 等
+      応用タスク:
+        - 文書分類, シーケンスラベリング(NER), STS, Topic Modeling
+        - 翻訳, QA, 要約, 対話, モデレーション, セマンティック検索, エージェント活用
+      モデル設計三本柱:
+        1. トークン化:
+           - Token / Vocabulary / Unknown
+           - サブワード (BPE, WordPiece, Unigram)  [oai_citation:6‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+        2. 離散性の解決:
+           - One-hot vs Dense Embedding
+           - Distributional Hypothesis → word2vec(CBOW/Skip-gram), fastText
+           - 文書平均埋め込み (SIF)  [oai_citation:7‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+        3. 系列性の扱い:
+           - Static ↔ Contextual Embedding
+           - Self-Attention (Q,K,V → weights → weighted V) + Multi-Head  [oai_citation:8‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+           - Positional Embedding (RoPE), Causal Attention
+           - Transformer 系: Encoder-only(BERT), Decoder-only(GPT), Encoder-Decoder
+           - 残差・LayerNorm/RMSNorm
+      具体例:
+        - BERT: MLM 事前学習 → 下流微調整  [oai_citation:9‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+        - GPT: 自己回帰 Next-Token 予測
+      応用シーン:
+        翻訳 / モデレーション / SNS分析 / Assistive / Agents など
+
+# ------------------------------------
+# 2. Conceptests 011-01 〜 011-50
+# ------------------------------------
+Quizzes:
+  # ---------- 01 – 10 ----------
+  - rubric: サブワード化のメリットを説明できる
+    type: truefalse
+    title: 011-02-サブワードで語彙爆発を防げるか
+    question: |
+      サブワードトークナイザーを採用すると，理論的に語彙サイズは入力コーパスの全ユニーク語数より必ず小さく抑えられる。
+    answer: true
+    feedback:
+      true: 正解。語を共有サブユニットへ分解するため語彙数は圧縮される。
+      false: BPE 等では語彙を構築する合成ステップがあるが，上限を超えて増えることはない。
+
+  - rubric: ワンホットと埋め込みの本質的違いを説明できる
+    type: multichoice
+    title: 011-03-疎表現 vs 密表現
+    question: |
+      ワンホットベクトルとトークン埋め込みベクトルとの **本質的な違い** はどれか。
+    choices:
+      A: ワンホットはベクトル長が可変，埋め込みは固定長。
+      B: ワンホットは疎で意味情報を含まないが，埋め込みは学習により意味を内包する。
+      C: 埋め込みは整数 ID を直接学習に使うので計算を減らせる。
+      D: ワンホットは連続値を持つが埋め込みは 0/1 のみ。
+    answer: B
+    feedback:
+      A: 逆。ワンホット長＝語彙サイズで固定，埋め込みは設計次元で固定。
+      B: 正解。疎 vs 意味分散表現が核心。  [oai_citation:12‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+      C: 埋め込みも実際には行列参照で密ベクトルを得るため計算は増える。
+      D: 説明が逆。
+
+  - rubric: Distributional Hypothesis を適切に言い換えられる
+    type: multichoice
+    title: 011-04-分布仮説の直感
+    question: |
+      「単語の意味はその周囲に出現する単語の分布で形成される」という分布仮説を，
+      傘 (umbrella) の例で説明するときの **正しい要約** はどれか。
+    choices:
+      A: 傘という単語の意味は「傘」という文字列そのものに含まれる。
+      B: 傘という単語は「雨」「濡れる」などと共起するため，それらとの関係が意味を決定づける。
+      C: 共起しない単語どうしでも Skip-gram は距離を縮める。
+      D: 分布仮説は翻訳には利用できない。
+    answer: B
+    feedback:
+      A: 文字列ではなく文脈が鍵。
+      B: 正解。講義中のクメール語例も同趣旨。  [oai_citation:13‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+      C: 負例では距離を離す学習が行われる。
+      D: 埋め込み共有により翻訳にも応用可能。
+
+  - rubric: Skip-gram の正負例設計を理解している
+    type: multichoice
+    title: 011-05-Skip-gramの負例
+    question: |
+      Skip-gram で **「負例」とは何か**。
+    choices:
+      A: 一定確率で [MASK] に置換したトークン
+      B: ランダムにサンプリングした語を「文脈語ではない」として学習に使うペア
+      C: 出力層で softmax 計算を省く近似
+      D: 文末トークンのみを除外する操作
+    answer: B
+    feedback:
+      A: それは BERT の MLM に近い。
+      B: 正解．
+      C: 技術的な高速化手法であり負例定義ではない。
+      D: 無関係。
+
+  - rubric: 日本語におけるトークン分割の課題を理解している
+    type: truefalse
+    title: 011-06-日本語トークン分割の現状
+    question: |
+      講義では「日本語の単語分割は既に十分解決されたタスクである」と述べられた。
+      これは **形態素解析器の性能向上により** 実用上ほぼ問題がなくなったことを示す。
+    answer: true
+    feedback:
+      true: 正解。精度の高いツール (MeCab など) が利用可能。  [oai_citation:15‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+      false: 近年のツールで実用精度に到達している点を見落としています。
+
+  - rubric: Vocabulary と Unknown-token の関係を説明できる
+    type: multichoice
+    title: 011-07-Unknownトークンはなぜ生じる
+    question: |
+      辞書ベーストークナイザーで **未知語トークン \<UNK\>** が生じる主因はどれか。
+    choices:
+      A: 語彙リストが動的に変わるため
+      B: 辞書に載っていない部分文字列が入力に現れるため
+      C: サブワード分割を行うと語彙が無限になるため
+      D: トークン ID がオーバーフローするため
+    answer: B
+    feedback:
+      A: 語彙は静的に定義されることが大半。
+      B: 正解。辞書外語 = unknown。  [oai_citation:16‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+      C: サブワードはむしろ未知語抑制へ。
+      D: ID 数値範囲の問題ではない。
+
+  - rubric: サブワード分割アルゴリズムの理解
+    type: multichoice
+    title: 011-08-BPEとUnigramの違い
+    question: |
+      BPE と Unigram トークナイザーの **アルゴリズム的な主な違い** は何か。
+    choices:
+      A: BPE はマージ操作を繰り返すが，Unigram は候補サブワード集合を確率的に刈り込む。
+      B: Unigram はペア頻度でマージ，BPE は確率で刈り込む。
+      C: 両者とも決定的アルゴリズムで確率は用いない。
+      D: Unigram では未知語が必ず \<UNK\> になる。
+    answer: A
+    feedback:
+      A: 正解。BPE=merge，Unigram=削除型 EM 最適化。
+      B: 逆。
+      C: Unigram は確率モデルを持つ。
+      D: 文字単位フォールバックがあるため未知語抑制される。
+
+  - rubric: 平均埋め込み (SIF) の限界を指摘できる
+    type: multichoice
+    title: 011-09-単語平均は順序を捨てる
+    question: |
+      単語埋め込みを単純平均して文ベクトルとする方法の **最も本質的な欠点** は何か。
+    choices:
+      A: 埋め込みが静的か動的かに依存しない
+      B: 単語列の順序情報が失われる
+      C: 文長が長いほど計算コストが線形に増える
+      D: トークン化エラーに敏感
+    answer: B
+    feedback:
+      B: 正解。講義でも皮肉めいた評価例で順序の必要性が強調。  [oai_citation:17‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+
+  - rubric: Contextual Embedding の効果を理解している
+    type: truefalse
+    title: 011-10-文脈化埋め込みの利点
+    question: |
+      文脈化単語埋め込みでは，同じ単語でも異なる文脈で異なるベクトルが得られるため，
+      同音異義語の区別が可能になる。
+    answer: true
+    feedback:
+      true: 正解。today vs nowadays の例が講義に登場。  [oai_citation:18‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+      false: 静的 embedding では文脈差異を表せません。
+
+  # ---------- 11 – 21 ----------
+  - rubric: Self-Attention の3ステップを順序立てて説明できる
+    type: multichoice
+    title: 011-11-SelfAttentionの計算順
+    question: |
+      Self-Attention の計算手順を正しい順序に並べたものはどれか。
+      ① Query/Key/Value 生成
+      ② Value の重み付き和
+      ③ Query–Key 内積 → Softmax で注意重み
+    choices:
+      A: ①→②→③
+      B: ①→③→②
+      C: ③→①→②
+      D: ②→③→①
+    answer: B
+    feedback:
+      B: 正解。講義図と対応。  [oai_citation:19‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+      他: 手順が入れ替わっています。
+
+  - rubric: アテンションが順序不変であることの含意を理解
+    type: truefalse
+    title: 011-12-位置埋め込みの必要性
+    question: |
+      Self-Attention の基本式は入力列の順序を入れ替えても数値的には同じ結果を返すため，
+      トークン位置情報を別途与えなければ並び順を学習できない。
+    answer: true
+    feedback:
+      true: 正解。講義で RoPE の動機として説明。  [oai_citation:20‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+      false: 順序情報は元式には存在しません。
+
+  - rubric: 因果的注意機構の目的を理解している
+    type: multichoice
+    title: 011-13-因果的注意の役割
+    question: |
+      Causal (masked) Attention を用いる **主な理由** は何か。
+    choices:
+      A: モデル容量を削減するため
+      B: 文生成時に未来のトークン情報を参照しないため
+      C: BERT の MLM 訓練を高速化するため
+      D: 順方向 RNN と互換にするため
+    answer: B
+    feedback:
+      B: 正解。自己回帰生成で未来情報リークを防ぐ。  [oai_citation:21‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+
+  - rubric: Encoder/Decoder 構成の違いを説明できる
+    type: multichoice
+    title: 011-14-三種類のTransformer
+    question: |
+      Encoder-only, Decoder-only, Encoder-Decoder の **主なタスク適性** の組合せとして最も適切なのはどれか。
+    choices:
+      A: Encoder-only→生成，Decoder-only→分類，Encoder-Decoder→翻訳
+      B: Encoder-only→分類・理解，Decoder-only→生成，Encoder-Decoder→翻訳
+      C: 全てタスク適性に差はなく単に実装の好み
+      D: Decoder-only は自己注意を使わない
+    answer: B
+    feedback:
+      B: 正解。講義ロードマップに沿う。  [oai_citation:22‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+
+  - rubric: 残差接続の役割を理解
+    type: truefalse
+    title: 011-15-残差は差分を学習する
+    question: |
+      Transformer では Self-Attention 層の出力を元入力に加算する「残差接続」を採用し，
+      これは各層が「差分的情報のみ」を学習することで勾配伝播を安定させる狙いがある。
+    answer: true
+    feedback:
+      true: 正解。Skip/Residual の共通思想。  [oai_citation:23‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+      false: 残差接続は加算ではなく平均ではありません。
+
+  - rubric: MLM 学習プロセスを説明できる
+    type: multichoice
+    title: 011-16-BERTの15%ルール
+    question: |
+      BERT の Masked LM 事前学習で「学習対象トークン 15 % を選ぶ」際の **正しい処理内訳** はどれか。
+    choices:
+      A: 15 % 全てを [MASK] に置換する
+      B: 80 %→[MASK], 10 %→原文ママ, 10 %→ランダムトークン
+      C: 30 % を [MASK], 残りは保持
+      D: 15 % を削除し入力長を可変にする
+    answer: B
+    feedback:
+      B: 正解。講義スライドそのまま。  [oai_citation:24‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+
+  - rubric: GPT と BERT の注意方向の違いを理解
+    type: truefalse
+    title: 011-17-GPTは双方向か
+    question: |
+      GPT は自己回帰生成のため，因果的 (左→右) 注意のみを用いる点で BERT の「双方向注意」と対照的である。
+    answer: true
+    feedback:
+      true: 正解。BERT は全トークン相互参照可。  [oai_citation:25‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+      false: GPT で未来トークンを参照するとリークになります。
+
+  - rubric: STS と情報検索の関係を説明できる
+    type: truefalse
+    title: 011-19-STSは検索に使えるか
+    question: |
+      テキスト同士の意味的類似度 (STS) を高精度で推定できれば，セマンティック検索のランキング機能に直接応用できる。
+    answer: true
+    feedback:
+      true: 正解。講義応用例に記載。  [oai_citation:27‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+      false: STS は検索システムと無関係ではありません。
+
+  - rubric: U-Net の skip connection を正しく説明できる
+    type: multichoice
+    title: 011-20-U-Netは何をスキップ？
+    question: |
+      U-Net の **スキップ接続 (concatenate 型)** が医療画像で有効とされる主理由はどれか。
+    choices:
+      A: パラメータ数を劇的に削減できる
+      B: 元入力の局所情報を高レベル特徴と統合し細部を保持できる
+      C: GPU メモリを節約して高解像度入力が可能
+      D: 出力を直接入力に加算するため学習が不要
+    answer: B
+    feedback:
+      B: 正解。fine detail preservation が鍵。  [oai_citation:28‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+
+  - rubric: 画像インペインティング概念を理解
+    type: truefalse
+    title: 011-21-消しゴムマジックの原理
+    question: |
+      iPhone の「クリーンアップ」や Google「消しゴムマジック」は，画像から対象領域を塗り潰し，
+      その領域を条件付き画像生成モデルで補完するアプローチが一般的である。
+    answer: true
+    feedback:
+      true: 正解。資料で object-removal → inpainting と説明。  [oai_citation:29‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+      false: 伝統的な単純コピペ法ではありません。
+
+  # ---------- 22 – 50 ----------
+  - rubric: マルチヘッド注意機構の目的を説明できる
+    type: multichoice
+    title: 011-22-ヘッドを複数にする理由
+    question: |
+      Transformer では “マルチヘッド” 注意機構を採用する。
+      これは **何を狙った設計** か。
+    choices:
+      A: 注意重みを平均して正則化することで過学習を防ぐ
+      B: 異なる視点（サブ空間）で注意を学習し、情報を多角的に集約する
+      C: メモリ節約のため 1 ヘッドあたりの次元を減らす
+      D: 並列計算を避けて実装を簡単にする
+    answer: B
+    feedback:
+      A: 平均化は副次的効果にすぎず主目的ではない。
+      B: 正解。各ヘッドが異なる関係性を捉え出力で統合する  [oai_citation:30‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+      C: 次元は分割するが目的は多様性の確保。
+      D: マルチヘッド化で計算はむしろ並列化が前提。
+
+  - rubric: RoPE 位置埋め込みの本質を理解している
+    type: multichoice
+    title: 011-23-RoPEは何を回転する？
+    question: |
+      Rotary Positional Embedding (RoPE) の説明として **誤っているもの** はどれか。
+    choices:
+      A: クエリとキーを 2 次元ずつ組にして位置に応じた回転行列を掛ける
+      B: トークンのベクトル値自体を時間的に周期関数で変調する
+      C: 追加パラメータを持たず、既存ベクトルに回転を適用する
+      D: RoPE を用いるとアテンション計算は位置依存になる
+    answer: B
+    feedback:
+      A: 正しい。
+      B: 正解。位置ごとの**回転**であり、単純な変調ではない  [oai_citation:31‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+      C: RoPE は追加埋め込みベクトルを学習せず計算で済ませる。
+      D: 位置情報が掛け算で埋め込まれ注意が順序を認識できる。
+
+  - rubric: LayerNorm と RMSNorm の違いを説明できる
+    type: multichoice
+    title: 011-24-LayerNorm vs RMSNorm
+    question: |
+      Transformer で使われる RMSNorm を LayerNorm と比較したときの **主な相違点** は。
+    choices:
+      A: RMSNorm は平均を引かず L2-ノルムのみで正規化する
+      B: RMSNorm はバッチ幅で平均を計算する
+      C: LayerNorm は重みが不要だが RMSNorm は有る
+      D: RMSNorm はトークン順序を保持するための機構
+    answer: A
+    feedback:
+      A: 正解。RMSNorm は Root-Mean-Square のみ利用  [oai_citation:32‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+      B: いずれもトークン内（特徴次元）で計算する。
+      C: 両者ともスケール/バイアス学習パラメータは持つ。
+      D: 正規化は順序表現とは無関係。
+
+  - rubric: Self- vs Cross-Attention を区別できる
+    type: truefalse
+    title: 011-25-クロスアテンションとは
+    question: |
+      **クロスアテンション** とは、同一系列内で Query/Key/Value を作る場合を指す。
+    answer: false
+    feedback:
+      true: Self-Attention の定義と取り違えています。
+      false: 正解。クロスは **異なる系列間** で Query と Key/Value を用いる  [oai_citation:33‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+
+  - rubric: Encoder-Decoder が翻訳に適する理由を理解
+    type: multichoice
+    title: 011-26-翻訳に向く構成
+    question: |
+      翻訳タスクに Encoder-Decoder が向く理由はどれか。
+    choices:
+      A: 出力側デコーダが生成中にソース文 Encoder 出力を参照できる
+      B: エンコーダとデコーダでパラメータを共有するから
+      C: エンコーダのみで十分なため計算が軽い
+      D: デコーダでは因果的注意が不要だから
+    answer: A
+    feedback:
+      A: 正解。Cross-Attention でソース情報を参照  [oai_citation:34‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+      B: 通常は別パラメータ。
+      C: ターゲット生成にはデコーダが必須。
+      D: デコーダは通常因果的注意を使う。
+
+  - rubric: [CLS] ベクトル利用法を説明できる
+    type: truefalse
+    title: 011-27-[CLS]は系列ラベルに使う
+    question: |
+      BERT を文書分類に用いるとき，一般に [CLS] トークン出力を下流分類器の入力とする。
+    answer: true
+    feedback:
+      true: 正解。講義でも全結合＋Softmax の例が示された  [oai_citation:35‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+      false: 各トークン出力を平均する方法もあるが標準は [CLS]。
+
+  - rubric: GPT 学習目標を理解している
+    type: multichoice
+    title: 011-28-GPTの予測対象
+    question: |
+      GPT 事前学習で **損失を計算する位置** は通常どこか。
+    choices:
+      A: 全トークンの出力ベクトル
+      B: シーケンス最後のトークン出力のみ
+      C: 次トークンを予測するため各位置で Softmax を取る
+      D: [CLS] に相当する先頭特殊トークンのみ
+    answer: C
+    feedback:
+      C: 正解。各位置で次トークンを当てる自己回帰学習  [oai_citation:36‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+
+  - rubric: Causal Mask の効果を理解
+    type: truefalse
+    title: 011-29-未来情報リーク
+    question: |
+      因果的注意マスクを外すと，自然言語生成の学習で未来トークン情報がリークするためモデルが不正確になる。
+    answer: true
+    feedback:
+      true: 正解。GPT 系で重要な制約  [oai_citation:37‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+      false: マスクなしでは自己回帰前提が崩れる。
+
+  - rubric: Unknown トークンの発生要因を説明できる
+    type: multichoice
+    title: 011-31-<UNK>を減らすには
+    question: |
+      \<UNK\> の頻発を **構造的に抑制** する最も有効な手段は。
+    choices:
+      A: 語彙を最大 1 M 語に増やす
+      B: サブワード化で語を細分する
+      C: すべての入力を正規表現でフィルタする
+      D: 文書ごとに辞書を作り直す
+    answer: B
+    feedback:
+      B: 正解。未知語を根絶に近づけられる  [oai_citation:39‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+
+  - rubric: SIF 重み付けの意図を理解
+    type: multichoice
+    title: 011-32-SIFの“逆頻度”は何を狙う
+    question: |
+      Smooth Inverse Frequency (SIF) で単語頻度の逆数に基づく重みを掛ける理由はどれか。
+    choices:
+      A: 高頻度語の影響を弱め文書特徴を際立たせる
+      B: 出現しない単語を補完するため
+      C: 順序情報を復元するため
+      D: トークン埋め込みの次元を圧縮するため
+    answer: A
+    feedback:
+      A: 正解。ストップワード的語の支配を抑える  [oai_citation:40‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+
+  - rubric: 静的 vs 文脈化埋め込みの違いを理解
+    type: truefalse
+    title: 011-33-同じ単語同じベクトル？
+    question: |
+      静的単語埋め込みでは「今日」が “today” と “nowadays” の意味を区別できない。
+    answer: true
+    feedback:
+      true: 正解。文脈依存性を持たないため  [oai_citation:41‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+      false: 文脈を見ないため区別不可能。
+
+  - rubric: 平均埋め込みの利点・欠点を対比できる
+    type: multichoice
+    title: 011-34-平均することの功罪
+    question: |
+      単語ベクトル単純平均の **利点** として正しいものはどれか。
+    choices:
+      A: 並び順を保持でき高性能
+      B: 計算が高速で実装が容易
+      C: 長文ほど表現が精緻になる
+      D: 単語頻度の偏りを自動補正
+    answer: B
+    feedback:
+      B: 正解。欠点は順序喪失だが高速で簡単  [oai_citation:42‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+
+  - rubric: BIO フォーマットを説明できる
+    type: multichoice
+    title: 011-35-BIOタグの意味
+    question: |
+      NER の BIO ラベルで **I-PER** が示すものは。
+    choices:
+      A: 人名の最初のトークン
+      B: 人名カテゴリ外
+      C: 人名の内部トークン（2 語目以降）
+      D: 人名ラベルを無視する
+    answer: C
+    feedback:
+      C: 正解。I=Inside PER=Person  [oai_citation:43‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+
+  - rubric: トピックモデリングの性質を理解
+    type: truefalse
+    title: 011-36-教師なし？
+    question: |
+      一般にトピックモデリングは **教師無し学習** として行われる。
+    answer: true
+    feedback:
+      true: 正解。講義補足に記載  [oai_citation:44‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+      false: ラベル付きデータは不要。
+
+  - rubric: セマンティック検索の利点を説明
+    type: truefalse
+    title: 011-38-キーワード検索との差
+    question: |
+      セマンティック検索は単純キーワード検索と比べ語彙表現の違いを跨いで文書を検索できる。
+    answer: true
+    feedback:
+      true: 正解。意味的近さに基づく検索  [oai_citation:46‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+
+  - rubric: マルチヘッド出力結合を理解
+    type: multichoice
+    title: 011-39-ヘッド出力の統合
+    question: |
+      マルチヘッド注意層で個別ヘッドの出力を統合する一般的処理は。
+    choices:
+      A: 各ヘッドを連結し線形変換する
+      B: 各ヘッドを平均するだけ
+      C: 最大値プーリング
+      D: 補間で中間ベクトルを補完
+    answer: A
+    feedback:
+      A: 正解。連結→線形変換で次層へ渡す  [oai_citation:47‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+
+  - rubric: 残差接続の形態を区別
+    type: truefalse
+    title: 011-40-Residualは加算
+    question: |
+      U-Net の “concatenate 型” スキップ接続と Transformer の “残差接続” は
+      ともに出力を **加算** している。
+    answer: false
+    feedback:
+      true: U-Net は concat でチャンネル縦方向に接続。
+      false: 正解。U-Net は結合、Transformer は加算  [oai_citation:48‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+
+  - rubric: 位置埋め込みなしの注意の性質を説明
+    type: multichoice
+    title: 011-41-順序が消える？
+    question: |
+      位置埋め込みを全く与えず Self-Attention を用いた場合に起こることは。
+    choices:
+      A: 順序を無視した Bag-of-Words 的動作になる
+      B: 勾配が消失する
+      C: 出力が必ずゼロベクトルになる
+      D: モデルが学習できなくなる
+    answer: A
+    feedback:
+      A: 正解。順序不変の演算となり情報を捉えられない  [oai_citation:49‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+
+  - rubric: 文書埋め込みの目的を説明
+    type: truefalse
+    title: 011-42-文書分類に直接使える？
+    question: |
+      良い文書埋め込みが得られれば、単純な線形分類器でも高精度な文書分類が可能になり得る。
+    answer: true
+    feedback:
+      true: 正解。教科書的応用として示された  [oai_citation:50‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+
+  - rubric: 埋め込み層の実装を説明できる
+    type: multichoice
+    title: 011-43-行列から引く
+    question: |
+      埋め込み層のパラメータ行列 \(W\in\mathbb{R}^{|V|\times H}\) を使いトークン埋め込みを得る処理として正しいものは。
+    choices:
+      A: ワンホット \(t\) に \(W\) を左から掛ける
+      B: ワンホット \(t\) に \(W\) を右から掛ける
+      C: インデックスで \(W\) の行を直接参照する
+      D: どの方法でも同じ計算量
+    answer: C
+    feedback:
+      C: 正解。実装上は行テーブル参照で計算効率化  [oai_citation:51‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+
+  - rubric: 負例サンプリング分布を理解
+    type: truefalse
+    title: 011-44-負例分布の3/4乗
+    question: |
+      Skip-gram の負例単語は、語頻度の 3/4 乗で重み付けした分布からサンプリングされるのが一般的である。
+    answer: true
+    feedback:
+      true: 正解。講義補足に明記  [oai_citation:52‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+      false: 1 乗や 1/2 乗ではない。
+
+  - rubric: word2vec の名称由来を知っている
+    type: multichoice
+    title: 011-45-“2”は何の洒落？
+    question: |
+      ツール名 “word2vec” の “2” が示す語呂合わせは何か。
+    choices:
+      A: “two”
+      B: “to”
+      C: “toward”
+      D: 特に意味はない
+    answer: B
+    feedback:
+      B: 正解。“word-to-vec” の意味合い  [oai_citation:53‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+
+  - rubric: Transformer 三構成を区別
+    type: truefalse
+    title: 011-46-三兄弟
+    question: |
+      “Encoder-only”“Decoder-only”“Encoder-Decoder” の 3 構成は、Vaswani らの元論文には登場しなかった。
+    answer: true
+    feedback:
+      true: 正解。後年の整理として紹介  [oai_citation:54‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+      false: 元論文では Encoder-Decoder のみ提案。
+
+  - rubric: RNN/CNN/Transformer の比較を説明
+    type: multichoice
+    title: 011-47-系列処理三方式
+    question: |
+      RNN・CNN・Transformer を系列長との計算コストで比較したとき **線形に比例する** のは。
+    choices:
+      A: RNN
+      B: CNN (1-D conv)
+      C: Transformer （フル注意）
+      D: Transformer＋線形時間近似注意
+    answer: A
+    feedback:
+      A: 正解。RNN は時間ステップごとに計算  [oai_citation:55‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+
+  - rubric: “エージェント” 応用の理解
+    type: truefalse
+    title: 011-48-エージェントを拡張
+    question: |
+      講義では、テキスト生成モデルを用いて行動候補を列挙し選択させることで自律エージェントとして振る舞わせられると述べられた。
+    answer: true
+    feedback:
+      true: 正解。応用場面例の一つ  [oai_citation:56‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+      false: テキスト生成だけではエージェント機能を持てないという説明ではなかった。
+
+  - rubric: Upsample＋Conv の役割を理解
+    type: multichoice
+    title: 011-49-ジャギーを取る
+    question: |
+      画像 Upsampling 後に小さいカーネル畳み込みを学習させる主目的は何か。
+    choices:
+      A: 高解像度にしただけで発生するジャギーを滑らかにする
+      B: 画像のコントラストを上げる
+      C: ノイズを注入して正則化する
+      D: パラメータ数を削減する
+    answer: A
+    feedback:
+      A: 正解。Upsample→Conv で滑らかに近づける  [oai_citation:57‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+
+  - rubric: オブジェクト除去の基本を説明
+    type: truefalse
+    title: 011-50-条件付き生成による補完
+    question: |
+      講義で紹介された“消しゴムマジック”系ツールは、マスクされた領域を条件として残り画像に整合的な画素を生成するモデルを用いる。
+    answer: true
+    feedback:
+      true: 正解。Object-Removal→Inpainting の説明に対応  [oai_citation:58‡第11回.pdf](file-service://file-PtKfhNNN57upCgN51vTo69)
+
+  - rubric: 分布仮説の本質を説明できる
+    type: multichoice
+    title: 011-XX-分布仮説の誤解
+    question: |
+      自然言語処理でしばしば引用される「分布仮説（Distributional Hypothesis）」は
+      「単語の意味はその周囲に現れる単語の分布によって特徴づけられる」という考え方である。
+      次の説明のうち **分布仮説の説明として適切でないもの** はどれか。
+    choices:
+      A: 単語の意味を捉えるには、その単語がどの語と頻繁に共起するかを見るとよい。
+      B: 同じ文脈で使われる単語どうしは、意味的に類似している可能性が高い。
+      C: 文脈が変われば、同じ単語でも異なる意味合いを示すことがあるため、文脈は重要な手掛かりになる。
+      D: 単語の意味は、その綴り（文字列）そのものに完全に規定され、共起する語の分布とは無関係である。
+    answer: D
+    feedback:
+      A: 正解ではありません。これは分布仮説の核心的な説明です。
+      B: 正解ではありません。共通文脈 → 意味類似は分布仮説の帰結です。
+      C: 正解ではありません。文脈に依存して意味が揺れることも分布仮説を支持します。
+      D: **正解**。文字列そのものだけで意味が決まるとする説明は分布仮説と真逆で不適切です。
+
+    # 「単語の意味は、その単語が出現する *文脈（共起語の分布）* によって特徴づけられる」
+    # という考え方である。
+    # 次の説明のうち **分布仮説の説明として正しいもの** はどれか。
+    # choices:
+    #   A: 単語の意味を捉えるには、その単語がどの語と頻繁に共起するかを見るとよい。
+    #   B: 同じ単語がどんな文脈で使われても常に同じ意味を持つと主張する。
+    #   C: 分布仮説は、機能語（助詞・冠詞など）にしか適用できず、内容語には無関係である。
+    #   D: 単語の意味は、その綴りや語形のみで決まり、共起分布を考慮する必要はない。
+    # answer: A
+    # feedback:
+    #   A: **正解。** 共起分布が意味情報を与えるという分布仮説を正しく述べています。
+    #   B: 不正解。文脈が変われば同じ語でも異なる意味合いを帯び得るとするのが分布仮説です。
+    #   C: 不正解。分布仮説は語彙全体に適用され、内容語でも有効です。
+    #   D: 不正解。文字列だけで意味が決まるとする考えは分布仮説と正反対です。
+
+    # 講義では「トークン」という用語が「単語」よりも一般的で柔軟な最小単位として用いられると説明された。
