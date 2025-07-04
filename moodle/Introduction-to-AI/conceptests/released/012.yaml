@@ -34,17 +34,17 @@ Quizzes:
     type: multichoice
     title: 012-03-次トークン予測の最尤法による学習
     question: |
-      次トークン予測による言語モデルの学習で損失関数として正しいものはどれか．
+      次トークン予測による言語モデルの学習に用いられる損失関数として正しいものはどれか．
 
-      ここで \(S = (\omega_0 \cdots \omega_T)\) は入力系列（\(\omega_0\) は開始トークン）とする．
-      また，\(p_\theta(\omega_t \mid \omega_0 \cdots \omega_{t-1})\) は条件付き確率モデル，
-      \(p_\theta(\omega_t)\) はそこから誘導される周辺分布とする．
-      さらに，\(q\)は\(S\)における単語の出現確率分布とする．
+      ここで $$S = (\omega_0 \cdots \omega_T)$$ は入力系列（$$\omega_0$$ は開始トークン）とする．
+      また，$$p_\theta(\omega_t \mid \omega_0 \cdots \omega_{t-1})$$ は条件付き確率モデル，
+      $$p_\theta(\omega_t)$$ はそこから誘導される周辺分布とする．
+      さらに，$$q$$は$$S$$における単語の出現確率分布とする．
     choices:
-      A: \(-\sum_{t=0}^{T}\log p_\theta(\omega_t)\)
-      B: \(-\sum_{t=1}^{T}\log p_\theta(\omega_t \mid \omega_0,\ldots,\omega_{t-1})\)
-      C: \(-\sum_{t=1}^{T}\log p_\theta(\omega_t \mid \omega_{t-1})\)
-      D: \(\mathrm{KL}(q \Vert p_\theta)\)
+      A: $$-\sum_{t=0}^{T}\log p_\theta(\omega_t)$$
+      B: $$-\sum_{t=1}^{T}\log p_\theta(\omega_t \mid \omega_0,\ldots,\omega_{t-1})$$
+      C: $$-\sum_{t=1}^{T}\log p_\theta(\omega_t \mid \omega_{t-1})$$
+      D: $$\mathrm{KL}(q \Vert p_\theta)$$
     answer: B
     feedback:
       A: 誤り．条件付き情報を無視した学習になってしまう．
@@ -77,8 +77,8 @@ Quizzes:
     question: |
       Top-p サンプリング(nucleus sampling)では，
       予測された条件付き確率が高い順に並べたときに，
-      上位 \(k\) 個のトークンを候補とするが，
-      その際，上位 \(k\) 個の確率の合計がちょうど \(p\) 以上となるように \(k\) を動的に決める．
+      上位 $$k$$ 個のトークンを候補とするが，
+      その際，上位 $$k$$ 個の確率の合計がちょうど $$p$$ 以上となるように $$k$$ を動的に決める．
     answer: true
     feedback:
       true: 正解．累積確率基準で候補集合を決定する．
