@@ -1,0 +1,705 @@
+# ======================================================
+# 1. 第12回資料 概念アウトライン  （主要出典: 第12回.pdf）
+# ======================================================
+Outline:
+  - トークン列の前提 [oai_citation:0‡第12回.pdf](file-service://file-RvrBgGxnFfE9nBgnenD8TZ):
+      - 離散データを数値に写像（埋め込み層）
+      - 可変長系列を扱う難しさとパディング
+  - 単語・文書埋め込み [oai_citation:1‡第12回.pdf](file-service://file-RvrBgGxnFfE9nBgnenD8TZ):
+      - 静的単語ベクトル vs. 文脈化埋め込み
+      - SIF 重み付けによる文書ベクトル
+  - 系列モデル概観 [oai_citation:2‡第12回.pdf](file-service://file-RvrBgGxnFfE9nBgnenD8TZ):
+      - RNN / CNN / Transformer 比較
+      - 自己注意機構（Q,K,V・Softmax・重み付き和）
+      - 位置エンコーディング・マルチヘッド
+  - Transformer 系アーキテクチャ [oai_citation:3‡第12回.pdf](file-service://file-RvrBgGxnFfE9nBgnenD8TZ):
+      - Encoder-only (BERT)
+      - Decoder-only (GPT)
+      - Encoder-Decoder (T5 等)
+  - BERT の事前学習 [oai_citation:4‡第12回.pdf](file-service://file-RvrBgGxnFfE9nBgnenD8TZ):
+      - MLM 手順（15 % マスク・3 通り置換）
+      - [CLS] ベクトルとタスク固有層
+  - GPT 系自己回帰モデル [oai_citation:5‡第12回.pdf](file-service://file-RvrBgGxnFfE9nBgnenD8TZ):
+      - 次トークン予測目的と因果マスク
+      - 温度・Top-p・Greedy 生成
+  - 生成タスクの一般論 [oai_citation:6‡第12回.pdf](file-service://file-RvrBgGxnFfE9nBgnenD8TZ):
+      - 生成器 vs. 密度近似
+      - 条件付き生成の枠組み
+  - 自己回帰型生成の学習・生成 [oai_citation:7‡第12回.pdf](file-service://file-RvrBgGxnFfE9nBgnenD8TZ):
+      - 多クラス分類としての最尤学習
+      - サンプリングと確率操作
+  - 潜在変数型生成モデル [oai_citation:8‡第12回.pdf](file-service://file-RvrBgGxnFfE9nBgnenD8TZ):
+      - VAE (ELBO, 再パラメータ化)
+      - GAN (敵対的最適化)
+      - Diffusion (逆拡散・スコア)
+      - Normalizing Flow (可逆 NN・厳密尤度)
+      - 条件付き生成（Stable Diffusion） [oai_citation:9‡第12回.pdf](file-service://file-RvrBgGxnFfE9nBgnenD8TZ)
+  - 評価・実装上の論点:
+      - パラメータ規模と計算量
+      - コンテキスト長制限
+      - モデル選択・正則化
+
+# ======================================================
+# 2. Conceptest 50 問
+#    ・012-01〜012-50 の連番タイトル
+#    ・35 問: multichoice（A–D） / 15 問: truefalse
+#    ・数式は LaTeX (\( ... \) または \[ ... \])
+# ======================================================
+Quizzes:
+  - rubric: トークンが離散データであることの意味を理解している
+    type: multichoice
+    title: 012-01-離散トークンの扱い
+    question: |
+      トークンをそのままニューラルネットに入力できない主な理由はどれか。
+    choices:
+      A: トークン同士の順序を保持できないため
+      B: トークンは離散値であり数値演算が定義できないため
+      C: トークン列の長さが固定でないため
+      D: トークンは同期的に到着するデータだから
+    answer: B
+    feedback:
+      A: 順序は位置エンコーディングなどで対処できるが根本原因ではない．
+      B: 正解．離散シンボルには加減乗除が定義されず，まずベクトルに写像する必要がある．
+      C: 可変長は別問題．埋め込み不可の原因は離散性に起因する．
+      D: 同期性は無関係．
+
+  - rubric: 可変長系列を扱う難しさを説明できる
+    type: truefalse
+    title: 012-02-可変長入力は畳み込みで常に解決できるか
+    question: |
+      1D 畳み込みネットワークを用いれば，入力系列長が可変でもパディングなしで常に処理できる．
+    answer: false
+    feedback:
+      true: カーネル幅が固定のため，境界条件を満たすパディングが必要になる．
+      false: 正解．パディングやマスクが必要になる．
+
+  - rubric: 静的 vs. 文脈化単語埋め込みの違いを理解している
+    type: multichoice
+    title: 012-03-埋め込みの文脈依存性
+    question: |
+      「鍵をかける」「電話をかける」の単語「かける」に対し，同じベクトルが割り当てられる埋め込みはどれか。
+    choices:
+      A: BERT の出力層
+      B: Word2Vec Skip-gram
+      C: GPT の最終トークン表現
+      D: 文書ベクトル平均 (SIF)
+    answer: B
+    feedback:
+      A: 文脈化されるため同一にはならない．
+      B: 正解．静的単語埋め込みは文脈非依存．
+      C: GPT も文脈化表現．
+      D: 単語平均は単語ベクトルが静的な場合のみ同一だが，文全体で異なる値になる．
+
+  - rubric: SIF 重み付けの意図を説明できる
+    type: truefalse
+    title: 012-04-SIF の役割
+    question: |
+      SIF (Smooth Inverse Frequency) では，頻度の高い単語ほど重みを下げて文書ベクトルを計算する。
+    answer: true
+    feedback:
+      true: 正解．頻出語の影響を弱めコンテンツワードを強調する．
+      false: 頻出語の重みを上げるわけではない．
+
+  - rubric: RNN・CNN・Transformer の比較観点を理解している
+    type: multichoice
+    title: 012-05-系列モデルの比較
+    question: |
+      自己注意 (self-attention) を使う Transformer の利点として **誤っている** ものはどれか。
+    choices:
+      A: 長距離依存を定数ステップで捕捉できる
+      B: 並列計算しやすい
+      C: パラメータ数が系列長に比例して増える
+      D: 入力長を事前に固定する必要がない
+    answer: C
+    feedback:
+      A: 正しい利点．
+      B: 正しい利点．
+      C: 正解（誤り）．パラメータは系列長でなく埋め込み次元に依存．
+      D: ポジションエンコーディングで長さ非依存に設計できる．
+
+  - rubric: マルチヘッド注意の効果を理解している
+    type: truefalse
+    title: 012-07-マルチヘッドの多様性
+    question: |
+      マルチヘッド注意では，各ヘッドが異なる重み行列を持つため，異なる類似度尺度を学習できる。
+    answer: true
+    feedback:
+      true: 正解．異なる視点を並列学習する意図がある．
+      false: 全ヘッドで重みを共有するわけではない．
+
+  - rubric: BERT の bidirectional の含意を説明できる
+    type: multichoice
+    title: 012-08-BERT が両方向を見る理由
+    question: |
+      BERT が「bidirectional encoder representations」と呼ばれるのはなぜか。
+    choices:
+      A: 因果的マスクで未来方向を遮断しているから
+      B: 入力系列全体を同時に参照して各トークン表現を計算するから
+      C: Encoder と Decoder の両方を持つから
+      D: トークンの左右どちらか一方だけを参照するから
+    answer: B
+    feedback:
+      A: 因果マスクは GPT の特徴．
+      B: 正解．自己注意が非因果で双方向情報を統合．
+      C: Encoder-only なので誤り．
+      D: 片方向ではない．
+
+  - rubric: MLM 手順を正確に把握している
+    type: multichoice
+    title: 012-09-MLM の 3 通りの置換
+    question: |
+      BERT の MLM では，マスク対象トークンを \(\text{[MASK]}\) 以外に置換する割合は次のどれか。
+    choices:
+      A: 15 %
+      B: 50 %
+      C: 30 %
+      D: 85 %
+    answer: C
+    feedback:
+      A: 15 % はマスク対象に選ばれる割合．
+      B: 50 % ではない．
+      C: 正解．マスク対象のうち 80 % を \(\text{[MASK]}\)，10 % を原文，10 % をランダム置換 → 合計 30 % が \(\text{[MASK]}\) 以外．
+      D: 85 % は誤り．
+
+  - rubric: [CLS] ベクトルの用途を説明できる
+    type: truefalse
+    title: 012-10-CLS は系列ラベリングにも使うか
+    question: |
+      BERT を系列ラベリング（例：品詞タグ付け）に使う場合，通常は \(\text{[CLS]}\) ベクトルだけを下流層に入力する。
+    answer: false
+    feedback:
+      true: 文レベル分類では正しいが系列ラベリングには不十分．
+      false: 正解．系列ラベリングでは各トークンの出力を用いる．
+
+  - rubric: 次トークン予測の目的関数を理解している
+    type: multichoice
+    title: 012-11-次トークン予測の最尤法による学習
+    question: |
+      次トークン予測による言語モデルの学習で損失関数として正しいものはどれか．
+
+      ここで \(S = (\omega_0 \cdots \omega_T)\) は入力の系列であり，\(\omega_0\)は系列の開始を表す特殊トークンとする．
+      また，\(p_\theta(\omega_t \mid \omega_0 \cdots \omega_{t-1})\) は条件付き確率のモデルであり，
+      \(p_\theta(S)\) はそこから誘導される系列全体の同時確率であり，\(p_\theta(\omega_t)\) はそこから誘導される周辺分布とする．
+      さらに，\(q\)は\(S\)における単語の出現確率分布とする．
+    choices:
+      A: \(-\sum_{t=0}^{T}\log p_\theta(\omega_t)\)
+      B: \(-\sum_{t=1}^{T}\log p_\theta(\omega_t \mid \omega_0,\ldots,\omega_{t-1})\)
+      C: \(-\log p_\theta(S)\)
+      D: \(\text{KL}(q\|p_\theta)\)
+    answer: B
+    feedback:
+      A: 条件付き情報が欠けている．
+      B: 正解．交差エントロピー最小化に基づく学習だが，系列全体の同時確率を元に学習するのではなく，回帰の連鎖律を用いた．
+      C: シーケンス全体尤度を一括計算せずトークン単位で分解．
+      D: 生成モデルでは無い場合が多い．
+
+  - rubric: 温度パラメータの影響を説明できる
+    type: multichoice
+    title: 012-12-温度と確率分布
+    question: |
+      温度 \(\delta\) を 0.1 から 10 に上げると，生成されやすい文の特徴として最も起こりやすい変化はどれか。
+    choices:
+      A: 文がより定型的で反復的になる
+      B: 文がより多様で奇抜になる
+      C: 文の長さが短くなる
+      D: 文の文法誤りが必ず減る
+    answer: B
+    feedback:
+      A: 低温で起こる傾向．
+      B: 正解．高温は分布を平坦化し多様性増．
+      C: 長さは別設定．
+      D: 誤り．誤り率は保証されない．
+
+  - rubric: 生成器と密度推定の違いを説明できる
+    type: multichoice
+    title: 012-14-生成器 vs. 分布近似
+    question: |
+      生成タスクで **生成器** を直接学習する主な利点は何か。
+    choices:
+      A: 尤度を計算せずに新規サンプルを出力できる
+      B: 真の分布を正規化する必要がある
+      C: サンプルが離散でも勾配計算が容易
+      D: 必ず厳密な尤度を得られる
+    answer: A
+    feedback:
+      A: 正解．生成器を用いればサンプリングだけを重視できる．
+      B: 正規化定数は不要になる利点．
+      C: GAN 等では勾配計算が難しい場合がある．
+      D: 厳密尤度は不要．
+
+  - rubric: VAE の ELBO の 2 項を説明できる
+    type: multichoice
+    title: 012-15-VAE の目的関数
+    question: |
+      ELBO のうち KL 項が果たす主な役割は何か。
+    choices:
+      A: 復元誤差を測る
+      B: 潜在分布と事前分布の乖離を抑える
+      C: 生成画像の多様性を直接高める
+      D: 学習を高速化するための正規化
+    answer: B
+    feedback:
+      A: それは再構成項．
+      B: 正解．潜在空間の正則化．
+      C: 多様性は間接的効果．
+      D: 高速化とは直接関係ない．
+
+  - rubric: ELBO と対数尤度の関係を証明できる
+    type: truefalse
+    title: 012-16-ELBO は log p の下界
+    question: |
+      任意の近似事後 \(q_\phi(z\mid x)\) に対し，\(\log p_\theta(x) \ge \text{ELBO}(x)\) が成り立つ。
+    answer: true
+    feedback:
+      true: 正解．KL の非負性から導かれる．
+      false: 上界ではなく下界である．
+
+  - rubric: 再パラメータ化トリックの目的を説明できる
+    type: multichoice
+    title: 012-17-Reparametrization Trick
+    question: |
+      再パラメータ化トリックが導入された動機として正しいものはどれか。
+    choices:
+      A: サンプル生成を高速化するため
+      B: 潜在変数のサンプリングに勾配を通すため
+      C: ELBO を厳密に計算するため
+      D: KL 項をゼロにするため
+    answer: B
+    feedback:
+      A: 速度ではなく勾配計算が主目的．
+      B: 正解．確率的ノードを微分可能にする．
+      C: 近似値のままでも良い．
+      D: KL がゼロになるわけではない．
+
+  - rubric: VAE が圧縮器として機能する理解を持つ
+    type: truefalse
+    title: 012-18-VAE と情報圧縮
+    question: |
+      学習済み VAE のエンコーダは，入力データを低次元の潜在空間へ符号化するため，データ圧縮器として利用できる。
+    answer: true
+    feedback:
+      true: 正解．潜在分布への射影は圧縮とみなせる．
+      false: 圧縮的性質を無視している．
+
+  - rubric: GAN のミニマックス構造を理解している
+    type: multichoice
+    title: 012-19-GAN の目的関数
+    question: |
+      標準的 GAN 学習で Generator \(G\) が最小化しようとする量はどれか。
+    choices:
+      A: \(\mathbb{E}_{x\sim p_\text{data}}\![\log D(x)]\)
+      B: \(\mathbb{E}_{z\sim p(z)}\![\log (1-D(G(z)))]\)
+      C: \(\text{KL}(p_\text{data}\|p_G)\)
+      D: \(\|x - G(z)\|_2^2\)
+    answer: B
+    feedback:
+      A: これは D の最大化項．
+      B: 正解．G は D を騙す方向に学習．
+      C: GAN は直接 KL を最小化しない．
+      D: VAE 的損失．
+
+  - rubric: GAN 訓練の難点を挙げられる
+    type: truefalse
+    title: 012-20-モード崩壊
+    question: |
+      GAN 訓練では，Generator が多様性を欠き少数のモードしか出力しなくなる「モード崩壊」が頻発する。
+    answer: true
+    feedback:
+      true: 正解．ミニマックスの不安定性が原因．
+      false: モード崩壊は代表的課題である．
+
+  - rubric: Diffusion モデルの逆拡散過程を定義できる
+    type: multichoice
+    title: 012-21-逆拡散の役割
+    question: |
+      Diffusion モデルで「逆拡散過程」が果たす役割は何か。
+    choices:
+      A: 潜在変数の事前分布を正則化する
+      B: ノイズからデータ空間へ段階的に変換する生成器となる
+      C: 尤度を直接最大化する
+      D: 同期的に複数サンプルを生成する
+    answer: B
+    feedback:
+      A: 目的ではない．
+      B: 正解．逐次ノイズ除去によるサンプリング．
+      C: 厳密尤度は求めない近似的学習．
+      D: シリアルなステップが基本．
+
+  - rubric: Normalizing Flow の可逆性の意義を理解している
+    type: truefalse
+    title: 012-22-正規化流で尤度計算
+    question: |
+      Normalizing Flow では可逆写像のヤコビアン行列式を使うことで，生成サンプルの厳密尤度を計算できる。
+    answer: true
+    feedback:
+      true: 正解．変数変換公式により可能．
+      false: 近似ではなく厳密である．
+
+  - rubric: 自己注意層の出力式を説明できる
+    type: multichoice
+    title: 012-23-自己注意の出力
+    question: |
+      自己注意層でトークン \(t\) の出力ベクトル \(o_t\) を表す式として正しいものはどれか。
+    choices:
+      A: \(o_t = \sum_{s} \mathrm{Softmax}(q_t^\top k_s)\,v_s\)
+      B: \(o_t = \sum_{s} q_s^\top k_t\,v_s\)
+      C: \(o_t = q_t + k_t + v_t\)
+      D: \(o_t = \mathrm{ReLU}(W x_t)\)
+    answer: A
+    feedback:
+      A: 正解．注意重みによる重み付き和．
+      B: クエリとキーが逆．
+      C: 足し算のみは誤り．
+      D: 単純線形変換ではない．
+
+
+  - rubric: 因果的注意と非因果的注意を区別できる
+    type: multichoice
+    title: 012-25-因果マスクの効果
+    question: |
+      GPT が因果マスクを用いる理由として最も適切なものはどれか。
+    choices:
+      A: 勾配爆発を防ぐため
+      B: 未来トークン情報のリークを防ぎ自己回帰的整合性を保つため
+      C: 計算量を半分にするため
+      D: シーケンス全体の尤度を上げるため
+    answer: B
+    feedback:
+      A: 主因ではない．
+      B: 正解．未来情報へのアクセス禁止が必要．
+      C: 計算量には直接関係しない．
+      D: 目的関数とは別の理由．
+
+  - rubric: Softmax 正規化の意味を定義できる
+    type: truefalse
+    title: 012-26-Softmax の総和
+    question: |
+      温度付き Softmax であっても，全トークンの確率和は常に 1 である。
+    answer: true
+    feedback:
+      true: 正解．温度は分布形状を変えるが正規化は維持．
+      false: 総和 1 は変わらない．
+
+  - rubric: サブワード単位トークン化の利点を述べられる
+    type: multichoice
+    title: 012-27-未知語抑制
+    question: |
+      BPE や WordPiece などのサブワードトークナイザーを使う主目的はどれか。
+    choices:
+      A: 文法誤りを自動修正するため
+      B: 完全未知語の出現を減らし語彙サイズと性能を両立させるため
+      C: 文章長を短くするため
+      D: 埋め込み次元を固定するため
+    answer: B
+    feedback:
+      A: 修正機能ではない．
+      B: 正解．未知語対策と語彙圧縮．
+      C: 長さはやや減るが副次的．
+      D: 次元は語彙と無関係．
+
+  - rubric: 語彙サイズと同字異義語問題の関係を把握している
+    type: truefalse
+    title: 012-28-形態的複雑さとデータ量
+    question: |
+      Morphologically complex languages で性能が低い原因は，実際には有効データ量の測定誤差による場合がある。
+    answer: true
+    feedback:
+      true: 正解．Arnett & Bergen (2025) の報告にもある．
+      false: 言語自体の難しさだけが原因ではない．
+
+  - rubric: 平均プーリング文書ベクトルの限界を説明できる
+    type: multichoice
+    title: 012-29-単語平均の欠点
+    question: |
+      単語ベクトル平均で文書ベクトルを作る際の主な欠点は何か。
+    choices:
+      A: 順序情報が失われる
+      B: 計算量が多い
+      C: 文長によって次元が変わる
+      D: 学習に GPU が必須
+    answer: A
+    feedback:
+      A: 正解．並び順が無視される．
+      B: むしろ軽量．
+      C: 次元は一定．
+      D: CPU でも可．
+
+  - rubric: 自己注意の計算量を定量比較できる
+    type: truefalse
+    title: 012-30-計算量 O(L²)
+    question: |
+      自己注意層の演算量は系列長 \(L\) に対して \(O(L^2)\) であり，長文入力時のメモリ消費が課題となる。
+    answer: true
+    feedback:
+      true: 正解．全組み合わせ計算が必要．
+      false: 線形ではない．
+
+  - rubric: MLM と NTP の違いを説明できる
+    type: multichoice
+    title: 012-31-MLM vs. NTP
+    question: |
+      次のうち「予測対象トークンが入力に含まれない」学習方法はどれか。
+    choices:
+      A: Masked Language Modeling
+      B: Next Token Prediction
+      C: Contrastive Learning for Sentence Pairs
+      D: 自己教師的音響モデル
+    answer: B
+    feedback:
+      A: [MASK] で位置は存在する．
+      B: 正解．未来トークンは入力に無い．
+      C: 文ペア学習は別枠．
+      D: 音響例は文脈次第．
+
+  - rubric: 生成サンプリングが文の長さに与える影響を説明できる
+    type: truefalse
+    title: 012-32-温度と文長
+    question: |
+      温度を上げても文の平均長さは必ず長くなるわけではない。
+    answer: true
+    feedback:
+      true: 正解．長さは停止条件次第で独立．
+      false: 直接的相関は無い．
+
+  - rubric: VAE の KL-β 調整を理解している
+    type: multichoice
+    title: 012-33-β-VAE の意図
+    question: |
+      β-VAE で KL 項に重み β を掛けて大きくすると直接得られる効果はどれか。
+    choices:
+      A: 再構成画像が高品質になる
+      B: 潜在空間がより正規分布に近づく
+      C: モード崩壊を起こす
+      D: サンプル多様性が減る
+    answer: B
+    feedback:
+      A: 再構成誤差は悪化しやすい．
+      B: 正解．KL 正則化が強まる．
+      C: GAN での課題．
+      D: 多様性はβのバランス次第．
+
+  - rubric: GAN の識別器の役割を述べられる
+    type: truefalse
+    title: 012-34-識別器は 2 値分類器
+    question: |
+      標準 GAN では識別器 \(D\) は実データと生成データを区別する 2 値分類器として学習される。
+    answer: true
+    feedback:
+      true: 正解．実 or 偽 を判定．
+      false: 多クラス分類器ではない．
+
+  - rubric: Diffusion と GAN の目的の違いを述べられる
+    type: multichoice
+    title: 012-35-Diffusion vs. GAN
+    question: |
+      Diffusion モデルと比べたとき，GAN の主な短所はどれか。
+    choices:
+      A: 厳密尤度が計算できない
+      B: 学習が安定していて大規模化しにくい
+      C: 逐次推論が遅い
+      D: 条件付き生成ができない
+    answer: A
+    feedback:
+      A: 正解．尤度不可．
+      B: GAN は不安定．
+      C: Diffusion の方が遅い．
+      D: 条件付き GAN は存在する．
+
+  - rubric: Normalizing Flow のヤコビアンを説明できる
+    type: truefalse
+    title: 012-36-行列式項
+    question: |
+      Normalizing Flow の学習では，写像のヤコビアン行列式の対数を損失に加える必要がある。
+    answer: true
+    feedback:
+      true: 正解．変数変換公式に含まれる．
+      false: 行列式は不可欠．
+
+  - rubric: 自己回帰生成で温度を 0 に近づける効果を説明できる
+    type: multichoice
+    title: 012-37-温度 0 近似
+    question: |
+      温度 \(\delta \to 0\) 極限で得られる生成方式は何と呼ばれるか。
+    choices:
+      A: Top-k 生成
+      B: Greedy 生成
+      C: Beam Search
+      D: Random Sampling
+    answer: B
+    feedback:
+      A: \(k\) 固定のしきい値方式．
+      B: 正解．最大確率トークンを必ず選ぶ．
+      C: 複数ビーム探索．
+      D: 完全ランダムではない．
+
+  - rubric: Beam Search の目的を説明できる
+    type: truefalse
+    title: 012-38-Beam Search は探索幅
+    question: |
+      Beam Search は確率の低そうな候補を早期に切り捨てつつ，高確率文の組み合わせを探索する手法である。
+    answer: true
+    feedback:
+      true: 正解．ビーム幅で探索打切り．
+      false: 単一ビームではない．
+
+  - rubric: Transformer のパラメータと系列長の関係を理解している
+    type: multichoice
+    title: 012-39-パラメータスケーリング
+    question: |
+      入力系列長を 2 倍にした場合，Transformer モデルのパラメータ数はどうなるか。
+    choices:
+      A: 2 倍になる
+      B: 4 倍になる
+      C: 変わらない
+      D: ループ回数分だけ指数増
+    answer: C
+    feedback:
+      A: 重み共有のため増えない．
+      B: 同上．
+      C: 正解．重み行列は長さ非依存．
+      D: 計算量の話ではない．
+
+  - rubric: コンテキスト長制限の実装上の原因を説明できる
+    type: truefalse
+    title: 012-40-ポジションエンコーディング長
+    question: |
+      Transformer が学習で想定した最大トークン数を超える入力を与えると，位置エンコーディングが未定義になり不具合が起こる可能性がある。
+    answer: true
+    feedback:
+      true: 正解．埋め込み外挿が必要．
+      false: 無限長に自然対応するわけではない．
+
+  - rubric: 生成モデルの厳密尤度計算可否を区別できる
+    type: multichoice
+    title: 012-41-尤度計算可否
+    question: |
+      厳密な \(\log p_\theta(x)\) を直接計算 *不可能* な組はどれか。
+    choices:
+      A: VAE
+      B: Normalizing Flow
+      C: PixelCNN
+      D: Autoregressive Language Model
+    answer: A
+    feedback:
+      A: 正解．下界 (ELBO) のみ．
+      B: 可逆性あり計算可．
+      C: 自己回帰なので計算可．
+      D: 自己回帰で計算可．
+
+  - rubric: Diffusion モデルの逐次生成の計算コストを理解している
+    type: truefalse
+    title: 012-42-ステップ数依存
+    question: |
+      Diffusion モデルの生成は数十〜数百ステップの反復計算を要するため，GAN より推論が遅い傾向がある。
+    answer: true
+    feedback:
+      true: 正解．逐次除去で遅延大．
+      false: 速度面で GAN に劣る．
+
+  - rubric: 条件付き生成の方法を説明できる
+    type: multichoice
+    title: 012-43-条件付き VAE
+    question: |
+      テキスト条件付き画像生成で VAE を使う場合，条件を潜在変数 \(z\) に反映させる一般的な方法はどれか。
+    choices:
+      A: 事前分布 \(p(z)\) を条件付き分布 \(p(z\mid c)\) に置き換える
+      B: 再構成誤差をゼロにする
+      C: KL 項を削除する
+      D: Decoder を固定し Encoder のみ学習する
+    answer: A
+    feedback:
+      A: 正解．条件付き潜在分布化．
+      B: 完全復元は不要．
+      C: 正則化を削除すると崩壊する．
+      D: 双方学習が一般的．
+
+  - rubric: Stable Diffusion のハイブリッド学習を理解している
+    type: truefalse
+    title: 012-44-StableDiffusion は VAE+DM
+    question: |
+      Stable Diffusion では事前に学習した VAE の Decoder を固定し，その潜在空間で拡散モデルを学習する。
+    answer: true
+    feedback:
+      true: 正解．潜在拡散型．
+      false: Decoder を最終段で再利用する．
+
+  - rubric: Transformer Encoder-Decoder の利点を説明できる
+    type: multichoice
+    title: 012-45-Encoder-Decoder の用途
+    question: |
+      Encoder-Decoder 構成が BERT/GPT より適している代表タスクはどれか。
+    choices:
+      A: 機械翻訳
+      B: 文書分類
+      C: 言語モデリング
+      D: 品詞タグ付け
+    answer: A
+    feedback:
+      A: 正解．入力系列→出力系列．
+      B: Encoder-only で十分．
+      C: Decoder-only が基本．
+      D: Encoder-only で足りる．
+
+  - rubric: 注意機構で Query/Key/Value の役割をラベル付けできる
+    type: truefalse
+    title: 012-46-Query は情報要求
+    question: |
+      自己注意で Query ベクトルは「このトークンが他トークンから欲しい情報」を表現する。
+    answer: true
+    feedback:
+      true: 正解．欲求ベクトルとも言える．
+      false: 提供情報は Key 側．
+
+  - rubric: シーケンス長が学習時と異なる場合の外挿を理解している
+    type: multichoice
+    title: 012-47-RoPE 外挿
+    question: |
+      Rotary Positional Embedding (RoPE) を使うと，何が改善されるか。
+    choices:
+      A: 勾配爆発
+      B: 長いコンテキストへの外挿性能
+      C: パラメータ削減
+      D: 言語モデルの温度調整
+    answer: B
+    feedback:
+      A: 無関係．
+      B: 正解．周期的回転で外挿．
+      C: 同サイズ．
+      D: 温度とは別．
+
+  - rubric: 注意重みの確率的性質を説明できる
+    type: truefalse
+    title: 012-48-重みは確率分布
+    question: |
+      自己注意の重み行列 \(a[t,s]\) は各 \(t\) について \(s\) に対し確率分布になり，総和は 1 である。
+    answer: true
+    feedback:
+      true: 正解．Softmax 正規化による．
+      false: 合計 1 を満たす．
+
+  - rubric: オートレグレッシブ LM の log p 計算方法を説明できる
+    type: multichoice
+    title: 012-49-系列尤度の計算
+    question: |
+      自己回帰言語モデルで文 \(S\) の対数尤度を厳密に計算するには何が必要か。
+    choices:
+      A: 文全体を一度にネットに入力し出力確率を取得
+      B: 各時刻に条件付き確率をモデルから取得して総和
+      C: モンテカルロ積分
+      D: 近似下界 (ELBO)
+    answer: B
+    feedback:
+      A: 一括確率は出力されない．
+      B: 正解．連鎖律により厳密尤度可．
+      C: 不要．
+      D: VAE の手法．
+
+  - rubric: 勾配伝播と注意機構の関係を理解している
+    type: truefalse
+    title: 012-50-注意は微分可能
+    question: |
+      自己注意機構は Softmax と行列積からなるため，全体として微分可能であり勾配降下法で学習できる。
+    answer: true
+    feedback:
+      true: 正解．勾配は連鎖律で計算可能．
+      false: 離散サンプリングを含まないため微分可能．

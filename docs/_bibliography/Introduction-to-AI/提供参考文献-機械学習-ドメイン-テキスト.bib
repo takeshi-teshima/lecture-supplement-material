@@ -16,6 +16,38 @@
   file = {/Users/teshima/Zotero/storage/9IXXVIIN/Ali et al. - 2024 - Tokenizer Choice For LLM Training Negligible or C.pdf}
 }
 
+@inproceedings{ArnettBit2024,
+  title = {A {{Bit}} of a {{Problem}}: {{Measurement Disparities}} in {{Dataset Sizes}} across {{Languages}}},
+  shorttitle = {A {{Bit}} of a {{Problem}}},
+  booktitle = {Proceedings of the 3rd {{Annual Meeting}} of the {{Special Interest Group}} on {{Under-resourced Languages}} @ {{LREC-COLING}} 2024},
+  author = {Arnett, Catherine and Chang, Tyler A. and Bergen, Benjamin},
+  editor = {Melero, Maite and Sakti, Sakriani and Soria, Claudia},
+  date = {2024-05},
+  pages = {1--9},
+  publisher = {{ELRA and ICCL}},
+  location = {Torino, Italia},
+  url = {https://aclanthology.org/2024.sigul-1.1/},
+  urldate = {2025-07-02},
+  abstract = {How should text dataset sizes be compared across languages? Even for content-matched (parallel) corpora, UTF-8 encoded text can require a dramatically different number of bytes for different languages. In our work, we define the byte premium between two languages as the ratio of bytes used to encode content-matched text in those languages. We compute byte premiums for 1155 languages, and we use linear regressions to estimate byte premiums for other languages. We release a tool to obtain byte premiums for any two languages, enabling comparisons of dataset sizes across languages for more equitable multilingual model development and data practices.},
+  file = {/Users/teshima/Zotero/storage/9HNYDGN4/Arnett et al. - 2024 - A Bit of a Problem Measurement Disparities in Dat.pdf}
+}
+
+@inproceedings{ArnettWhy2025,
+  title = {Why do language models perform worse for morphologically complex languages?},
+  booktitle = {Proceedings of the 31st {{International Conference}} on {{Computational Linguistics}}},
+  author = {Arnett, Catherine and Bergen, Benjamin},
+  editor = {Rambow, Owen and Wanner, Leo and Apidianaki, Marianna and Al-Khalifa, Hend and Eugenio, Barbara Di and Schockaert, Steven},
+  date = {2025-01-01},
+  pages = {6607--6623},
+  publisher = {Association for Computational Linguistics},
+  location = {Abu Dhabi, UAE},
+  url = {https://aclanthology.org/2025.coling-main.441/},
+  urldate = {2025-07-02},
+  abstract = {Language models perform differently across languages. It has been previously suggested that morphological typology may explain some of this variability (Cotterell et al., 2018). We replicate previous analyses and find additional new evidence for a performance gap between agglutinative and fusional languages, where fusional languages, such as English, tend to have better language modeling performance than morphologically more complex languages like Turkish. We then propose and test three possible causes for this performance gap: morphological alignment of tokenizers, tokenization quality, and disparities in dataset sizes and measurement. To test the morphological alignment hypothesis, we present MorphScore, a tokenizer evaluation metric, and supporting datasets for 22 languages. We find some evidence that tokenization quality explains the performance gap, but none for the role of morphological alignment. Instead we find that the performance gap is most reduced when training datasets are of equivalent size across language types, but only when scaled according to the so-called “byte-premium”—the different encoding efficiencies of different languages and orthographies. These results suggest that languages of particular morphological types are not intrinsically advantaged or disadvantaged in language modeling. Differences in performance can be attributed to disparities in dataset size. These findings bear on ongoing efforts to improve performance for low-performing and under-resourced languages.},
+  eventtitle = {{{COLING}} 2025},
+  file = {/Users/teshima/Zotero/storage/DK9JADR5/Arnett and Bergen - 2025 - Why do language models perform worse for morpholog.pdf}
+}
+
 @inproceedings{AroraSimple2017,
   title = {A simple but tough-to-beat baseline for sentence embeddings},
   author = {Arora, Sanjeev and Liang, Yingyu and Ma, Tengyu},
@@ -29,7 +61,7 @@
 }
 
 @online{ChenExtending2023,
-  title = {Extending {{Context Window}} of {{Large Language Models}} via {{Positional Interpolation}}},
+  title = {Extending context window of large language models via positional interpolation},
   author = {Chen, Shouyuan and Wong, Sherman and Chen, Liangjian and Tian, Yuandong},
   date = {2023-06-28},
   eprint = {2306.15595},
@@ -52,6 +84,22 @@
   file = {/Users/teshima/Zotero/storage/FH2SQCLL/Distributional Hypothesis - ACL Wiki.pdf;/Users/teshima/Zotero/storage/YILDTZ3Z/index.html}
 }
 
+@online{DuttaExistence2025,
+  title = {On the existence of universal simulators of attention},
+  author = {Dutta, Debanjan and Ansari, Faizanuddin and Chakrabarty, Anish and Das, Swagatam},
+  date = {2025-06-23},
+  eprint = {2506.18739},
+  eprinttype = {arXiv},
+  eprintclass = {cs},
+  doi = {10.48550/arXiv.2506.18739},
+  url = {http://arxiv.org/abs/2506.18739},
+  urldate = {2025-06-29},
+  abstract = {Prior work on the learnability of transformers has established its capacity to approximate specific algorithmic patterns through training under restrictive architectural assumptions. Fundamentally, these arguments remain data-driven and therefore can only provide a probabilistic guarantee. Expressivity, on the contrary, has theoretically been explored to address the problems \textbackslash emph\{computable\} by such architecture. These results proved the Turing-completeness of transformers, investigated bounds focused on circuit complexity, and formal logic. Being at the crossroad between learnability and expressivity, the question remains: \textbackslash emph\{can transformer architectures exactly simulate an arbitrary attention mechanism, or in particular, the underlying operations?\} In this study, we investigate the transformer encoder's ability to simulate a vanilla attention mechanism. By constructing a universal simulator \$\textbackslash mathcal\{U\}\$ composed of transformer encoders, we present algorithmic solutions to identically replicate attention outputs and the underlying elementary matrix and activation operations via RASP, a formal framework for transformer computation. Our proofs, for the first time, show the existence of an algorithmically achievable data-agnostic solution, previously known to be approximated only by learning.},
+  pubstate = {prepublished},
+  keywords = {Computer Science - Artificial Intelligence,Computer Science - Machine Learning},
+  file = {/Users/teshima/Zotero/storage/9V7P8KGF/Dutta et al. - 2025 - On the Existence of Universal Simulators of Attention.pdf}
+}
+
 @article{HutchinsWhisky1995,
   entrysubtype = {magazine},
   title = {"{{The}} whisky was invisible", or {{Persistent}} myths of {{MT}}},
@@ -63,6 +111,43 @@
   langid = {english},
   annotation = {国際機械翻訳協会（International Association for Machine Translation - IAMT）が発行していた公式ニュースレターの第11号},
   file = {/Users/teshima/Zotero/storage/RRMGJKQZ/Hutchins - The whisky was invisible, or Persistent myths of.pdf}
+}
+
+@inproceedings{KalliniMission2024,
+  title = {Mission: {{Impossible}} language models},
+  shorttitle = {Mission},
+  booktitle = {Proceedings of the 62nd {{Annual Meeting}} of the {{Association}} for {{Computational Linguistics}} ({{Volume}} 1: {{Long Papers}})},
+  author = {Kallini, Julie and Papadimitriou, Isabel and Futrell, Richard and Mahowald, Kyle and Potts, Christopher},
+  editor = {Ku, Lun-Wei and Martins, Andre and Srikumar, Vivek},
+  date = {2024-08},
+  pages = {14691--14714},
+  publisher = {Association for Computational Linguistics},
+  location = {Bangkok, Thailand},
+  doi = {10.18653/v1/2024.acl-long.787},
+  url = {https://aclanthology.org/2024.acl-long.787/},
+  urldate = {2025-07-02},
+  abstract = {Chomsky and others have very directly claimed that large language models (LLMs) are equally capable of learning languages that are possible and impossible for humans to learn. However, there is very little published experimental evidence to support such a claim. Here, we develop a set of synthetic impossible languages of differing complexity, each designed by systematically altering English data with unnatural word orders and grammar rules. These languages lie on an impossibility continuum: at one end are languages that are inherently impossible, such as random and irreversible shuffles of English words, and on the other, languages that may not be intuitively impossible but are often considered so in linguistics, particularly those with rules based on counting word positions. We report on a wide range of evaluations to assess the capacity of GPT-2 small models to learn these uncontroversially impossible languages, and crucially, we perform these assessments at various stages throughout training to compare the learning process for each language. Our core finding is that GPT-2 struggles to learn impossible languages when compared to English as a control, challenging the core claim. More importantly, we hope our approach opens up a productive line of inquiry in which different LLM architectures are tested on a variety of impossible languages in an effort to learn more about how LLMs can be used as tools for these cognitive and typological investigations.},
+  eventtitle = {{{ACL}} 2024},
+  file = {/Users/teshima/Zotero/storage/8EBABD2R/Kallini et al. - 2024 - Mission Impossible Language Models.pdf}
+}
+
+@article{LuHomophone2020,
+  title = {Homophone auditory processing in cross-linguistic perspective},
+  author = {Lu, Youtao and Morgan, James L.},
+  date = {2020-03-23},
+  journaltitle = {Proceedings of the Linguistic Society of America},
+  volume = {5},
+  number = {1},
+  pages = {529--542},
+  issn = {2473-8689},
+  doi = {10.3765/plsa.v5i1.4733},
+  url = {https://journals.linguisticsociety.org/proceedings/index.php/PLSA/article/view/4733},
+  urldate = {2025-07-02},
+  abstract = {Previous studies reported conflicting results for the effects of homophony on visual word processing across languages. On finding significant differences in homophone density in Japanese, Mandarin Chinese and English, we conducted two experiments to compare native speakers’ competence in homophone auditory processing across these three languages. A lexical decision task showed that the effect of homophony on word processing in Japanese was significantly less detrimental than in Mandarin and English. A word-learning task showed that native Japanese speakers were the fastest in learning novel homophones. These results suggest that language-intrinsic properties influence corresponding language processing abilities of native speakers.},
+  issue = {1},
+  langid = {english},
+  keywords = {auditory word processing,cross-linguistic study,homophony,lexical ambiguity},
+  file = {/Users/teshima/Zotero/storage/RZA6LJLB/Lu and Morgan - 2020 - Homophone auditory processing in cross-linguistic .pdf}
 }
 
 @inproceedings{MikolovDistributed2013,
