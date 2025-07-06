@@ -15,6 +15,24 @@
   file = {/Users/teshima/Zotero/storage/ZQ936QJG/DeepSeek-AI et al. - 2025 - DeepSeek-R1 Incentivizing Reasoning Capability in.pdf;/Users/teshima/Zotero/storage/8XE6U5VY/2501.html}
 }
 
+@online{GuanDeliberative2025,
+  title = {Deliberative alignment: reasoning enables safer language models},
+  shorttitle = {Deliberative alignment},
+  author = {Guan, Melody Y. and Joglekar, Manas and Wallace, Eric and Jain, Saachi and Barak, Boaz and Helyar, Alec and Dias, Rachel and Vallone, Andrea and Ren, Hongyu and Wei, Jason and Chung, Hyung Won and Toyer, Sam and Heidecke, Johannes and Beutel, Alex and Glaese, Amelia},
+  date = {2025-01-08},
+  eprint = {2412.16339},
+  eprinttype = {arXiv},
+  eprintclass = {cs},
+  doi = {10.48550/arXiv.2412.16339},
+  url = {http://arxiv.org/abs/2412.16339},
+  urldate = {2025-06-30},
+  abstract = {As large-scale language models increasingly impact safety-critical domains, ensuring their reliable adherence to well-defined principles remains a fundamental challenge. We introduce Deliberative Alignment, a new paradigm that directly teaches the model safety specifications and trains it to explicitly recall and accurately reason over the specifications before answering. We used this approach to align OpenAI's o-series models, and achieved highly precise adherence to OpenAI's safety policies, without requiring human-written chain-of-thoughts or answers. Deliberative Alignment pushes the Pareto frontier by simultaneously increasing robustness to jailbreaks while decreasing overrefusal rates, and also improves out-of-distribution generalization. We demonstrate that reasoning over explicitly specified policies enables more scalable, trustworthy, and interpretable alignment.},
+  pubstate = {prepublished},
+  keywords = {Computer Science - Artificial Intelligence,Computer Science - Computation and Language,Computer Science - Computers and Society,Computer Science - Machine Learning},
+  note = {Comment: 24 pages},
+  file = {/Users/teshima/Zotero/storage/QA93IC64/Guan et al. - 2025 - Deliberative Alignment Reasoning Enables Safer La.pdf;/Users/teshima/Zotero/storage/C5BAVZ9M/2412.html}
+}
+
 @inproceedings{JinImpact2024,
   title = {The impact of reasoning step length on large language models},
   author = {Jin, Mingyu and Yu, Qinkai and Shu, Dong and Zhao, Haiyan and Hua, Wenyue and Meng, Yanda and Zhang, Yongfeng and Du, Mengnan},
@@ -93,6 +111,19 @@
   file = {/Users/teshima/Zotero/storage/VN2WPJZB/Learning to reason with LLMs.pdf;/Users/teshima/Zotero/storage/YIA67BWI/learning-to-reason-with-llms.html}
 }
 
+@inproceedings{Rafailov$r$2024a,
+  title = {From \$r\$ to \${{Q}}\textasciicircum *\$: {{Your Language Model}} is {{Secretly}} a {{Q-Function}}},
+  shorttitle = {From \$r\$ to \${{Q}}\textasciicircum *\$},
+  author = {Rafailov, Rafael and Hejna, Joey and Park, Ryan and Finn, Chelsea},
+  date = {2024-08-26},
+  url = {https://openreview.net/forum?id=kEVcNxtqXk},
+  urldate = {2025-07-05},
+  abstract = {Reinforcement Learning From Human Feedback (RLHF) has been a critical component of the success of the latest generation of generative AI models, including the GPT series. However, this is an involved and complex process and direct alignment algorithms, such as DPO have recently emerged as an alternative approach to the classical RLHF pipeline. Although DPO solves the same objective as the standard RLHF setup, there is a mismatch between the two approaches. Standard RLHF deploys reinforcement learning in a specific token-level MDP, while DPO is derived as a bandit problem in which the whole response of the model is treated as a single arm. In this work we rectify this difference, first we theoretically show that we can derive DPO in the token-level MDP as a general inverse Q-learning algorithm, which satisfies the Bellman equation. Using our theoretical results, we provide three concrete empirical insights. First, we show that because of its token level interpretation, DPO is able to perform some type of credit assignment. Next, we prove that under the token level formulation, classical search-based algorithms, such as MCTS, which have recently been applied to the language generation space, are equivalent to likelihood-based search on a DPO policy and empirically we show that a simple beam search yields meaningful improvement over the base DPO policy. Finally, we show how the choice of SFT policy causes implicit rewards to decline during training. We conclude by discussing applications of our work, including information elicitation in multi-tun dialogue, reasoning, agentic applications and end-to-end training of multi-model systems.},
+  eventtitle = {First {{Conference}} on {{Language Modeling}}},
+  langid = {english},
+  file = {/Users/teshima/Zotero/storage/3CYMYAVA/Rafailov et al. - 2024 - From $r$ to $Q^$ Your Language Model is Secretly.pdf}
+}
+
 @inproceedings{SardanaChinchillaoptimal2024,
   title = {Beyond {{Chinchilla-optimal}}: accounting for inference in language model scaling laws},
   shorttitle = {Beyond {{Chinchilla-optimal}}},
@@ -118,6 +149,19 @@
   eventtitle = {Thirty-seventh {{Conference}} on {{Neural Information Processing Systems}}},
   langid = {english},
   file = {/Users/teshima/Zotero/storage/IC4M3Z98/Shinn et al. - 2023 - Reflexion language agents with verbal reinforceme.pdf}
+}
+
+@inproceedings{SinghalLlamaNemotron2025,
+  title = {Llama-{{Nemotron}}: {{Efficient Reasoning Models}}},
+  shorttitle = {Llama-{{Nemotron}}},
+  author = {Singhal, Soumye and Zeng, Jiaqi and Bukharin, Alexander and Zhang, Yian and Shen, Gerald and Mahabaleshwarkar, Ameya Sunil and Kartal, Bilal and Suhara, Yoshi and Bercovich, Akhiad and Levy, Itay and Golan, Izik and Dabbah, Mohammed and El-Yaniv, Ran and Majumdar, Somshubra and Gitman, Igor and Bakhturina, Evelina and Zhang, Jimmy J. and Su, Bor-Yiing and Huang, Guyue and Putterman, Izzy and Patwary, Mostofa and Olabiyi, Oluwatobi and Delalleau, Olivier and Catanzaro, Bryan and Ginsburg, Boris and Kuchaiev, Oleksii and Konuk, Tugrul},
+  date = {2025-06-21},
+  url = {https://openreview.net/forum?id=ev1xpo9mbI&referrer=%5Bthe%20profile%20of%20Olivier%20Delalleau%5D(%2Fprofile%3Fid%3D~Olivier_Delalleau1)},
+  urldate = {2025-07-06},
+  abstract = {We introduce the Llama-Nemotron series: open, heterogeneous reasoning models in three sizes—Nano (8B), Super (49B), and Ultra (253B)—that deliver strong reasoning, inference efficiency, and a permissive license. Our training pipeline combines neural architecture search, knowledge distillation, and a reasoning-focused post-training stage with supervised fine-tuning and large-scale reinforcement learning. Our large-scale RL training leverages exploration-driven curriculum and data filtering strategies to systematically challenge the model with increasingly difficult reasoning tasks, enabling it to discover and refine complex problem-solving chains beyond the capabilities of supervised learning. This approach allows the model to autonomously explore new reasoning strategies and surpass teacher performance on challenging benchmarks. Ultra achieves significantly higher GPQA accuracy and outperforms DeepSeek-R1 and other open models on key reasoning tasks. Llama-Nemotron models are also the first open-source models to support a dynamic reasoning toggle. We open-source all data, models, and code to support open research.},
+  eventtitle = {The {{Exploration}} in {{AI Today Workshop}} at {{ICML}} 2025},
+  langid = {english},
+  file = {/Users/teshima/Zotero/storage/GVQTTC7J/Singhal et al. - 2025 - Llama-Nemotron Efficient Reasoning Models.pdf}
 }
 
 @inproceedings{SnellScaling2024,
