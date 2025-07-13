@@ -1,0 +1,792 @@
+Outline:
+  - Section: "序論・ロードマップ"  # 講義の射程と急速な変化への注意点  [oai_citation:0‡第13回.pdf](file-service://file-JjZQEdus1zPQ23FTuack3j)
+  - Section: "Large Language Model (LLM) の大規模化"
+      subsections:
+        - "パラメーター数と ‘B’ 表記"                    #  [oai_citation:1‡第13回.pdf](file-service://file-JjZQEdus1zPQ23FTuack3j)
+        - "データ規模の拡大と 1 兆トークンの目安"         #  [oai_citation:2‡第13回.pdf](file-service://file-JjZQEdus1zPQ23FTuack3j)
+        - "Chinchilla Scaling Law と計算量最適化"         #  [oai_citation:3‡第13回.pdf](file-service://file-JjZQEdus1zPQ23FTuack3j)
+        - "創発的能力 (Emergent Abilities)"              #  [oai_citation:4‡第13回.pdf](file-service://file-JjZQEdus1zPQ23FTuack3j)
+  - Section: "プロンプトエンジニアリング"
+      subsections:
+        - "文脈内学習 (Zero/One/Few-shot ICL)"          #  [oai_citation:5‡第13回.pdf](file-service://file-JjZQEdus1zPQ23FTuack3j)
+        - "Chain-of-Thought (CoT)・マルチステップ推論"    #  [oai_citation:6‡第13回.pdf](file-service://file-JjZQEdus1zPQ23FTuack3j)
+        - "Zero-shot CoT フォーミュラ"                   #  [oai_citation:7‡第13回.pdf](file-service://file-JjZQEdus1zPQ23FTuack3j)
+  - Section: "思考モデル (Reasoning Models)"
+      subsections:
+        - "推論時スケーリングと Thinking Tokens"        #  [oai_citation:8‡第13回.pdf](file-service://file-JjZQEdus1zPQ23FTuack3j)
+        - "Parallel Sampling+Verification, ToT など"     #  [oai_citation:9‡第13回.pdf](file-service://file-JjZQEdus1zPQ23FTuack3j)
+  - Section: "エージェントとツール利用"
+      subsections:
+        - "ReAct フレームワーク (Thought–Action–Obs)"   #  [oai_citation:10‡第13回.pdf](file-service://file-JjZQEdus1zPQ23FTuack3j)
+        - "ツール呼び出し JSON スキーマと実装指針"       #  [oai_citation:11‡第13回.pdf](file-service://file-JjZQEdus1zPQ23FTuack3j)
+  - Section: "マルチモーダルモデル"
+      subsections:
+        - "CLIP による対照学習・共通埋め込み"           #  [oai_citation:12‡第13回.pdf](file-service://file-JjZQEdus1zPQ23FTuack3j)
+        - "Transfusion 型統一トランスフォーマ"          #  [oai_citation:13‡第13回.pdf](file-service://file-JjZQEdus1zPQ23FTuack3j)
+  - Section: "アラインメント (HHH など)"
+      subsections:
+        - "Helpful / Honest / Harmless の目標"          #  [oai_citation:14‡第13回.pdf](file-service://file-JjZQEdus1zPQ23FTuack3j)
+        - "幻覚・バイアス・個人情報漏洩リスク"          #  [oai_citation:15‡第13回.pdf](file-service://file-JjZQEdus1zPQ23FTuack3j)
+  - Section: "LLM 訓練パイプライン"
+      subsections:
+        - "事前学習 (Next-Token Prediction)"            #  [oai_citation:16‡第13回.pdf](file-service://file-JjZQEdus1zPQ23FTuack3j)
+        - "指示チューニング (Instruction Tuning)"      #  [oai_citation:17‡第13回.pdf](file-service://file-JjZQEdus1zPQ23FTuack3j)
+        - "選好チューニング & RLHF"                    #  [oai_citation:18‡第13回.pdf](file-service://file-JjZQEdus1zPQ23FTuack3j)
+        - "RLVR による特性促進"                         #  [oai_citation:19‡第13回.pdf](file-service://file-JjZQEdus1zPQ23FTuack3j)
+        - "Direct Preference Optimization (DPO)"         #  [oai_citation:20‡第13回.pdf](file-service://file-JjZQEdus1zPQ23FTuack3j)
+  - Section: "データ収集と評価の課題"
+      subsections:
+        - "指示／選好データセット構築コスト"           #  [oai_citation:21‡第13回.pdf](file-service://file-JjZQEdus1zPQ23FTuack3j)
+        - "Alignment Tax と忘却問題"                    #  [oai_citation:22‡第13回.pdf](file-service://file-JjZQEdus1zPQ23FTuack3j)
+
+Quizzes:
+
+  - rubric: Emergent Ability の閾値的性質を理解している
+    type: truefalse
+    title: 013-02-創発能力は連続的？
+    question: |
+      パラメーター数が徐々に増えるにつれ、タスク性能も滑らかに向上し、臨界点のような急激な性能変化は観測されない。
+    answer: false
+    feedback:
+      true: 創発的能力は「量的変化が質的飛躍を生む」という報告があり、滑らかとは限りません。
+      false: 正解です。Wei et al. が報告したように閾値的な跳ね上がりが見られます。
+
+  - rubric: スケーリング則と “Alignment Tax” の関係を説明できる
+    type: multichoice
+    title: 013-03-Alignment Tax
+    question: |
+      Alignment Tax を最も適切に説明しているのはどれか。
+    choices:
+      A: アラインメントするとモデル容量が物理的に減少する追加コスト
+      B: RLHF などで下流性能が低下することに伴う “損失”
+      C: チューニング時に GPU メモリが増えるための電力課税
+      D: Prompt 長が伸び推論コストが上がる経済的税
+    answer: B
+    feedback:
+      A: 容量が減るわけではありません。
+      B: 正解。RLHF で事前学習タスクを忘れる等の性能低下を指します。
+      C: 電力税の話ではありません。
+      D: プロンプト長課税は別概念です。
+
+  - rubric: パラメーターとデータの大規模化が脳ニューロン数と比べてどの程度かを概算できる
+    type: multichoice
+    title: 013-04-脳との比較オーダー
+    question: |
+      スライドに示された「LLM のパラメーター数と人間脳ニューロン数比較」の説明として **最も正しい** ものはどれか。
+    choices:
+      A: LLM のパラメーター数は人間のニューロン数の約 1/100 である。
+      B: 両者はオーダーが近いが機能単位が異なるため単純比較は無意味。
+      C: LLM はニューロン数で既に人間を 10 倍以上上回っている。
+      D: パラメーターはニューロンと同義なのでほぼ同じ性能を示す。
+    answer: B
+    feedback:
+      A: 実際は 1/100 ではなく同オーダーです。
+      B: 正解。数量は近いが機能差ゆえ直接比較できません。
+      C: 10 倍以上ではありません。
+      D: パラメーター≠ニューロンで性能も同等ではありません。
+
+  - rubric: Prompt 内例示数と性能の関係を説明できる
+    type: truefalse
+    title: 013-05-Few-shot が常に最適？
+    question: |
+      少数事例プロンプティングでは、例示数を増やせば増やすほど必ずタスク性能が単調に向上する。
+    answer: false
+    feedback:
+      true: 単調向上とは限らず、長すぎるプロンプトで逆効果も報告されています。
+      false: 正解。効果はタスクやモデルに依存し、メモリ制限やオーバーフィッティングも起こり得ます。
+
+  # --- Prompt Engineering -------------------------------------------------
+  - rubric: Zero-shot と Zero-shot CoT の違いを説明できる
+    type: multichoice
+    title: 013-06-Zero-shot vs Zero-shot CoT
+    question: |
+      “Let’s think step by step.” を追加することで性能が向上する理由として **適切でない** ものはどれか。
+    choices:
+      A: モデルに推論過程を生成させ自己整合性を高められる
+      B: 出力トークン数が増え温度が事実上下がる
+      C: Chain-of-Thought の学習シグナルが強まる
+      D: プロンプト長が一定なら計算コストは変わらない
+    answer: D
+    feedback:
+      A: 適切です。
+      B: 一因になり得ます。
+      C: 適切です。
+      D: 正解。トークン増加で計算コストも増えます。
+
+  - rubric: CoT の例示が逆効果になり得るケースを理解している
+    type: multichoice
+    title: 013-07-CoT 例示の罠
+    question: |
+      Chain-of-Thought 例示が性能を下げる可能性が高い状況はどれか。
+    choices:
+      A: 例示タスクと本番タスクが同一形式
+      B: 例示が誤答を含みモデルが模倣する
+      C: 例示が短すぎて情報量が不足
+      D: 例示が多様で一般化を促す
+    answer: B
+    feedback:
+      A: 問題ありません。
+      B: 正解。誤答例を模倣し性能低下します。
+      C: 情報不足でも極端に悪影響とは限りません。
+      D: 多様性はむしろプラスです。
+
+  - rubric: Prompt Injection と Alignment の関係を説明できる
+    type: truefalse
+    title: 013-08-Prompt Injection
+    question: |
+      Prompt Injection 攻撃は Alignment‐HHH の “Honest” 目標とは無関係である。
+    answer: false
+    feedback:
+      true: 不正確です。Injection 攻撃は虚偽誘導を助長し “Honest” を脅かします。
+      false: 正解です。
+
+  # --- Reasoning Models ---------------------------------------------------
+  - rubric: Parallel Sampling+Verification の構造を説明できる
+    type: multichoice
+    title: 013-10-並列生成と検証
+    question: |
+      “Parallel Sampling + Verification” 戦略で **誤っている** 手順はどれか。
+    choices:
+      A: 複数候補を独立に生成する
+      B: 各候補に検証モデルでスコアを付け最良を選ぶ
+      C: 最良候補を入力として再帰的に追加候補を生成する
+      D: 思考トークンを用いることで検証コストが上がる
+    answer: C
+    feedback:
+      A: 正しいステップです。
+      B: 正しいステップです。
+      C: 正解。再帰的生成はこの戦略の必須要素ではありません。
+      D: 正しい。検証用計算が増えます。
+
+  - rubric: Tree-of-Thought (ToT) の枝刈り戦略を理解している
+    type: truefalse
+    title: 013-11-ToT の枝刈り
+    question: |
+      Tree-of-Thought では各ノードに確率ではなくヒューリスティックなスコアを割り当てて枝刈りしても良い。
+    answer: true
+    feedback:
+      true: 正解。確率に限らず評価関数で枝刈り可能です。
+      false: 確率スコアに限定されません。
+
+  - rubric: 推論時スケーリングと訓練時スケーリングの対比を説明できる
+    type: multichoice
+    title: 013-12-Compute Allocation
+    question: |
+      “推論時に計算をかける vs 訓練時に計算をかける” の比較として **適切でない** ものはどれか。
+    choices:
+      A: 推論時スケーリングはサービス運用コストを高める
+      B: 訓練時スケーリングだけでは創発能力を引き出せない場合がある
+      C: 推論時スケーリングはモデルパラメーターを増やす手法である
+      D: 訓練時スケーリングは再訓練が必要でデプロイが遅い
+    answer: C
+    feedback:
+      A: 正しい記述。
+      B: 正しい記述。
+      C: 正解。パラメーター増ではなく計算ステップ増。
+      D: 正しい記述。
+
+  - rubric: ReAct ループの Thought/Action/Observation の順序を理解している
+    type: multichoice
+    title: 013-13-ReAct ループ
+    question: |
+      ReAct フレームワークにおける 1 サイクルの正しい順序はどれか。
+    choices:
+      A: Action → Thought → Observation
+      B: Thought → Observation → Action
+      C: Thought → Action → Observation
+      D: Observation → Thought → Action
+    answer: C
+    feedback:
+      A: 誤順序。
+      B: Observation は Action の後です。
+      C: 正解です。
+      D: 最初に Observation は来ません。
+
+  - rubric: Tool Invocation JSON を生成させるプロンプト設計を説明できる
+    type: truefalse
+    title: 013-14-ツール呼び出し JSON
+    question: |
+      エージェントが {name:"search_web",args:{query:"..."}} の形式を出力するよう促すには、システムプロンプトにその JSON スキーマを含めておく方法が一般的である。
+    answer: true
+    feedback:
+      true: 正解。事前にフォーマットを明示しパターンマッチで実行させます。
+      false: スキーマを示さなければ合致する文字列を出力しません。
+
+  - rubric: CLIP の対照学習目的を説明できる
+    type: multichoice
+    title: 013-15-CLIP 損失の目的
+    question: |
+      CLIP で Softmax 温度 $\alpha$ 付きコサイン類似度行列に損失を掛ける主目的はどれか。
+    choices:
+      A: 同一画像–テキスト対の類似度を最大化し非対を最小化する
+      B: 画像だけの自己再構成誤差を減らす
+      C: テキストの言語モデル損失を最小化する
+      D: 画像の拡散ノイズを学習する
+    answer: A
+    feedback:
+      A: 正解。対照学習でペアリングを強調します。
+      B: 自己再構成は VAE 系です。
+      C: 言語モデル損失ではありません。
+      D: 拡散は別手法です。
+
+  # ------------- Multimodal (16–20) -----------------
+  - rubric: ユニモーダル vs マルチモーダルの定義を理解している
+    type: truefalse
+    title: 013-16-ユニモーダル判定
+    question: |
+      “画像キャプション生成” は入力が画像，出力がテキスト 1 モダリティずつなのでユニモーダルに分類される。
+    answer: false
+    feedback:
+      true: 入出力が異なるモダリティなのでクロス／マルチモーダルです。
+      false: 正解です。
+
+  - rubric: Transfusion の Early-Fusion 概要を説明できる
+    type: multichoice
+    title: 013-17-Transfusion Early Fusion
+    question: |
+      Transfusion が “画像パッチ＋テキストトークンを統一埋め込みで処理” する際の **誤り** はどれか。
+    choices:
+      A: 画像は VAE 符号化器で潜在変換される
+      B: 画像潜在を固定長パッチに分割する
+      C: パッチ列はテキストトークンと同じトークン種として扱う
+      D: 画像はピクセル空間のまま CNN で別処理してから融合する
+    answer: D
+    feedback:
+      D は Early-Fusion ではありません。他は概略正しい。
+
+  - rubric: HHH フレームの各要素の例を挙げられる
+    type: multichoice
+    title: 013-18-HHH 具体例
+    question: |
+      “Honest” 目標の具体例として最も適切なのはどれか。
+    choices:
+      A: 有害指示を拒否する
+      B: 不確かな質問に確率や根拠の提示を伴う
+      C: ユーザーの作業を短時間で終わらせる
+      D: 出力を常に 50 トークン以内に収める
+    answer: B
+    feedback:
+      A: これは Harmless 領域です。
+      B: 正解。誠実さ＝根拠・不確実性表明。
+      C: Helpful の例。
+      D: 目標とは直接関係ありません。
+
+  - rubric: 幻覚 (Hallucination) と Confabulation の区別を理解している
+    type: truefalse
+    title: 013-19-幻覚 vs 捏造
+    question: |
+      スライドでは “Hallucination” という語より “Confabulation” がより正確と指摘されている。
+    answer: true
+    feedback:
+      true: 正解。Emsley (2023) などが指摘しています。
+      false: 指摘済みの用語区分を誤っています。
+
+  - rubric: Bias 評価研究の主張を説明できる
+    type: multichoice
+    title: 013-20-バイアス評価
+    question: |
+      Santurkar et al. (2023) が示した “InstructGPT 後” の変化として **含まれない** ものはどれか。
+    choices:
+      A: 政治的回答がリベラル寄り
+      B: 高学歴層の意見を反映
+      C: 低収入層の意見に近づく
+      D: 穏健からリベラル方向へのシフト
+    answer: C
+    feedback:
+      A: 報告されています。
+      B: 報告されています。
+      C: 正解。むしろ高収入寄りに。
+      D: 報告されています。
+
+  # ------------- Training Pipeline (21–30) -----------
+  - rubric: Instruction Tuning の目的を説明できる
+    type: truefalse
+    title: 013-22-指示適合化の目的
+    question: |
+      Instruction Tuning の主目的はモデルにタスク固有の入出力フォーマットを覚えさせることである。
+    answer: false
+    feedback:
+      true: 入出力形式だけでなく “指示に従う振る舞い全般” を学習させることが目的です。
+      false: 正解です。
+
+  - rubric: Preference Tuning と RLHF の工程を列挙できる
+    type: multichoice
+    title: 013-23-RLHF 工程
+    question: |
+      RLHF 手順の **正しい順序** はどれか。
+      (α) 報酬モデル学習
+      (β) 人間ランキング収集
+      (γ) 方策モデル更新
+    choices:
+      A: β → γ → α
+      B: α → β → γ
+      C: β → α → γ
+      D: γ → β → α
+    answer: C
+    feedback:
+      A: 報酬モデルより先に方策更新はできません。
+      B: 報酬モデル用データが先に要ります。
+      C: 正解です。
+      D: 順序が逆です。
+
+  - rubric: RLVR と RLHF の違いを説明できる
+    type: truefalse
+    title: 013-24-RLVR の報酬
+    question: |
+      RLVR では報酬が “検証可能 (verifiable)” であり、人間主観のランキングを必要としない。
+    answer: true
+    feedback:
+      true: 正解。数学正答率など機械評価可能報酬を用います。
+      false: 人間主観を要する RLHF とは異なります。
+
+  - rubric: DPO が報酬モデルをバイパスする仕組みを説明できる
+    type: multichoice
+    title: 013-25-DPO の本質
+    question: |
+      DPO が RLHF と比べて **優位になる可能性が高い理由** はどれか。
+    choices:
+      A: KL 正則化項が完全に不要になる
+      B: 報酬モデル推定のハイパーパラメーターが不要
+      C: 方策勾配推定がなくなるためサンプル効率が悪化
+      D: 人間ランキングが不要になる
+    answer: B
+    feedback:
+      A: KL 項は暗黙的に含まれます。
+      B: 正解。ハイパーが減り学習安定。
+      C: 悪化ではなく改善が報告。
+      D: ランキングは依然必要です。
+
+  - rubric: Alignment Tax の緩和策を理解している
+    type: truefalse
+    title: 013-26-Alignment Tax 緩和
+    question: |
+      Alignment Tax を抑える一手法は、RLHF の損失に事前学習の言語モデル損失を混合することである。
+    answer: true
+    feedback:
+      true: 正解。事前知識の忘却を防ぎます。
+      false: 緩和策として実用されています。
+
+  - rubric: 指示チューニング用データの規模効果を説明できる
+    type: multichoice
+    title: 013-27-LIMA の示唆
+    question: |
+      LIMA (Zhou et al., 2023) が示した最小データ指示チューニングの教訓として正しいものはどれか。
+    choices:
+      A: 1 万件未満では性能向上しない
+      B: 丁寧に選んだ 1 千件でも高性能になり得る
+      C: RLHF が必須である
+      D: データ多様性より量が重要
+    answer: B
+    feedback:
+      A: 反証例が LIMA です。
+      B: 正解。
+      C: 必須ではありません。
+      D: 量より質が重要という示唆です。
+
+  - rubric: 15 % Mask 率の起源と現在の知見を説明できる
+    type: multichoice
+    title: 013-28-15 % Mask
+    question: |
+      BERT 系で Mask 率 15 % が採用された理由として最も近いのはどれか。
+    choices:
+      A: 理論解析により最適と証明
+      B: 文脈情報と学習シグナルの折衷という経験則
+      C: GPU メモリ上限による制約
+      D: 15 という素数の縁起
+    answer: B
+    feedback:
+      B が正解。経験則です。
+
+  - rubric: RLHF の KL 正則化の役割を理解している
+    type: truefalse
+    title: 013-29-KL 正則化
+    question: |
+      RLHF で KL ダイバージェンスを用いる主目的は、新方策が参照方策からの過度な乖離を防ぐことである。
+    answer: true
+    feedback:
+      true: 正解。
+      false: 乖離抑制が主目的です。
+
+  - rubric: RLHF の勾配推定法を区別できる
+    type: multichoice
+    title: 013-30-REINFORCE vs PPO
+    question: |
+      PPO が REINFORCE より実務で好まれる主な理由はどれか。
+    choices:
+      A: 対数勾配が不要で計算が簡便
+      B: ステップサイズを信頼領域で制御し学習安定
+      C: 事前学習損失を同時に最適化できる
+      D: サンプル収集を行わずバッチ内のみで完結
+    answer: B
+    feedback:
+      A: ログ勾配は使います。
+      B: 正解。
+      C: それは追加項です。
+      D: サンプル収集は必要。
+
+  # ------------- Agents & Tools (31–35) -------------
+  - rubric: Tool Invocation マッチング実装上の注意を説明できる
+    type: multichoice
+    title: 013-31-正規表現抽出
+    question: |
+      ツール呼び出し文字列を抽出する実装で **誤り** はどれか。
+    choices:
+      A: 正規表現で JSON をパースする
+      B: 出力ストリームを逐次監視して即時実行
+      C: args 部分を別途 JSON.parse で解析
+      D: name キーだけでツール選択し args を無視
+    answer: D
+    feedback:
+      D は危険。args 無視で誤実行します。
+
+  - rubric: ReAct ループが提供する利点を説明できる
+    type: truefalse
+    title: 013-32-ReAct の利点
+    question: |
+      ReAct では内部思考を外部に露出させることでデバッグやトレーサビリティが向上する。
+    answer: true
+    feedback:
+      true: 正解。Thought ログが可視化されます。
+      false: 視認性向上は利点です。
+
+  - rubric: Parallel ツール呼び出しの競合管理を説明できる
+    type: multichoice
+    title: 013-33-ツール競合
+    question: |
+      複数ツールを並列呼び出し可能なエージェント設計で必要な対策はどれか。
+    choices:
+      A: 出力トークン同士のミューテックス
+      B: ツール実行キューと非同期コールバック
+      C: GPU Warp 同期
+      D: ユーザー認証トークンのハードコード
+    answer: B
+    feedback:
+      B が適切な一般的対策です。
+
+  - rubric: エージェントが “タスク定義自動生成” で得るメリットを説明できる
+    type: truefalse
+    title: 013-34-タスク自律設計
+    question: |
+      エージェントが自律的にタスク定義を行うことで、ユーザーは入出力仕様を詳細設計する手間を軽減できる。
+    answer: true
+    feedback:
+      true: 正解。
+      false: これは主なメリットです。
+
+  - rubric: 思考の木 (ToT) と ReAct の補完関係を説明できる
+    type: multichoice
+    title: 013-35-ToT vs ReAct
+    question: |
+      ToT と ReAct を組み合わせる意義として適切なのはどれか。
+    choices:
+      A: ToT はツール呼び出し数を削減できる
+      B: ReAct の Thought を ToT のノード評価関数に流用できる
+      C: ReAct は木探索を必ず深さ優先にする
+      D: ToT はツール呼び出しを禁止する枠組み
+    answer: B
+    feedback:
+      B が正解。
+
+  # ------------- Data & Evaluation (36–40) ----------
+  - rubric: Instruction データテンプレート生成の長所短所を説明できる
+    type: multichoice
+    title: 013-36-テンプレート生成
+    question: |
+      テンプレート生成で Instruction データを拡張する際の **主な欠点** はどれか。
+    choices:
+      A: 出力多様性が低くなる
+      B: コストが高騰する
+      C: ラベル付与が不可能
+      D: テンプレート自体が法的問題になる
+    answer: A
+    feedback:
+      A が正解。多様性不足が課題。
+
+  - rubric: Human Ranking のスクリーニング意図を説明できる
+    type: truefalse
+    title: 013-37-アノテータ選抜
+    question: |
+      InstructGPT では Upwork などで採用したアノテータに事前スクリーニングテストを課している。
+    answer: true
+    feedback:
+      true: 正解。
+      false: 実際に行われています。
+
+  - rubric: Likert 評価と ペアワイズ ランキングの違いを理解している
+    type: multichoice
+    title: 013-38-Likert vs Pairwise
+    question: |
+      Likert スコアとペアワイズランキングを組み合わせる主目的はどれか。
+    choices:
+      A: アノテータの疲労を減らす
+      B: 絶対評価と相対評価の双方を報酬モデルに活かす
+      C: データサイズを半減させる
+      D: GDPR 対応のため
+    answer: B
+    feedback:
+      B が正解。
+
+  - rubric: Privacy Risk in Training Data を説明できる
+    type: truefalse
+    title: 013-39-個人情報漏洩
+    question: |
+      個人情報漏洩リスクは Harmless 目標の一部として扱われる。
+    answer: true
+    feedback:
+      true: 正解。
+      false: Harmless の範疇に含まれます。
+
+  - rubric: Bias Mitigation の限界を理解している
+    type: multichoice
+    title: 013-40-バイアス緩和
+    question: |
+      モデルサイズを大きくするとバイアスが必ず減少するという主張の是非は？
+    choices:
+      A: 常に減少する
+      B: 逆に増加する報告もある
+      C: サイズと無関係
+      D: サイズよりデータ語彙数が支配的
+    answer: B
+    feedback:
+      B が正解。Tal et al. などで報告。
+
+  # ------------- Misc. Checkpoints (41–50) ----------
+  - rubric: Thinking Token のコストを概算できる
+    type: multichoice
+    title: 013-41-推論コスト試算
+    question: |
+      思考トークンを 5 → 50 に増やすと推論 FLOPs はおおよそどう変化するか (モデル構造一定と仮定)。
+    choices:
+      A: 約 10 倍
+      B: √10 倍
+      C: 変化なし
+      D: 50 倍
+    answer: A
+    feedback:
+      A: トークン線形で約 10 倍。正解。
+
+  - rubric: GPU 時間とコストの概算を説明できる
+    type: truefalse
+    title: 013-42-GPU コスト感覚
+    question: |
+      GPT-3 の訓練には NVIDIA V100 約 7 億円相当の計算費用がかかったとスライドで紹介された。
+    answer: true
+    feedback:
+      true: 正解。
+      false: スライドの試算通りです。
+
+  - rubric: RLHF と DPO の勾配計算コストを比較できる
+    type: multichoice
+    title: 013-43-DPO 計算効率
+    question: |
+      DPO が RLHF に比べ計算効率で優れる理由として最も直接的なのはどれか。
+    choices:
+      A: Sampling 不要
+      B: 報酬モデル Forward 不要
+      C: バッチ正規化が不要
+      D: 量子 GPU 使用
+    answer: B
+    feedback:
+      B が正解。報酬モデル前向き計算が省けます。
+
+  - rubric: RLVR の “verifiable” 例を挙げられる
+    type: truefalse
+    title: 013-44-検証可能報酬
+    question: |
+      プログラム合成タスクにおけるユニットテストパス率は RLVR の報酬として利用できる。
+    answer: true
+    feedback:
+      true: 正解。
+      false: 典型的 verifiable reward です。
+
+  - rubric: Emergent Ability の再現に必要な規模を推定できる
+    type: multichoice
+    title: 013-45-閾値推定
+    question: |
+      創発的能力が報告された規模域に最も近いのはどれか。
+    choices:
+      A: 1 M パラメーター
+      B: 100 M パラメーター
+      C: 10 B パラメーター
+      D: 1 T パラメーター
+    answer: C
+    feedback:
+      C が正解。10 B 付近から現れたとの報告が多い。
+
+  - rubric: CLIP 温度ハイパー $\alpha$ の役割を説明できる
+    type: truefalse
+    title: 013-46-温度パラメータ
+    question: |
+      CLIP 損失の温度 $\alpha$ を大きくすると正例と負例のスコア分布が鋭くなる。
+    answer: true
+    feedback:
+      true: 正解。Softmax 温度逆数で分布鋭化。
+      false: 温度低下で分布鋭化します。
+
+  - rubric: ToT 探索の停止条件を説明できる
+    type: multichoice
+    title: 013-47-ToT 停止判定
+    question: |
+      Tree-of-Thought 探索を打ち切る一般的基準として適切でないものはどれか。
+    choices:
+      A: 深さ制限
+      B: ノード評価が閾値以下
+      C: 生成トークン総数が上限
+      D: GPU 温度が閾値超過
+    answer: D
+    feedback:
+      D はモデル外の物理条件で一般基準ではありません。
+
+  - rubric: RLHF 報酬スケール γ の調整効果を理解している
+    type: truefalse
+    title: 013-48-γ の影響
+    question: |
+      RLHF の損失で γ を大きくすると KL 正則化の重みが小さくなる。
+    answer: false
+    feedback:
+      true: γ が大きいと KL 項へのペナルティが強くなります。
+      false: 正解です。
+
+  - rubric: Prompt 漏洩 (Prompt Leakage) を説明できる
+    type: multichoice
+    title: 013-49-Prompt Leakage
+    question: |
+      Prompt Leakage 問題の典型例として **最も近い** のはどれか。
+    choices:
+      A: 社内 PDF を学習させずに検索可能にする
+      B: システムプロンプトがユーザー出力にそのまま表出
+      C: ユーザーがプロンプトを途中で更新できない
+      D: モデルが日本語を英語に誤翻訳する
+    answer: B
+    feedback:
+      B が正解。システムプロンプト漏洩です。
+
+  - rubric: 思考トークンフォーマット standard を理解している
+    type: truefalse
+    title: 013-50-<thinking> タグ
+    question: |
+      s1 論文で紹介された標準的フォーマットでは、思考内容が <thinking>…</thinking>、最終回答が <answer>…</answer> に囲まれている。
+    answer: true
+    feedback:
+      true: 正解。複数フォーマットの一例です。
+      false: 実際に採用されている形式です。
+
+
+  - rubric: Chinchilla スケーリング則と計算予算のトレードオフを説明できる
+    type: multichoice
+    title: 013-01-チンチラ則の誤解
+    question: |
+      チンチラ・スケーリング則に関して **誤っている** 主張はどれか。
+      1. 計算量が一定なら $P$ と $D$ を均衡させるのが最適である。
+      2. 語彙埋め込みのパラメーターは通常 $P$ に含めない。
+      3. この則は RNN や CNN でも同様に経験的に成り立つ。
+      4. 事前学習損失の経験則であり下流性能と完全に同一ではない。
+    choices:
+      A: 1
+      B: 2
+      C: 3
+      D: 4
+    answer: C
+    feedback:
+      A: 正解ではありません。計算量制約下での均衡はチンチラ論文の結論です。
+      B: 正解ではありません。論文では埋め込みを除外して報告します。
+      C: 正解。報告はトランスフォーマーに限定され、他モデルへの一般化は保証されません。
+      D: 正解ではありません。下流性能と強い相関はあるが同一ではない点に注意します。
+
+Quizzes:
+  - rubric: 事前学習の自己教師付きタスクを説明できる
+    type: multichoice
+    title: 013-21-Next-Token 予測
+    question: |
+      Next-Token Prediction の特徴として **誤り** はどれか。
+    choices:
+      A: 教師ラベルを自動生成できる
+      B: 大規模テキストコーパスが必要
+      C: トークン順序をシャッフルしても損失は変わらない
+      D: 言語以外の自己回帰系列に応用可能
+    answer: C
+    feedback:
+      C: 正解。順序情報が本質です。
+
+  - rubric: Chinchilla スケーリング則と計算予算のトレードオフを説明できる
+    type: multichoice
+    title: 013-02-スケーリング則の誤解
+    question: |
+      Chinchilla スケーリング則はトランスフォーマー型のモデルに関する経験則であり，
+      CNNなどのアーキテクチャには適用できない．
+
+  - rubric: CoTの効果
+    type: multichoice
+    title: 013-02-CoTの効果
+    question: |
+      Chain-of-Thought (CoT) の効果に関する説明のうち，**正しい** のはどれか．
+    choices:
+      A: CoT は常に全てのタスクで性能を向上させる。
+      B: CoT は特に論理的推論タスクで有効である。
+      C: CoT はモデルのパラメーター数を増やす必要がある。
+      D: CoT はトレーニング時にのみ有効であり、推論時には効果がない。
+    answer: B
+    feedback:
+      A: CoT は全てのタスクで効果的ではありません。
+      B: 正解。CoT は特に論理的推論タスクで有効です。
+      C: CoT は必ずしもパラメーター数を増やす必要はありません。
+      D: CoT は推論時にも効果があります。
+
+  - rubric: 思考トークン追加が性能に与える影響を定性的に説明できる
+    type: multichoice
+    title: 013-09-Thinking Token 数
+    question: |
+      思考トークンを増やす “Test-time Compute Scaling” の **主な利点** はどれか。
+    choices:
+      A: パラメーター数削減と同等の効果
+      B: サンプリング多様化と自己検証を通じた誤り低減
+      C: 出力速度を高速化できる
+      D: GPU メモリ消費を減少させる
+    answer: B
+    feedback:
+      A: 削減効果ではありません。
+      B: 正解。探索と検証で精度向上が報告。
+      C: 速度はむしろ低下。
+      D: 消費は増加します。
+
+  - rubric: 思考モデルがあくまでも言語モデルであることを理解している
+    type: multichoice
+    title: 013-09-Thinking models
+    question: |
+      思考モデルに関する説明のうち，誤っているのは次のうちどれか．
+    choices:
+      A: 思考モデルの出現により，自律的なエージェントを作ることが可能になった．
+
+  - rubric: エージェントの実現の仕組みの理解
+    type: multichoice
+    title: 013-09-LLM-Agents
+    question: |
+      大規模言語モデルから作られる自律エージェントに関する説明のうち，正しいのは次のうちどれか．
+    choices:
+      A: エージェントは自身のソースコードを書き換えることによってタスクを設定し直している．
+      B: エージェントは，特定の形式に則ったトークン出力をすることにより，外部ツールの呼び出しを行えるようにされることが多い．
+      C: 外部ツールの呼び出しを伴わない場合は，自律エージェントとはみなされない．
+      D: エージェントは常に人間の監視下で動作する．
+    answer: B
+    feedback:
+      A: ソースコードの書き換えは一般的ではありません．
+      B: 正解．特定の形式に則ったトークン出力が重要です．
+      C: 自律エージェントは外部ツールの呼び出しを伴うことが多いですが，必ずしも必要ではありません．
+      D: 人間の監視下で動作することは必ずしも必要ではありません．
+
+  - rubric: 思考トークン追加が性能に与える影響を定性的に説明できる
+    type: multichoice
+    title: 013-04-思考トークン
+    question: |
+      思考トークンを増やす “Test-time Compute Scaling” の **主な利点** はどれか。
+    choices:
+      A: パラメーター数削減と同等の効果
+      B: サンプリング多様化と自己検証を通じた誤り低減
+      C: 出力速度を高速化できる
+      D: GPU メモリ消費を減少させる
+    answer: B
+    feedback:
+      A: パラメーターを減らせるわけではありません。
+      B: **正解**。探索幅を広げ検証で精度を向上できます。
+      C: 思考トークンが増えれば推論時間はむしろ延びます。
+      D: トークン数増でメモリも増大します。
