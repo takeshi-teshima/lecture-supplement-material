@@ -20,7 +20,7 @@ Quizzes:
 
   - rubric: Chinchilla スケーリング則と計算予算のトレードオフを説明できる
     type: multichoice
-    title: 013-02-チンチラ則の理解
+    title: 013-02-Chinchillaスケーリング則の理解
     question: |
       Chinchilla スケーリング則に関して **誤っている** 主張はどれか。
     choices:
