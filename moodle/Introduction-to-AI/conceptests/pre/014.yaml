@@ -1,0 +1,728 @@
+Quizzes:
+  - rubric: 高賃金職と AI 曝露度の関係を説明できる
+    type: multichoice
+    title: 014-01-曝露度と賃金
+    question: |
+      Eloundou et al. (2023) による職業タスク曝露度の分析結果として **正しいもの** はどれか。
+    choices:
+      A: 低賃金職ほど曝露度が高い傾向がある
+      B: 高賃金職ほど曝露度が高い傾向がある
+      C: 曝露度は賃金と無相関だった
+      D: 曝露度は製造業に限定して評価された
+    answer: B
+    feedback:
+      A: 逆です．
+      B: 正解．
+      C: 相関が報告されています．
+      D: サービス業なども評価対象です．
+
+  - rubric: 生成 AI ツールが生産性に与える影響のパターンを理解している
+    type: multichoice
+    title: 014-02-低スキル層への効果
+    question: |
+      コールセンター，ソフトウェア開発，ビジネス文書の３つの RCT に共通して観測された傾向として **最も適切** なのはどれか。
+    choices:
+      A: 高スキル従業員だけが大幅に効率化した
+      B: 全レベルで作業時間が増加した
+      C: 低スキル従業員の改善幅が特に大きかった
+      D: 顧客満足度は低下した
+    answer: C
+    feedback:
+      A: RCT ではむしろ逆でした．
+      B: 作業時間は短縮しました．
+      C: 正解．
+      D: 顧客満足度は上昇または維持です．
+
+  - rubric: リスク・脅威・脆弱性の区別ができる
+    type: multichoice
+    title: 014-04-リスクの三要素
+    question: |
+      次の説明のうち **正しいもの** はどれか。
+    choices:
+      A: 脅威とは脆弱性を悪用する結果生じる損害のこと
+      B: 脆弱性とは損害を与える動機を持つ主体のこと
+      C: リスクは脅威が脆弱性を利用して損害を生む可能性と影響度の組み合わせ
+      D: リスクは脅威と脆弱性がゼロでも常に存在する
+    answer: C
+    feedback:
+      A: 逆です．
+      B: それは脅威です．
+      C: 正解．
+      D: 要素が無ければリスクはゼロです．
+
+  - rubric: ハルシネーションの原因と対策を説明できる
+    type: multichoice
+    title: 014-05-ハルシネーション対策
+    question: |
+      RAG (Retrieval-Augmented Generation) を導入する主な目的として **最も適切** なのはどれか。
+    choices:
+      A: 計算量を削減する
+      B: モデルサイズを小さくする
+      C: ハルシネーションを抑制し事実性を高める
+      D: 出力トークンを減らして通信量を削減する
+    answer: C
+    feedback:
+      A: 目的ではありません．
+      B: 直接小さくしません．
+      C: 正解．
+      D: 関連しません．
+
+  - rubric: プロンプトインジェクションのバリエーションを区別できる
+    type: multichoice
+    title: 014-06-間接プロンプト攻撃
+    question: |
+      間接的プロンプトインジェクション (Indirect Prompt Injection) の特徴として **誤り** はどれか。
+    choices:
+      A: 攻撃文がアップロード文書に埋め込まれる
+      B: ユーザーが攻撃文を意図せず送信する
+      C: 攻撃検出が難しい
+      D: 必ずユーザー入力欄に直接攻撃文を入力する
+    answer: D
+    feedback:
+      A: 特徴です．
+      B: 特徴です．
+      C: 特徴です．
+      D: 正解．直接入力せずとも攻撃可能です．
+
+  - rubric: 公平性指標の数式的定義を説明できる
+    type: multichoice
+    title: 014-07-公平性指標の違い
+    question: |
+      デモグラフィック・パリティ (DP) と均等化オッズ (EO) の主な違いは何か。
+    choices:
+      A: DP は予測陽性率を，EO は真陽性率・偽陽性率を揃える
+      B: DP は真陽性率を揃え，EO は予測陽性率を揃える
+      C: 両者とも同じ式である
+      D: DP は保護属性を無視して計算する
+    answer: A
+    feedback:
+      A: 正解．
+      B: 逆です．
+      C: 別の指標です．
+      D: 保護属性による分割が必要です．
+
+  - rubric: COMPAS バイアス事例を説明できる
+    type: truefalse
+    title: 014-08-COMPAS の偽陽性
+    question: |
+      COMPAS では黒人被告の偽陽性率が白人の約 2 倍であったと報告された．
+    answer: true
+    feedback:
+      true: 正解．
+      false: 報告に反します．
+
+  - rubric: GPU クラスタと参入障壁の要因を理解している
+    type: multichoice
+    title: 014-10-GPU 参入障壁
+    question: |
+      100,000 台規模の H100 クラスタ建設が参入障壁となる主因として **最も直接的** なのはどれか。
+    choices:
+      A: CUDA の学習コスト
+      B: 電力会社との契約
+      C: 初期資本コストの巨額さ
+      D: ソフトウェア特許
+    answer: C
+    feedback:
+      A: 重要だが主因ではない．
+      B: 補助的要因．
+      C: 正解．
+      D: 関連薄い．
+
+  - rubric:  LLM 曝露度の 3 段階区分 (E0/E1/E2) を説明できる
+    type: multichoice
+    title: 014-11-曝露度の区分
+    question: |
+      Eloundou ら (2023) は職業タスクの AI 曝露度を
+      **(E0) 曝露なし / (E1) LLM 単体で高曝露 / (E2) LLM＋画像生成で高曝露**
+      の 3 段階で評価した。
+      次のうち **誤っている説明** はどれか。 [oai_citation:0‡第14回.pdf](file-service://file-BjJaNdNzUCtrfvcAcutGbo)
+    choices:
+      A: E0 はタスク所要時間が AI により半減しない
+      B: E1 はテキスト系 LLM だけで半減しうるタスク
+      C: E2 は画像生成の助けがあっても半減できないタスク
+      D: 評価はタスクレベルで行われ職業単位に集約された
+    answer: C
+    feedback:
+      A: 正しい説明です
+      B: 正しい説明です
+      C: 正解（E2 は「画像生成を併用すれば半減できる」タスク）
+      D: 正しい説明です
+
+  - rubric:  AI 曝露度の職業別統計値を説明できる
+    type: multichoice
+    title: 014-12-曝露度の分布
+    question: |
+      米国労働者について Eloundou ら (2023) が試算した結果として **正しい組み合わせ** はどれか。 [oai_citation:1‡第14回.pdf](file-service://file-BjJaNdNzUCtrfvcAcutGbo)
+    choices:
+      A: 19 % が「タスクの過半が曝露」 80 % が「1 割以上曝露」
+      B: 10 % が「タスクの過半が曝露」 50 % が「1 割以上曝露」
+      C: 25 % が「タスクの過半が曝露」 60 % が「1 割以上曝露」
+      D: 40 % が「タスクの過半が曝露」 90 % が「1 割以上曝露」
+    answer: A
+    feedback:
+      A: 正解
+      B: 数値が過小
+      C: 報告値と異なる
+      D: 過大評価
+
+  - rubric:  コールセンター RCT の主要効果量を把握している
+    type: truefalse
+    title: 014-13-顧客サポートの効果量
+    question: |
+      Brynjolfsson ら (2023) の RCT では，生成 AI ツール導入により
+      時間当たり課題解決数が **平均 14 % 増加** した。 [oai_citation:2‡第14回.pdf](file-service://file-BjJaNdNzUCtrfvcAcutGbo)
+    answer: true
+    feedback:
+      true: 正解
+      false: 実際には 14 % 増加と報告された
+
+  - rubric:  GitHub Copilot RCT の効果を説明できる
+    type: truefalse
+    title: 014-14-Copilot の生産性向上
+    question: |
+      Cui ら (2025) のフィールド実験によれば，週間タスク完了数は
+      **平均 26 % 増** だった。 [oai_citation:3‡第14回.pdf](file-service://file-BjJaNdNzUCtrfvcAcutGbo)
+    answer: true
+    feedback:
+      true: 正解
+      false: 報告は 26 % 増
+
+  - rubric:  ビジネス文書 RCT の時間短縮と品質向上を対比できる
+    type: multichoice
+    title: 014-15-ライティングの二重効果
+    question: |
+      Noy & Zhang (2023) の RCT で観測された組み合わせとして
+      **正しいもの** はどれか。 [oai_citation:4‡第14回.pdf](file-service://file-BjJaNdNzUCtrfvcAcutGbo)
+    choices:
+      A: 作業時間 40 %減 品質 18 %向上
+      B: 作業時間 18 %減 品質 40 %向上
+      C: 作業時間 20 %減 品質 10 %向上
+      D: 作業時間 50 %減 品質 25 %向上
+    answer: A
+    feedback:
+      A: 正解
+      B: 数値が逆
+      C: 過小評価
+      D: 過大評価
+
+  - rubric:  AI セキュリティ標準の代表例を識別できる
+    type: multichoice
+    title: 014-16-AI セキュリティ標準
+    question: |
+      次のうち **AI セキュリティ分野で公開されている標準・タクソノミー** に
+      **該当しない** ものはどれか。 [oai_citation:5‡第14回.pdf](file-service://file-BjJaNdNzUCtrfvcAcutGbo)
+    choices:
+      A: OWASP Top 10 for LLMs
+      B: NIST Adversarial ML Taxonomy
+      C: Databricks AI Security Framework
+      D: ISO 9001 Quality Management
+    answer: D
+    feedback:
+      D は一般的品質管理規格で AI セキュリティ標準ではない
+
+  - rubric:  学習済みモデルのバックドアリスクを説明できる
+    type: truefalse
+    title: 014-17-バックドアモデル
+    question: |
+      学習済みモデル配布サイトでは，ダウンロード時に悪意のコードが
+      実行されるバックドア付きモデルが見つかっている。 [oai_citation:6‡第14回.pdf](file-service://file-BjJaNdNzUCtrfvcAcutGbo)
+    answer: true
+    feedback:
+      true: 正解
+      false: 現実に報告例がある
+
+  - rubric:  リスク・脅威・脆弱性の関係を模式図で説明できる
+    type: multichoice
+    title: 014-18-リスク連鎖
+    question: |
+      「脅威 → 脆弱性 → リスク → 損害」という連鎖図において
+      **脅威** の説明として最も適切なのはどれか。 [oai_citation:7‡第14回.pdf](file-service://file-BjJaNdNzUCtrfvcAcutGbo)
+    choices:
+      A: 損害を生む望ましくない事象の原因
+      B: 望ましくない事象が起こる可能性
+      C: 弱点や欠陥
+      D: 損害発生後の影響度
+    answer: A
+    feedback:
+      A: 正解
+      B: それはリスク
+      C: それは脆弱性
+      D: それは損害の大きさ
+
+  - rubric:  バイアスがもたらす不利益を説明できる
+    type: truefalse
+    title: 014-20-バイアスの問題点
+    question: |
+      バイアスは，特定集団に不当な不利益を拡大しかねない点が
+      問題視される。 [oai_citation:9‡第14回.pdf](file-service://file-BjJaNdNzUCtrfvcAcutGbo)
+    answer: true
+    feedback:
+      true: 正解
+      false: まさにこれが主要な懸念点
+
+  - rubric:  ディープフェイク犯罪の具体例を説明できる
+    type: multichoice
+    title: 014-21-ディープフェイク詐欺
+    question: |
+      ディープフェイクを用いた香港企業の被害額として **正しい** のはどれか。 [oai_citation:10‡第14回.pdf](file-service://file-BjJaNdNzUCtrfvcAcutGbo)
+    choices:
+      A: 約 3.8 億円
+      B: 約 38 億円
+      C: 約 380 億円
+      D: 約 3,800 万円
+    answer: B
+    feedback:
+      B: 正解（報道は約 38 億円相当）
+
+  - rubric:  RAG・RLHF・指示チューニングの目的を区別できる
+    type: multichoice
+    title: 014-22-モデル調整方法
+    question: |
+      次のうち **指示チューニング (instruction tuning)** の主目的として
+      最も適切なのはどれか。 [oai_citation:11‡第14回.pdf](file-service://file-BjJaNdNzUCtrfvcAcutGbo)
+    choices:
+      A: 未知タスクの推論速度を向上させる
+      B: モデルが人間の指示に従う能力を付与する
+      C: 出力の毒性を完全に除去する
+      D: モデルサイズを半分に削減する
+    answer: B
+    feedback:
+      B: 正解
+      A: 速度は副次的
+      C: RLHF 等と組み合わせ
+      D: サイズは関係しない
+
+  - rubric:  AISI の役割を説明できる
+    type: truefalse
+    title: 014-23-AISI の位置付け
+    question: |
+      日本の AISI (AI Safety Institute) は，AI セーフティに関する
+      評価観点ガイドを公開している。 [oai_citation:12‡第14回.pdf](file-service://file-BjJaNdNzUCtrfvcAcutGbo)
+    answer: true
+    feedback:
+      true: 正解
+      false: 実際にガイドを公開している
+
+  - rubric:  ソフトローとハードローの違いを説明できる
+    type: truefalse
+    title: 014-25-ソフトローからハードローへ
+    question: |
+      日本は長らくソフトロー中心だったが，「AI 法」の制定で
+      ハードロー要素を取り入れた。 [oai_citation:14‡第14回.pdf](file-service://file-BjJaNdNzUCtrfvcAcutGbo)
+    answer: true
+    feedback:
+      true: 正解
+      false: ソフトローからの転換が論点
+
+  - rubric:  ChatGPT のユーザー増加速度を説明できる
+    type: multichoice
+    title: 014-26-最速 MAU
+    question: |
+      ChatGPT が 1 億 MAU を達成した期間として **正しい** のはどれか。 [oai_citation:15‡第14回.pdf](file-service://file-BjJaNdNzUCtrfvcAcutGbo)
+    choices:
+      A: 2 か月
+      B: 6 か月
+      C: 9 か月
+      D: 2 年半
+    answer: A
+    feedback:
+      A: 正解
+      C/D: Instagram/TikTok の事例
+      B: 報告は 2 か月
+
+  - rubric:  生成 AI 市場規模予測を把握している
+    type: multichoice
+    title: 014-27-市場規模予測
+    question: |
+      Bloomberg (2024) のレポートによると，AI 産業売上は 2032 年までに
+      およそいくらと予測されているか。 [oai_citation:16‡第14回.pdf](file-service://file-BjJaNdNzUCtrfvcAcutGbo)
+    choices:
+      A: 1.3 兆ドル
+      B: 4,710 億ドル
+      C: 4.7 兆ドル
+      D: 130 億ドル
+    answer: A
+    feedback:
+      A: 正解（売上規模）
+      B: 学習市場の金額
+      C/D: 過大／過小
+
+  - rubric:  著作権が保護する対象を説明できる
+    type: truefalse
+    title: 014-28-表現とアイデア
+    question: |
+      著作権は **表現** を保護し，特許権は **アイデア** を保護する。 [oai_citation:17‡第14回.pdf](file-service://file-BjJaNdNzUCtrfvcAcutGbo)
+    answer: true
+    feedback:
+      true: 正解
+      false: 逆ではない
+
+  - rubric:  生成物の著作権発生条件を理解している
+    type: multichoice
+    title: 014-29-生成物と著作権
+    question: |
+      生成 AI が単独で出力した画像について，一般的に成立しないと
+      される権利はどれか。 [oai_citation:18‡第14回.pdf](file-service://file-BjJaNdNzUCtrfvcAcutGbo)
+    choices:
+      A: 著作権
+      B: 意匠権
+      C: 特許権
+      D: 商標権
+    answer: A
+    feedback:
+      A: 正解（創作性なしと判断されやすい）
+      B-D: ケースによる
+
+  - rubric:  特許要件（新規性・進歩性等）を列挙できる
+    type: multichoice
+    title: 014-30-特許の三大要件
+    question: |
+      日本特許法第 29 条の「産業上利用可能・新規性・進歩性」に
+      **含まれない** ものはどれか。 [oai_citation:19‡第14回.pdf](file-service://file-BjJaNdNzUCtrfvcAcutGbo)
+    choices:
+      A: 進歩性
+      B: 実施可能要件
+      C: 新規性
+      D: 産業上利用可能性
+    answer: B
+    feedback:
+      B: 正解（実施可能要件は第 36 条に規定）
+
+  - rubric:  バックドア付きモデル対策を説明できる
+    type: truefalse
+    title: 014-31-対策の基本
+    question: |
+      バックドア付きモデル対策として「信頼できない提供元のモデルを
+      そもそも読み込まない」が推奨される。 [oai_citation:20‡第14回.pdf](file-service://file-BjJaNdNzUCtrfvcAcutGbo)
+    answer: true
+    feedback:
+      true: 正解
+      false: 基本的かつ重要な対策
+
+  - rubric:  デモグラフィック・パリティの計算対象を説明できる
+    type: multichoice
+    title: 014-32-DP の対象
+    question: |
+      デモグラフィック・パリティ (DP) で等しくする値はどれか。 [oai_citation:21‡第14回.pdf](file-service://file-BjJaNdNzUCtrfvcAcutGbo)
+    choices:
+      A: 予測陽性率
+      B: 真陽性率
+      C: 偽陽性率
+      D: 陽性的中率
+    answer: A
+    feedback:
+      A: 正解（保護属性間で予測陽性率を揃える）
+
+  - rubric:  COMPAS の偽陽性差異を定量的に認識している
+    type: multichoice
+    title: 014-33-COMPAS 偽陽性差
+    question: |
+      Angwin ら (2016) によると，黒人被告の偽陽性率は白人の何倍
+      程度だったか。 [oai_citation:22‡第14回.pdf](file-service://file-BjJaNdNzUCtrfvcAcutGbo)
+    choices:
+      A: 1.2 倍
+      B: 1.5 倍
+      C: 2 倍
+      D: 3 倍
+    answer: C
+    feedback:
+      C: 正解（約 2 倍と報告）
+
+  - rubric:  脅威分類（意図的・環境的・偶発的）を区別できる
+    type: multichoice
+    title: 014-34-脅威の類型
+    question: |
+      地震によるサーバルーム被害はどの脅威カテゴリか。 [oai_citation:23‡第14回.pdf](file-service://file-BjJaNdNzUCtrfvcAcutGbo)
+    choices:
+      A: 意図的脅威
+      B: 環境的脅威
+      C: 偶発的脅威
+      D: 社会的脅威
+    answer: B
+    feedback:
+      B: 正解（自然災害は環境的）
+
+  - rubric:  OWASP Top 10 for LLMs の目的を説明できる
+    type: truefalse
+    title: 014-35-OWASP LLM
+    question: |
+      OWASP Top 10 for LLMs は，生成 AI システムの
+      主要なセキュリティ脅威を整理したドキュメントである。 [oai_citation:24‡第14回.pdf](file-service://file-BjJaNdNzUCtrfvcAcutGbo)
+    answer: true
+    feedback:
+      true: 正解
+      false: 実際に脅威リストである
+
+  - rubric:  悪用事例としてのマルウェア生成を説明できる
+    type: truefalse
+    title: 014-36-生成 AI とマルウェア
+    question: |
+      生成 AI を用いてランサムウェアを作成し逮捕された事件が
+      報告されている。 [oai_citation:25‡第14回.pdf](file-service://file-BjJaNdNzUCtrfvcAcutGbo)
+    answer: true
+    feedback:
+      true: 正解
+      false: 実際に報道あり
+
+  - rubric:  ディープフェイク条例（鳥取県改正）の概要を説明できる
+    type: multichoice
+    title: 014-37-ディープフェイク条例
+    question: |
+      2025 年に鳥取県が改正したディープフェイク条例の主な内容は
+      どれか。 [oai_citation:26‡第14回.pdf](file-service://file-BjJaNdNzUCtrfvcAcutGbo)
+    choices:
+      A: 刑事罰として懲役刑を導入
+      B: 行政罰として過料を導入
+      C: 民事訴訟費用を県が補助
+      D: ディープフェイク生成技術自体を禁止
+    answer: B
+    feedback:
+      B: 正解（行政罰の過料）
+
+  - rubric:  「安心」と「安全」の区別を説明できる
+    type: multichoice
+    title: 014-38-安心 vs 安全
+    question: |
+      ISO ガイドでは「安心」と対比される「安全」の定義として
+      最も近いものはどれか。 [oai_citation:27‡第14回.pdf](file-service://file-BjJaNdNzUCtrfvcAcutGbo)
+    choices:
+      A: 心配事や不安がない状態
+      B: 許容できないリスクがない状態
+      C: 望ましくない事象が起こる確率がゼロ
+      D: 不確実性が完全に排除された状態
+    answer: B
+    feedback:
+      B: 正解（許容できないリスクがない）
+
+  - rubric:  過度依存による言語変化例 “delve into” を説明できる
+    type: truefalse
+    title: 014-39-語彙の偏り
+    question: |
+      “delve into” の学術分野での出現率は ChatGPT 普及後に
+      不自然に増加したと報告された。 [oai_citation:28‡第14回.pdf](file-service://file-BjJaNdNzUCtrfvcAcutGbo)
+    answer: true
+    feedback:
+      true: 正解
+      false: 実際に急増が指摘された
+
+  - rubric:  環境負荷削減研究の題名を指摘できる
+    type: multichoice
+    title: 014-40-“Making AI less thirsty”
+    question: |
+      Li ら (2025) が水資源消費を議論した論文の題名として
+      正しいものはどれか。 [oai_citation:29‡第14回.pdf](file-service://file-BjJaNdNzUCtrfvcAcutGbo)
+    choices:
+      A: Making AI less “thirsty”
+      B: Saving AI from CO₂
+      C: Cooling the GPU Planet
+      D: Greening Large Language Models
+    answer: A
+    feedback:
+      A: 正解
+
+  - rubric:  汎用技術 GPT の 3 条件を適切に分類できる
+    type: multichoice
+    title: 014-41-GPT 第 2 条件
+    question: |
+      Lipsey ら (2005) の GPT 条件②は何を指すか。 [oai_citation:30‡第14回.pdf](file-service://file-BjJaNdNzUCtrfvcAcutGbo)
+    choices:
+      A: 長期的性能向上とコスト低下
+      B: 用途の広さと拡散性
+      C: 他技術への波及効果
+      D: 初期市場独占
+    answer: B
+    feedback:
+      B: 正解（②は用途の広さ）
+
+  - rubric:  GPL-style ライセンス違反リスクを理解している
+    type: truefalse
+    title: 014-42-ソースコードと著作権
+    question: |
+      プログラムの「アルゴリズム」自体は著作権法の保護対象外である。 [oai_citation:31‡第14回.pdf](file-service://file-BjJaNdNzUCtrfvcAcutGbo)
+    answer: true
+    feedback:
+      true: 正解
+      false: 表現ではなくアイデア
+
+  - rubric:  リスク対策のサービス提供者側の基本姿勢を説明できる
+    type: multichoice
+    title: 014-43-サービス側の対応
+    question: |
+      AI サービス提供者が取るべき基本方針として **誤り** はどれか。 [oai_citation:32‡第14回.pdf](file-service://file-BjJaNdNzUCtrfvcAcutGbo)
+    choices:
+      A: 最新脅威の情報収集（脅威インテリジェンス）
+      B: リスクモニタリング体制の構築
+      C: セキュリティ対策を一度設定したら更新しない
+      D: レッドチーミングの実施
+    answer: C
+    feedback:
+      C: 正解（継続的更新が必要）
+
+  - rubric:  マルウェア作成事件の特徴を説明できる
+    type: multichoice
+    title: 014-44-マルウェア事件の期間
+    question: |
+      生成 AI を悪用したランサムウェア作成で，容疑者はウイルス完成までに
+      どのくらい要したと述べたか。 [oai_citation:33‡第14回.pdf](file-service://file-BjJaNdNzUCtrfvcAcutGbo)
+    choices:
+      A: 約 1 週間
+      B: 約 1 か月
+      C: 約 3 か月
+      D: 約 1 年
+    answer: B
+    feedback:
+      B: 正解
+
+  - rubric:  深層学習モデルを用いた OCR の課題を説明できる
+    type: truefalse
+    title: 014-45-OCR と解像度
+    question: |
+      マルチモーダル LLM で OCR を行う際，300 dpi 程度あれば
+      読み取り性能が良いとされる。 [oai_citation:34‡第14回.pdf](file-service://file-BjJaNdNzUCtrfvcAcutGbo)
+    answer: true
+    feedback:
+      true: 正解
+      false: 150 dpi では厳しいと指摘
+
+  - rubric:  AI 市場拡大の主要因を説明できる
+    type: multichoice
+    title: 014-46-半導体投資
+    question: |
+      半導体・データセンター関連企業の株価上昇が示すものとして
+      最も適切なのはどれか。 [oai_citation:35‡第14回.pdf](file-service://file-BjJaNdNzUCtrfvcAcutGbo)
+    choices:
+      A: GPU クラスタ参入障壁の低下
+      B: AI 計算需要の増加と投資拡大
+      C: 電力コストの急減
+      D: モバイル AI ブームの終焉
+    answer: B
+    feedback:
+      B: 正解
+
+  - rubric:  AI 安全性におけるレッドチーミングの意義を説明できる
+    type: truefalse
+    title: 014-47-レッドチーム
+    question: |
+      レッドチーミングは攻撃者視点で脆弱性を発見するプロセスである。 [oai_citation:36‡第14回.pdf](file-service://file-BjJaNdNzUCtrfvcAcutGbo)
+    answer: true
+    feedback:
+      true: 正解
+      false: 防御側視点のみではない
+
+  - rubric:  再犯リスクツールの外し方の違いを説明できる
+    type: truefalse
+    title: 014-48-外し方の傾向
+    question: |
+      COMPAS では正答率に集団差は無かったが，外し方（偽陽性・偽陰性）の
+      傾向が異なると報告された。 [oai_citation:37‡第14回.pdf](file-service://file-BjJaNdNzUCtrfvcAcutGbo)
+    answer: true
+    feedback:
+      true: 正解
+      false: 外し方に差が課題
+
+  - rubric:  GPT-3 R&D の環境 CO₂ 換算値を答えられる
+    type: multichoice
+    title: 014-49-CO₂ 換算
+    question: |
+      Dubey ら (2024) の推計によれば，Llama 3.1 405B 学習で排出相当
+      CO₂ はどの程度か。 [oai_citation:38‡第14回.pdf](file-service://file-BjJaNdNzUCtrfvcAcutGbo)
+    choices:
+      A: 約 893 kg
+      B: 約 8.93 t
+      C: 約 893 t
+      D: 約 8,930 t
+    answer: D
+    feedback:
+      D: 正解
+
+  - rubric:  AI 法規資料の免責事項を理解している
+    type: truefalse
+    title: 014-50-免責事項
+    question: |
+      本講義資料は公開情報に基づく教育目的であり，法的助言を
+      構成しない旨の免責が示されている。 [oai_citation:39‡第14回.pdf](file-service://file-BjJaNdNzUCtrfvcAcutGbo)
+    answer: true
+    feedback:
+      true: 正解
+      false: 実際に免責が記載されている
+
+Quizzes:
+  - rubric: 汎用技術 (GPT) の 3 条件を挙げられる
+    type: multichoice
+    title: 014-03-GPT の要件
+    question: |
+      Lipsey et al. (2005) が示す汎用技術（General-Purpose Technology, GPT）の基準に **含まれない** のはどれか．
+    choices:
+      A: 長期的性能向上とコスト低下
+      B: 用途の広さと拡散性
+      C: 初期投資の回収率の高さ
+      D: 他技術への波及効果
+    answer: C
+    feedback:
+      A: 含まれる条件です．
+      B: 含まれる条件です．
+      C: 正解．投資回収は条件にありません．
+      D: 含まれる条件です．補完的波及効果が条件です．
+
+  - rubric: 安全の定義を ISO/IEC ガイドに沿って説明できる
+    type: truefalse
+    title: 014-09-安全と許容リスク
+    question: |
+      ISO/IEC ガイド51 では「安全」を「リスクがゼロの状態」と定義する．
+    answer: false
+    feedback:
+      true: リスクをゼロとは定義していません．
+      false: 正解．安全とは許容できないリスクがない状態です．
+
+  - rubric: ハルシネーション対策の具体策を説明できる
+    type: multichoice
+    title: 014-51-ハルシネーション対策
+    question: |
+      ハルシネーション（事実と異なる内容を生成する現象）を低減するために
+      **有効だと考えられる対策** はどれか。
+    choices:
+      A: モデルの温度パラメータを極端に高く設定して多様性を最大化する
+      B: 外部の信頼できるデータベースをリアルタイムで参照し，取得した情報を回答に反映させる仕組みを用いる
+      C: 入力トークンの一部をランダムに置換してから生成を行う
+      D: 学習データを完全に非公開とし，透明性を下げる
+    answer: B
+    feedback:
+      A: 温度を高くすると，出力の多様性が上がり，ハルシネーションが増える傾向があります．
+      B: 正解です．外部知識を検索して生成に取り込む**Retrieval-Augmented Generation (RAG)** の考え方で，事実への忠実性を向上させることが期待できます．
+      C: 誤りです．特に意味はなく，強いて言うならむしろ誤った情報の生成を助長する可能性があります．
+      D: 透明性を下げてもハルシネーション低減には寄与しません．
+
+  - rubric:  大規模モデル学習の環境負荷指標を挙げられる
+    type: multichoice
+    title: 014-19-水資源消費
+    question: |
+      Li et al. (2025)に基づけば，GPT-3規模のモデルの学習のために蒸発した淡水は，どの程度だと考えられるか．
+      （学習時の冷却水に関する推計だけでよい）
+    choices:
+      A: 約 70 万リットル
+      B: 約 7 万リットル
+      C: 約 700 万リットル
+      D: 約 70 リットル
+    answer: A
+    feedback:
+      A: 正解
+      B: 数桁違います
+      C: 数桁違います
+      D: 数桁違います
+
+  - rubric:  AI 法（日本）の公布年を答えられる
+    type: multichoice
+    title: 014-24-AI 法の年
+    question: |
+      日本の「AI 法」はいつ公布・施行された（される）か．
+    choices:
+      A: 2023 年
+      B: 2024 年
+      C: 2025 年
+      D: 2026 年
+    answer: C
+    feedback:
+      A: 違います
+      B: 違います
+      C: 正解（2025年6月4日に公布され，同日に施行されました．）
+      D: 違います

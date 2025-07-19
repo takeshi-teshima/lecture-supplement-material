@@ -137,7 +137,7 @@
   number = {7群7編},
   url = {https://www.ieice-hbkb.org/files/ad_base/view_pdf.html?p=/files/07/07gun_07hen_01.pdf},
   urldate = {2025-07-05},
-  file = {/Users/teshima/Zotero/storage/DQNJJM9P/電子情報通信学会 - 2019 - 7群-7編-1章 エージェントの定義・モデル・概念.pdf;/Users/teshima/Zotero/storage/JHE937W8/view_pdf.html}
+  file = {/Users/teshima/Zotero/storage/DQNJJM9P/電子情報通信学会 - 2019 - 7群-7編-1章 エージェントの定義・モデル・概念.pdf}
 }
 
 @article{DongRLHF2024,
@@ -1065,6 +1065,18 @@
   abstract = {Language models are increasingly being deployed for general problem solving across a wide range of tasks, but are still confined to token-level, left-to-right decision-making processes during inference. This means they can fall short in tasks that require exploration, strategic lookahead, or where initial decisions play a pivotal role. To surmount these challenges, we introduce a new framework for language model inference, Tree of Thoughts (ToT), which generalizes over the popular Chain of Thought approach to prompting language models, and enables exploration over coherent units of text (thoughts) that serve as intermediate steps toward problem solving. ToT allows LMs to perform deliberate decision making by considering multiple different reasoning paths and self-evaluating choices to decide the next course of action, as well as looking ahead or backtracking when necessary to make global choices. Our experiments show that ToT significantly enhances language models’ problem-solving abilities on three novel tasks requiring non-trivial planning or search: Game of 24, Creative Writing, and Mini Crosswords. For instance, in Game of 24, while GPT-4 with chain-of-thought prompting only solved 4\textbackslash\% of tasks, our method achieved a success rate of 74\textbackslash\%. Code repo with all prompts: https://github.com/princeton-nlp/tree-of-thought-llm.},
   eventtitle = {Thirty-seventh {{Conference}} on {{Neural Information Processing Systems}}},
   file = {/Users/teshima/Zotero/storage/RLQWF8AD/Yao et al. - 2023 - Tree of Thoughts Deliberate Problem Solving with Large Language Models.pdf}
+}
+
+@inproceedings{YueInference2024,
+  title = {Inference {{Scaling}} for {{Long-Context Retrieval Augmented Generation}}},
+  author = {Yue, Zhenrui and Zhuang, Honglei and Bai, Aijun and Hui, Kai and Jagerman, Rolf and Zeng, Hansi and Qin, Zhen and Wang, Dong and Wang, Xuanhui and Bendersky, Michael},
+  date = {2024-10-04},
+  url = {https://openreview.net/forum?id=FSjIrOm1vz},
+  urldate = {2025-07-19},
+  abstract = {The scaling of inference computation has unlocked the potential of long-context large language models (LLMs) across diverse settings. For knowledge-intensive tasks, the increased compute is often allocated to incorporate more external knowledge. However, without effectively utilizing such knowledge, solely expanding context does not always enhance performance. In this work, we investigate inference scaling for retrieval augmented generation (RAG), exploring the combination of multiple strategies beyond simply increasing the quantity of knowledge, including in-context learning and iterative prompting. These strategies provide additional flexibility to scale test-time computation (e.g., by increasing retrieved documents or generation steps), thereby enhancing LLMs’ ability to effectively acquire and utilize contextual information. We address two key questions: (1) How does RAG performance benefit from the scaling of inference computation when optimally configured? (2) Can we predict the optimal test-time compute allocation for a given budget by modeling the relationship between RAG performance and inference parameters? Our observations reveal that increasing inference computation leads to nearly linear gains in RAG performance when optimally allocated, a relationship we describe as the inference scaling laws for RAG. Building on this, we further develop the computation allocation model to estimate RAG performance across different inference configurations. The model predicts optimal inference parameters under various computation constraints, which align closely with the experimental results. By applying these optimal configurations, we demonstrate that scaling inference compute on long-context LLMs achieves up to 58.9\% gains on benchmark datasets compared to standard RAG.},
+  eventtitle = {The {{Thirteenth International Conference}} on {{Learning Representations}}},
+  langid = {english},
+  file = {/Users/teshima/Zotero/storage/KHG9SAUF/Yue et al. - 2024 - Inference Scaling for Long-Context Retrieval Augme.pdf}
 }
 
 @inproceedings{ZelikmanQuietSTaR2024,
