@@ -17,7 +17,21 @@ Quizzes:
       C:
       D:
 
-Quizzes:
+  - question: データ量が多いならば、より高度なモデル（複雑な関数を表現できるモデル）を使ったほうが良い
+    type: multichoice
+    choices:
+      A: いつでもそう
+      B: そうとは限らない
+    answer: B
+    feedback:
+      B: 理由：例えば、真の関数が線形であると知っている場合に、複雑なモデルを使用することで得られる利点はない。
+
+  - question: |
+      Softmaxでtemperatureをあげる
+      →KLダイバージェンスが上がるか？など
+      →Cross entropy lossの値は上がるか？を考えさせる
+      数値的な計算は困難にしておいて，上がるか下がるかを考えることで答えさせるか？
+
   - rubric: 著作権侵害の成立要件（依拠性＋実質的同一性）を説明できる
     type: multichoice
     title: 014-52-生成物と著作権侵害

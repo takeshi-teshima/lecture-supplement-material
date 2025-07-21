@@ -292,6 +292,23 @@
   file = {/Users/teshima/Zotero/storage/8L7NYNZB/「確率的なオウム」にできること、またそれがなぜできるのかについて.pdf}
 }
 
+@online{HernandezScaling2021,
+  title = {Scaling laws for transfer},
+  author = {Hernandez, Danny and Kaplan, Jared and Henighan, Tom and McCandlish, Sam},
+  date = {2021-02-02},
+  eprint = {2102.01293},
+  eprinttype = {arXiv},
+  eprintclass = {cs},
+  doi = {10.48550/arXiv.2102.01293},
+  url = {http://arxiv.org/abs/2102.01293},
+  urldate = {2025-07-21},
+  abstract = {We study empirical scaling laws for transfer learning between distributions in an unsupervised, fine-tuning setting. When we train increasingly large neural networks from-scratch on a fixed-size dataset, they eventually become data-limited and stop improving in performance (cross-entropy loss). When we do the same for models pre-trained on a large language dataset, the slope in performance gains is merely reduced rather than going to zero. We calculate the effective data "transferred" from pre-training by determining how much data a transformer of the same size would have required to achieve the same loss when training from scratch. In other words, we focus on units of data while holding everything else fixed. We find that the effective data transferred is described well in the low data regime by a power-law of parameter count and fine-tuning dataset size. We believe the exponents in these power-laws correspond to measures of the generality of a model and proximity of distributions (in a directed rather than symmetric sense). We find that pre-training effectively multiplies the fine-tuning dataset size. Transfer, like overall performance, scales predictably in terms of parameters, data, and compute.},
+  pubstate = {prepublished},
+  keywords = {Computer Science - Machine Learning},
+  note = {Comment: 19 pages, 15 figures},
+  file = {/Users/teshima/Zotero/storage/VU2VRTQJ/Hernandez et al. - 2021 - Scaling Laws for Transfer.pdf;/Users/teshima/Zotero/storage/AESE239J/2102.html}
+}
+
 @inproceedings{HoffmannEmpirical2022,
   title = {An empirical analysis of compute-optimal large language model training},
   author = {Hoffmann, Jordan and Borgeaud, Sebastian and Mensch, Arthur and Buchatskaya, Elena and Cai, Trevor and Rutherford, Eliza and family=Casas, given=Diego, prefix=de las, useprefix=false and Hendricks, Lisa Anne and Welbl, Johannes and Clark, Aidan and Hennigan, Tom and Noland, Eric and Millican, Katherine and family=Driessche, given=George, prefix=van den, useprefix=false and Damoc, Bogdan and Guy, Aurelia and Osindero, Simon and Simonyan, Karen and Elsen, Erich and Vinyals, Oriol and Rae, Jack William and Sifre, Laurent},
@@ -551,6 +568,18 @@
   keywords = {Computer Science - Artificial Intelligence,Computer Science - Computation and Language,Computer Science - Machine Learning},
   note = {Comment: 46 pages (9 main), 10 figures, 15 tables},
   file = {/Users/teshima/Zotero/storage/X5CJMRIK/Muennighoff et al. - 2025 - s1 Simple test-time scaling.pdf;/Users/teshima/Zotero/storage/J56P8ZLU/2501.html}
+}
+
+@inproceedings{MuennighoffScaling2023,
+  title = {Scaling data-constrained language models},
+  author = {Muennighoff, Niklas and Rush, Alexander M. and Barak, Boaz and Scao, Teven Le and Tazi, Nouamane and Piktus, Aleksandra and Pyysalo, Sampo and Wolf, Thomas and Raffel, Colin},
+  date = {2023-11-02},
+  url = {https://openreview.net/forum?id=j5BuTrEj35},
+  urldate = {2025-07-21},
+  abstract = {The current trend of scaling language models involves increasing both parameter count and training dataset size. Extrapolating this trend suggests that training dataset size may soon be limited by the amount of text data available on the internet. Motivated by this limit, we investigate scaling language models in data-constrained regimes. Specifically, we run a large set of experiments varying the extent of data repetition and compute budget, ranging up to 900 billion training tokens and 9 billion parameter models. We find that with constrained data for a fixed compute budget, training with up to 4 epochs of repeated data yields negligible changes to loss compared to having unique data. However, with more repetition, the value of adding compute eventually decays to zero. We propose and empirically validate a scaling law for compute optimality that accounts for the decreasing value of repeated tokens and excess parameters. Finally, we experiment with approaches mitigating data scarcity, including augmenting the training dataset with code data or removing commonly used filters. Models and datasets from our 400 training runs are freely available at https://github.com/huggingface/datablations.},
+  eventtitle = {Thirty-seventh {{Conference}} on {{Neural Information Processing Systems}}},
+  langid = {english},
+  file = {/Users/teshima/Zotero/storage/D5GAF3QM/Muennighoff et al. - 2023 - Scaling Data-Constrained Language Models.pdf}
 }
 
 @online{OpenAI,
