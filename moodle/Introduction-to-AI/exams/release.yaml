@@ -3,7 +3,7 @@ Quizzes:
   - rubric: A-1-2
     type: multichoice
     title: 01-05-回帰タスクと分類タスクの区別
-    score: 2
+    default_grade: 2
     question: |
       予測タスクの多くは、ラベルの性質によって回帰と分類に大別されます。次のうち**分類タスク**として定式化されるのが標準的だと考えられるものを**全て**選択しなさい。
 
@@ -28,6 +28,8 @@ Quizzes:
       ACD: AとCとD
       BCD: BとCとD
       ABCD: AとBとCとD
+    shuffleanswers: true
+    answernumbering: "none"
     answer: AB
     general_feedback: |
       手書き文字画像から、その画像が表す数字（0～9）を予測する。: 正解です。予測すべきラベルが「0」から「9」までの10個のカテゴリ（クラス）であるため、これは分類タスクです。
@@ -42,7 +44,7 @@ Quizzes:
   - rubric: Rolling-window方式の検証方法のアイデアを持っている
     type: multichoice
     title: 08-01-時系列データのモデル選択
-    score: 2
+    default_grade: 2
     question: |
       ある店舗の売上を予測するモデルのハイパーパラメータを選択したいと考えています。過去数年分の日次売上データが利用可能です。この時系列データに対して、最も適切だと考えられるモデル選択規準（ハイパーパラメータの評価方法）はどれですか。
       ただし、計算時間などは無尽蔵にあると仮定します。
@@ -64,7 +66,7 @@ Quizzes:
   - rubric: ML-06-01
     type: multichoice
     title: 08-02-データ量とモデルの複雑さ
-    score: 1
+    default_grade: 1
     question: |
       「データ量が多いならば、より高度なモデル（複雑な関数を表現できるモデル）を使ったほうが良い」という考え方について、最も適切なものはどれですか。
     choices:
@@ -83,7 +85,7 @@ Quizzes:
   - rubric: G-1-1
     type: multichoice
     title: 12-01-生成モデルのアプローチ比較
-    score: 2
+    default_grade: 2
     question: |
       生成タスクを実現するための主要な二つのアプローチ、「自己回帰型」と「潜在変数型」について、その特徴と主な適用先を最も的確に説明しているものはどれですか。
     choices:
@@ -102,7 +104,7 @@ Quizzes:
   - rubric: H-1-3
     type: multichoice
     title: 14-01-生成物と著作権侵害
-    score: 2
+    default_grade: 2
     question: |
       生成AIを用いて作成した画像・文章が**他者の著作権を侵害していると認定される**のは、次のうち**どの要件が立証された場合**ですか。
     choices:

@@ -3,6 +3,9 @@
   
   <question type="multichoice">
     <name><text>01-05-回帰タスクと分類タスクの区別</text></name>
+    
+    <defaultgrade>2</defaultgrade>
+    
     <questiontext format="markdown"><text>予測タスクの多くは、ラベルの性質によって回帰と分類に大別されます。次のうち**分類タスク**として定式化されるのが標準的だと考えられるものを**全て**選択しなさい。
 
 - A: 手書き文字画像から、その画像が表す数字（0～9）を予測する。
@@ -91,10 +94,24 @@
       <feedback format="markdown"><text></text></feedback>
     </answer>
     
+    <single>true</single>
+    <shuffleanswers>1</shuffleanswers>
+    <generalfeedback format="markdown"><text>手書き文字画像から、その画像が表す数字（0～9）を予測する。: 正解です。予測すべきラベルが「0」から「9」までの10個のカテゴリ（クラス）であるため、これは分類タスクです。
+
+ワインの化学計測データから、ブドウの品種名（例：Barolo, Barbera）を予測する。: 正解です。予測すべきラベルが予め定められた質的なカテゴリ（品種名）であるため、これは分類タスクです。
+
+動物の画像から、その動物の体重[kg]を予測する。: 誤りです。予測すべきラベルである体重は、連続的な数値（量的な値）であるため、これは回帰タスクに分類されます。
+
+過去の売上データから、翌日の売上金額を予測する。: 誤りです。予測すべきラベルである売上金額は、連続的な数値（量的な値）であるため、これは回帰タスクに分類されます。
+</text></generalfeedback>
+    <answernumbering>none</answernumbering>
   </question>
   
   <question type="multichoice">
     <name><text>08-01-時系列データのモデル選択</text></name>
+    
+    <defaultgrade>2</defaultgrade>
+    
     <questiontext format="markdown"><text>ある店舗の売上を予測するモデルのハイパーパラメータを選択したいと考えています。過去数年分の日次売上データが利用可能です。この時系列データに対して、最も適切だと考えられるモデル選択規準（ハイパーパラメータの評価方法）はどれですか。
 ただし、計算時間などは無尽蔵にあると仮定します。
 </text></questiontext>
@@ -119,10 +136,17 @@
       <feedback format="markdown"><text>誤りです。訓練誤差を指標にすると、訓練データに過適合したモデルを選択してしまい、未知のデータに対する汎化性能が低くなる可能性が非常に高いです。</text></feedback>
     </answer>
     
+    <single>true</single>
+    <shuffleanswers>0</shuffleanswers>
+    <generalfeedback format="markdown"><text></text></generalfeedback>
+    
   </question>
   
   <question type="multichoice">
     <name><text>08-02-データ量とモデルの複雑さ</text></name>
+    
+    <defaultgrade>1</defaultgrade>
+    
     <questiontext format="markdown"><text>「データ量が多いならば、より高度なモデル（複雑な関数を表現できるモデル）を使ったほうが良い」という考え方について、最も適切なものはどれですか。
 </text></questiontext>
     
@@ -136,10 +160,17 @@
       <feedback format="markdown"><text>正解です。例えば、データの背後にある真の関係が単純な線型であることが既知である場合、データがどれだけ多くても、複雑な非線形モデルを使うメリットはありません。モデルの複雑さは、データの量だけでなく、解くべき問題の本質的な複雑さに応じて選択することが重要です。</text></feedback>
     </answer>
     
+    <single>true</single>
+    <shuffleanswers>0</shuffleanswers>
+    <generalfeedback format="markdown"><text></text></generalfeedback>
+    
   </question>
   
   <question type="multichoice">
     <name><text>12-01-生成モデルのアプローチ比較</text></name>
+    
+    <defaultgrade>2</defaultgrade>
+    
     <questiontext format="markdown"><text>生成タスクを実現するための主要な二つのアプローチ、「自己回帰型」と「潜在変数型」について、その特徴と主な適用先を最も的確に説明しているものはどれですか。
 </text></questiontext>
     
@@ -163,10 +194,17 @@
       <feedback format="markdown"><text>誤りです。学習の目的関数は大きく異なります。自己回帰型は次トークン予測の尤度最大化（最尤法）を基本とするのに対し、潜在変数型は変分オートエンコーダー（VAE）のエビデンス下限の最大化や、敵対的生成ネットワーク（GAN）のミニマックス最適化など、多様で複雑な目的関数を用います。</text></feedback>
     </answer>
     
+    <single>true</single>
+    <shuffleanswers>0</shuffleanswers>
+    <generalfeedback format="markdown"><text></text></generalfeedback>
+    
   </question>
   
   <question type="multichoice">
     <name><text>14-01-生成物と著作権侵害</text></name>
+    
+    <defaultgrade>2</defaultgrade>
+    
     <questiontext format="markdown"><text>生成AIを用いて作成した画像・文章が**他者の著作権を侵害していると認定される**のは、次のうち**どの要件が立証された場合**ですか。
 </text></questiontext>
     
@@ -189,6 +227,10 @@
       <text>出力を営利目的で販売した場合は、自動的に著作権侵害と推定される</text>
       <feedback format="markdown"><text>営利性の有無は侵害成立の直接の要件ではなく、損害賠償額などに影響する要素です。</text></feedback>
     </answer>
+    
+    <single>true</single>
+    <shuffleanswers>0</shuffleanswers>
+    <generalfeedback format="markdown"><text></text></generalfeedback>
     
   </question>
   
