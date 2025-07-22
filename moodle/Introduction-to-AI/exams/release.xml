@@ -2,6 +2,112 @@
 <quiz>
   
   <question type="multichoice">
+    <name><text>01-06-機械学習の問題定式化</text></name>
+    
+    <defaultgrade>2</defaultgrade>
+    
+    <questiontext format="markdown"><text>あるECサイトが、機械学習を用いて顧客の行動を予測したいと考えています。次のうち、予測タスクとして正しく定式化されているものを**全て**選択してください。
+
+- A: 顧客の過去の購買履歴や閲覧ログ（特徴量）を用いて、来月の購入金額（ラベル）を予測する。
+- B: 顧客の年齢や性別（特徴量）を用いて、特定のキャンペーン広告をクリックするかどうか（ラベル）を予測する。
+- C: 顧客が購入した商品の価格（特徴量）を用いて、その顧客の氏名（ラベル）を予測する。
+- D: サイトの訪問回数（ラベル）を用いて、顧客がどの商品カテゴリを閲覧したか（特徴量）を予測する。
+</text></questiontext>
+    
+    <answer fraction="0">
+      <text>なし</text>
+      <feedback format="markdown"><text></text></feedback>
+    </answer>
+    
+    <answer fraction="0">
+      <text>A</text>
+      <feedback format="markdown"><text></text></feedback>
+    </answer>
+    
+    <answer fraction="0">
+      <text>B</text>
+      <feedback format="markdown"><text></text></feedback>
+    </answer>
+    
+    <answer fraction="0">
+      <text>C</text>
+      <feedback format="markdown"><text></text></feedback>
+    </answer>
+    
+    <answer fraction="0">
+      <text>D</text>
+      <feedback format="markdown"><text></text></feedback>
+    </answer>
+    
+    <answer fraction="100">
+      <text>AとB</text>
+      <feedback format="markdown"><text></text></feedback>
+    </answer>
+    
+    <answer fraction="0">
+      <text>AとC</text>
+      <feedback format="markdown"><text></text></feedback>
+    </answer>
+    
+    <answer fraction="0">
+      <text>AとD</text>
+      <feedback format="markdown"><text></text></feedback>
+    </answer>
+    
+    <answer fraction="0">
+      <text>BとC</text>
+      <feedback format="markdown"><text></text></feedback>
+    </answer>
+    
+    <answer fraction="0">
+      <text>BとD</text>
+      <feedback format="markdown"><text></text></feedback>
+    </answer>
+    
+    <answer fraction="0">
+      <text>CとD</text>
+      <feedback format="markdown"><text></text></feedback>
+    </answer>
+    
+    <answer fraction="0">
+      <text>AとBとC</text>
+      <feedback format="markdown"><text></text></feedback>
+    </answer>
+    
+    <answer fraction="0">
+      <text>AとBとD</text>
+      <feedback format="markdown"><text></text></feedback>
+    </answer>
+    
+    <answer fraction="0">
+      <text>AとCとD</text>
+      <feedback format="markdown"><text></text></feedback>
+    </answer>
+    
+    <answer fraction="0">
+      <text>BとCとD</text>
+      <feedback format="markdown"><text></text></feedback>
+    </answer>
+    
+    <answer fraction="0">
+      <text>AとBとCとD</text>
+      <feedback format="markdown"><text></text></feedback>
+    </answer>
+    
+    <single>true</single>
+    <shuffleanswers>1</shuffleanswers>
+    <generalfeedback format="markdown"><text>A: 顧客の過去の購買履歴や閲覧ログ（特徴量）を用いて、来月の購入金額（ラベル）を予測する。: 正解です。これは手がかり（特徴量）から連続的な数値（ラベル）を予測する回帰タスクとして正しく定式化されています。
+
+B: 顧客の年齢や性別（特徴量）を用いて、特定のキャンペーン広告をクリックするかどうか（ラベル）を予測する。: 正解です。これは手がかり（特徴量）から「クリックする/しない」というカテゴリ（ラベル）を予測する分類タスクとして正しく定式化されています。
+
+C: 顧客が購入した商品の価格（特徴量）を用いて、その顧客の氏名（ラベル）を予測する。: 誤りです。氏名のような識別情報を予測することは一般的ではなく、また特徴量とラベルの関係性も不適切です。
+
+D: サイトの訪問回数（ラベル）を用いて、顧客がどの商品カテゴリを閲覧したか（特徴量）を予測する。: 誤りです。予測したい対象を「ラベル」とすべきですが、この例では特徴量とラベルの役割が逆転しており、不適切な定式化です。
+</text></generalfeedback>
+    <answernumbering>none</answernumbering>
+  </question>
+  
+  <question type="multichoice">
     <name><text>01-05-回帰タスクと分類タスクの区別</text></name>
     
     <defaultgrade>2</defaultgrade>
