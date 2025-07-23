@@ -466,6 +466,9 @@ $$\\ell_{\\tau}(y, f(x)) = \\mathbf{1}\\{y - f(x) \\ge 0\\} \\tau (y - f(x)) + \
   
   <question type="truefalse">
     <name><text>09</text></name>
+    
+    <defaultgrade>2</defaultgrade>
+    
     <questiontext format="markdown"><text>k-最近傍法（k-NN）が活用する事前知識は「データ全体にわたって単純な関数で表される低次元的な法則が存在する」というものである．
 </text></questiontext>
     
