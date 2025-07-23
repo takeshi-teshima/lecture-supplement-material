@@ -292,6 +292,23 @@
   file = {/Users/teshima/Zotero/storage/8L7NYNZB/「確率的なオウム」にできること、またそれがなぜできるのかについて.pdf}
 }
 
+@online{HenighanScaling2020,
+  title = {Scaling laws for autoregressive generative modeling},
+  author = {Henighan, Tom and Kaplan, Jared and Katz, Mor and Chen, Mark and Hesse, Christopher and Jackson, Jacob and Jun, Heewoo and Brown, Tom B. and Dhariwal, Prafulla and Gray, Scott and Hallacy, Chris and Mann, Benjamin and Radford, Alec and Ramesh, Aditya and Ryder, Nick and Ziegler, Daniel M. and Schulman, John and Amodei, Dario and McCandlish, Sam},
+  date = {2020-11-06},
+  eprint = {2010.14701},
+  eprinttype = {arXiv},
+  eprintclass = {cs},
+  doi = {10.48550/arXiv.2010.14701},
+  url = {http://arxiv.org/abs/2010.14701},
+  urldate = {2025-07-23},
+  abstract = {We identify empirical scaling laws for the cross-entropy loss in four domains: generative image modeling, video modeling, multimodal image\$\textbackslash leftrightarrow\$text models, and mathematical problem solving. In all cases autoregressive Transformers smoothly improve in performance as model size and compute budgets increase, following a power-law plus constant scaling law. The optimal model size also depends on the compute budget through a power-law, with exponents that are nearly universal across all data domains. The cross-entropy loss has an information theoretic interpretation as \$S(\$True\$) + D\_\{\textbackslash mathrm\{KL\}\}(\$True\$||\$Model\$)\$, and the empirical scaling laws suggest a prediction for both the true data distribution's entropy and the KL divergence between the true and model distributions. With this interpretation, billion-parameter Transformers are nearly perfect models of the YFCC100M image distribution downsampled to an \$8\textbackslash times 8\$ resolution, and we can forecast the model size needed to achieve any given reducible loss (ie \$D\_\{\textbackslash mathrm\{KL\}\}\$) in nats/image for other resolutions. We find a number of additional scaling laws in specific domains: (a) we identify a scaling relation for the mutual information between captions and images in multimodal models, and show how to answer the question "Is a picture worth a thousand words?"; (b) in the case of mathematical problem solving, we identify scaling laws for model performance when extrapolating beyond the training distribution; (c) we finetune generative image models for ImageNet classification and find smooth scaling of the classification loss and error rate, even as the generative loss levels off. Taken together, these results strengthen the case that scaling laws have important implications for neural network performance, including on downstream tasks.},
+  pubstate = {prepublished},
+  keywords = {Computer Science - Computation and Language,Computer Science - Computer Vision and Pattern Recognition,Computer Science - Machine Learning},
+  note = {Comment: 20+17 pages, 33 figures; added appendix with additional language results},
+  file = {/Users/teshima/Zotero/storage/F2U6HH6C/Henighan et al. - 2020 - Scaling Laws for Autoregressive Generative Modelin.pdf;/Users/teshima/Zotero/storage/VWVPR9EC/2010.html}
+}
+
 @online{HernandezScaling2021,
   title = {Scaling laws for transfer},
   author = {Hernandez, Danny and Kaplan, Jared and Henighan, Tom and McCandlish, Sam},
@@ -335,6 +352,18 @@
   pubstate = {prepublished},
   keywords = {Computer Science - Computation and Language,Computer Science - Machine Learning},
   file = {/Users/teshima/Zotero/storage/4P2939P3/Hoffmann et al. - 2022 - Training Compute-Optimal Large Language Models.pdf}
+}
+
+@inproceedings{HoltzmanCurious2019,
+  title = {The curious case of neural text degeneration},
+  author = {Holtzman, Ari and Buys, Jan and Du, Li and Forbes, Maxwell and Choi, Yejin},
+  date = {2019-09-25},
+  url = {https://openreview.net/forum?id=rygGQyrFvH},
+  urldate = {2025-07-23},
+  abstract = {Despite considerable advances in neural language modeling, it remains an open question what the best decoding strategy is for text generation from a language model (e.g. to generate a story). The counter-intuitive empirical observation is that even though the use of likelihood as training objective leads to high quality models for a broad range of language understanding tasks, maximization-based decoding methods such as beam search lead to degeneration — output text that is bland, incoherent, or gets stuck in repetitive loops. To address this we propose Nucleus Sampling, a simple but effective method to draw considerably higher quality text out of neural language models than previous decoding strategies. Our approach avoids text degeneration by truncating the unreliable tail of the probability distribution, sampling from the dynamic nucleus of tokens containing the vast majority of the probability mass. To properly examine current maximization-based and stochastic decoding methods, we compare generations from each of these methods to the distribution of human text along several axes such as likelihood, diversity, and repetition. Our results show that (1) maximization is an inappropriate decoding objective for open-ended text generation, (2) the probability distributions of the best current language models have an unreliable tail which needs to be truncated during generation and (3) Nucleus Sampling is currently the best available decoding strategy for generating long-form text that is both high-quality — as measured by human evaluation — and as diverse as human-written text.},
+  eventtitle = {International {{Conference}} on {{Learning Representations}}},
+  langid = {english},
+  file = {/Users/teshima/Zotero/storage/2E8JG8M4/Holtzman et al. - 2019 - The Curious Case of Neural Text Degeneration.pdf}
 }
 
 @inproceedings{hu2022lora,
