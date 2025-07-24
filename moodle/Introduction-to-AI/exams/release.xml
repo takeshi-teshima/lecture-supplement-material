@@ -830,9 +830,9 @@ $$\\ell_{\\tau}(y, f(x)) = \\mathbf{1}\\{y - f(x) \\ge 0\\} \\tau (y - f(x)) + \
 次のうち **当てはまるものをすべて選択** してください．
 
 - A: 依拠性（既存著作物への依拠が認められること）
-- B: 類似性（出力が既存著作物と実質的同一または本質的特徴を共通にする程度に類似していること）
-- C: 営利性（出力が著作権者に経済的または社会的損失を与えたと推認される程度の営利を主たる目的とする活動に使用されたこと）
-- D: 著作権管理情報の削除・改変（既存著作物に付随する著作権管理情報（CMI）の掲示にかかる善良な管理者の注意を怠ったことが認められること）
+- B: 営利性（出力が著作権者に経済的または社会的損失を与えたと推認される程度の営利を主たる目的とする活動に使用されたこと）
+- C: 著作権管理情報の削除・改変（既存著作物に付随する著作権管理情報（CMI）の掲示にかかる善良な管理者の注意を怠ったことが認められること）
+- D: 類似性（出力が既存著作物と実質的同一または本質的特徴を共通にする程度に類似していること）
 
 （本資料は **教育・研修目的の一般的情報提供** であり，個別案件に対する法的助言ではありません．判例・実務は変動し得るため，具体的な権利処理や紛争対応には必ず弁護士等の専門家へご相談ください．）
 </text></questiontext>
@@ -862,7 +862,7 @@ $$\\ell_{\\tau}(y, f(x)) = \\mathbf{1}\\{y - f(x) \\ge 0\\} \\tau (y - f(x)) + \
       <feedback format="markdown"><text></text></feedback>
     </answer>
     
-    <answer fraction="100">
+    <answer fraction="0">
       <text>AとB</text>
       <feedback format="markdown"><text></text></feedback>
     </answer>
@@ -872,7 +872,7 @@ $$\\ell_{\\tau}(y, f(x)) = \\mathbf{1}\\{y - f(x) \\ge 0\\} \\tau (y - f(x)) + \
       <feedback format="markdown"><text></text></feedback>
     </answer>
     
-    <answer fraction="0">
+    <answer fraction="100">
       <text>AとD</text>
       <feedback format="markdown"><text></text></feedback>
     </answer>
@@ -919,13 +919,13 @@ $$\\ell_{\\tau}(y, f(x)) = \\mathbf{1}\\{y - f(x) \\ge 0\\} \\tau (y - f(x)) + \
     
     <single>true</single>
     <shuffleanswers>0</shuffleanswers>
-    <generalfeedback format="markdown"><text>依拠性（A）: 正解です．依拠性と類似性が立証対象となります．
+    <generalfeedback format="markdown"><text>A: 正解です．依拠性と類似性が立証対象となります．
 
-類似性（B）: 正解です．依拠性と類似性が立証対象となります．
+B: 誤りです．著作権侵害成立の必須要件ではありません．
 
-営利性（C）: 誤りです．著作権侵害成立の必須要件ではありません．
+C: 誤りです．CMI の有無は技術的保護手段等の別論点であり，侵害要件ではありません．
 
-CMI の削除・改変（D）: 誤りです．CMI の有無は技術的保護手段等の別論点であり，侵害要件ではありません．
+D: 正解です．依拠性と類似性が立証対象となります．
 </text></generalfeedback>
     <answernumbering>none</answernumbering>
   </question>
