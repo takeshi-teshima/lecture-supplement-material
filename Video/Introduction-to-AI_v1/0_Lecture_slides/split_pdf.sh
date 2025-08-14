@@ -52,8 +52,8 @@ while IFS=',' read -r output_basename pages_to_extract; do
 
   echo "  [処理中] ページ '$pages_to_extract'  ->  $full_output_path"
 
-  # qpdfコマンドで指定ページを抽出し、生成したファイル名で保存
-  qpdf "$INPUT_FILE" --pages . "$pages_to_extract" -- "$full_output_path"
+    # pdftkコマンドで指定ページを抽出し、生成したファイル名で保存
+    pdftk "$INPUT_FILE" cat $pages_to_extract output "$full_output_path"
 
 done < "$TASK_LIST"
 

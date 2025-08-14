@@ -1,0 +1,54 @@
+# Google Cloud Text-to-Speech設定ファイル
+
+# Google TTSの設定
+google_tts:
+  # 言語コード
+  language_code: "ja-JP"
+  # 音声名（声の種類）
+  # 利用可能な音声については、Google Cloud TTSのドキュメントを参照
+  voice_name: "ja-JP-Standard-D"  # 女性の声
+  # voice_name: "ja-JP-Standard-C"  # 男性の声
+  # voice_name: "ja-JP-Neural2-B"   # ニューラル音声（女性）
+  # voice_name: "ja-JP-Neural2-C"   # ニューラル音声（男性）
+
+  # 音声パラメータ
+  speaking_rate: 1.2      # 話速（0.25-4.0）
+  pitch: 0.0              # 音高（-20.0-20.0）
+  volume_gain_db: 0.0     # 音量（-96.0-16.0）
+
+  # 音声エンコーディング
+  audio_encoding: "LINEAR16"  # LINEAR16, MP3, OGG_OPUS
+
+# 処理設定
+processing:
+  # XMLファイルが格納されているディレクトリ
+  scripts_dir: "../1_Scripts"
+
+  # クエリ出力ディレクトリ
+  queries_dir: "2_GoogleTTS_Queries"
+
+  # 音声出力ディレクトリ
+  audio_dir: "3_GoogleTTS_Audio"
+
+  # 結合版音声出力ディレクトリ
+  combined_dir: "4_GoogleTTS_Combined"
+
+  # 出力ファイル形式
+  audio_format: "wav"
+
+  # ポーズ処理設定
+  pause_duration_multiplier: 1.0  # ポーズの長さの倍率
+
+  # 結合処理設定
+  page_turn_pause: 1.5           # ページめくりのポーズ（秒）
+  paragraph_pause: 0.5           # パラグラフ間のポーズ（秒）
+
+  # バッチ処理設定
+  max_concurrent_requests: 3  # 同時リクエスト数（Google TTSはAPIレート制限があるため控えめに）
+  retry_count: 3              # リトライ回数
+  retry_delay: 1.0            # リトライ間隔（秒）
+
+# ログ設定
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  format: "%(asctime)s - %(levelname)s - %(message)s"

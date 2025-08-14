@@ -1,0 +1,45 @@
+# VOICEVOX設定ファイル
+
+# VOICEVOXサーバーの設定
+
+voicevox:
+  # VOICEVOXのAPIエンドポイント（ローカル実行の場合のデフォルト）
+  host: "localhost"
+  port: 50021
+
+voicevox_params:
+  # 話者ID（声の種類）
+  # 各IDに対応する声については、VOICEVOXのドキュメントを参照
+  # speaker_id: 3  # ずんだもん（ノーマル）
+  speaker_id: 52  # 雀松朱司
+  speed_scale: 1.2        # 話速（0.5-2.0）
+  pitch_scale: 0.15       # 音高（-0.15-0.15）
+  intonation_scale: 1.33  # 抑揚（0.0-2.0）
+  volume_scale: 1.0       # 音量（0.0-2.0）
+
+# 処理設定
+processing:
+  # XMLファイルが格納されているディレクトリ
+  scripts_dir: "../1_Scripts"
+
+  # クエリ出力ディレクトリ
+  queries_dir: "2_VoiceVox_Queries"
+
+  # 音声出力ディレクトリ
+  audio_dir: "3_VoiceVox_Audio"
+
+  # 出力ファイル形式
+  audio_format: "wav"
+
+  # ポーズ処理設定
+  pause_duration_multiplier: 1.0  # ポーズの長さの倍率
+
+  # バッチ処理設定
+  max_concurrent_requests: 5  # 同時リクエスト数
+  retry_count: 3              # リトライ回数
+  retry_delay: 1.0            # リトライ間隔（秒）
+
+# ログ設定
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  format: "%(asctime)s - %(levelname)s - %(message)s"

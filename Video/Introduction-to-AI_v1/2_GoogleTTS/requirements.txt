@@ -1,0 +1,16 @@
+# Google TTS 音声合成処理のPython依存関係
+
+# Google Cloud Text-to-Speech API
+google-cloud-texttospeech>=2.14.0
+
+# Command line interface
+click>=8.0.0
+
+# Audio processing
+pydub>=0.25.0
+
+# HTTP requests
+requests>=2.28.0
+
+# YAML configuration file support
+PyYAML>=6.0
