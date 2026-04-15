@@ -6,7 +6,9 @@ layout: default
 ---
 
 ## 講義資料
-[講義のスライドはこちら](https://drive.google.com/drive/folders/1IINO87Q0_xwAfteCHvRdfK4wl-z4uCzt?usp=drive_link)（閲覧のみ）
+[講義スライドはこちら](https://drive.google.com/drive/folders/14c9Yo92NUFiGhvebipgSILCKv8jpgBbe?usp=sharing)（閲覧のみ）
+
+（過去の講義スライドはこちら：[2025年度](https://drive.google.com/drive/folders/1IINO87Q0_xwAfteCHvRdfK4wl-z4uCzt?usp=drive_link)）
 
 {% if false %}
 このページで公開するソースコードのライセンスは[こちら](https://github.com/takeshi-teshima/lecture-supplement-material/blob/features/initial-version/LICENSE)です．
