@@ -17,7 +17,7 @@
   ignore = "./should_build.sh"
 
   # Default build command.
-  command = "bundle exec jekyll build"
+  command = "mise exec -- bundle exec jekyll build"
 
 [functions]
   # Directory with serverless functions, including background
