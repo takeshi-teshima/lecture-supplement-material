@@ -1,0 +1,316 @@
+@inproceedings{ChenSimple2020,
+  title = {A simple framework for contrastive learning of visual representations},
+  booktitle = {Proceedings of the 37th {{International Conference}} on {{Machine Learning}}},
+  author = {Chen, Ting and Kornblith, Simon and Norouzi, Mohammad and Hinton, Geoffrey},
+  date = {2020-11-21},
+  pages = {1597--1607},
+  publisher = {PMLR},
+  issn = {2640-3498},
+  url = {https://proceedings.mlr.press/v119/chen20j.html},
+  urldate = {2025-06-13},
+  abstract = {This paper presents SimCLR: a simple framework for contrastive learning of visual representations. We simplify recently proposed contrastive self-supervised learning algorithms without requiring specialized architectures or a memory bank. In order to understand what enables the contrastive prediction tasks to learn useful representations, we systematically study the major components of our framework. We show that (1) composition of data augmentations plays a critical role in defining effective predictive tasks, (2) introducing a learnable nonlinear transformation between the representation and the contrastive loss substantially improves the quality of the learned representations, and (3) contrastive learning benefits from larger batch sizes and more training steps compared to supervised learning. By combining these findings, we are able to considerably outperform previous methods for self-supervised and semi-supervised learning on ImageNet. A linear classifier trained on self-supervised representations learned by SimCLR achieves 76.5\% top-1 accuracy, which is a 7\% relative improvement over previous state-of-the-art, matching the performance of a supervised ResNet-50. When fine-tuned on only 1\% of the labels, we achieve 85.8\% top-5 accuracy, outperforming AlexNet with 100X fewer labels.},
+  eventtitle = {International {{Conference}} on {{Machine Learning}}},
+  langid = {english},
+  file = {/Users/teshima/Zotero/storage/DKKZBGD9/Chen et al. - 2020 - A Simple Framework for Contrastive Learning of Vis.pdf;/Users/teshima/Zotero/storage/QVH6I2UX/Chen et al. - 2020 - A Simple Framework for Contrastive Learning of Vis.pdf}
+}
+
+@inproceedings{DengImageNet2009,
+  title = {{{ImageNet}}: {{A}} large-scale hierarchical image database},
+  shorttitle = {{{ImageNet}}},
+  booktitle = {2009 {{IEEE Conference}} on {{Computer Vision}} and {{Pattern Recognition}}},
+  author = {Deng, Jia and Dong, Wei and Socher, Richard and Li, Li-Jia and Li, Kai and Fei-Fei, Li},
+  date = {2009-06},
+  pages = {248--255},
+  issn = {1063-6919},
+  doi = {10.1109/CVPR.2009.5206848},
+  url = {https://ieeexplore.ieee.org/document/5206848},
+  urldate = {2024-12-14},
+  abstract = {The explosion of image data on the Internet has the potential to foster more sophisticated and robust models and algorithms to index, retrieve, organize and interact with images and multimedia data. But exactly how such data can be harnessed and organized remains a critical problem. We introduce here a new database called “ImageNet”, a large-scale ontology of images built upon the backbone of the WordNet structure. ImageNet aims to populate the majority of the 80,000 synsets of WordNet with an average of 500–1000 clean and full resolution images. This will result in tens of millions of annotated images organized by the semantic hierarchy of WordNet. This paper offers a detailed analysis of ImageNet in its current state: 12 subtrees with 5247 synsets and 3.2 million images in total. We show that ImageNet is much larger in scale and diversity and much more accurate than the current image datasets. Constructing such a large-scale database is a challenging task. We describe the data collection scheme with Amazon Mechanical Turk. Lastly, we illustrate the usefulness of ImageNet through three simple applications in object recognition, image classification and automatic object clustering. We hope that the scale, accuracy, diversity and hierarchical structure of ImageNet can offer unparalleled opportunities to researchers in the computer vision community and beyond.},
+  eventtitle = {2009 {{IEEE Conference}} on {{Computer Vision}} and {{Pattern Recognition}}},
+  keywords = {Explosions,Image databases,Image retrieval,Information retrieval,Internet,Large-scale systems,Multimedia databases,Ontologies,Robustness,Spine},
+  file = {/Users/teshima/Zotero/storage/4URHF248/Deng et al. - 2009 - ImageNet A large-scale hierarchical image databas.pdf;/Users/teshima/Zotero/storage/U3IACU8Y/5206848.html}
+}
+
+@online{drheadVAE2024,
+  type = {Reddit Post},
+  title = {The {{VAE}} used for {{Stable Diffusion}} 1.x/2.x and other models ({{KL-F8}}) has a critical flaw, probably due to bad training, that is holding back all models that use it (almost certainly including {{DALL-E}} 3).},
+  author = {{drhead}},
+  date = {2024-02-01T07:31:32},
+  url = {https://www.reddit.com/r/StableDiffusion/comments/1ag5h5s/the_vae_used_for_stable_diffusion_1x2x_and_other/},
+  urldate = {2025-06-17},
+  organization = {r/StableDiffusion},
+  file = {/Users/teshima/Zotero/storage/TGBIN8DS/the_vae_used_for_stable_diffusion_1x2x_and_other.html}
+}
+
+@online{EntezariRole2023,
+  title = {The role of pre-training data in transfer learning},
+  author = {Entezari, Rahim and Wortsman, Mitchell and Saukh, Olga and Shariatnia, M. Moein and Sedghi, Hanie and Schmidt, Ludwig},
+  date = {2023-03-01},
+  eprint = {2302.13602},
+  eprinttype = {arXiv},
+  eprintclass = {cs},
+  doi = {10.48550/arXiv.2302.13602},
+  url = {http://arxiv.org/abs/2302.13602},
+  urldate = {2025-06-13},
+  abstract = {The transfer learning paradigm of model pre-training and subsequent fine-tuning produces high-accuracy models. While most studies recommend scaling the pre-training size to benefit most from transfer learning, a question remains: what data and method should be used for pre-training? We investigate the impact of pre-training data distribution on the few-shot and full fine-tuning performance using 3 pre-training methods (supervised, contrastive language-image and image-image), 7 pre-training datasets, and 9 downstream datasets. Through extensive controlled experiments, we find that the choice of the pre-training data source is essential for the few-shot transfer, but its role decreases as more data is made available for fine-tuning. Additionally, we explore the role of data curation and examine the trade-offs between label noise and the size of the pre-training dataset. We find that using 2000X more pre-training data from LAION can match the performance of supervised ImageNet pre-training. Furthermore, we investigate the effect of pre-training methods, comparing language-image contrastive vs. image-image contrastive, and find that the latter leads to better downstream accuracy},
+  pubstate = {prepublished},
+  keywords = {Computer Science - Computer Vision and Pattern Recognition,Computer Science - Machine Learning},
+  file = {/Users/teshima/Zotero/storage/5CLU2VKU/Entezari et al. - 2023 - The Role of Pre-training Data in Transfer Learning.pdf;/Users/teshima/Zotero/storage/E3YH7ZHM/2302.html}
+}
+
+@inproceedings{GeirhosImageNettrained2018,
+  title = {{{ImageNet-trained CNNs}} are biased towards texture; increasing shape bias improves accuracy and robustness},
+  author = {Geirhos, Robert and Rubisch, Patricia and Michaelis, Claudio and Bethge, Matthias and Wichmann, Felix A. and Brendel, Wieland},
+  date = {2018-09-27},
+  url = {https://openreview.net/forum?id=Bygh9j09KX},
+  urldate = {2025-06-19},
+  abstract = {Convolutional Neural Networks (CNNs) are commonly thought to recognise objects by learning increasingly complex representations of object shapes. Some recent studies suggest a more important role of image textures. We here put these conflicting hypotheses to a quantitative test by evaluating CNNs and human observers on images with a texture-shape cue conflict. We show that ImageNet-trained CNNs are strongly biased towards recognising textures rather than shapes, which is in stark contrast to human behavioural evidence and reveals fundamentally different classification strategies. We then demonstrate that the same standard architecture (ResNet-50) that learns a texture-based representation on ImageNet is able to learn a shape-based representation instead when trained on 'Stylized-ImageNet', a stylized version of ImageNet. This provides a much better fit for human behavioural performance in our well-controlled psychophysical lab setting (nine experiments totalling 48,560 psychophysical trials across 97 observers) and comes with a number of unexpected emergent benefits such as improved object detection performance and previously unseen robustness towards a wide range of image distortions, highlighting advantages of a shape-based representation.},
+  eventtitle = {International {{Conference}} on {{Learning Representations}}},
+  langid = {english},
+  file = {/Users/teshima/Zotero/storage/A3IHBKFK/Geirhos et al. - 2018 - ImageNet-trained CNNs are biased towards texture; .pdf}
+}
+
+@inproceedings{HermannFoundations2023,
+  title = {On the foundations of shortcut learning},
+  author = {Hermann, Katherine and Mobahi, Hossein and Fel, Thomas and Mozer, Michael Curtis},
+  date = {2023-10-13},
+  url = {https://openreview.net/forum?id=Tj3xLVuE9f},
+  urldate = {2025-06-19},
+  abstract = {Deep-learning models can extract a rich assortment of features from data. Which features a model uses depends not only on *predictivity*---how reliably a feature indicates training-set labels---but also on *availability*---how easily the feature can be extracted from inputs. The literature on shortcut learning has noted examples in which models privilege one feature over another, for example texture over shape and image backgrounds over foreground objects. Here, we test hypotheses about which input properties are more available to a model, and systematically study how predictivity and availability interact to shape models' feature use. We construct a minimal, explicit generative framework for synthesizing classification datasets with two latent features that vary in predictivity and in factors we hypothesize to relate to availability, and we quantify a model's shortcut bias---its over-reliance on the shortcut (more available, less predictive) feature at the expense of the core (less available, more predictive) feature. We find that linear models are relatively unbiased, but introducing a single hidden layer with ReLU or Tanh units yields a bias. Our empirical findings are consistent with a theoretical account based on Neural Tangent Kernels. Finally, we study how models used in practice trade off predictivity and availability in naturalistic datasets, discovering availability manipulations which increase models' degree of shortcut bias. Taken together, these findings suggest that the propensity to learn shortcut features is a fundamental characteristic of deep nonlinear architectures warranting systematic study given its role in shaping how models solve tasks.},
+  eventtitle = {The {{Twelfth International Conference}} on {{Learning Representations}}},
+  langid = {english},
+  file = {/Users/teshima/Zotero/storage/BUYBJ6VE/Hermann et al. - 2023 - On the Foundations of Shortcut Learning.pdf;/Users/teshima/Zotero/storage/WUV6WQ4D/Hermann et al. - 2023 - On the foundations of shortcut learning.pdf}
+}
+
+@software{JocherUltralytics2023,
+  title = {Ultralytics {{YOLO}}},
+  author = {Jocher, Glenn and Qiu, Jing and Chaurasia, Ayush},
+  date = {2023-01-01},
+  origdate = {2022-09-11T16:39:45Z},
+  url = {https://github.com/ultralytics/ultralytics},
+  urldate = {2024-11-04},
+  abstract = {Ultralytics YOLO11 🚀},
+  version = {8.0.0}
+}
+
+@software{KimKjsman2025,
+  title = {kjsman/stable-diffusion-pytorch},
+  author = {Kim, Jinseo},
+  date = {2025-06-08T03:11:22Z},
+  origdate = {2022-10-26T13:31:49Z},
+  url = {https://github.com/kjsman/stable-diffusion-pytorch},
+  urldate = {2025-06-11},
+  abstract = {Yet another PyTorch implementation of Stable Diffusion (probably easy to read)},
+  keywords = {diffusion,image-generation,pytorch,stable-diffusion}
+}
+
+@article{OdenaDeconvolution2016,
+  title = {Deconvolution and checkerboard artifacts},
+  author = {Odena, Augustus and Dumoulin, Vincent and Olah, Chris},
+  date = {2016-10-17},
+  journaltitle = {Distill},
+  shortjournal = {Distill},
+  volume = {1},
+  number = {10},
+  pages = {e3},
+  issn = {2476-0757},
+  doi = {10.23915/distill.00003},
+  url = {http://distill.pub/2016/deconv-checkerboard},
+  urldate = {2025-06-16},
+  abstract = {When we look very closely at images generated by neural networks, we often see a strange checkerboard pattern of artifacts.},
+  langid = {english},
+  file = {/Users/teshima/Zotero/storage/VVS2728G/deconv-checkerboard.html}
+}
+
+@online{PlesnerBreaking2024,
+  title = {Breaking {{reCAPTCHAv2}}},
+  author = {Plesner, Andreas and Vontobel, Tobias and Wattenhofer, Roger},
+  date = {2024-09-13},
+  eprint = {2409.08831},
+  eprinttype = {arXiv},
+  eprintclass = {cs},
+  doi = {10.1109/COMPSAC61105.2024.00142},
+  url = {http://arxiv.org/abs/2409.08831},
+  urldate = {2025-06-19},
+  abstract = {Our work examines the efficacy of employing advanced machine learning methods to solve captchas from Google's reCAPTCHAv2 system. We evaluate the effectiveness of automated systems in solving captchas by utilizing advanced YOLO models for image segmentation and classification. Our main result is that we can solve 100\% of the captchas, while previous work only solved 68-71\%. Furthermore, our findings suggest that there is no significant difference in the number of challenges humans and bots must solve to pass the captchas in reCAPTCHAv2. This implies that current AI technologies can exploit advanced image-based captchas. We also look under the hood of reCAPTCHAv2, and find evidence that reCAPTCHAv2 is heavily based on cookie and browser history data when evaluating whether a user is human or not. The code is provided alongside this paper.},
+  pubstate = {prepublished},
+  keywords = {Computer Science - Computer Vision and Pattern Recognition},
+  note = {Comment: 10 pages. Accepted at COMPSAC 2024},
+  file = {/Users/teshima/Zotero/storage/GIAFNHX6/Plesner et al. - 2024 - Breaking reCAPTCHAv2.pdf;/Users/teshima/Zotero/storage/3ADMEPHX/2409.html}
+}
+
+@incollection{RaghuTransfusion2019,
+  title = {Transfusion: understanding transfer learning for medical imaging},
+  shorttitle = {Transfusion},
+  booktitle = {Proceedings of the 33rd {{International Conference}} on {{Neural Information Processing Systems}}},
+  author = {Raghu, Maithra and Zhang, Chiyuan and Kleinberg, Jon and Bengio, Samy},
+  date = {2019-12-08},
+  number = {301},
+  pages = {3347--3357},
+  publisher = {Curran Associates Inc.},
+  location = {Red Hook, NY, USA},
+  abstract = {Transfer learning from natural image datasets, particularly IMAGENET, using standard large models and corresponding pretrained weights has become a de-facto method for deep learning applications to medical imaging. However, there are fundamental differences in data sizes, features and task specifications between natural image classification and the target medical tasks, and there is little understanding of the effects of transfer. In this paper, we explore properties of transfer learning for medical imaging. A performance evaluation on two large scale medical imaging tasks shows that surprisingly, transfer offers little benefit to performance, and simple, lightweight models can perform comparably to IMAGENET architectures. Investigating the learned representations and features, we find that some of the differences from transfer learning are due to the over-parametrization of standard models rather than sophisticated feature reuse. We isolate where useful feature reuse occurs, and outline the implications for more efficient model exploration. We also explore feature independent benefits of transfer arising from weight scalings.},
+  file = {/Users/teshima/Zotero/storage/3HIYVKW7/Raghu et al. - 2019 - Transfusion understanding transfer learning for m.pdf}
+}
+
+@inproceedings{RombachHighresolution2022,
+  title = {High-resolution image synthesis with latent diffusion models},
+  author = {Rombach, Robin and Blattmann, Andreas and Lorenz, Dominik and Esser, Patrick and Ommer, Björn},
+  date = {2022-06-01},
+  pages = {10674--10685},
+  publisher = {IEEE Computer Society},
+  doi = {10.1109/CVPR52688.2022.01042},
+  url = {https://www.computer.org/csdl/proceedings-article/cvpr/2022/694600k0674/1H1iFsO7Zuw},
+  urldate = {2025-06-16},
+  abstract = {By decomposing the image formation process into a sequential application of denoising autoencoders, diffusion models (DMs) achieve state-of-the-art synthesis results on image data and beyond. Additionally, their formulation allows for a guiding mechanism to control the image generation process without retraining. However, since these models typically operate directly in pixel space, optimization of powerful DMs often consumes hundreds of GPU days and inference is expensive due to sequential evaluations. To enable DM training on limited computational resources while retaining their quality and flexibility, we apply them in the latent space of powerful pretrained autoencoders. In contrast to previous work, training diffusion models on such a representation allows for the first time to reach a near-optimal point between complexity reduction and detail preservation, greatly boosting visual fidelity. By introducing cross-attention layers into the model architecture, we turn diffusion models into powerful and flexible generators for general conditioning inputs such as text or bounding boxes and high-resolution synthesis becomes possible in a convolutional manner. Our latent diffusion models (LDMs) achieve new state of the art scores for image inpainting and class-conditional image synthesis and highly competitive performance on various tasks, including unconditional image generation, text-to-image synthesis, and super-resolution, while significantly reducing computational requirements compared to pixel-based DMs.},
+  eventtitle = {2022 {{IEEE}}/{{CVF Conference}} on {{Computer Vision}} and {{Pattern Recognition}} ({{CVPR}})},
+  isbn = {978-1-66546-946-3},
+  langid = {english},
+  file = {/Users/teshima/Zotero/storage/A57KK4VC/Rombach et al. - 2022 - High-resolution image synthesis with latent diffus.pdf;/Users/teshima/Zotero/storage/LMZLZRHI/Rombach et al. - 2022 - High-Resolution Image Synthesis with Latent Diffus.pdf}
+}
+
+@inproceedings{RonnebergerUNet2015,
+  title = {U-{{Net}}: convolutional networks for biomedical image segmentation},
+  shorttitle = {U-net},
+  booktitle = {Medical {{Image Computing}} and {{Computer-Assisted Intervention}} – {{MICCAI}} 2015},
+  author = {Ronneberger, Olaf and Fischer, Philipp and Brox, Thomas},
+  editor = {Navab, Nassir and Hornegger, Joachim and Wells, William M. and Frangi, Alejandro F.},
+  date = {2015},
+  pages = {234--241},
+  publisher = {Springer International Publishing},
+  location = {Cham},
+  doi = {10.1007/978-3-319-24574-4_28},
+  abstract = {There is large consent that successful training of deep networks requires many thousand annotated training samples. In this paper, we present a network and training strategy that relies on the strong use of data augmentation to use the available annotated samples more efficiently. The architecture consists of a contracting path to capture context and a symmetric expanding path that enables precise localization. We show that such a network can be trained end-to-end from very few images and outperforms the prior best method (a sliding-window convolutional network) on the ISBI challenge for segmentation of neuronal structures in electron microscopic stacks. Using the same network trained on transmitted light microscopy images (phase contrast and DIC) we won the ISBI cell tracking challenge 2015 in these categories by a large margin. Moreover, the network is fast. Segmentation of a 512x512 image takes less than a second on a recent GPU. The full implementation (based on Caffe) and the trained networks are available at http://lmb.informatik.uni-freiburg.de/people/ronneber/u-net.},
+  isbn = {978-3-319-24574-4},
+  langid = {english},
+  keywords = {Convolutional Layer,Data Augmentation,Deep Network,Ground Truth Segmentation,Training Image},
+  file = {/Users/teshima/Zotero/storage/FHEAYRPI/Ronneberger et al. - 2015 - U-Net Convolutional Networks for Biomedical Image.pdf}
+}
+
+@article{RussakovskyImageNet2015,
+  title = {{{ImageNet}} large scale visual recognition challenge},
+  author = {Russakovsky, Olga and Deng, Jia and Su, Hao and Krause, Jonathan and Satheesh, Sanjeev and Ma, Sean and Huang, Zhiheng and Karpathy, Andrej and Khosla, Aditya and Bernstein, Michael and Berg, Alexander C. and Fei-Fei, Li},
+  date = {2015-12-01},
+  journaltitle = {International Journal of Computer Vision},
+  shortjournal = {Int J Comput Vis},
+  volume = {115},
+  number = {3},
+  pages = {211--252},
+  issn = {1573-1405},
+  doi = {10.1007/s11263-015-0816-y},
+  url = {https://doi.org/10.1007/s11263-015-0816-y},
+  urldate = {2024-12-14},
+  abstract = {The ImageNet Large Scale Visual Recognition Challenge is a benchmark in object category classification and detection on hundreds of object categories and millions of images. The challenge has been run annually from 2010 to present, attracting participation from more than fifty institutions. This paper describes the creation of this benchmark dataset and the advances in object recognition that have been possible as a result. We discuss the challenges of collecting large-scale ground truth annotation, highlight key breakthroughs in categorical object recognition, provide a detailed analysis of the current state of the field of large-scale image classification and object detection, and compare the state-of-the-art computer vision accuracy with human accuracy. We conclude with lessons learned in the 5~years of the challenge, and propose future directions and improvements.},
+  langid = {english},
+  keywords = {Artificial Intelligence,Benchmark,Dataset,Large-scale,Object detection,Object recognition}
+}
+
+@inproceedings{SharifAccessorize2016,
+  title = {Accessorize to a crime: real and stealthy attacks on state-of-the-art face recognition},
+  shorttitle = {Accessorize to a crime},
+  booktitle = {Proceedings of the 2016 {{ACM SIGSAC Conference}} on {{Computer}} and {{Communications Security}}},
+  author = {Sharif, Mahmood and Bhagavatula, Sruti and Bauer, Lujo and Reiter, Michael K.},
+  date = {2016-10-24},
+  series = {{{CCS}} '16},
+  pages = {1528--1540},
+  publisher = {Association for Computing Machinery},
+  location = {New York, NY, USA},
+  doi = {10.1145/2976749.2978392},
+  url = {https://dl.acm.org/doi/10.1145/2976749.2978392},
+  urldate = {2025-04-24},
+  abstract = {Machine learning is enabling a myriad innovations, including new algorithms for cancer diagnosis and self-driving cars. The broad use of machine learning makes it important to understand the extent to which machine-learning algorithms are subject to attack, particularly when used in applications where physical security or safety is at risk.In this paper, we focus on facial biometric systems, which are widely used in surveillance and access control. We define and investigate a novel class of attacks: attacks that are physically realizable and inconspicuous, and allow an attacker to evade recognition or impersonate another individual. We develop a systematic method to automatically generate such attacks, which are realized through printing a pair of eyeglass frames. When worn by the attacker whose image is supplied to a state-of-the-art face-recognition algorithm, the eyeglasses allow her to evade being recognized or to impersonate another individual. Our investigation focuses on white-box face-recognition systems, but we also demonstrate how similar techniques can be used in black-box scenarios, as well as to avoid face detection.},
+  isbn = {978-1-4503-4139-4},
+  file = {/Users/teshima/Zotero/storage/JRGTD3KS/Sharif et al. - 2016 - Accessorize to a Crime Real and Stealthy Attacks .pdf}
+}
+
+@book{SzeliskiComputer2022,
+  title = {Computer {{Vision}}: {{Algorithms}} and {{Applications}}},
+  shorttitle = {Computer {{Vision}}},
+  author = {Szeliski, Richard},
+  date = {2022},
+  publisher = {Springer},
+  location = {Cham},
+  url = {https://szeliski.org/Book/},
+  abstract = {Computer Vision: Algorithms and Applications explores the variety of techniques used to analyze and interpret images. It also describes challenging real-world applications where vision is being successfully used, both in specialized applications such as image search and autonomous navigation, as well as for fun, consumer-level tasks that students can apply to their own personal photos and videos.More than just a source of “recipes,” this exceptionally authoritative and comprehensive textbook/reference takes a scientific approach to the formulation of computer vision problems. These problems are then analyzed using the latest classical and deep learning models and solved using rigorous engineering principles.Topics and features:Structured to support active curricula and project-oriented courses, with tips in the Introduction for using the book in a variety of customized coursesIncorporates totally new material on deep learning and applications such as mobile computational photography, autonomous navigation, and augmented realityPresents exercises at the end of each chapter with a heavy emphasis on testing algorithms and containing numerous suggestions for small mid-term projectsIncludes 1,500 new citations and 200 new figures that cover the tremendous developments from the last decadeProvides additional material and more detailed mathematical topics in the Appendices, which cover linear algebra, numerical techniques, estimation theory, datasets, and softwareSuitable for an upper-level undergraduate or graduate-level course in computer science or engineering, this textbook focuses on basic techniques that work under real-world conditions and encourages students to push their creative boundaries. Its design and exposition also make it eminently suitable as a unique reference to the fundamental techniques and current research literature in computer vision.},
+  isbn = {978-3-030-34371-2},
+  langid = {english},
+  pagetotal = {947},
+  file = {/Users/teshima/Zotero/storage/VUU3IUUI/[Texts in Computer Science ] Richard Szeliski - Computer Vision_ Algorithms and Applications (2022, Springer) - libgen.li.pdf}
+}
+
+@software{THUMIG2024,
+  title = {{{THU-MIG}}/yolov10},
+  date = {2024-11-04T11:24:52Z},
+  origdate = {2024-05-23T09:15:07Z},
+  url = {https://github.com/THU-MIG/yolov10},
+  urldate = {2024-11-04},
+  abstract = {YOLOv10: Real-Time End-to-End Object Detection [NeurIPS 2024]},
+  organization = {THU-MIG}
+}
+
+@software{UltralyticsUltralytics,
+  title = {Ultralytics {{YOLO11}} object detection model},
+  author = {{Ultralytics}},
+  url = {https://github.com/ultralytics/ultralytics/blob/da98efc61d9e0467315fc86c2297c8d81e656b1a/ultralytics/cfg/models/11/yolo11.yaml},
+  urldate = {2025-06-12},
+  file = {/Users/teshima/Zotero/storage/LIHIU2GT/yolo11.html}
+}
+
+@online{WangYOLOv102024,
+  title = {{{YOLOv10}}: {{Real-Time End-to-End Object Detection}}},
+  shorttitle = {{{YOLOv10}}},
+  author = {Wang, Ao and Chen, Hui and Liu, Lihao and Chen, Kai and Lin, Zijia and Han, Jungong and Ding, Guiguang},
+  date = {2024-10-30},
+  eprint = {2405.14458},
+  eprinttype = {arXiv},
+  doi = {10.48550/arXiv.2405.14458},
+  url = {http://arxiv.org/abs/2405.14458},
+  urldate = {2024-11-04},
+  abstract = {Over the past years, YOLOs have emerged as the predominant paradigm in the field of real-time object detection owing to their effective balance between computational cost and detection performance. Researchers have explored the architectural designs, optimization objectives, data augmentation strategies, and others for YOLOs, achieving notable progress. However, the reliance on the non-maximum suppression (NMS) for post-processing hampers the end-to-end deployment of YOLOs and adversely impacts the inference latency. Besides, the design of various components in YOLOs lacks the comprehensive and thorough inspection, resulting in noticeable computational redundancy and limiting the model's capability. It renders the suboptimal efficiency, along with considerable potential for performance improvements. In this work, we aim to further advance the performance-efficiency boundary of YOLOs from both the post-processing and model architecture. To this end, we first present the consistent dual assignments for NMS-free training of YOLOs, which brings competitive performance and low inference latency simultaneously. Moreover, we introduce the holistic efficiency-accuracy driven model design strategy for YOLOs. We comprehensively optimize various components of YOLOs from both efficiency and accuracy perspectives, which greatly reduces the computational overhead and enhances the capability. The outcome of our effort is a new generation of YOLO series for real-time end-to-end object detection, dubbed YOLOv10. Extensive experiments show that YOLOv10 achieves state-of-the-art performance and efficiency across various model scales. For example, our YOLOv10-S is 1.8\$\textbackslash times\$ faster than RT-DETR-R18 under the similar AP on COCO, meanwhile enjoying 2.8\$\textbackslash times\$ smaller number of parameters and FLOPs. Compared with YOLOv9-C, YOLOv10-B has 46\textbackslash\% less latency and 25\textbackslash\% fewer parameters for the same performance.},
+  pubstate = {prepublished},
+  keywords = {Computer Science - Computer Vision and Pattern Recognition},
+  file = {/Users/teshima/Zotero/storage/YWXB8E79/Wang et al. - 2024 - YOLOv10 Real-Time End-to-End Object Detection.pdf;/Users/teshima/Zotero/storage/RM43ZY8A/2405.html}
+}
+
+@article{WangYOLOv102024a,
+  title = {{{YOLOv10}}: {{Real-Time End-to-End Object Detection}}},
+  shorttitle = {{{YOLOv10}}},
+  author = {Wang, Ao and Chen, Hui and Liu, Lihao and Chen, Kai and Lin, Zijia and Han, Jungong and Ding, Guiguang},
+  date = {2024-12-16},
+  journaltitle = {Advances in Neural Information Processing Systems},
+  volume = {37},
+  pages = {107984--108011},
+  url = {https://proceedings.neurips.cc/paper_files/paper/2024/hash/c34ddd05eb089991f06f3c5dc36836e0-Abstract-Conference.html},
+  urldate = {2025-06-11},
+  file = {/Users/teshima/Zotero/storage/JJTS8NHN/Wang et al. - 2024 - YOLOv10 Real-Time End-to-End Object Detection.pdf}
+}
+
+@inproceedings{WuGroup2018,
+  title = {Group normalization},
+  booktitle = {Computer {{Vision}} – {{ECCV}} 2018: 15th {{European Conference}}, {{Munich}}, {{Germany}}, {{September}} 8-14, 2018, {{Proceedings}}, {{Part XIII}}},
+  author = {Wu, Yuxin and He, Kaiming},
+  date = {2018-09-08},
+  pages = {3--19},
+  publisher = {Springer-Verlag},
+  location = {Berlin, Heidelberg},
+  doi = {10.1007/978-3-030-01261-8_1},
+  url = {https://doi.org/10.1007/978-3-030-01261-8_1},
+  urldate = {2025-06-15},
+  abstract = {Batch Normalization (BN) is a milestone technique in the development of deep learning, enabling various networks to train. However, normalizing along the batch dimension introduces problems—BN’s error increases rapidly when the batch size becomes smaller, caused by inaccurate batch statistics estimation. This limits BN’s usage for training larger models and transferring features to computer vision tasks including detection, segmentation, and video, which require small batches constrained by memory consumption. In this paper, we present Group Normalization (GN) as a simple alternative to BN. GN divides the channels into groups and computes within each group the mean and variance for normalization. GN’s computation is independent of batch sizes, and its accuracy is stable in a wide range of batch sizes. On ResNet-50 trained in ImageNet, GN has 10.6\% lower error than its BN counterpart when using a batch size of 2; when using typical batch sizes, GN is comparably good with BN and outperforms other normalization variants. Moreover, GN can be naturally transferred from pre-training to fine-tuning. GN can outperform its BN-based counterparts for object detection and segmentation in COCO, and for video classification in Kinetics, showing that GN can effectively replace the powerful BN in a variety of tasks. GN can be easily implemented by a few lines of code.},
+  isbn = {978-3-030-01260-1},
+  file = {/Users/teshima/Zotero/storage/US2KHYEM/Wu and He - 2018 - Group Normalization.pdf}
+}
+
+@book{YuanTianHuaXiangRenShi2017,
+  title = {画像認識},
+  author = {原田, 達也},
+  date = {2017},
+  series = {機械学習プロフェッショナルシリーズ},
+  publisher = {講談社},
+  url = {http://opac.dl.itc.u-tokyo.ac.jp/opac/opac_details/?lang=0&amode=11&bibid=2003372347},
+  urldate = {2018-06-12},
+  abstract = {デジタルカメラの顔認識機能など、身近で利用されている画像認識の技術。機械学習の応用により、その精度は格段に向上した。最前線で活躍する研究者が、基礎から深層学習を取り入れた応用的手法までをくわしく解説する。画像認識の現状と今後の展望を知るのに最適な一冊!■おもな内容第1章 画像認識の概要第2章 局所特徴第3章 統計的特徴抽出第4章 コーディングとプーリング第5章 分類第6章 畳み込みニューラルネットワーク第7章 物体検出第8章 インスタンス認識と画像検索第9章 さらなる話題(セマンティックセグメンテーション/画像からのキャプション生成/画像生成と敵対的生成ネットワーク)■機械学習プロフェッショナルシリーズ本シリーズでは、発展著しい機械学習技術の数学的な基礎理論、実用的なアルゴリズム、それらの活用法を、全29巻にわたって刊行する。ビッグデータ時代を牽引している若手・中堅の現役研究者が、入門的な内容から最先端の研究成果までをわかりやすく解説。これからデータサイエンス分野で研究を始めようとしている大学生・大学院生、および、機械学習技術を基礎科学や産業に応用しようとしている研究者・技術者に向けた注目のシリーズである。第7期として、以下の3点を刊行!統計的因果探索 清水 昌平・著画像認識 原田 達也・著深層学習による自然言語処理 坪井 祐太/海野 裕也/鈴木 潤・著■シリーズ編者杉山 将 理化学研究所 革新知能統合研究センター センター長/東京大学大学院新領域創成科学研究科 教授},
+  isbn = {978-4-06-152912-0},
+  langid = {JPN},
+  file = {/Users/teshima/Zotero/storage/LWP476CN/原田 - 2017 - 画像認識.pdf;/Users/teshima/Zotero/storage/V6B4EVVS/opac_details.html}
+}

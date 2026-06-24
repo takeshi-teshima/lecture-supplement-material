@@ -1,0 +1,89 @@
+@online{BaiConstitutional2022,
+  title = {Constitutional {{AI}}: harmlessness from {{AI}} feedback},
+  shorttitle = {Constitutional ai},
+  author = {Bai, Yuntao and Kadavath, Saurav and Kundu, Sandipan and Askell, Amanda and Kernion, Jackson and Jones, Andy and Chen, Anna and Goldie, Anna and Mirhoseini, Azalia and McKinnon, Cameron and Chen, Carol and Olsson, Catherine and Olah, Christopher and Hernandez, Danny and Drain, Dawn and Ganguli, Deep and Li, Dustin and Tran-Johnson, Eli and Perez, Ethan and Kerr, Jamie and Mueller, Jared and Ladish, Jeffrey and Landau, Joshua and Ndousse, Kamal and Lukosuite, Kamile and Lovitt, Liane and Sellitto, Michael and Elhage, Nelson and Schiefer, Nicholas and Mercado, Noemi and DasSarma, Nova and Lasenby, Robert and Larson, Robin and Ringer, Sam and Johnston, Scott and Kravec, Shauna and Showk, Sheer El and Fort, Stanislav and Lanham, Tamera and Telleen-Lawton, Timothy and Conerly, Tom and Henighan, Tom and Hume, Tristan and Bowman, Samuel R. and Hatfield-Dodds, Zac and Mann, Ben and Amodei, Dario and Joseph, Nicholas and McCandlish, Sam and Brown, Tom and Kaplan, Jared},
+  date = {2022-12-15},
+  eprint = {2212.08073},
+  eprinttype = {arXiv},
+  eprintclass = {cs},
+  doi = {10.48550/arXiv.2212.08073},
+  url = {http://arxiv.org/abs/2212.08073},
+  urldate = {2025-07-06},
+  abstract = {As AI systems become more capable, we would like to enlist their help to supervise other AIs. We experiment with methods for training a harmless AI assistant through self-improvement, without any human labels identifying harmful outputs. The only human oversight is provided through a list of rules or principles, and so we refer to the method as 'Constitutional AI'. The process involves both a supervised learning and a reinforcement learning phase. In the supervised phase we sample from an initial model, then generate self-critiques and revisions, and then finetune the original model on revised responses. In the RL phase, we sample from the finetuned model, use a model to evaluate which of the two samples is better, and then train a preference model from this dataset of AI preferences. We then train with RL using the preference model as the reward signal, i.e. we use 'RL from AI Feedback' (RLAIF). As a result we are able to train a harmless but non-evasive AI assistant that engages with harmful queries by explaining its objections to them. Both the SL and RL methods can leverage chain-of-thought style reasoning to improve the human-judged performance and transparency of AI decision making. These methods make it possible to control AI behavior more precisely and with far fewer human labels.},
+  pubstate = {prepublished},
+  keywords = {Computer Science - Artificial Intelligence,Computer Science - Computation and Language},
+  file = {/Users/teshima/Zotero/storage/RJAGBZJV/Bai et al. - 2022 - Constitutional AI Harmlessness from AI Feedback.pdf;/Users/teshima/Zotero/storage/FAJ88GVV/2212.html}
+}
+
+@software{KhanFareedKhandev2025,
+  title = {{{FareedKhan-dev}}/train-deepseek-r1},
+  author = {Khan, Fareed},
+  date = {2025-07-05T19:07:50Z},
+  origdate = {2025-02-14T12:42:03Z},
+  url = {https://github.com/FareedKhan-dev/train-deepseek-r1},
+  urldate = {2025-07-06},
+  abstract = {Building DeepSeek R1 from Scratch},
+  keywords = {chatgpt,deepseek-r1,large-language-models,llm,openai}
+}
+
+@unpublished{UstalovReinforcement2023,
+  type = {Tutorial},
+  title = {Reinforcement {{Learning}} from {{Human Feedback}}: {{A Tutorial}}},
+  author = {Ustalov, Dmitry and Lambert, Nathan},
+  year = {Jul 24, 2023, 20:00 UTC},
+  url = {https://icml.cc/virtual/2023/tutorial/21554},
+  eventtitle = {The {{Fortieth International Conference}} on {{Machine Learning}}},
+  langid = {english},
+  venue = {Honolulu},
+  file = {/Users/teshima/Zotero/storage/DWEVZKKC/Lambert and Ustalov - Reinforcement Learning from Human Feedback.pdf}
+}
+
+@online{WangReinforcement2025,
+  title = {Reinforcement learning for reasoning in large language models with one training example},
+  author = {Wang, Yiping and Yang, Qing and Zeng, Zhiyuan and Ren, Liliang and Liu, Liyuan and Peng, Baolin and Cheng, Hao and He, Xuehai and Wang, Kuan and Gao, Jianfeng and Chen, Weizhu and Wang, Shuohang and Du, Simon Shaolei and Shen, Yelong},
+  date = {2025-05-25},
+  eprint = {2504.20571},
+  eprinttype = {arXiv},
+  eprintclass = {cs},
+  doi = {10.48550/arXiv.2504.20571},
+  url = {http://arxiv.org/abs/2504.20571},
+  urldate = {2025-07-06},
+  abstract = {We show that reinforcement learning with verifiable reward using one training example (1-shot RLVR) is effective in incentivizing the mathematical reasoning capabilities of large language models (LLMs). Applying RLVR to the base model Qwen2.5-Math-1.5B, we identify a single example that elevates model performance on MATH500 from 36.0\% to 73.6\%, and improves the average performance across six common mathematical reasoning benchmarks from 17.6\% to 35.7\%. This result matches the performance obtained using the 1.2k DeepScaleR subset (MATH500: 73.6\%, average: 35.9\%), which includes the aforementioned example. Furthermore, RLVR with only two examples even slightly exceeds these results (MATH500: 74.8\%, average: 36.6\%). Similar substantial improvements are observed across various models (Qwen2.5-Math-7B, Llama3.2-3B-Instruct, DeepSeek-R1-Distill-Qwen-1.5B), RL algorithms (GRPO and PPO), and different math examples (when employed as a single training example). In addition, we identify some interesting phenomena during 1-shot RLVR, including cross-domain generalization, increased frequency of self-reflection, and sustained test performance improvement even after the training accuracy has saturated, a phenomenon we term post-saturation generalization. Moreover, we verify that the effectiveness of 1-shot RLVR primarily arises from the policy gradient loss, distinguishing it from the "grokking" phenomenon. We also show the critical role of promoting exploration (e.g., by incorporating entropy loss with an appropriate coefficient) in 1-shot RLVR training. We also further discuss related observations about format correction, label robustness and prompt modification. These findings can inspire future work on RLVR efficiency and encourage a re-examination of recent progress and the underlying mechanisms in RLVR. Our code, model, and data are open source at https://github.com/ypwang61/One-Shot-RLVR.},
+  pubstate = {prepublished},
+  keywords = {Computer Science - Artificial Intelligence,Computer Science - Computation and Language,Computer Science - Machine Learning},
+  note = {Comment: 36 pages, link: https://github.com/ypwang61/One-Shot-RLVR},
+  file = {/Users/teshima/Zotero/storage/RZPCE6MM/Wang et al. - 2025 - Reinforcement Learning for Reasoning in Large Lang.pdf;/Users/teshima/Zotero/storage/SGIBYIAM/2504.html}
+}
+
+@online{WenReinforcement2025,
+  title = {Reinforcement learning with verifiable rewards implicitly incentivizes correct reasoning in base {{LLMs}}},
+  author = {Wen, Xumeng and Liu, Zihan and Zheng, Shun and Xu, Zhijian and Ye, Shengyu and Wu, Zhirong and Liang, Xiao and Wang, Yang and Li, Junjie and Miao, Ziming and Bian, Jiang and Yang, Mao},
+  date = {2025-06-17},
+  eprint = {2506.14245},
+  eprinttype = {arXiv},
+  eprintclass = {cs},
+  doi = {10.48550/arXiv.2506.14245},
+  url = {http://arxiv.org/abs/2506.14245},
+  urldate = {2025-07-06},
+  abstract = {Reinforcement Learning with Verifiable Rewards (RLVR) has emerged as a promising paradigm for advancing the reasoning capabilities of Large Language Models (LLMs). However, a critical paradox clouds its efficacy: RLVR-tuned models often underperform their base models on the \$Pass@K\$ metric for solution-finding, leading to the hypothesis that RLVR merely re-weights existing reasoning paths at the cost of reasoning diversity. In this work, we resolve this contradiction by identifying the source of the problem: the \$Pass@K\$ metric itself is a flawed measure of reasoning, as it credits correct final answers that probably arise from inaccurate or incomplete chains of thought (CoTs). To address this, we introduce a more precise evaluation metric, \$CoT\$-\$Pass@K\$, which mandates that both the reasoning path and the final answer be correct. We provide a new theoretical foundation that formalizes how RLVR, unlike traditional RL, is uniquely structured to incentivize logical integrity. Our empirical results are supportive: using \$CoT\$-\$Pass@K\$, we observe that RLVR can incentivize the generalization of correct reasoning for all values of \$K\$. Furthermore, by analyzing the training dynamics, we find that this enhanced reasoning capability emerges early in the training process and smoothly generalizes. Our work provides a clear perspective on the role of RLVR, offers a more reliable method for its evaluation, and confirms its potential to genuinely advance machine reasoning.},
+  pubstate = {prepublished},
+  keywords = {Computer Science - Artificial Intelligence,Computer Science - Computation and Language},
+  note = {Comment: Preprint},
+  file = {/Users/teshima/Zotero/storage/FGEMSMPJ/Wen et al. - 2025 - Reinforcement Learning with Verifiable Rewards Imp.pdf;/Users/teshima/Zotero/storage/HRJRS56F/2506.html}
+}
+
+@online{ZhaoLearning2025,
+  title = {Learning to reason without external rewards},
+  author = {Zhao, Xuandong and Kang, Zhewei and Feng, Aosong and Levine, Sergey and Song, Dawn},
+  date = {2025-05-26},
+  eprint = {2505.19590},
+  eprinttype = {arXiv},
+  eprintclass = {cs},
+  doi = {10.48550/arXiv.2505.19590},
+  url = {http://arxiv.org/abs/2505.19590},
+  urldate = {2025-07-06},
+  abstract = {Training large language models (LLMs) for complex reasoning via Reinforcement Learning with Verifiable Rewards (RLVR) is effective but limited by reliance on costly, domain-specific supervision. We explore Reinforcement Learning from Internal Feedback (RLIF), a framework that enables LLMs to learn from intrinsic signals without external rewards or labeled data. We propose Intuitor, an RLIF method that uses a model's own confidence, termed self-certainty, as its sole reward signal. Intuitor replaces external rewards in Group Relative Policy Optimization (GRPO) with self-certainty scores, enabling fully unsupervised learning. Experiments demonstrate that Intuitor matches GRPO's performance on mathematical benchmarks while achieving superior generalization to out-of-domain tasks like code generation, without requiring gold solutions or test cases. Our findings show that intrinsic model signals can drive effective learning across domains, offering a scalable alternative to RLVR for autonomous AI systems where verifiable rewards are unavailable. Code is available at https://github.com/sunblaze-ucb/Intuitor},
+  pubstate = {prepublished},
+  keywords = {Computer Science - Computation and Language,Computer Science - Machine Learning},
+  file = {/Users/teshima/Zotero/storage/CE2R9QDX/Zhao et al. - 2025 - Learning to Reason without External Rewards.pdf;/Users/teshima/Zotero/storage/B57C3CTB/2505.html}
+}

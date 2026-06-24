@@ -1,0 +1,105 @@
+@inproceedings{ChanEverybody2019,
+  title = {Everybody dance now},
+  booktitle = {2019 {{IEEE}}/{{CVF International Conference}} on {{Computer Vision}} ({{ICCV}})},
+  author = {Chan, Caroline and Ginosar, Shiry and Zhou, Tinghui and Efros, Alexei},
+  date = {2019-10},
+  pages = {5932--5941},
+  issn = {2380-7504},
+  doi = {10.1109/ICCV.2019.00603},
+  url = {https://ieeexplore.ieee.org/document/9008556},
+  urldate = {2025-07-17},
+  abstract = {This paper presents a simple method for “do as I do” motion transfer: given a source video of a person dancing, we can transfer that performance to a novel (amateur) target after only a few minutes of the target subject performing standard moves. We approach this problem as video-to-video translation using pose as an intermediate representation. To transfer the motion, we extract poses from the source subject and apply the learned pose-to-appearance mapping to generate the target subject. We predict two consecutive frames for temporally coherent video results and introduce a separate pipeline for realistic face synthesis. Although our method is quite simple, it produces surprisingly compelling results (see video). This motivates us to also provide a forensics tool for reliable synthetic content detection, which is able to distinguish videos synthesized by our system from real data. In addition, we release a first-of-its-kind open-source dataset of videos that can be legally used for training and motion transfer.},
+  eventtitle = {2019 {{IEEE}}/{{CVF International Conference}} on {{Computer Vision}} ({{ICCV}})},
+  keywords = {Detectors,Face,Gallium nitride,Three-dimensional displays,Training,Two dimensional displays,YouTube},
+  file = {/Users/teshima/Zotero/storage/AILV7JZT/Chan et al. - 2019 - Everybody Dance Now.pdf}
+}
+
+@article{DathathriScalable2024,
+  title = {Scalable watermarking for identifying large language model outputs},
+  author = {Dathathri, Sumanth and See, Abigail and Ghaisas, Sumedh and Huang, Po-Sen and McAdam, Rob and Welbl, Johannes and Bachani, Vandana and Kaskasoli, Alex and Stanforth, Robert and Matejovicova, Tatiana and Hayes, Jamie and Vyas, Nidhi and Merey, Majd Al and Brown-Cohen, Jonah and Bunel, Rudy and Balle, Borja and Cemgil, Taylan and Ahmed, Zahra and Stacpoole, Kitty and Shumailov, Ilia and Baetu, Ciprian and Gowal, Sven and Hassabis, Demis and Kohli, Pushmeet},
+  date = {2024-10},
+  journaltitle = {Nature},
+  volume = {634},
+  number = {8035},
+  pages = {818--823},
+  publisher = {Nature Publishing Group},
+  issn = {1476-4687},
+  doi = {10.1038/s41586-024-08025-4},
+  url = {https://www.nature.com/articles/s41586-024-08025-4},
+  urldate = {2025-02-05},
+  abstract = {Large language models (LLMs) have enabled the generation of high-quality synthetic text, often indistinguishable from human-written content, at a scale that can markedly affect the nature of the information ecosystem1–3. Watermarking can help identify synthetic text and limit accidental or deliberate misuse4, but has not been adopted in production systems owing to stringent quality, detectability and computational efficiency requirements. Here we describe SynthID-Text, a production-ready text watermarking scheme that preserves text quality and enables high detection accuracy, with minimal latency overhead. SynthID-Text does not affect LLM training and modifies only the sampling procedure; watermark detection is computationally efficient, without using the underlying LLM. To enable watermarking at scale, we develop an algorithm integrating watermarking with speculative sampling, an efficiency technique frequently used in production systems5. Evaluations across multiple LLMs empirically show that SynthID-Text provides improved detectability over comparable methods, and standard benchmarks and human side-by-side ratings indicate no change in LLM capabilities. To demonstrate the feasibility of watermarking in large-scale-production systems, we conducted a live experiment that assessed feedback from nearly 20\,million Gemini6 responses, again confirming the preservation of text quality. We hope that the availability of SynthID-Text7 will facilitate further development of watermarking and responsible use of LLM systems.},
+  langid = {english},
+  keywords = {Computer science,Information technology},
+  file = {/Users/teshima/Zotero/storage/V9VR83EW/Dathathri et al. - 2024 - Scalable watermarking for identifying large langua.pdf}
+}
+
+@online{GottesmanUnderstand2023,
+  title = {Understand diffusion models with {{VAEs}}},
+  author = {Gottesman, Yoni},
+  date = {2023-03-11T00:00:00+00:00},
+  url = {https://yonigottesman.github.io/2023/03/11/vae.html},
+  urldate = {2025-06-21},
+  abstract = {In this post, I aim to provide a simplified understanding of diffusion models by drawing parallels with variational autoencoders (VAEs).},
+  langid = {english},
+  organization = {Yoni Gottesman},
+  file = {/Users/teshima/Zotero/storage/VGZ56VK7/Gottesman - 2023 - Understand Diffusion Models with VAEs.pdf}
+}
+
+@article{HoDenoising,
+  title = {Denoising diffusion probabilistic models},
+  author = {Ho, Jonathan and Jain, Ajay and Abbeel, Pieter},
+  abstract = {We present high quality image synthesis results using diffusion probabilistic models, a class of latent variable models inspired by considerations from nonequilibrium thermodynamics. Our best results are obtained by training on a weighted variational bound designed according to a novel connection between diffusion probabilistic models and denoising score matching with Langevin dynamics, and our models naturally admit a progressive lossy decompression scheme that can be interpreted as a generalization of autoregressive decoding. On the unconditional CIFAR10 dataset, we obtain an Inception score of 9.46 and a state-of-the-art FID score of 3.17. On 256x256 LSUN, we obtain sample quality similar to ProgressiveGAN. Our implementation is available at https://github.com/hojonathanho/diffusion.},
+  langid = {english},
+  file = {/Users/teshima/Zotero/storage/3BFXTMYY/Ho et al. - Denoising Diffusion Probabilistic Models.pdf}
+}
+
+@incollection{SongGenerative2019,
+  title = {Generative modeling by estimating gradients of the data distribution},
+  booktitle = {Proceedings of the 33rd {{International Conference}} on {{Neural Information Processing Systems}}},
+  author = {Song, Yang and Ermon, Stefano},
+  date = {2019-12-08},
+  number = {1067},
+  pages = {11918--11930},
+  publisher = {Curran Associates Inc.},
+  location = {Red Hook, NY, USA},
+  abstract = {We introduce a new generative model where samples are produced via Langevin dynamics using gradients of the data distribution estimated with score matching. Because gradients can be ill-defined and hard to estimate when the data resides on low-dimensional manifolds, we perturb the data with different levels of Gaussian noise, and jointly estimate the corresponding scores, i.e., the vector fields of gradients of the perturbed data distribution for all noise levels. For sampling, we propose an annealed Langevin dynamics where we use gradients corresponding to gradually decreasing noise levels as the sampling process gets closer to the data manifold. Our framework allows flexible model architectures, requires no sampling during training or the use of adversarial methods, and provides a learning objective that can be used for principled model comparisons. Our models produce samples comparable to GANs on MNIST, CelebA and CIFAR-10 datasets, achieving a new state-of-the-art inception score of 8.87 on CIFAR-10. Additionally, we demonstrate that our models learn effective representations via image inpainting experiments.},
+  file = {/Users/teshima/Zotero/storage/YWWEVBCJ/Song and Ermon - 2019 - Generative modeling by estimating gradients of the.pdf}
+}
+
+@online{SongGenerative2021,
+  title = {Generative modeling by estimating gradients of the data distribution},
+  author = {Song, Yang},
+  date = {2021-05-05},
+  url = {https://yang-song.net/blog/2021/score},
+  urldate = {2025-06-20},
+  organization = {Yang Song},
+  file = {/Users/teshima/Zotero/storage/92FXCKFN/Song - 2021 - Generative modeling by estimating gradients of the.pdf}
+}
+
+@inproceedings{SongMaximum2021,
+  title = {Maximum likelihood training of score-based diffusion models},
+  author = {Song, Yang and Durkan, Conor and Murray, Iain and Ermon, Stefano},
+  date = {2021-11-09},
+  url = {https://openreview.net/forum?id=AklttWFnxS9},
+  urldate = {2025-06-15},
+  abstract = {Score-based diffusion models synthesize samples by reversing a stochastic process that diffuses data to noise, and are trained by minimizing a weighted combination of score matching losses. The log-likelihood of score-based diffusion models can be tractably computed through a connection to continuous normalizing flows, but log-likelihood is not directly optimized by the weighted combination of score matching losses. We show that for a specific weighting scheme, the objective upper bounds the negative log-likelihood, thus enabling approximate maximum likelihood training of score-based diffusion models. We empirically observe that maximum likelihood training consistently improves the likelihood of score-based diffusion models across multiple datasets, stochastic processes, and model architectures. Our best models achieve negative log-likelihoods of 2.83 and 3.76 bits/dim on CIFAR-10 and ImageNet \$32\textbackslash times 32\$ without any data augmentation, on a par with state-of-the-art autoregressive models on these tasks.},
+  eventtitle = {Advances in {{Neural Information Processing Systems}}},
+  langid = {english},
+  file = {/Users/teshima/Zotero/storage/BY3TTSPD/Song et al. - 2021 - Maximum likelihood training of score-based diffusi.pdf;/Users/teshima/Zotero/storage/D7WHW639/Song et al. - 2021 - Maximum Likelihood Training of Score-Based Diffusi.pdf}
+}
+
+@article{VincentConnection2011,
+  title = {A connection between score matching and denoising autoencoders},
+  author = {Vincent, Pascal},
+  date = {2011-07},
+  journaltitle = {Neural Computation},
+  volume = {23},
+  number = {7},
+  pages = {1661--1674},
+  issn = {0899-7667},
+  doi = {10.1162/NECO_a_00142},
+  url = {https://ieeexplore.ieee.org/abstract/document/6795935},
+  urldate = {2025-06-15},
+  abstract = {Denoising autoencoders have been previously shown to be competitive alternatives to restricted Boltzmann machines for unsupervised pretraining of each layer of a deep architecture. We show that a simple denoising autoencoder training criterion is equivalent to matching the score (with respect to the data) of a specific energy-based model to that of a nonparametric Parzen density estimator of the data. This yields several useful insights. It defines a proper probabilistic model for the denoising autoencoder technique, which makes it in principle possible to sample from them or rank examples by their energy. It suggests a different way to apply score matching that is related to learning to denoise and does not require computing second derivatives. It justifies the use of tied weights between the encoder and decoder and suggests ways to extend the success of denoising autoencoders to a larger family of energy-based models.},
+  file = {/Users/teshima/Zotero/storage/I62M3I5N/Vincent - 2011 - A Connection Between Score Matching and Denoising .pdf;/Users/teshima/Zotero/storage/VH6S6LYJ/6795935.html}
+}

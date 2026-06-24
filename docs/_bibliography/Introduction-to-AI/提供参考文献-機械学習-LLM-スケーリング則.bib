@@ -1,0 +1,156 @@
+@online{HenighanScaling2020,
+  title = {Scaling laws for autoregressive generative modeling},
+  author = {Henighan, Tom and Kaplan, Jared and Katz, Mor and Chen, Mark and Hesse, Christopher and Jackson, Jacob and Jun, Heewoo and Brown, Tom B. and Dhariwal, Prafulla and Gray, Scott and Hallacy, Chris and Mann, Benjamin and Radford, Alec and Ramesh, Aditya and Ryder, Nick and Ziegler, Daniel M. and Schulman, John and Amodei, Dario and McCandlish, Sam},
+  date = {2020-11-06},
+  eprint = {2010.14701},
+  eprinttype = {arXiv},
+  eprintclass = {cs},
+  doi = {10.48550/arXiv.2010.14701},
+  url = {http://arxiv.org/abs/2010.14701},
+  urldate = {2025-07-23},
+  abstract = {We identify empirical scaling laws for the cross-entropy loss in four domains: generative image modeling, video modeling, multimodal image\$\textbackslash leftrightarrow\$text models, and mathematical problem solving. In all cases autoregressive Transformers smoothly improve in performance as model size and compute budgets increase, following a power-law plus constant scaling law. The optimal model size also depends on the compute budget through a power-law, with exponents that are nearly universal across all data domains. The cross-entropy loss has an information theoretic interpretation as \$S(\$True\$) + D\_\{\textbackslash mathrm\{KL\}\}(\$True\$||\$Model\$)\$, and the empirical scaling laws suggest a prediction for both the true data distribution's entropy and the KL divergence between the true and model distributions. With this interpretation, billion-parameter Transformers are nearly perfect models of the YFCC100M image distribution downsampled to an \$8\textbackslash times 8\$ resolution, and we can forecast the model size needed to achieve any given reducible loss (ie \$D\_\{\textbackslash mathrm\{KL\}\}\$) in nats/image for other resolutions. We find a number of additional scaling laws in specific domains: (a) we identify a scaling relation for the mutual information between captions and images in multimodal models, and show how to answer the question "Is a picture worth a thousand words?"; (b) in the case of mathematical problem solving, we identify scaling laws for model performance when extrapolating beyond the training distribution; (c) we finetune generative image models for ImageNet classification and find smooth scaling of the classification loss and error rate, even as the generative loss levels off. Taken together, these results strengthen the case that scaling laws have important implications for neural network performance, including on downstream tasks.},
+  pubstate = {prepublished},
+  keywords = {Computer Science - Computation and Language,Computer Science - Computer Vision and Pattern Recognition,Computer Science - Machine Learning},
+  note = {Comment: 20+17 pages, 33 figures; added appendix with additional language results},
+  file = {/Users/teshima/Zotero/storage/F2U6HH6C/Henighan et al. - 2020 - Scaling Laws for Autoregressive Generative Modelin.pdf;/Users/teshima/Zotero/storage/VWVPR9EC/2010.html}
+}
+
+@online{HernandezScaling2021,
+  title = {Scaling laws for transfer},
+  author = {Hernandez, Danny and Kaplan, Jared and Henighan, Tom and McCandlish, Sam},
+  date = {2021-02-02},
+  eprint = {2102.01293},
+  eprinttype = {arXiv},
+  eprintclass = {cs},
+  doi = {10.48550/arXiv.2102.01293},
+  url = {http://arxiv.org/abs/2102.01293},
+  urldate = {2025-07-21},
+  abstract = {We study empirical scaling laws for transfer learning between distributions in an unsupervised, fine-tuning setting. When we train increasingly large neural networks from-scratch on a fixed-size dataset, they eventually become data-limited and stop improving in performance (cross-entropy loss). When we do the same for models pre-trained on a large language dataset, the slope in performance gains is merely reduced rather than going to zero. We calculate the effective data "transferred" from pre-training by determining how much data a transformer of the same size would have required to achieve the same loss when training from scratch. In other words, we focus on units of data while holding everything else fixed. We find that the effective data transferred is described well in the low data regime by a power-law of parameter count and fine-tuning dataset size. We believe the exponents in these power-laws correspond to measures of the generality of a model and proximity of distributions (in a directed rather than symmetric sense). We find that pre-training effectively multiplies the fine-tuning dataset size. Transfer, like overall performance, scales predictably in terms of parameters, data, and compute.},
+  pubstate = {prepublished},
+  keywords = {Computer Science - Machine Learning},
+  note = {Comment: 19 pages, 15 figures},
+  file = {/Users/teshima/Zotero/storage/VU2VRTQJ/Hernandez et al. - 2021 - Scaling Laws for Transfer.pdf;/Users/teshima/Zotero/storage/AESE239J/2102.html}
+}
+
+@online{HoffmannTraining2022,
+  title = {Training compute-optimal large language models},
+  author = {Hoffmann, Jordan and Borgeaud, Sebastian and Mensch, Arthur and Buchatskaya, Elena and Cai, Trevor and Rutherford, Eliza and Casas, Diego de Las and Hendricks, Lisa Anne and Welbl, Johannes and Clark, Aidan and Hennigan, Tom and Noland, Eric and Millican, Katie and family=Driessche, given=George, prefix=van den, useprefix=false and Damoc, Bogdan and Guy, Aurelia and Osindero, Simon and Simonyan, Karen and Elsen, Erich and Rae, Jack W. and Vinyals, Oriol and Sifre, Laurent},
+  date = {2022-03-29},
+  eprint = {2203.15556},
+  eprinttype = {arXiv},
+  eprintclass = {cs},
+  url = {http://arxiv.org/abs/2203.15556},
+  urldate = {2024-09-29},
+  abstract = {We investigate the optimal model size and number of tokens for training a transformer language model under a given compute budget. We find that current large language models are significantly undertrained, a consequence of the recent focus on scaling language models whilst keeping the amount of training data constant. By training over 400 language models ranging from 70 million to over 16 billion parameters on 5 to 500 billion tokens, we find that for compute-optimal training, the model size and the number of training tokens should be scaled equally: for every doubling of model size the number of training tokens should also be doubled. We test this hypothesis by training a predicted compute-optimal model, Chinchilla, that uses the same compute budget as Gopher but with 70B parameters and 4\$\textbackslash times\$ more more data. Chinchilla uniformly and significantly outperforms Gopher (280B), GPT-3 (175B), Jurassic-1 (178B), and Megatron-Turing NLG (530B) on a large range of downstream evaluation tasks. This also means that Chinchilla uses substantially less compute for fine-tuning and inference, greatly facilitating downstream usage. As a highlight, Chinchilla reaches a state-of-the-art average accuracy of 67.5\% on the MMLU benchmark, greater than a 7\% improvement over Gopher.},
+  langid = {english},
+  pubstate = {prepublished},
+  keywords = {Computer Science - Computation and Language,Computer Science - Machine Learning},
+  file = {/Users/teshima/Zotero/storage/4P2939P3/Hoffmann et al. - 2022 - Training Compute-Optimal Large Language Models.pdf}
+}
+
+@online{KaplanScaling2020a,
+  title = {Scaling laws for neural language models},
+  author = {Kaplan, Jared and McCandlish, Sam and Henighan, Tom and Brown, Tom B. and Chess, Benjamin and Child, Rewon and Gray, Scott and Radford, Alec and Wu, Jeffrey and Amodei, Dario},
+  date = {2020-01-23},
+  eprint = {2001.08361},
+  eprinttype = {arXiv},
+  doi = {10.48550/arXiv.2001.08361},
+  url = {http://arxiv.org/abs/2001.08361},
+  urldate = {2024-11-16},
+  abstract = {We study empirical scaling laws for language model performance on the cross-entropy loss. The loss scales as a power-law with model size, dataset size, and the amount of compute used for training, with some trends spanning more than seven orders of magnitude. Other architectural details such as network width or depth have minimal effects within a wide range. Simple equations govern the dependence of overfitting on model/dataset size and the dependence of training speed on model size. These relationships allow us to determine the optimal allocation of a fixed compute budget. Larger models are significantly more sample-efficient, such that optimally compute-efficient training involves training very large models on a relatively modest amount of data and stopping significantly before convergence.},
+  pubstate = {prepublished},
+  keywords = {Computer Science - Machine Learning,Statistics - Machine Learning},
+  file = {/Users/teshima/Zotero/storage/UE4VVDHK/Kaplan et al. - 2020 - Scaling Laws for Neural Language Models.pdf;/Users/teshima/Zotero/storage/L33D3SF8/2001.html}
+}
+
+@online{LiOpenAIs2020,
+  title = {{{OpenAI}}'s {{GPT-3}} language model: a technical overview},
+  shorttitle = {Openai's gpt-3 language model},
+  author = {Li, Chuan},
+  date = {2020-06-03},
+  url = {https://lambdalabs.com/blog/demystifying-gpt-3},
+  urldate = {2024-11-16},
+  abstract = {Chuan Li, PhD reviews GPT-3, the new NLP model from OpenAI. The technical overview covers how GPT-3 was trained, GPT-2 vs. GPT-3, and GPT-3 performance.},
+  langid = {english},
+  file = {/Users/teshima/Zotero/storage/6YCTAQC4/2020 - OpenAI's GPT-3 Language Model A Technical Overvie.pdf;/Users/teshima/Zotero/storage/MT7G9MKP/demystifying-gpt-3.html}
+}
+
+@inproceedings{MuennighoffScaling2023,
+  title = {Scaling data-constrained language models},
+  author = {Muennighoff, Niklas and Rush, Alexander M. and Barak, Boaz and Scao, Teven Le and Tazi, Nouamane and Piktus, Aleksandra and Pyysalo, Sampo and Wolf, Thomas and Raffel, Colin},
+  date = {2023-11-02},
+  url = {https://openreview.net/forum?id=j5BuTrEj35},
+  urldate = {2025-07-21},
+  abstract = {The current trend of scaling language models involves increasing both parameter count and training dataset size. Extrapolating this trend suggests that training dataset size may soon be limited by the amount of text data available on the internet. Motivated by this limit, we investigate scaling language models in data-constrained regimes. Specifically, we run a large set of experiments varying the extent of data repetition and compute budget, ranging up to 900 billion training tokens and 9 billion parameter models. We find that with constrained data for a fixed compute budget, training with up to 4 epochs of repeated data yields negligible changes to loss compared to having unique data. However, with more repetition, the value of adding compute eventually decays to zero. We propose and empirically validate a scaling law for compute optimality that accounts for the decreasing value of repeated tokens and excess parameters. Finally, we experiment with approaches mitigating data scarcity, including augmenting the training dataset with code data or removing commonly used filters. Models and datasets from our 400 training runs are freely available at https://github.com/huggingface/datablations.},
+  eventtitle = {Thirty-seventh {{Conference}} on {{Neural Information Processing Systems}}},
+  langid = {english},
+  file = {/Users/teshima/Zotero/storage/D5GAF3QM/Muennighoff et al. - 2023 - Scaling Data-Constrained Language Models.pdf}
+}
+
+@inproceedings{SchaefferAre2023,
+  title = {Are emergent abilities of large language models a mirage?},
+  author = {Schaeffer, Rylan and Miranda, Brando and Koyejo, Sanmi},
+  date = {2023-11-02},
+  url = {https://openreview.net/forum?id=ITw9edRDlD},
+  urldate = {2024-11-16},
+  abstract = {Recent work claims that large language models display \textbackslash textit\{emergent abilities\}, abilities not present in smaller-scale models that are present in larger-scale models. What makes emergent abilities intriguing is two-fold: their \textbackslash textit\{sharpness\}, transitioning seemingly instantaneously from not present to present, and their \textbackslash textit\{unpredictability\}, appearing at seemingly unforeseeable model scales. Here, we present an alternative explanation for emergent abilities: that for a particular task and model family, when analyzing fixed model outputs, emergent abilities appear due the researcher’s choice of metric rather than due to fundamental changes in model behavior with scale. Specifically, nonlinear or discontinuous metrics produce apparent emergent abilities, whereas linear or continuous metrics produce smooth, continuous, predictable changes in model performance. We present our alternative explanation in a simple mathematical model, then test it in three complementary ways: we (1) make, test and confirm three predictions on the effect of metric choice using the InstructGPT/GPT-3 family on tasks with claimed emergent abilities, (2) make, test and confirm two predictions about metric choices in a meta-analysis of emergent abilities on BIG-Bench; and (3) show how to choose metrics to produce never-before-seen seemingly emergent abilities in multiple vision tasks across diverse deep networks. Via all three analyses, we provide evidence that alleged emergent abilities evaporate with different metrics or with better statistics, and may not be a fundamental property of scaling AI models.},
+  eventtitle = {Thirty-seventh {{Conference}} on {{Neural Information Processing Systems}}},
+  langid = {english},
+  file = {/Users/teshima/Zotero/storage/YM2DSFL2/Schaeffer et al. - 2023 - Are Emergent Abilities of Large Language Models a .pdf}
+}
+
+@article{WeiEmergent2022,
+  title = {Emergent abilities of large language models},
+  author = {Wei, Jason and Tay, Yi and Bommasani, Rishi and Raffel, Colin and Zoph, Barret and Borgeaud, Sebastian and Yogatama, Dani and Bosma, Maarten and Zhou, Denny and Metzler, Donald and Chi, Ed H. and Hashimoto, Tatsunori and Vinyals, Oriol and Liang, Percy and Dean, Jeff and Fedus, William},
+  date = {2022-06-26},
+  journaltitle = {Transactions on Machine Learning Research},
+  issn = {2835-8856},
+  url = {https://openreview.net/forum?id=yzkSU5zdwD},
+  urldate = {2024-11-16},
+  abstract = {Scaling up language models has been shown to predictably improve performance and sample efficiency on a wide range of downstream tasks. This paper instead discusses an unpredictable phenomenon that we refer to as emergent abilities of large language models. We consider an ability to be emergent if it is not present in smaller models but is present in larger models. Thus, emergent abilities cannot be predicted simply by extrapolating the performance of smaller models. The existence of such emergence raises the question of whether additional scaling could potentially further expand the range of capabilities of language models.},
+  langid = {english},
+  file = {/Users/teshima/Zotero/storage/IWDFDPW3/Wei et al. - 2022 - Emergent Abilities of Large Language Models.pdf}
+}
+
+@online{YangFeature2022,
+  title = {Feature {{Learning}} in {{Infinite-Width Neural Networks}}},
+  author = {Yang, Greg and Hu, Edward J.},
+  date = {2022-07-15},
+  eprint = {2011.14522},
+  eprinttype = {arXiv},
+  doi = {10.48550/arXiv.2011.14522},
+  url = {http://arxiv.org/abs/2011.14522},
+  urldate = {2024-11-16},
+  abstract = {As its width tends to infinity, a deep neural network's behavior under gradient descent can become simplified and predictable (e.g. given by the Neural Tangent Kernel (NTK)), if it is parametrized appropriately (e.g. the NTK parametrization). However, we show that the standard and NTK parametrizations of a neural network do not admit infinite-width limits that can learn features, which is crucial for pretraining and transfer learning such as with BERT. We propose simple modifications to the standard parametrization to allow for feature learning in the limit. Using the *Tensor Programs* technique, we derive explicit formulas for such limits. On Word2Vec and few-shot learning on Omniglot via MAML, two canonical tasks that rely crucially on feature learning, we compute these limits exactly. We find that they outperform both NTK baselines and finite-width networks, with the latter approaching the infinite-width feature learning performance as width increases. More generally, we classify a natural space of neural network parametrizations that generalizes standard, NTK, and Mean Field parametrizations. We show 1) any parametrization in this space either admits feature learning or has an infinite-width training dynamics given by kernel gradient descent, but not both; 2) any such infinite-width limit can be computed using the Tensor Programs technique. Code for our experiments can be found at github.com/edwardjhu/TP4.},
+  pubstate = {prepublished},
+  keywords = {Computer Science - Machine Learning,Computer Science - Neural and Evolutionary Computing,Condensed Matter - Disordered Systems and Neural Networks},
+  file = {/Users/teshima/Zotero/storage/LWCSVMTY/Yang and Hu - 2022 - Feature Learning in Infinite-Width Neural Networks.pdf;/Users/teshima/Zotero/storage/2NPXA9UX/2011.html}
+}
+
+@online{YangSpectral2024,
+  title = {A {{Spectral Condition}} for {{Feature Learning}}},
+  author = {Yang, Greg and Simon, James B. and Bernstein, Jeremy},
+  date = {2024-05-14},
+  eprint = {2310.17813},
+  eprinttype = {arXiv},
+  doi = {10.48550/arXiv.2310.17813},
+  url = {http://arxiv.org/abs/2310.17813},
+  urldate = {2024-11-16},
+  abstract = {The push to train ever larger neural networks has motivated the study of initialization and training at large network width. A key challenge is to scale training so that a network's internal representations evolve nontrivially at all widths, a process known as feature learning. Here, we show that feature learning is achieved by scaling the spectral norm of weight matrices and their updates like \$\textbackslash sqrt\{\textbackslash texttt\{fan-out\}/\textbackslash texttt\{fan-in\}\}\$, in contrast to widely used but heuristic scalings based on Frobenius norm and entry size. Our spectral scaling analysis also leads to an elementary derivation of \textbackslash emph\{maximal update parametrization\}. All in all, we aim to provide the reader with a solid conceptual understanding of feature learning in neural networks.},
+  pubstate = {prepublished},
+  keywords = {Computer Science - Machine Learning},
+  file = {/Users/teshima/Zotero/storage/8J84SW7B/Yang et al. - 2024 - A Spectral Condition for Feature Learning.pdf;/Users/teshima/Zotero/storage/MXV5UZUV/2310.html}
+}
+
+@inproceedings{YangTensor2022,
+  title = {Tensor programs {{V}}: tuning large neural networks via zero-shot hyperparameter transfer},
+  shorttitle = {Tensor {{Programs V}}},
+  author = {Yang, Greg and Hu, Edward J. and Babuschkin, Igor and Sidor, Szymon and Farhi, David and Pachocki, Jakub and Liu, Xiaodong and Chen, Weizhu and Gao, Jianfeng},
+  date = {2022-03-07},
+  url = {https://www.microsoft.com/en-us/research/publication/tuning-large-neural-networks-via-zero-shot-hyperparameter-transfer/},
+  urldate = {2024-11-16},
+  abstract = {Hyperparameter (HP) tuning in deep learning is an expensive process, prohibitively so for neural networks (NNs) with billions of parameters. We show that, in the recently discovered Maximal Update Parametrization (P), many optimal HPs remain stable even as model size changes. This leads to a new HP tuning paradigm we call *Transfer*: parametrize the target […]},
+  eventtitle = {{{NeurIPS}} 2021},
+  langid = {american},
+  file = {/Users/teshima/Zotero/storage/VVUMC3T5/Yang et al. - 2022 - Tensor Programs V Tuning Large Neural Networks vi.pdf}
+}

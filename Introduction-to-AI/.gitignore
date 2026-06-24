@@ -1,0 +1,6 @@
+data/
+output/
+figures/
+cache/
+checkpoints/
+lightning_logs/
